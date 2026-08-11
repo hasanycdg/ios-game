@@ -28,9 +28,32 @@
           { "metric": "fiscalSpace", "change": -4 },
           { "metric": "polarization", "change": 2 }
         ],
-        "approvalEffect": 3,
-        "delayedEffects": [],
-        "flagsToSet": ["energy_2000_renewables_priority"]
+        "approvalEffect": 1,
+        "delayedEffects": [
+          {
+            "delayInYears": 3,
+            "immediateEffects": [
+              { "metric": "energy", "change": 2 }
+            ],
+            "hiddenEffects": [
+              { "metric": "renewableCapacity", "change": 6 },
+              { "metric": "russianEnergyDependency", "change": -4 }
+            ],
+            "approvalEffect": 1,
+            "flagsToSet": ["energy_2000_renewables_echo_due"],
+            "note": "Die fruehe Foerderung erneuerbarer Energien senkt die Abhaengigkeit etwas frueher als erwartet."
+          }
+        ],
+        "flagsToSet": ["energy_2000_renewables_priority"],
+        "publicMemoryImpact": {
+          "immediateApproval": 2,
+          "groupEffects": [
+            { "group": "youngAdults", "change": 6 },
+            { "group": "families", "change": 2 },
+            { "group": "entrepreneurs", "change": -2 }
+          ],
+          "reactivationTags": ["energy_strategy", "renewables"]
+        }
       },
       {
         "id": "keep-energy-mix",
@@ -49,8 +72,29 @@
           { "metric": "polarization", "change": -1 }
         ],
         "approvalEffect": 1,
-        "delayedEffects": [],
-        "flagsToSet": ["energy_2000_mixed_course"]
+        "delayedEffects": [
+          {
+            "delayInYears": 4,
+            "immediateEffects": [
+              { "metric": "energy", "change": -1 }
+            ],
+            "hiddenEffects": [
+              { "metric": "russianEnergyDependency", "change": 4 }
+            ],
+            "approvalEffect": 0,
+            "flagsToSet": ["energy_2000_mixed_course_echo_due"],
+            "note": "Der vorsichtige Energiemix laesst einige Abhaengigkeiten bestehen."
+          }
+        ],
+        "flagsToSet": ["energy_2000_mixed_course"],
+        "publicMemoryImpact": {
+          "immediateApproval": 1,
+          "groupEffects": [
+            { "group": "retirees", "change": 2 },
+            { "group": "publicSector", "change": 1 }
+          ],
+          "reactivationTags": ["energy_strategy"]
+        }
       },
       {
         "id": "strengthen-nuclear",
@@ -69,9 +113,32 @@
           { "metric": "russianEnergyDependency", "change": -3 },
           { "metric": "polarization", "change": 7 }
         ],
-        "approvalEffect": -2,
-        "delayedEffects": [],
-        "flagsToSet": ["energy_2000_nuclear_priority"]
+        "approvalEffect": -1,
+        "delayedEffects": [
+          {
+            "delayInYears": 5,
+            "immediateEffects": [
+              { "metric": "society", "change": -2 },
+              { "metric": "trust", "change": -1 }
+            ],
+            "hiddenEffects": [
+              { "metric": "polarization", "change": 3 }
+            ],
+            "approvalEffect": -1,
+            "flagsToSet": ["energy_2000_nuclear_echo_due"],
+            "note": "Die Atomkraftentscheidung bleibt ein politischer Konfliktpunkt."
+          }
+        ],
+        "flagsToSet": ["energy_2000_nuclear_priority"],
+        "publicMemoryImpact": {
+          "immediateApproval": -2,
+          "groupEffects": [
+            { "group": "entrepreneurs", "change": 5 },
+            { "group": "youngAdults", "change": -7 },
+            { "group": "families", "change": -2 }
+          ],
+          "reactivationTags": ["energy_strategy", "nuclear"]
+        }
       }
     ],
     "conditions": [],

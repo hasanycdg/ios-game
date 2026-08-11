@@ -1,0 +1,120 @@
+[
+  {
+    "id": "energy-prices-2005",
+    "year": 2005,
+    "title": "Energiepreise und Industrie",
+    "category": "energy",
+    "headline": "Steigende Energiepreise treffen Haushalte und Unternehmen.",
+    "description": "Die Regierung muss entscheiden, ob sie Preise kurzfristig abfedert oder den Strukturwandel beschleunigt.",
+    "historicalContext": {
+      "summary": "Energiepreise wurden in den 2000ern zunehmend zu einem wirtschafts- und sozialpolitischen Thema.",
+      "sourceNote": "Prototype-Daten fuer Schritt 7 und 10."
+    },
+    "options": [
+      {
+        "id": "consumer-relief",
+        "title": "Haushalte entlasten",
+        "description": "Entlastungen stabilisieren Kaufkraft, kosten aber fiskalischen Spielraum.",
+        "advisoryNote": "Familien und Rentner profitieren schnell, der Haushalt wird belastet.",
+        "immediateEffects": [
+          { "metric": "livingStandard", "change": 4 },
+          { "metric": "budget", "change": -5 },
+          { "metric": "trust", "change": 2 }
+        ],
+        "hiddenEffects": [
+          { "metric": "fiscalSpace", "change": -5 }
+        ],
+        "approvalEffect": 2,
+        "flagsToSet": ["energy_2005_consumer_relief"],
+        "publicMemoryImpact": {
+          "immediateApproval": 2,
+          "groupEffects": [
+            { "group": "families", "change": 4 },
+            { "group": "retirees", "change": 3 },
+            { "group": "lowIncomeAndUnemployed", "change": 4 }
+          ],
+          "reactivationTags": ["energy_strategy"]
+        }
+      },
+      {
+        "id": "accelerate-transition",
+        "title": "Umbau beschleunigen",
+        "description": "Die Regierung nutzt die Krise, um Investitionen in Unabhaengigkeit zu erhoehen.",
+        "advisoryNote": "Strategen sehen langfristige Vorteile, kurzfristig bleiben Kosten sichtbar.",
+        "immediateEffects": [
+          { "metric": "energy", "change": 3 },
+          { "metric": "budget", "change": -3 },
+          { "metric": "trust", "change": 1 }
+        ],
+        "hiddenEffects": [
+          { "metric": "renewableCapacity", "change": 7 },
+          { "metric": "russianEnergyDependency", "change": -5 },
+          { "metric": "fiscalSpace", "change": -3 }
+        ],
+        "approvalEffect": 0,
+        "conditionalModifiers": [
+          {
+            "conditions": [
+              {
+                "requiredFlags": [],
+                "blockedByFlags": [],
+                "visibleMetrics": [],
+                "hiddenMetrics": [
+                  { "metric": "renewableCapacity", "minimum": 30 }
+                ]
+              }
+            ],
+            "immediateEffects": [
+              { "metric": "energy", "change": 2 },
+              { "metric": "economy", "change": 1 }
+            ],
+            "hiddenEffects": [
+              { "metric": "russianEnergyDependency", "change": -3 }
+            ],
+            "approvalEffect": 1,
+            "memoryReactivationTags": ["renewables"],
+            "note": "Fruehe Erneuerbaren-Kapazitaet macht den Umbau glaubwuerdiger."
+          }
+        ],
+        "flagsToSet": ["energy_2005_transition"],
+        "publicMemoryImpact": {
+          "immediateApproval": 0,
+          "groupEffects": [
+            { "group": "youngAdults", "change": 5 },
+            { "group": "entrepreneurs", "change": -1 }
+          ],
+          "reactivationTags": ["energy_strategy", "renewables"]
+        }
+      },
+      {
+        "id": "industry-priority",
+        "title": "Industriepreise stabilisieren",
+        "description": "Die Regierung stuetzt energieintensive Unternehmen und setzt auf Arbeitsplaetze.",
+        "advisoryNote": "Industrie und Gewerkschaften begruessen Sicherheit, Verbraucher fuehlen sich zweitrangig.",
+        "immediateEffects": [
+          { "metric": "economy", "change": 4 },
+          { "metric": "budget", "change": -3 },
+          { "metric": "society", "change": -2 }
+        ],
+        "hiddenEffects": [
+          { "metric": "fiscalSpace", "change": -3 },
+          { "metric": "polarization", "change": 2 }
+        ],
+        "approvalEffect": 0,
+        "flagsToSet": ["energy_2005_industry_priority"],
+        "publicMemoryImpact": {
+          "immediateApproval": 0,
+          "groupEffects": [
+            { "group": "entrepreneurs", "change": 5 },
+            { "group": "workers", "change": 2 },
+            { "group": "families", "change": -2 }
+          ],
+          "reactivationTags": ["energy_strategy"]
+        }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["energy_strategy"]
+  }
+]

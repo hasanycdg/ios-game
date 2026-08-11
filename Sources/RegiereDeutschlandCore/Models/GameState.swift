@@ -28,19 +28,22 @@ public struct ElectionResult: Codable, Equatable, Identifiable, Sendable {
     public let governingPartyShare: Double
     public let oppositionShare: Double
     public let didWin: Bool
+    public let reasons: [String]
 
     public init(
         id: UUID = UUID(),
         year: Int,
         governingPartyShare: Double,
         oppositionShare: Double,
-        didWin: Bool
+        didWin: Bool,
+        reasons: [String] = []
     ) {
         self.id = id
         self.year = year
         self.governingPartyShare = governingPartyShare
         self.oppositionShare = oppositionShare
         self.didWin = didWin
+        self.reasons = reasons
     }
 }
 
@@ -69,31 +72,58 @@ public struct ActiveLongTermEffect: Codable, Equatable, Identifiable, Sendable {
 public struct GameState: Codable, Equatable, Sendable {
     public var currentYear: Int
     public var governmentApproval: Int
+    public var shortTermMomentum: Int
     public var visible: VisibleMetrics
     public var hidden: HiddenMetrics
+    public var yearProgress: YearProgress
+    public var eventQueue: EventQueue
     public var decisions: [DecisionRecord]
     public var electionResults: [ElectionResult]
     public var activeLongTermEffects: [ActiveLongTermEffect]
+    public var scheduledEffects: [ScheduledEffect]
+    public var triggeredHistoricalEchoes: [TriggeredHistoricalEcho]
     public var historicalFlags: Set<String>
+    public var populationGroups: [PopulationGroup]
+    public var decisionMemory: [DecisionMemoryRecord]
+    public var pendingElectionResult: ElectionResult?
+    public var gameOverSummary: GameOverSummary?
 
     public init(
         currentYear: Int,
         governmentApproval: Int,
         visible: VisibleMetrics,
         hidden: HiddenMetrics,
+        shortTermMomentum: Int = 0,
+        yearProgress: YearProgress? = nil,
+        eventQueue: EventQueue? = nil,
         decisions: [DecisionRecord] = [],
         electionResults: [ElectionResult] = [],
         activeLongTermEffects: [ActiveLongTermEffect] = [],
-        historicalFlags: Set<String> = []
+        scheduledEffects: [ScheduledEffect] = [],
+        triggeredHistoricalEchoes: [TriggeredHistoricalEcho] = [],
+        historicalFlags: Set<String> = [],
+        populationGroups: [PopulationGroup] = PopulationGroupsFactory.initialGermany2000(),
+        decisionMemory: [DecisionMemoryRecord] = [],
+        pendingElectionResult: ElectionResult? = nil,
+        gameOverSummary: GameOverSummary? = nil
     ) {
         self.currentYear = currentYear
         self.governmentApproval = VisibleMetrics.clamped(governmentApproval)
+        self.shortTermMomentum = shortTermMomentum
         self.visible = visible
         self.hidden = hidden
+        self.yearProgress = yearProgress ?? YearProgress(year: currentYear)
+        self.eventQueue = eventQueue ?? EventQueue(year: currentYear)
         self.decisions = decisions
         self.electionResults = electionResults
         self.activeLongTermEffects = activeLongTermEffects
+        self.scheduledEffects = scheduledEffects
+        self.triggeredHistoricalEchoes = triggeredHistoricalEchoes
         self.historicalFlags = historicalFlags
+        self.populationGroups = populationGroups
+        self.decisionMemory = decisionMemory
+        self.pendingElectionResult = pendingElectionResult
+        self.gameOverSummary = gameOverSummary
         clampAll()
     }
 
@@ -107,12 +137,26 @@ public struct GameState: Codable, Equatable, Sendable {
 
     public mutating func applyApprovalChange(_ change: Int) {
         governmentApproval = VisibleMetrics.clamped(governmentApproval + change)
+        shortTermMomentum = VisibleMetrics.clamped(shortTermMomentum + change + 50) - 50
+    }
+
+    public mutating func applyPopulationEffects(_ effects: [PopulationApprovalEffect]) {
+        for effect in effects {
+            guard let index = populationGroups.firstIndex(where: { $0.id == effect.group }) else {
+                continue
+            }
+            populationGroups[index].approval = VisibleMetrics.clamped(populationGroups[index].approval + effect.change)
+        }
     }
 
     public mutating func clampAll() {
         governmentApproval = VisibleMetrics.clamped(governmentApproval)
+        shortTermMomentum = min(50, max(-50, shortTermMomentum))
         visible.clampAll()
         hidden.clampAll()
+        for index in populationGroups.indices {
+            populationGroups[index].approval = VisibleMetrics.clamped(populationGroups[index].approval)
+        }
     }
 }
 

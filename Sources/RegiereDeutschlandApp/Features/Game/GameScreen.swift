@@ -21,12 +21,16 @@ struct GameScreen: View {
                     DecisionResultView(result: result) {
                         viewModel.continueAfterResult()
                     }
+                case .election(let election):
+                    ElectionResultPanel(election: election) {
+                        viewModel.continueAfterElection()
+                    }
+                case .gameOver(let summary):
+                    GameOverPanel(summary: summary)
                 case .noEvent:
-                    ContentUnavailableView(
-                        "Keine Ereignisse",
-                        systemImage: "calendar",
-                        description: Text("Fuer das Jahr \(viewModel.state.currentYear) ist noch kein Event hinterlegt.")
-                    )
+                    NoEventPanel(year: viewModel.state.currentYear) {
+                        viewModel.continueWithoutEvent()
+                    }
                 }
             }
             .padding(20)
@@ -55,5 +59,29 @@ struct GameScreen: View {
                     .font(.title2.bold())
             }
         }
+    }
+}
+
+private struct NoEventPanel: View {
+    let year: Int
+    let onContinue: () -> Void
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Label("Keine Ereignisse", systemImage: "calendar")
+                .font(.title3.bold())
+            Text("Fuer das Jahr \(year) ist noch kein Event hinterlegt.")
+                .foregroundStyle(.secondary)
+            Button(action: onContinue) {
+                Text("Jahr abschliessen")
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+            }
+            .buttonStyle(.borderedProminent)
+        }
+        .padding(16)
+        .background(.thinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }

@@ -1,0 +1,126 @@
+[
+  {
+    "id": "welfare-reform-2004",
+    "year": 2004,
+    "title": "Sozialstaat reformieren",
+    "category": "welfare",
+    "headline": "Der Druck auf Haushalt und Arbeitsmarkt zwingt zu einer Richtungsentscheidung.",
+    "description": "Die Regierung muss entscheiden, wie stark der Sozialstaat reformiert wird.",
+    "historicalContext": {
+      "summary": "Mitte der 2000er standen Arbeitsmarkt- und Sozialreformen im Zentrum der Bundespolitik.",
+      "sourceNote": "Prototype-Daten fuer Schritt 8-10."
+    },
+    "options": [
+      {
+        "id": "firm-reform",
+        "title": "Harte Reform durchziehen",
+        "description": "Der Haushalt gewinnt Spielraum und der Arbeitsmarkt wird flexibler. Viele Betroffene empfinden den Kurs als Bruch.",
+        "advisoryNote": "Oekonomen erwarten Wirkung, Sozialverbaende warnen vor Vertrauensverlust.",
+        "immediateEffects": [
+          { "metric": "budget", "change": 6 },
+          { "metric": "economy", "change": 3 },
+          { "metric": "society", "change": -6 },
+          { "metric": "trust", "change": -5 }
+        ],
+        "hiddenEffects": [
+          { "metric": "labourMarketFlexibility", "change": 9 },
+          { "metric": "welfareStrength", "change": -8 },
+          { "metric": "fiscalSpace", "change": 6 },
+          { "metric": "polarization", "change": 7 }
+        ],
+        "approvalEffect": -4,
+        "flagsToSet": ["welfare_2004_firm_reform"],
+        "publicMemoryImpact": {
+          "immediateApproval": -4,
+          "groupEffects": [
+            { "group": "entrepreneurs", "change": 5 },
+            { "group": "lowIncomeAndUnemployed", "change": -9 },
+            { "group": "workers", "change": -5 }
+          ],
+          "reactivationTags": ["labour_reform", "welfare_reform"]
+        }
+      },
+      {
+        "id": "soft-reform",
+        "title": "Reform sozial abfedern",
+        "description": "Die Regierung reformiert, baut aber Schutzmechanismen ein. Das Ergebnis ist teurer, aber weniger spaltend.",
+        "advisoryNote": "Koalitionsstrategen sehen den politisch tragfaehigeren Weg.",
+        "immediateEffects": [
+          { "metric": "budget", "change": 1 },
+          { "metric": "economy", "change": 2 },
+          { "metric": "society", "change": -1 },
+          { "metric": "trust", "change": 1 }
+        ],
+        "hiddenEffects": [
+          { "metric": "labourMarketFlexibility", "change": 5 },
+          { "metric": "welfareStrength", "change": -2 },
+          { "metric": "fiscalSpace", "change": 1 },
+          { "metric": "polarization", "change": 1 }
+        ],
+        "approvalEffect": 0,
+        "conditionalModifiers": [
+          {
+            "conditions": [
+              {
+                "requiredFlags": ["labour_2001_training"],
+                "blockedByFlags": [],
+                "visibleMetrics": [],
+                "hiddenMetrics": []
+              }
+            ],
+            "immediateEffects": [
+              { "metric": "livingStandard", "change": 2 }
+            ],
+            "hiddenEffects": [
+              { "metric": "integrationCapacity", "change": 2 }
+            ],
+            "approvalEffect": 1,
+            "memoryReactivationTags": ["labour_reform"],
+            "note": "Die Qualifizierungspolitik von 2001 federt die Reform besser ab."
+          }
+        ],
+        "flagsToSet": ["welfare_2004_soft_reform"],
+        "publicMemoryImpact": {
+          "immediateApproval": 0,
+          "groupEffects": [
+            { "group": "workers", "change": 1 },
+            { "group": "lowIncomeAndUnemployed", "change": -2 },
+            { "group": "entrepreneurs", "change": 2 }
+          ],
+          "reactivationTags": ["labour_reform", "welfare_reform"]
+        }
+      },
+      {
+        "id": "delay-reform",
+        "title": "Reform vertagen",
+        "description": "Die Regierung gewinnt kurzfristig Ruhe, doch strukturelle Probleme bleiben bestehen.",
+        "advisoryNote": "Parteistrategen erwarten Entspannung, Fachminister warnen vor steigenden Folgekosten.",
+        "immediateEffects": [
+          { "metric": "society", "change": 3 },
+          { "metric": "trust", "change": 2 },
+          { "metric": "budget", "change": -3 },
+          { "metric": "economy", "change": -2 }
+        ],
+        "hiddenEffects": [
+          { "metric": "welfareStrength", "change": 4 },
+          { "metric": "labourMarketFlexibility", "change": -4 },
+          { "metric": "fiscalSpace", "change": -4 }
+        ],
+        "approvalEffect": 2,
+        "flagsToSet": ["welfare_2004_delayed"],
+        "publicMemoryImpact": {
+          "immediateApproval": 2,
+          "groupEffects": [
+            { "group": "retirees", "change": 3 },
+            { "group": "lowIncomeAndUnemployed", "change": 4 },
+            { "group": "entrepreneurs", "change": -4 }
+          ],
+          "reactivationTags": ["welfare_reform"]
+        }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["labour_reform"]
+  }
+]

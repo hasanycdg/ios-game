@@ -12,6 +12,10 @@ import Testing
     #expect(state.decisions.isEmpty)
     #expect(state.electionResults.isEmpty)
     #expect(state.activeLongTermEffects.isEmpty)
+    #expect(state.scheduledEffects.isEmpty)
+    #expect(state.decisionMemory.isEmpty)
+    #expect(state.populationGroups.count == 7)
+    #expect(state.yearProgress.year == 2000)
     #expect(state.historicalFlags.isEmpty)
 }
 

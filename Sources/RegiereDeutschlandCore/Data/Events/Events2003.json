@@ -1,0 +1,145 @@
+[
+  {
+    "id": "renewables-echo-2003",
+    "year": 2003,
+    "title": "Historisches Echo: Energiepfad",
+    "category": "historicalEcho",
+    "headline": "Eine Entscheidung aus dem Jahr 2000 praegt die aktuelle Debatte.",
+    "description": "Ministerien verweisen auf fruehere Weichenstellungen. Die Regierung kann den Pfad bestaetigen oder politisch abfedern.",
+    "historicalContext": {
+      "summary": "Langfristige Energiepolitik zeigt ihre Wirkung oft erst Jahre spaeter.",
+      "sourceNote": "Prototype-Historical-Echo fuer Schritt 7."
+    },
+    "options": [
+      {
+        "id": "own-the-course",
+        "title": "Den Kurs offensiv vertreten",
+        "description": "Die Regierung erklaert die fruehere Entscheidung zum strategischen Projekt.",
+        "advisoryNote": "Kommunikatoren erwarten klare Profilbildung, aber auch neue Angriffsflanken.",
+        "immediateEffects": [
+          { "metric": "trust", "change": 2 }
+        ],
+        "hiddenEffects": [
+          { "metric": "polarization", "change": 1 }
+        ],
+        "approvalEffect": 1,
+        "flagsToSet": ["echo_2003_energy_owned"],
+        "publicMemoryImpact": {
+          "immediateApproval": 1,
+          "groupEffects": [
+            { "group": "youngAdults", "change": 2 }
+          ],
+          "reactivationTags": ["energy_strategy"]
+        }
+      },
+      {
+        "id": "quiet-adjustment",
+        "title": "Leise nachjustieren",
+        "description": "Die Regierung nimmt Tempo aus der Debatte und reduziert Reibung.",
+        "advisoryNote": "Das Kanzleramt erwartet weniger Konflikt, aber auch weniger Anerkennung.",
+        "immediateEffects": [
+          { "metric": "society", "change": 2 },
+          { "metric": "trust", "change": -1 }
+        ],
+        "hiddenEffects": [
+          { "metric": "polarization", "change": -2 }
+        ],
+        "approvalEffect": 0,
+        "flagsToSet": ["echo_2003_energy_adjusted"],
+        "publicMemoryImpact": {
+          "immediateApproval": 0,
+          "groupEffects": [],
+          "reactivationTags": ["energy_strategy"]
+        }
+      }
+    ],
+    "conditions": [
+      {
+        "requiredFlags": ["energy_2000_renewables_echo_due"],
+        "blockedByFlags": [],
+        "visibleMetrics": [],
+        "hiddenMetrics": []
+      }
+    ],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["energy_strategy"]
+  },
+  {
+    "id": "digital-administration-2003",
+    "year": 2003,
+    "title": "Digitale Verwaltung",
+    "category": "digitalization",
+    "headline": "Laender und Kommunen fordern eine gemeinsame Digitalstrategie.",
+    "description": "Die Regierung entscheidet, ob Digitalisierung als Infrastrukturprojekt priorisiert wird.",
+    "historicalContext": {
+      "summary": "Digitale Verwaltung wurde in Deutschland lange als strukturelle Modernisierungsaufgabe diskutiert.",
+      "sourceNote": "Prototype-Daten fuer Schritt 6-10."
+    },
+    "options": [
+      {
+        "id": "federal-platforms",
+        "title": "Gemeinsame Plattformen finanzieren",
+        "description": "Standards und Plattformen kosten Geld, koennen spaeter aber Staat und Wirtschaft entlasten.",
+        "advisoryNote": "Kommunen begruessen klare Standards, der Haushalt sieht neue Lasten.",
+        "immediateEffects": [
+          { "metric": "budget", "change": -4 },
+          { "metric": "trust", "change": 2 }
+        ],
+        "hiddenEffects": [
+          { "metric": "digitalization", "change": 12 },
+          { "metric": "infrastructureQuality", "change": 3 },
+          { "metric": "fiscalSpace", "change": -3 }
+        ],
+        "approvalEffect": 1,
+        "delayedEffects": [
+          {
+            "delayInYears": 2,
+            "immediateEffects": [
+              { "metric": "economy", "change": 2 },
+              { "metric": "trust", "change": 1 }
+            ],
+            "hiddenEffects": [
+              { "metric": "digitalization", "change": 5 }
+            ],
+            "approvalEffect": 1,
+            "flagsToSet": ["digital_2003_platforms_payoff"],
+            "note": "Die digitale Verwaltung liefert erste Effizienzgewinne."
+          }
+        ],
+        "flagsToSet": ["digital_2003_platforms"],
+        "publicMemoryImpact": {
+          "immediateApproval": 1,
+          "groupEffects": [
+            { "group": "youngAdults", "change": 4 },
+            { "group": "publicSector", "change": 2 }
+          ],
+          "reactivationTags": ["digital_state"]
+        }
+      },
+      {
+        "id": "pilot-projects",
+        "title": "Pilotprojekte statt Grossprogramm",
+        "description": "Der Staat testet vorsichtig und schont den Haushalt, der grosse Modernisierungsschub bleibt aus.",
+        "advisoryNote": "Das Finanzministerium begruesst den Ansatz, Digitalexperten kritisieren fehlendes Tempo.",
+        "immediateEffects": [
+          { "metric": "budget", "change": 1 }
+        ],
+        "hiddenEffects": [
+          { "metric": "digitalization", "change": 4 }
+        ],
+        "approvalEffect": 0,
+        "flagsToSet": ["digital_2003_pilots"],
+        "publicMemoryImpact": {
+          "immediateApproval": 0,
+          "groupEffects": [
+            { "group": "youngAdults", "change": -1 },
+            { "group": "publicSector", "change": 1 }
+          ],
+          "reactivationTags": ["digital_state"]
+        }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": []
+  }
+]

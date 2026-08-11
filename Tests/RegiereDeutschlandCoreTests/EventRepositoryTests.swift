@@ -33,3 +33,13 @@ import Testing
 
     #expect(events.isEmpty)
 }
+
+@Test func repositoryLoadsPrototypeEventsThrough2005() {
+    let repository = LocalJSONEventRepository()
+
+    #expect(repository.events(for: 2001).count == 2)
+    #expect(repository.events(for: 2002).isEmpty)
+    #expect(repository.events(for: 2003).count == 2)
+    #expect(repository.events(for: 2004).count == 1)
+    #expect(repository.events(for: 2005).count == 1)
+}

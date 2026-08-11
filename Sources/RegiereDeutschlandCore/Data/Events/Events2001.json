@@ -1,0 +1,165 @@
+[
+  {
+    "id": "labour-market-2001",
+    "year": 2001,
+    "title": "Arbeitsmarkt unter Druck",
+    "category": "economy",
+    "headline": "Wachstum kuehlt ab, die Arbeitslosigkeit bleibt politisch belastend.",
+    "description": "Die Regierung sucht nach einem Kurs zwischen Flexibilisierung, sozialer Absicherung und Investitionen in Qualifizierung.",
+    "historicalContext": {
+      "summary": "Zu Beginn der 2000er stand Deutschland vor strukturellen Arbeitsmarktproblemen und einer Debatte ueber Reformen.",
+      "sourceNote": "Prototype-Daten fuer Schritt 6-10."
+    },
+    "options": [
+      {
+        "id": "training-investment",
+        "title": "Qualifizierungsoffensive starten",
+        "description": "Weiterbildung stabilisiert Beschaeftigungsperspektiven, belastet aber den Haushalt.",
+        "advisoryNote": "Arbeitsminister und Familienverbaende sehen Chancen, das Finanzministerium bremst.",
+        "immediateEffects": [
+          { "metric": "economy", "change": 2 },
+          { "metric": "budget", "change": -3 },
+          { "metric": "livingStandard", "change": 2 }
+        ],
+        "hiddenEffects": [
+          { "metric": "labourMarketFlexibility", "change": 3 },
+          { "metric": "welfareStrength", "change": 2 },
+          { "metric": "fiscalSpace", "change": -3 }
+        ],
+        "approvalEffect": 1,
+        "flagsToSet": ["labour_2001_training"],
+        "publicMemoryImpact": {
+          "immediateApproval": 1,
+          "groupEffects": [
+            { "group": "workers", "change": 3 },
+            { "group": "lowIncomeAndUnemployed", "change": 4 },
+            { "group": "entrepreneurs", "change": -1 }
+          ],
+          "reactivationTags": ["labour_reform"]
+        }
+      },
+      {
+        "id": "market-flexibility",
+        "title": "Arbeitsmarkt flexibilisieren",
+        "description": "Unternehmen erhalten mehr Spielraum. Die Reform kann Dynamik bringen, trifft aber auf sozialen Widerstand.",
+        "advisoryNote": "Wirtschaftsverbaende erwarten mehr Einstellungen, Gewerkschaften warnen vor Unsicherheit.",
+        "immediateEffects": [
+          { "metric": "economy", "change": 4 },
+          { "metric": "society", "change": -3 },
+          { "metric": "trust", "change": -2 }
+        ],
+        "hiddenEffects": [
+          { "metric": "labourMarketFlexibility", "change": 8 },
+          { "metric": "welfareStrength", "change": -4 },
+          { "metric": "polarization", "change": 4 }
+        ],
+        "approvalEffect": -1,
+        "flagsToSet": ["labour_2001_flexibility"],
+        "publicMemoryImpact": {
+          "immediateApproval": -2,
+          "groupEffects": [
+            { "group": "entrepreneurs", "change": 6 },
+            { "group": "workers", "change": -3 },
+            { "group": "lowIncomeAndUnemployed", "change": -5 }
+          ],
+          "reactivationTags": ["labour_reform"]
+        }
+      },
+      {
+        "id": "protect-status-quo",
+        "title": "Bestehende Sicherungen verteidigen",
+        "description": "Die Regierung vermeidet soziale Haerten, riskiert aber, dass strukturelle Probleme liegen bleiben.",
+        "advisoryNote": "Sozialverbaende begruessen den Kurs, Oekonomen zweifeln an der langfristigen Tragfaehigkeit.",
+        "immediateEffects": [
+          { "metric": "society", "change": 3 },
+          { "metric": "budget", "change": -2 },
+          { "metric": "economy", "change": -1 }
+        ],
+        "hiddenEffects": [
+          { "metric": "welfareStrength", "change": 5 },
+          { "metric": "labourMarketFlexibility", "change": -3 },
+          { "metric": "fiscalSpace", "change": -2 }
+        ],
+        "approvalEffect": 1,
+        "flagsToSet": ["labour_2001_status_quo"],
+        "publicMemoryImpact": {
+          "immediateApproval": 1,
+          "groupEffects": [
+            { "group": "retirees", "change": 2 },
+            { "group": "workers", "change": 2 },
+            { "group": "entrepreneurs", "change": -3 }
+          ],
+          "reactivationTags": ["labour_reform"]
+        }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": []
+  },
+  {
+    "id": "security-2001",
+    "year": 2001,
+    "title": "Innere Sicherheit neu ausrichten",
+    "category": "security",
+    "headline": "Sicherheitsbehoerden fordern neue Befugnisse.",
+    "description": "Nach internationalen Schocks waechst der Druck, Sicherheitspolitik und Freiheitsrechte neu auszubalancieren.",
+    "historicalContext": {
+      "summary": "Anfang der 2000er wurden Sicherheitsgesetze in vielen westlichen Demokratien verschaerft.",
+      "sourceNote": "Prototype-Daten fuer Schritt 6-10."
+    },
+    "options": [
+      {
+        "id": "balanced-security",
+        "title": "Gezielte Sicherheitsreform",
+        "description": "Die Reform verbessert Koordination, vermeidet aber maximale Eingriffe.",
+        "advisoryNote": "Innenministerium und Justizministerium tragen den Kompromiss gemeinsam.",
+        "immediateEffects": [
+          { "metric": "security", "change": 4 },
+          { "metric": "trust", "change": 1 },
+          { "metric": "budget", "change": -2 }
+        ],
+        "hiddenEffects": [
+          { "metric": "defenceReadiness", "change": 2 },
+          { "metric": "euRelations", "change": 1 }
+        ],
+        "approvalEffect": 1,
+        "flagsToSet": ["security_2001_balanced"],
+        "publicMemoryImpact": {
+          "immediateApproval": 1,
+          "groupEffects": [
+            { "group": "families", "change": 2 },
+            { "group": "retirees", "change": 2 }
+          ],
+          "reactivationTags": ["security_policy"]
+        }
+      },
+      {
+        "id": "hardline-security",
+        "title": "Umfassende Befugnisse geben",
+        "description": "Sicherheit steigt sichtbar, doch Buergerrechtsdebatten belasten das Vertrauen.",
+        "advisoryNote": "Sicherheitsbehoerden draengen, Datenschutzbeauftragte warnen.",
+        "immediateEffects": [
+          { "metric": "security", "change": 7 },
+          { "metric": "trust", "change": -4 },
+          { "metric": "society", "change": -2 }
+        ],
+        "hiddenEffects": [
+          { "metric": "polarization", "change": 4 },
+          { "metric": "defenceReadiness", "change": 3 }
+        ],
+        "approvalEffect": 0,
+        "flagsToSet": ["security_2001_hardline"],
+        "publicMemoryImpact": {
+          "immediateApproval": -1,
+          "groupEffects": [
+            { "group": "retirees", "change": 3 },
+            { "group": "youngAdults", "change": -5 }
+          ],
+          "reactivationTags": ["security_policy"]
+        }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": []
+  }
+]

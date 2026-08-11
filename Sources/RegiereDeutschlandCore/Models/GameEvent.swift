@@ -7,6 +7,10 @@ public enum EventCategory: String, Codable, CaseIterable, Sendable {
     case security
     case energy
     case foreignPolicy
+    case digitalization
+    case welfare
+    case election
+    case historicalEcho
 }
 
 public struct GameEffect: Codable, Equatable, Sendable {
@@ -33,6 +37,7 @@ public struct DelayedEffect: Codable, Equatable, Sendable {
     public let delayInYears: Int
     public let immediateEffects: [GameEffect]
     public let hiddenEffects: [HiddenEffect]
+    public let approvalEffect: Int
     public let flagsToSet: [String]
     public let note: String?
 
@@ -40,14 +45,45 @@ public struct DelayedEffect: Codable, Equatable, Sendable {
         delayInYears: Int,
         immediateEffects: [GameEffect] = [],
         hiddenEffects: [HiddenEffect] = [],
+        approvalEffect: Int = 0,
         flagsToSet: [String] = [],
         note: String? = nil
     ) {
         self.delayInYears = delayInYears
         self.immediateEffects = immediateEffects
         self.hiddenEffects = hiddenEffects
+        self.approvalEffect = approvalEffect
         self.flagsToSet = flagsToSet
         self.note = note
+    }
+}
+
+public struct ConditionalModifier: Codable, Equatable, Sendable {
+    public let conditions: [EventCondition]
+    public let immediateEffects: [GameEffect]
+    public let hiddenEffects: [HiddenEffect]
+    public let approvalEffect: Int
+    public let memoryReactivationTags: [String]
+    public let note: String?
+
+    public init(
+        conditions: [EventCondition] = [],
+        immediateEffects: [GameEffect] = [],
+        hiddenEffects: [HiddenEffect] = [],
+        approvalEffect: Int = 0,
+        memoryReactivationTags: [String] = [],
+        note: String? = nil
+    ) {
+        self.conditions = conditions
+        self.immediateEffects = immediateEffects
+        self.hiddenEffects = hiddenEffects
+        self.approvalEffect = approvalEffect
+        self.memoryReactivationTags = memoryReactivationTags
+        self.note = note
+    }
+
+    public func isSatisfied(by state: GameState) -> Bool {
+        conditions.allSatisfy { $0.isSatisfied(by: state) }
     }
 }
 
@@ -121,7 +157,9 @@ public struct DecisionOption: Codable, Equatable, Identifiable, Sendable {
     public let hiddenEffects: [HiddenEffect]
     public let approvalEffect: Int
     public let delayedEffects: [DelayedEffect]
+    public let conditionalModifiers: [ConditionalModifier]
     public let flagsToSet: [String]
+    public let publicMemoryImpact: PublicMemoryImpact
 
     public init(
         id: String,
@@ -132,7 +170,9 @@ public struct DecisionOption: Codable, Equatable, Identifiable, Sendable {
         hiddenEffects: [HiddenEffect] = [],
         approvalEffect: Int = 0,
         delayedEffects: [DelayedEffect] = [],
-        flagsToSet: [String] = []
+        conditionalModifiers: [ConditionalModifier] = [],
+        flagsToSet: [String] = [],
+        publicMemoryImpact: PublicMemoryImpact = PublicMemoryImpact()
     ) {
         self.id = id
         self.title = title
@@ -142,7 +182,38 @@ public struct DecisionOption: Codable, Equatable, Identifiable, Sendable {
         self.hiddenEffects = hiddenEffects
         self.approvalEffect = approvalEffect
         self.delayedEffects = delayedEffects
+        self.conditionalModifiers = conditionalModifiers
         self.flagsToSet = flagsToSet
+        self.publicMemoryImpact = publicMemoryImpact
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case description
+        case advisoryNote
+        case immediateEffects
+        case hiddenEffects
+        case approvalEffect
+        case delayedEffects
+        case conditionalModifiers
+        case flagsToSet
+        case publicMemoryImpact
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
+        title = try container.decode(String.self, forKey: .title)
+        description = try container.decode(String.self, forKey: .description)
+        advisoryNote = try container.decode(String.self, forKey: .advisoryNote)
+        immediateEffects = try container.decodeIfPresent([GameEffect].self, forKey: .immediateEffects) ?? []
+        hiddenEffects = try container.decodeIfPresent([HiddenEffect].self, forKey: .hiddenEffects) ?? []
+        approvalEffect = try container.decodeIfPresent(Int.self, forKey: .approvalEffect) ?? 0
+        delayedEffects = try container.decodeIfPresent([DelayedEffect].self, forKey: .delayedEffects) ?? []
+        conditionalModifiers = try container.decodeIfPresent([ConditionalModifier].self, forKey: .conditionalModifiers) ?? []
+        flagsToSet = try container.decodeIfPresent([String].self, forKey: .flagsToSet) ?? []
+        publicMemoryImpact = try container.decodeIfPresent(PublicMemoryImpact.self, forKey: .publicMemoryImpact) ?? PublicMemoryImpact()
     }
 }
 
@@ -157,6 +228,7 @@ public struct GameEvent: Codable, Equatable, Identifiable, Sendable {
     public let options: [DecisionOption]
     public let conditions: [EventCondition]
     public let followUpEvents: [String]
+    public let memoryReactivationTags: [String]
 
     public init(
         id: String,
@@ -168,7 +240,8 @@ public struct GameEvent: Codable, Equatable, Identifiable, Sendable {
         historicalContext: HistoricalContext,
         options: [DecisionOption],
         conditions: [EventCondition] = [],
-        followUpEvents: [String] = []
+        followUpEvents: [String] = [],
+        memoryReactivationTags: [String] = []
     ) {
         self.id = id
         self.year = year
@@ -180,9 +253,39 @@ public struct GameEvent: Codable, Equatable, Identifiable, Sendable {
         self.options = options
         self.conditions = conditions
         self.followUpEvents = followUpEvents
+        self.memoryReactivationTags = memoryReactivationTags
     }
 
     public func isAvailable(in state: GameState) -> Bool {
         year == state.currentYear && conditions.allSatisfy { $0.isSatisfied(by: state) }
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case year
+        case title
+        case category
+        case headline
+        case description
+        case historicalContext
+        case options
+        case conditions
+        case followUpEvents
+        case memoryReactivationTags
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
+        year = try container.decode(Int.self, forKey: .year)
+        title = try container.decode(String.self, forKey: .title)
+        category = try container.decode(EventCategory.self, forKey: .category)
+        headline = try container.decode(String.self, forKey: .headline)
+        description = try container.decode(String.self, forKey: .description)
+        historicalContext = try container.decode(HistoricalContext.self, forKey: .historicalContext)
+        options = try container.decode([DecisionOption].self, forKey: .options)
+        conditions = try container.decodeIfPresent([EventCondition].self, forKey: .conditions) ?? []
+        followUpEvents = try container.decodeIfPresent([String].self, forKey: .followUpEvents) ?? []
+        memoryReactivationTags = try container.decodeIfPresent([String].self, forKey: .memoryReactivationTags) ?? []
     }
 }

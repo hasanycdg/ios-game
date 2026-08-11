@@ -229,6 +229,8 @@ public struct GameEvent: Codable, Equatable, Identifiable, Sendable {
     public let conditions: [EventCondition]
     public let followUpEvents: [String]
     public let memoryReactivationTags: [String]
+    public let historicalReality: String?
+    public let historicalOptionID: String?
 
     public init(
         id: String,
@@ -241,7 +243,9 @@ public struct GameEvent: Codable, Equatable, Identifiable, Sendable {
         options: [DecisionOption],
         conditions: [EventCondition] = [],
         followUpEvents: [String] = [],
-        memoryReactivationTags: [String] = []
+        memoryReactivationTags: [String] = [],
+        historicalReality: String? = nil,
+        historicalOptionID: String? = nil
     ) {
         self.id = id
         self.year = year
@@ -254,6 +258,8 @@ public struct GameEvent: Codable, Equatable, Identifiable, Sendable {
         self.conditions = conditions
         self.followUpEvents = followUpEvents
         self.memoryReactivationTags = memoryReactivationTags
+        self.historicalReality = historicalReality
+        self.historicalOptionID = historicalOptionID
     }
 
     public func isAvailable(in state: GameState) -> Bool {
@@ -272,6 +278,8 @@ public struct GameEvent: Codable, Equatable, Identifiable, Sendable {
         case conditions
         case followUpEvents
         case memoryReactivationTags
+        case historicalReality
+        case historicalOptionID
     }
 
     public init(from decoder: Decoder) throws {
@@ -287,5 +295,7 @@ public struct GameEvent: Codable, Equatable, Identifiable, Sendable {
         conditions = try container.decodeIfPresent([EventCondition].self, forKey: .conditions) ?? []
         followUpEvents = try container.decodeIfPresent([String].self, forKey: .followUpEvents) ?? []
         memoryReactivationTags = try container.decodeIfPresent([String].self, forKey: .memoryReactivationTags) ?? []
+        historicalReality = try container.decodeIfPresent(String.self, forKey: .historicalReality)
+        historicalOptionID = try container.decodeIfPresent(String.self, forKey: .historicalOptionID)
     }
 }

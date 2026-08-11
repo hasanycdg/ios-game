@@ -7,6 +7,8 @@ public struct DecisionResult: Codable, Equatable, Sendable {
     public let visibleEffects: [GameEffect]
     public let approvalEffect: Int
     public let resultText: String
+    public let historicalReality: String?
+    public let didChooseHistoricalPath: Bool
 
     public init(
         year: Int,
@@ -14,7 +16,9 @@ public struct DecisionResult: Codable, Equatable, Sendable {
         optionTitle: String,
         visibleEffects: [GameEffect],
         approvalEffect: Int,
-        resultText: String
+        resultText: String,
+        historicalReality: String? = nil,
+        didChooseHistoricalPath: Bool = false
     ) {
         self.year = year
         self.eventTitle = eventTitle
@@ -22,8 +26,49 @@ public struct DecisionResult: Codable, Equatable, Sendable {
         self.visibleEffects = visibleEffects
         self.approvalEffect = approvalEffect
         self.resultText = resultText
+        self.historicalReality = historicalReality
+        self.didChooseHistoricalPath = didChooseHistoricalPath
     }
 }
+
+#if DEBUG
+public extension GameEngine {
+    func debugAdjustVisibleMetric(_ metric: VisibleMetric, by change: Int) {
+        state.apply(GameEffect(metric: metric, change: change))
+        state.clampAll()
+    }
+
+    func debugAdjustHiddenMetric(_ metric: HiddenMetric, by change: Int) {
+        state.apply(HiddenEffect(metric: metric, change: change))
+        state.clampAll()
+    }
+
+    func debugSetApproval(_ value: Int) {
+        state.governmentApproval = VisibleMetrics.clamped(value)
+    }
+
+    func debugJumpToYear(_ year: Int) {
+        let clampedYear = min(2026, max(2000, year))
+        state.currentYear = clampedYear
+        state.pendingElectionResult = nil
+        state.gameOverSummary = nil
+        prepareCurrentYear()
+        currentEvent = nextQueuedEvent()
+    }
+
+    func debugTriggerEvent(id eventID: String) {
+        guard let event = eventRepository.loadEvents().first(where: { $0.id == eventID }) else {
+            return
+        }
+        if state.currentYear != event.year {
+            state.currentYear = event.year
+            prepareCurrentYear()
+        }
+        currentEvent = event
+        lastDecisionResult = nil
+    }
+}
+#endif
 
 public enum GameEngineError: Error, Equatable {
     case noActiveEvent
@@ -60,6 +105,38 @@ public final class GameEngine {
         self.electionEngine = electionEngine
         self.currentEvent = nil
         self.lastDecisionResult = nil
+    }
+
+    public convenience init(
+        snapshot: GameSessionSnapshot,
+        eventRepository: EventRepository = LocalJSONEventRepository(),
+        finalYear: Int = 2026,
+        annualSimulation: AnnualSimulation = AnnualSimulation(),
+        approvalEngine: ApprovalEngine = ApprovalEngine(),
+        memoryService: DecisionMemoryService = DecisionMemoryService(),
+        electionEngine: ElectionEngine = ElectionEngine()
+    ) {
+        self.init(
+            eventRepository: eventRepository,
+            initialState: snapshot.state,
+            finalYear: finalYear,
+            annualSimulation: annualSimulation,
+            approvalEngine: approvalEngine,
+            memoryService: memoryService,
+            electionEngine: electionEngine
+        )
+        if let currentEventID = snapshot.currentEventID {
+            self.currentEvent = eventRepository.events(for: snapshot.state.currentYear).first { $0.id == currentEventID }
+        }
+        self.lastDecisionResult = snapshot.lastDecisionResult
+    }
+
+    public func snapshot() -> GameSessionSnapshot {
+        GameSessionSnapshot(
+            state: state,
+            currentEventID: currentEvent?.id,
+            lastDecisionResult: lastDecisionResult
+        )
     }
 
     public func startNewGame() {
@@ -158,7 +235,9 @@ public final class GameEngine {
             optionTitle: option.title,
             visibleEffects: visibleEffects,
             approvalEffect: approvalEffect,
-            resultText: option.description
+            resultText: option.description,
+            historicalReality: event.historicalReality,
+            didChooseHistoricalPath: event.historicalOptionID == option.id
         )
         lastDecisionResult = result
         currentEvent = nil
@@ -296,15 +375,6 @@ public final class GameEngine {
     }
 
     private func makeFinalYearSummary() -> GameOverSummary {
-        GameOverSummary(
-            reason: .reachedFinalYear,
-            message: "Dein Deutschland 2026 ist erreicht.",
-            startYear: 2000,
-            endYear: state.currentYear,
-            keyDecisionTitles: state.decisions.suffix(5).map(\.optionTitle),
-            finalStats: state.visible,
-            defeatReasons: [],
-            governingStyle: electionEngine.governingStyle(for: state)
-        )
+        electionEngine.endSummary(for: state, reason: .reachedFinalYear)
     }
 }

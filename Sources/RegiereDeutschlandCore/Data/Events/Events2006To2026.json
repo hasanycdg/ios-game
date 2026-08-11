@@ -1,0 +1,809 @@
+[
+  {
+    "id": "federalism-2006",
+    "year": 2006,
+    "title": "Foederalismus und Verwaltung",
+    "category": "budget",
+    "headline": "Bund und Laender ringen um klare Zustaendigkeiten.",
+    "description": "Die Regierung kann Kompetenzen ordnen, digitale Standards erzwingen oder den Kompromiss klein halten.",
+    "historicalContext": { "summary": "2006 wurde in Deutschland eine Foederalismusreform beschlossen.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch wurde 2006 eine Foederalismusreform umgesetzt, die Zustaendigkeiten zwischen Bund und Laendern neu ordnete.",
+    "historicalOptionID": "competence-compromise",
+    "options": [
+      {
+        "id": "competence-compromise",
+        "title": "Kompetenzkompromiss schliessen",
+        "description": "Die Regierung erreicht einen tragfaehigen Kompromiss, aber nicht jede Struktur wird einfacher.",
+        "advisoryNote": "Laender akzeptieren den Kurs, Reformpolitiker haetten gern mehr Tempo.",
+        "immediateEffects": [{ "metric": "trust", "change": 2 }, { "metric": "budget", "change": 1 }],
+        "hiddenEffects": [{ "metric": "infrastructureQuality", "change": 2 }, { "metric": "digitalization", "change": 1 }],
+        "approvalEffect": 1,
+        "flagsToSet": ["federalism_2006_compromise"],
+        "publicMemoryImpact": { "immediateApproval": 1, "groupEffects": [{ "group": "publicSector", "change": 2 }], "reactivationTags": ["state_capacity"] }
+      },
+      {
+        "id": "central-standards",
+        "title": "Bundesweite Standards erzwingen",
+        "description": "Mehr Einheitlichkeit hilft langfristig, erzeugt aber Laenderkonflikte.",
+        "advisoryNote": "Modernisierer draengen, Ministerpraesidenten warnen vor Zentralismus.",
+        "immediateEffects": [{ "metric": "trust", "change": -1 }, { "metric": "budget", "change": -2 }],
+        "hiddenEffects": [{ "metric": "digitalization", "change": 6 }, { "metric": "infrastructureQuality", "change": 4 }, { "metric": "euRelations", "change": 1 }],
+        "approvalEffect": -1,
+        "flagsToSet": ["federalism_2006_central_standards"],
+        "publicMemoryImpact": { "immediateApproval": -1, "groupEffects": [{ "group": "publicSector", "change": -2 }, { "group": "youngAdults", "change": 2 }], "reactivationTags": ["state_capacity", "digital_state"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["state_capacity"]
+  },
+  {
+    "id": "vat-budget-2007",
+    "year": 2007,
+    "title": "Haushalt konsolidieren",
+    "category": "budget",
+    "headline": "Steuern, Investitionen und Kaufkraft muessen austariert werden.",
+    "description": "Die Regierung entscheidet, ob sie den Haushalt schnell stabilisiert oder Kaufkraft und Investitionen schont.",
+    "historicalContext": { "summary": "2007 stieg die Mehrwertsteuer in Deutschland von 16 auf 19 Prozent.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch wurde die Mehrwertsteuer 2007 erhoeht, um den Haushalt zu stabilisieren und Beitragssaetze zu entlasten.",
+    "historicalOptionID": "raise-vat",
+    "options": [
+      {
+        "id": "raise-vat",
+        "title": "Mehrwertsteuer erhoehen",
+        "description": "Der Haushalt gewinnt Luft, aber Kaufkraft und Vertrauen leiden kurzfristig.",
+        "advisoryNote": "Das Finanzministerium erwartet Stabilitaet, Verbraucherverbaende warnen vor Preisdruck.",
+        "immediateEffects": [{ "metric": "budget", "change": 6 }, { "metric": "livingStandard", "change": -3 }, { "metric": "trust", "change": -2 }],
+        "hiddenEffects": [{ "metric": "fiscalSpace", "change": 7 }, { "metric": "polarization", "change": 1 }],
+        "approvalEffect": -2,
+        "flagsToSet": ["budget_2007_vat"],
+        "publicMemoryImpact": { "immediateApproval": -2, "groupEffects": [{ "group": "families", "change": -3 }, { "group": "retirees", "change": -2 }, { "group": "entrepreneurs", "change": 2 }], "reactivationTags": ["budget_policy"] }
+      },
+      {
+        "id": "investment-budget",
+        "title": "Investitionen priorisieren",
+        "description": "Die Regierung akzeptiert mehr Haushaltsdruck, staerkt aber Infrastruktur und Wachstum.",
+        "advisoryNote": "Wirtschaftsministerium und Kommunen begruessen den Kurs.",
+        "immediateEffects": [{ "metric": "economy", "change": 3 }, { "metric": "budget", "change": -4 }, { "metric": "livingStandard", "change": 1 }],
+        "hiddenEffects": [{ "metric": "infrastructureQuality", "change": 6 }, { "metric": "fiscalSpace", "change": -4 }],
+        "approvalEffect": 1,
+        "flagsToSet": ["budget_2007_invest"],
+        "publicMemoryImpact": { "immediateApproval": 1, "groupEffects": [{ "group": "workers", "change": 2 }, { "group": "families", "change": 2 }], "reactivationTags": ["budget_policy", "infrastructure"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": []
+  },
+  {
+    "id": "financial-crisis-2008",
+    "year": 2008,
+    "title": "Finanzkrise",
+    "category": "economy",
+    "headline": "Banken und Realwirtschaft geraten unter Druck.",
+    "description": "Die Regierung muss entscheiden, wie entschlossen sie Stabilisierungspakete auflegt.",
+    "historicalContext": { "summary": "Die globale Finanzkrise erreichte Deutschland 2008 massiv.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch wurden Banken stabilisiert und Konjunkturmassnahmen vorbereitet.",
+    "historicalOptionID": "stabilize-banks",
+    "options": [
+      {
+        "id": "stabilize-banks",
+        "title": "Banken entschlossen stabilisieren",
+        "description": "Die Finanzarchitektur haelt, doch der Staat uebernimmt hohe Risiken.",
+        "advisoryNote": "Notenbank und Kanzleramt warnen vor Systemrisiken.",
+        "immediateEffects": [{ "metric": "economy", "change": 3 }, { "metric": "budget", "change": -7 }, { "metric": "trust", "change": -2 }],
+        "hiddenEffects": [{ "metric": "fiscalSpace", "change": -7 }, { "metric": "usRelations", "change": 1 }, { "metric": "euRelations", "change": 2 }],
+        "approvalEffect": -1,
+        "delayedEffects": [{ "delayInYears": 1, "immediateEffects": [{ "metric": "economy", "change": 2 }], "hiddenEffects": [{ "metric": "fiscalSpace", "change": -2 }], "approvalEffect": 0, "flagsToSet": ["crisis_2008_stabilized_payoff"], "note": "Die Bankenstabilisierung verhindert tiefere Folgeschaeden." }],
+        "flagsToSet": ["crisis_2008_banks"],
+        "publicMemoryImpact": { "immediateApproval": -1, "groupEffects": [{ "group": "entrepreneurs", "change": 2 }, { "group": "lowIncomeAndUnemployed", "change": -3 }], "reactivationTags": ["financial_crisis"] }
+      },
+      {
+        "id": "strict-market-discipline",
+        "title": "Marktdisziplin erzwingen",
+        "description": "Der Staat spart Geld, riskiert aber Schockwellen in Banken und Unternehmen.",
+        "advisoryNote": "Ordnungspolitiker begruessen Haerte, Aufseher warnen vor Dominoeffekten.",
+        "immediateEffects": [{ "metric": "budget", "change": 4 }, { "metric": "economy", "change": -7 }, { "metric": "trust", "change": -4 }],
+        "hiddenEffects": [{ "metric": "fiscalSpace", "change": 3 }, { "metric": "polarization", "change": 4 }],
+        "approvalEffect": -3,
+        "flagsToSet": ["crisis_2008_market_discipline"],
+        "publicMemoryImpact": { "immediateApproval": -3, "groupEffects": [{ "group": "entrepreneurs", "change": -5 }, { "group": "workers", "change": -3 }], "reactivationTags": ["financial_crisis"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["budget_policy"]
+  },
+  {
+    "id": "stimulus-2009",
+    "year": 2009,
+    "title": "Konjunkturpaket",
+    "category": "economy",
+    "headline": "Die Rezession bedroht Jobs und Vertrauen.",
+    "description": "Kurz vor der Wahl muss die Regierung entscheiden, wie stark sie die Wirtschaft stuetzt.",
+    "historicalContext": { "summary": "2009 reagierte Deutschland mit Konjunkturpaketen auf die Finanzkrise.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch wurden Konjunkturpakete und Kurzarbeit genutzt, um Beschaeftigung zu stabilisieren.",
+    "historicalOptionID": "short-work-stimulus",
+    "options": [
+      {
+        "id": "short-work-stimulus",
+        "title": "Kurzarbeit und Investitionen ausweiten",
+        "description": "Jobs bleiben erhalten, der Haushalt wird weiter belastet.",
+        "advisoryNote": "Gewerkschaften und Unternehmen tragen den Kurs breit mit.",
+        "immediateEffects": [{ "metric": "economy", "change": 5 }, { "metric": "livingStandard", "change": 3 }, { "metric": "budget", "change": -5 }, { "metric": "trust", "change": 2 }],
+        "hiddenEffects": [{ "metric": "welfareStrength", "change": 3 }, { "metric": "fiscalSpace", "change": -5 }],
+        "approvalEffect": 3,
+        "flagsToSet": ["stimulus_2009_short_work"],
+        "publicMemoryImpact": { "immediateApproval": 3, "groupEffects": [{ "group": "workers", "change": 5 }, { "group": "entrepreneurs", "change": 3 }], "reactivationTags": ["financial_crisis", "labour_reform"] }
+      },
+      {
+        "id": "austerity-early",
+        "title": "Frueh konsolidieren",
+        "description": "Der Staat spart, aber die Rezession trifft Arbeitsmarkt und Vertrauen haerter.",
+        "advisoryNote": "Das Finanzministerium sieht Spielraum, Arbeitsmarktexperten warnen.",
+        "immediateEffects": [{ "metric": "budget", "change": 4 }, { "metric": "economy", "change": -4 }, { "metric": "livingStandard", "change": -3 }],
+        "hiddenEffects": [{ "metric": "fiscalSpace", "change": 4 }, { "metric": "polarization", "change": 3 }],
+        "approvalEffect": -3,
+        "flagsToSet": ["stimulus_2009_austerity"],
+        "publicMemoryImpact": { "immediateApproval": -3, "groupEffects": [{ "group": "workers", "change": -5 }, { "group": "lowIncomeAndUnemployed", "change": -4 }], "reactivationTags": ["financial_crisis"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["financial_crisis"]
+  },
+  {
+    "id": "eurozone-2010",
+    "year": 2010,
+    "title": "Eurozonenkrise",
+    "category": "foreignPolicy",
+    "headline": "Europa erwartet deutsche Fuehrung in der Schuldenkrise.",
+    "description": "Die Regierung muss Stabilitaet, Solidaritaet und innenpolitische Akzeptanz verbinden.",
+    "historicalContext": { "summary": "Ab 2010 praegte die Eurozonenkrise die europaeische Politik.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch setzte Deutschland auf Rettungsmechanismen mit Auflagen.",
+    "historicalOptionID": "aid-with-conditions",
+    "options": [
+      {
+        "id": "aid-with-conditions",
+        "title": "Hilfen mit Auflagen stuetzen",
+        "description": "Europa bleibt stabiler, innenpolitisch entstehen Reibungen.",
+        "advisoryNote": "Das Aussenministerium warnt vor europaeischer Instabilitaet.",
+        "immediateEffects": [{ "metric": "internationalRelations", "change": 4 }, { "metric": "budget", "change": -2 }, { "metric": "society", "change": -1 }],
+        "hiddenEffects": [{ "metric": "euRelations", "change": 6 }, { "metric": "polarization", "change": 2 }],
+        "approvalEffect": 0,
+        "flagsToSet": ["euro_2010_conditions"],
+        "publicMemoryImpact": { "immediateApproval": 0, "groupEffects": [{ "group": "entrepreneurs", "change": 2 }, { "group": "lowIncomeAndUnemployed", "change": -1 }], "reactivationTags": ["eu_policy"] }
+      },
+      {
+        "id": "hard-no-bailout",
+        "title": "Keine Rettungslogik akzeptieren",
+        "description": "Innenpolitisch wirkt der Kurs hart, europaeisch steigt das Risiko.",
+        "advisoryNote": "Haushaltspolitiker applaudieren, Diplomaten warnen.",
+        "immediateEffects": [{ "metric": "budget", "change": 3 }, { "metric": "internationalRelations", "change": -6 }, { "metric": "trust", "change": 1 }],
+        "hiddenEffects": [{ "metric": "euRelations", "change": -8 }, { "metric": "polarization", "change": 3 }],
+        "approvalEffect": 1,
+        "flagsToSet": ["euro_2010_hardline"],
+        "publicMemoryImpact": { "immediateApproval": 1, "groupEffects": [{ "group": "retirees", "change": 2 }, { "group": "entrepreneurs", "change": -2 }], "reactivationTags": ["eu_policy"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": []
+  },
+  {
+    "id": "fukushima-2011",
+    "year": 2011,
+    "title": "Fukushima und Atompolitik",
+    "category": "energy",
+    "headline": "Ein Reaktorunfall veraendert die Energiepolitik schlagartig.",
+    "description": "Die Regierung muss entscheiden, ob sie Atomkraft auslaufen laesst, absichert oder verlaengert.",
+    "historicalContext": { "summary": "Nach Fukushima beschloss Deutschland 2011 den beschleunigten Atomausstieg.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch beschloss Deutschland 2011 den beschleunigten Atomausstieg.",
+    "historicalOptionID": "nuclear-exit",
+    "options": [
+      {
+        "id": "nuclear-exit",
+        "title": "Beschleunigten Atomausstieg beschliessen",
+        "description": "Gesellschaftliche Sicherheitserwartungen werden bedient, Energieplanung wird anspruchsvoller.",
+        "advisoryNote": "Umwelt- und Sicherheitsministerien draengen auf klare Kante.",
+        "immediateEffects": [{ "metric": "society", "change": 3 }, { "metric": "trust", "change": 3 }, { "metric": "energy", "change": -4 }],
+        "hiddenEffects": [{ "metric": "nuclearCapacity", "change": -16 }, { "metric": "renewableCapacity", "change": 7 }, { "metric": "polarization", "change": -1 }],
+        "approvalEffect": 3,
+        "conditionalModifiers": [{ "conditions": [{ "requiredFlags": ["energy_2000_nuclear_priority"], "blockedByFlags": [], "visibleMetrics": [], "hiddenMetrics": [] }], "immediateEffects": [{ "metric": "trust", "change": -3 }], "hiddenEffects": [{ "metric": "polarization", "change": 4 }], "approvalEffect": -2, "memoryReactivationTags": ["nuclear"], "note": "Die fruehe Atomkraftstrategie macht den Kurswechsel weniger glaubwuerdig." }],
+        "flagsToSet": ["energy_2011_nuclear_exit"],
+        "publicMemoryImpact": { "immediateApproval": 3, "groupEffects": [{ "group": "youngAdults", "change": 4 }, { "group": "families", "change": 3 }, { "group": "entrepreneurs", "change": -2 }], "reactivationTags": ["energy_strategy", "nuclear"] }
+      },
+      {
+        "id": "stress-tests",
+        "title": "Laufzeiten nach Stresstests pruefen",
+        "description": "Die Regierung vermeidet abrupte Brueche, bleibt aber politisch unter Druck.",
+        "advisoryNote": "Industrie und Netzbetreiber bitten um Zeit.",
+        "immediateEffects": [{ "metric": "energy", "change": 2 }, { "metric": "society", "change": -3 }, { "metric": "trust", "change": -2 }],
+        "hiddenEffects": [{ "metric": "nuclearCapacity", "change": -4 }, { "metric": "polarization", "change": 4 }],
+        "approvalEffect": -1,
+        "flagsToSet": ["energy_2011_stress_tests"],
+        "publicMemoryImpact": { "immediateApproval": -1, "groupEffects": [{ "group": "entrepreneurs", "change": 2 }, { "group": "youngAdults", "change": -4 }], "reactivationTags": ["energy_strategy", "nuclear"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["energy_strategy", "nuclear"]
+  },
+  {
+    "id": "euro-rescue-2012",
+    "year": 2012,
+    "title": "Euro-Rettung vertiefen",
+    "category": "foreignPolicy",
+    "headline": "Die Eurozone braucht dauerhafte Rettungsmechanismen.",
+    "description": "Deutschland muss entscheiden, wie viel Risiko es fuer europaeische Stabilitaet traegt.",
+    "historicalContext": { "summary": "2012 wurden europaeische Stabilitaetsmechanismen weiter verankert.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch trug Deutschland Rettungsmechanismen mit strengen Bedingungen mit.",
+    "historicalOptionID": "esm-support",
+    "options": [
+      {
+        "id": "esm-support",
+        "title": "ESM mit Auflagen stuetzen",
+        "description": "Europaeische Beziehungen verbessern sich, fiskalische Risiken bleiben sichtbar.",
+        "advisoryNote": "EU-Partner erwarten Verlaesslichkeit.",
+        "immediateEffects": [{ "metric": "internationalRelations", "change": 4 }, { "metric": "budget", "change": -2 }],
+        "hiddenEffects": [{ "metric": "euRelations", "change": 5 }, { "metric": "fiscalSpace", "change": -2 }],
+        "approvalEffect": 0,
+        "flagsToSet": ["euro_2012_esm"],
+        "publicMemoryImpact": { "immediateApproval": 0, "groupEffects": [{ "group": "entrepreneurs", "change": 2 }, { "group": "retirees", "change": -1 }], "reactivationTags": ["eu_policy"] }
+      },
+      {
+        "id": "domestic-limit",
+        "title": "Haftung strikt begrenzen",
+        "description": "Der Haushalt wird geschont, aber Deutschlands Fuehrungsrolle leidet.",
+        "advisoryNote": "Innenpolitisch ist der Kurs leichter zu verkaufen.",
+        "immediateEffects": [{ "metric": "budget", "change": 2 }, { "metric": "internationalRelations", "change": -3 }],
+        "hiddenEffects": [{ "metric": "euRelations", "change": -4 }, { "metric": "polarization", "change": 1 }],
+        "approvalEffect": 1,
+        "flagsToSet": ["euro_2012_limit"],
+        "publicMemoryImpact": { "immediateApproval": 1, "groupEffects": [{ "group": "retirees", "change": 1 }], "reactivationTags": ["eu_policy"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["eu_policy"]
+  },
+  {
+    "id": "energy-costs-2013",
+    "year": 2013,
+    "title": "Kosten der Energiewende",
+    "category": "energy",
+    "headline": "Strompreise und Netzausbau werden zum Wahlkampfthema.",
+    "description": "Die Regierung muss entscheiden, wie sie Kosten, Tempo und Akzeptanz ausbalanciert.",
+    "historicalContext": { "summary": "Anfang der 2010er wurden Kosten und Umsetzung der Energiewende intensiv diskutiert.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch blieb die Energiewende zentral, waehrend Kosten und Ausbaupfade angepasst wurden.",
+    "historicalOptionID": "cost-cap-transition",
+    "options": [
+      {
+        "id": "cost-cap-transition",
+        "title": "Kosten begrenzen, Ausbau fortsetzen",
+        "description": "Akzeptanz steigt, der Ausbau wird etwas planbarer.",
+        "advisoryNote": "Haushalte erwarten Entlastung, Branchen fordern klare Regeln.",
+        "immediateEffects": [{ "metric": "livingStandard", "change": 2 }, { "metric": "energy", "change": 2 }, { "metric": "budget", "change": -2 }],
+        "hiddenEffects": [{ "metric": "renewableCapacity", "change": 4 }, { "metric": "polarization", "change": -1 }],
+        "approvalEffect": 2,
+        "flagsToSet": ["energy_2013_cost_cap"],
+        "publicMemoryImpact": { "immediateApproval": 2, "groupEffects": [{ "group": "families", "change": 3 }, { "group": "entrepreneurs", "change": 1 }], "reactivationTags": ["energy_strategy"] }
+      },
+      {
+        "id": "fast-grid-buildout",
+        "title": "Netzausbau beschleunigen",
+        "description": "Langfristige Energiequalitaet steigt, lokale Konflikte nehmen zu.",
+        "advisoryNote": "Netzbetreiber draengen, Kommunen fordern Beteiligung.",
+        "immediateEffects": [{ "metric": "energy", "change": 5 }, { "metric": "budget", "change": -4 }, { "metric": "society", "change": -2 }],
+        "hiddenEffects": [{ "metric": "infrastructureQuality", "change": 5 }, { "metric": "renewableCapacity", "change": 5 }, { "metric": "polarization", "change": 2 }],
+        "approvalEffect": 0,
+        "flagsToSet": ["energy_2013_grid"],
+        "publicMemoryImpact": { "immediateApproval": 0, "groupEffects": [{ "group": "youngAdults", "change": 2 }, { "group": "families", "change": -1 }], "reactivationTags": ["energy_strategy", "infrastructure"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": []
+  },
+  {
+    "id": "ukraine-russia-2014",
+    "year": 2014,
+    "title": "Russland und Ukraine",
+    "category": "foreignPolicy",
+    "headline": "Die europaeische Sicherheitsordnung geraet unter Druck.",
+    "description": "Deutschland muss Sanktionen, Dialog und Energieabhaengigkeit neu bewerten.",
+    "historicalContext": { "summary": "2014 fuehrten Krim-Annexion und Krieg in der Ostukraine zu EU-Sanktionen gegen Russland.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch stuetzte Deutschland EU-Sanktionen und hielt zugleich diplomatische Kanaele offen.",
+    "historicalOptionID": "sanctions-dialogue",
+    "options": [
+      {
+        "id": "sanctions-dialogue",
+        "title": "Sanktionen und Dialog verbinden",
+        "description": "EU-Beziehungen bleiben stark, Russlandbeziehungen kuehlen ab.",
+        "advisoryNote": "Aussenpolitiker sehen die Balance als glaubwuerdig.",
+        "immediateEffects": [{ "metric": "internationalRelations", "change": 3 }, { "metric": "security", "change": 2 }, { "metric": "energy", "change": -1 }],
+        "hiddenEffects": [{ "metric": "euRelations", "change": 4 }, { "metric": "russiaRelations", "change": -7 }, { "metric": "defenceReadiness", "change": 2 }],
+        "approvalEffect": 1,
+        "flagsToSet": ["russia_2014_sanctions_dialogue"],
+        "publicMemoryImpact": { "immediateApproval": 1, "groupEffects": [{ "group": "publicSector", "change": 1 }], "reactivationTags": ["russia_policy", "security_policy"] }
+      },
+      {
+        "id": "economic-pragmatism",
+        "title": "Wirtschaftlichen Pragmatismus priorisieren",
+        "description": "Kurzfristig werden Energie und Handel geschont, europaeische Partner zweifeln.",
+        "advisoryNote": "Industrievertreter mahnen zur Vorsicht.",
+        "immediateEffects": [{ "metric": "economy", "change": 2 }, { "metric": "energy", "change": 2 }, { "metric": "internationalRelations", "change": -4 }],
+        "hiddenEffects": [{ "metric": "russiaRelations", "change": 3 }, { "metric": "euRelations", "change": -4 }, { "metric": "russianEnergyDependency", "change": 5 }],
+        "approvalEffect": 0,
+        "flagsToSet": ["russia_2014_pragmatic"],
+        "publicMemoryImpact": { "immediateApproval": 0, "groupEffects": [{ "group": "entrepreneurs", "change": 3 }, { "group": "youngAdults", "change": -2 }], "reactivationTags": ["russia_policy", "energy_strategy"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": []
+  },
+  {
+    "id": "migration-2015",
+    "year": 2015,
+    "title": "Flucht und Migration",
+    "category": "society",
+    "headline": "Viele Schutzsuchende erreichen Deutschland.",
+    "description": "Die Regierung muss Humanitaet, Kapazitaeten und gesellschaftliche Akzeptanz steuern.",
+    "historicalContext": { "summary": "2015 nahm Deutschland sehr viele Gefluechtete auf.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch hielt Deutschland seine Grenzen in der akuten Lage offen und organisierte spaeter Integration und Steuerung.",
+    "historicalOptionID": "open-humanitarian",
+    "options": [
+      {
+        "id": "open-humanitarian",
+        "title": "Humanitaer offen handeln",
+        "description": "Internationale Anerkennung steigt, Integration und Kommunen stehen unter hohem Druck.",
+        "advisoryNote": "Aussen- und Innenministerium warnen vor operativer Ueberlastung.",
+        "immediateEffects": [{ "metric": "internationalRelations", "change": 5 }, { "metric": "society", "change": -4 }, { "metric": "budget", "change": -4 }],
+        "hiddenEffects": [{ "metric": "integrationCapacity", "change": -6 }, { "metric": "polarization", "change": 8 }, { "metric": "euRelations", "change": 2 }],
+        "approvalEffect": -2,
+        "delayedEffects": [{ "delayInYears": 2, "immediateEffects": [{ "metric": "society", "change": -2 }], "hiddenEffects": [{ "metric": "integrationCapacity", "change": 3 }], "approvalEffect": -1, "flagsToSet": ["migration_2015_integration_pressure"], "note": "Die Integrationsarbeit aus 2015 bleibt politisch sichtbar." }],
+        "flagsToSet": ["migration_2015_open"],
+        "publicMemoryImpact": { "immediateApproval": -2, "groupEffects": [{ "group": "youngAdults", "change": 2 }, { "group": "families", "change": -2 }, { "group": "publicSector", "change": -3 }], "reactivationTags": ["migration_policy"] }
+      },
+      {
+        "id": "controlled-humanitarian",
+        "title": "Humanitaere Aufnahme mit schneller Steuerung",
+        "description": "Die Regierung verbindet Aufnahme mit sofortigem Kapazitaetsaufbau.",
+        "advisoryNote": "Kommunen fordern Geld und klare Verfahren.",
+        "immediateEffects": [{ "metric": "internationalRelations", "change": 3 }, { "metric": "budget", "change": -5 }, { "metric": "society", "change": -1 }],
+        "hiddenEffects": [{ "metric": "integrationCapacity", "change": 4 }, { "metric": "polarization", "change": 3 }, { "metric": "fiscalSpace", "change": -4 }],
+        "approvalEffect": 0,
+        "flagsToSet": ["migration_2015_controlled"],
+        "publicMemoryImpact": { "immediateApproval": 0, "groupEffects": [{ "group": "publicSector", "change": 1 }, { "group": "families", "change": 1 }], "reactivationTags": ["migration_policy"] }
+      },
+      {
+        "id": "restrict-entry",
+        "title": "Aufnahme stark begrenzen",
+        "description": "Kurzfristig sinkt Verwaltungsdruck, internationale Beziehungen und Vertrauen in humanitaere Verantwortung leiden.",
+        "advisoryNote": "Sicherheitsbehoerden sehen Entlastung, Diplomaten warnen.",
+        "immediateEffects": [{ "metric": "security", "change": 2 }, { "metric": "internationalRelations", "change": -6 }, { "metric": "trust", "change": -3 }],
+        "hiddenEffects": [{ "metric": "integrationCapacity", "change": 2 }, { "metric": "euRelations", "change": -5 }, { "metric": "polarization", "change": 5 }],
+        "approvalEffect": 1,
+        "flagsToSet": ["migration_2015_restricted"],
+        "publicMemoryImpact": { "immediateApproval": 1, "groupEffects": [{ "group": "retirees", "change": 2 }, { "group": "youngAdults", "change": -4 }], "reactivationTags": ["migration_policy"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": []
+  },
+  {
+    "id": "integration-security-2016",
+    "year": 2016,
+    "title": "Integration und Sicherheit",
+    "category": "security",
+    "headline": "Integration, innere Sicherheit und Vertrauen werden gleichzeitig getestet.",
+    "description": "Die Regierung muss in Verwaltung, Praevention und Sicherheit investieren.",
+    "historicalContext": { "summary": "2016 standen Integration und Sicherheit stark im politischen Fokus.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch wurden Integrations- und Sicherheitspolitik ausgebaut und nachjustiert.",
+    "historicalOptionID": "integration-security-package",
+    "options": [
+      {
+        "id": "integration-security-package",
+        "title": "Integrations- und Sicherheitspaket",
+        "description": "Der Staat investiert breit und signalisiert Handlungsfaehigkeit.",
+        "advisoryNote": "Kommunen und Sicherheitsbehoerden fordern schnelle Umsetzung.",
+        "immediateEffects": [{ "metric": "security", "change": 3 }, { "metric": "society", "change": 2 }, { "metric": "budget", "change": -4 }],
+        "hiddenEffects": [{ "metric": "integrationCapacity", "change": 7 }, { "metric": "defenceReadiness", "change": 2 }, { "metric": "polarization", "change": -2 }],
+        "approvalEffect": 2,
+        "flagsToSet": ["integration_2016_package"],
+        "publicMemoryImpact": { "immediateApproval": 2, "groupEffects": [{ "group": "families", "change": 2 }, { "group": "publicSector", "change": 2 }], "reactivationTags": ["migration_policy", "security_policy"] }
+      },
+      {
+        "id": "security-first",
+        "title": "Sicherheit zuerst",
+        "description": "Die Regierung gewinnt sichtbare Kontrolle, laesst Integrationskapazitaet aber knapper.",
+        "advisoryNote": "Innenpolitisch ist der Kurs klar, Sozialverbaende warnen.",
+        "immediateEffects": [{ "metric": "security", "change": 6 }, { "metric": "society", "change": -2 }, { "metric": "trust", "change": 1 }],
+        "hiddenEffects": [{ "metric": "integrationCapacity", "change": -2 }, { "metric": "polarization", "change": 4 }],
+        "approvalEffect": 1,
+        "flagsToSet": ["integration_2016_security_first"],
+        "publicMemoryImpact": { "immediateApproval": 1, "groupEffects": [{ "group": "retirees", "change": 3 }, { "group": "youngAdults", "change": -2 }], "reactivationTags": ["security_policy"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["migration_policy"]
+  },
+  {
+    "id": "broadband-2017",
+    "year": 2017,
+    "title": "Digitale Infrastruktur",
+    "category": "digitalization",
+    "headline": "Breitband und mobile Netze werden zum Standortfaktor.",
+    "description": "Die Regierung entscheidet, wie stark sie Netze und digitale Verwaltung beschleunigt.",
+    "historicalContext": { "summary": "Digitale Infrastruktur wurde in den 2010ern zu einem wiederkehrenden deutschen Strukturthema.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch blieb der Ausbau digitaler Infrastruktur ein kritisiertes Langfristprojekt.",
+    "historicalOptionID": "incremental-broadband",
+    "options": [
+      {
+        "id": "incremental-broadband",
+        "title": "Foerderprogramme fortsetzen",
+        "description": "Der Ausbau geht weiter, aber Engpaesse bleiben.",
+        "advisoryNote": "Der Haushalt bleibt kontrollierbar.",
+        "immediateEffects": [{ "metric": "economy", "change": 1 }, { "metric": "budget", "change": -2 }],
+        "hiddenEffects": [{ "metric": "digitalization", "change": 4 }, { "metric": "infrastructureQuality", "change": 2 }],
+        "approvalEffect": 0,
+        "flagsToSet": ["digital_2017_incremental"],
+        "publicMemoryImpact": { "immediateApproval": 0, "groupEffects": [{ "group": "youngAdults", "change": -1 }], "reactivationTags": ["digital_state"] }
+      },
+      {
+        "id": "fiber-offensive",
+        "title": "Glasfaser-Offensive starten",
+        "description": "Hohe Investitionen verbessern langfristige Wettbewerbsfaehigkeit.",
+        "advisoryNote": "Wirtschaft und junge Erwachsene erwarten spuerbare Modernisierung.",
+        "immediateEffects": [{ "metric": "budget", "change": -5 }, { "metric": "economy", "change": 3 }, { "metric": "trust", "change": 2 }],
+        "hiddenEffects": [{ "metric": "digitalization", "change": 10 }, { "metric": "infrastructureQuality", "change": 5 }, { "metric": "fiscalSpace", "change": -4 }],
+        "approvalEffect": 1,
+        "flagsToSet": ["digital_2017_fiber"],
+        "publicMemoryImpact": { "immediateApproval": 1, "groupEffects": [{ "group": "youngAdults", "change": 5 }, { "group": "entrepreneurs", "change": 3 }], "reactivationTags": ["digital_state", "infrastructure"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["digital_state"]
+  },
+  {
+    "id": "housing-2018",
+    "year": 2018,
+    "title": "Wohnungsdruck",
+    "category": "society",
+    "headline": "Mieten und Wohnkosten belasten Familien und junge Erwachsene.",
+    "description": "Die Regierung muss entscheiden, ob sie reguliert, baut oder den Markt entlastet.",
+    "historicalContext": { "summary": "Ende der 2010er stieg der politische Druck beim Thema Wohnen.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch wurden Mietenregulierung, Baufoerderung und Wohngelddebatten kombiniert.",
+    "historicalOptionID": "mixed-housing-policy",
+    "options": [
+      {
+        "id": "mixed-housing-policy",
+        "title": "Bauen und Wohngeld kombinieren",
+        "description": "Die Politik hilft akut und verbessert mittelfristig Angebot.",
+        "advisoryNote": "Kommunen fordern schnellere Genehmigungen.",
+        "immediateEffects": [{ "metric": "livingStandard", "change": 3 }, { "metric": "budget", "change": -4 }, { "metric": "society", "change": 2 }],
+        "hiddenEffects": [{ "metric": "infrastructureQuality", "change": 2 }, { "metric": "fiscalSpace", "change": -3 }],
+        "approvalEffect": 2,
+        "flagsToSet": ["housing_2018_mixed"],
+        "publicMemoryImpact": { "immediateApproval": 2, "groupEffects": [{ "group": "families", "change": 4 }, { "group": "youngAdults", "change": 4 }], "reactivationTags": ["housing_policy"] }
+      },
+      {
+        "id": "rent-cap",
+        "title": "Mieten hart deckeln",
+        "description": "Viele Mieter werden entlastet, Investoren reagieren skeptisch.",
+        "advisoryNote": "Sozialverbaende begruessen Haerte, Bauwirtschaft warnt.",
+        "immediateEffects": [{ "metric": "livingStandard", "change": 4 }, { "metric": "economy", "change": -2 }, { "metric": "trust", "change": 1 }],
+        "hiddenEffects": [{ "metric": "infrastructureQuality", "change": -2 }, { "metric": "polarization", "change": 3 }],
+        "approvalEffect": 1,
+        "flagsToSet": ["housing_2018_rent_cap"],
+        "publicMemoryImpact": { "immediateApproval": 1, "groupEffects": [{ "group": "lowIncomeAndUnemployed", "change": 5 }, { "group": "entrepreneurs", "change": -4 }], "reactivationTags": ["housing_policy"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": []
+  },
+  {
+    "id": "climate-package-2019",
+    "year": 2019,
+    "title": "Klimapaket",
+    "category": "energy",
+    "headline": "Klimapolitik wird zum zentralen Generationenthema.",
+    "description": "Die Regierung muss CO2-Preis, Investitionen und sozialen Ausgleich abstimmen.",
+    "historicalContext": { "summary": "2019 beschloss Deutschland ein Klimapaket mit CO2-Bepreisung.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch setzte Deutschland auf ein Klimapaket mit CO2-Preis und Foerdermassnahmen.",
+    "historicalOptionID": "carbon-price-social",
+    "options": [
+      {
+        "id": "carbon-price-social",
+        "title": "CO2-Preis mit Ausgleich einfuehren",
+        "description": "Klimaschutz gewinnt Instrumente, soziale Abfederung reduziert Widerstand.",
+        "advisoryNote": "Umweltministerium und Sozialministerium suchen Balance.",
+        "immediateEffects": [{ "metric": "energy", "change": 4 }, { "metric": "livingStandard", "change": -1 }, { "metric": "trust", "change": 1 }],
+        "hiddenEffects": [{ "metric": "renewableCapacity", "change": 6 }, { "metric": "polarization", "change": 1 }],
+        "approvalEffect": 1,
+        "flagsToSet": ["climate_2019_social_price"],
+        "publicMemoryImpact": { "immediateApproval": 1, "groupEffects": [{ "group": "youngAdults", "change": 5 }, { "group": "families", "change": -1 }], "reactivationTags": ["climate_policy", "energy_strategy"] }
+      },
+      {
+        "id": "industry-transition-fund",
+        "title": "Industrie-Transformation foerdern",
+        "description": "Unternehmen bekommen Planungssicherheit, Haushalte sehen weniger direkte Entlastung.",
+        "advisoryNote": "Industrie sieht Chancen, Klimaaktivisten fordern mehr Tempo.",
+        "immediateEffects": [{ "metric": "economy", "change": 3 }, { "metric": "budget", "change": -4 }, { "metric": "energy", "change": 2 }],
+        "hiddenEffects": [{ "metric": "renewableCapacity", "change": 4 }, { "metric": "fiscalSpace", "change": -3 }],
+        "approvalEffect": 0,
+        "flagsToSet": ["climate_2019_industry"],
+        "publicMemoryImpact": { "immediateApproval": 0, "groupEffects": [{ "group": "entrepreneurs", "change": 4 }, { "group": "youngAdults", "change": 1 }], "reactivationTags": ["climate_policy"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["energy_strategy"]
+  },
+  {
+    "id": "pandemic-2020",
+    "year": 2020,
+    "title": "Pandemie",
+    "category": "security",
+    "headline": "Eine Gesundheitskrise stellt Staat, Wirtschaft und Gesellschaft auf die Probe.",
+    "description": "Die Regierung entscheidet, wie hart sie Schutzmassnahmen, Hilfen und Kommunikation kombiniert.",
+    "historicalContext": { "summary": "2020 praegte COVID-19 Politik, Wirtschaft und Gesellschaft.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch setzte Deutschland auf Kontaktbeschraenkungen, Hilfen und ein starkes Gesundheitsmanagement.",
+    "historicalOptionID": "protect-and-compensate",
+    "options": [
+      {
+        "id": "protect-and-compensate",
+        "title": "Schuetzen und kompensieren",
+        "description": "Gesundheitssystem und Arbeitsplaetze werden geschuetzt, der Haushalt wird stark belastet.",
+        "advisoryNote": "Gesundheitsministerium und Arbeitsministerium empfehlen entschlossenes Handeln.",
+        "immediateEffects": [{ "metric": "security", "change": 4 }, { "metric": "economy", "change": -4 }, { "metric": "budget", "change": -8 }, { "metric": "trust", "change": 2 }],
+        "hiddenEffects": [{ "metric": "healthcareResilience", "change": 5 }, { "metric": "welfareStrength", "change": 4 }, { "metric": "fiscalSpace", "change": -8 }],
+        "approvalEffect": 2,
+        "delayedEffects": [{ "delayInYears": 1, "immediateEffects": [{ "metric": "economy", "change": 2 }, { "metric": "trust", "change": -1 }], "hiddenEffects": [{ "metric": "polarization", "change": 2 }], "approvalEffect": 0, "flagsToSet": ["pandemic_2020_fatigue"], "note": "Pandemiemuedigkeit belastet die politische Stimmung." }],
+        "flagsToSet": ["pandemic_2020_protect_compensate"],
+        "publicMemoryImpact": { "immediateApproval": 2, "groupEffects": [{ "group": "retirees", "change": 4 }, { "group": "workers", "change": 2 }, { "group": "entrepreneurs", "change": -2 }], "reactivationTags": ["pandemic_policy"] }
+      },
+      {
+        "id": "economy-open",
+        "title": "Wirtschaft offen halten",
+        "description": "Wirtschaftliche Schaeden sinken, Gesundheits- und Vertrauensrisiken steigen.",
+        "advisoryNote": "Unternehmen draengen, Gesundheitsexperten warnen.",
+        "immediateEffects": [{ "metric": "economy", "change": 1 }, { "metric": "security", "change": -6 }, { "metric": "trust", "change": -4 }],
+        "hiddenEffects": [{ "metric": "healthcareResilience", "change": -5 }, { "metric": "polarization", "change": 4 }],
+        "approvalEffect": -2,
+        "flagsToSet": ["pandemic_2020_open"],
+        "publicMemoryImpact": { "immediateApproval": -2, "groupEffects": [{ "group": "entrepreneurs", "change": 3 }, { "group": "retirees", "change": -6 }], "reactivationTags": ["pandemic_policy"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": []
+  },
+  {
+    "id": "recovery-2021",
+    "year": 2021,
+    "title": "Erholung und Regierungswechsel",
+    "category": "economy",
+    "headline": "Nach der Pandemie braucht Deutschland Erholung und Richtung.",
+    "description": "Die Regierung setzt Schwerpunkte fuer Investitionen, Klima und Modernisierung.",
+    "historicalContext": { "summary": "2021 standen Pandemieerholung, Klimapolitik und ein Regierungswechsel im Mittelpunkt.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch fuehrte die Bundestagswahl 2021 zu einer neuen Koalition mit Modernisierungs- und Klimaschwerpunkten.",
+    "historicalOptionID": "modernization-coalition",
+    "options": [
+      {
+        "id": "modernization-coalition",
+        "title": "Modernisierung und Klima verbinden",
+        "description": "Investitionen und Reformversprechen staerken Zukunftserwartungen, kosten aber Geld.",
+        "advisoryNote": "Junge Erwachsene und Unternehmen erwarten Tempo.",
+        "immediateEffects": [{ "metric": "economy", "change": 2 }, { "metric": "energy", "change": 3 }, { "metric": "budget", "change": -4 }, { "metric": "trust", "change": 2 }],
+        "hiddenEffects": [{ "metric": "digitalization", "change": 5 }, { "metric": "renewableCapacity", "change": 5 }, { "metric": "fiscalSpace", "change": -4 }],
+        "approvalEffect": 2,
+        "flagsToSet": ["recovery_2021_modernization"],
+        "publicMemoryImpact": { "immediateApproval": 2, "groupEffects": [{ "group": "youngAdults", "change": 5 }, { "group": "entrepreneurs", "change": 2 }], "reactivationTags": ["digital_state", "climate_policy"] }
+      },
+      {
+        "id": "stability-first-2021",
+        "title": "Stabilitaet vor Umbau",
+        "description": "Der Staat schont Ressourcen, doch Modernisierungsdruck bleibt.",
+        "advisoryNote": "Haushaltspolitiker empfehlen Vorsicht.",
+        "immediateEffects": [{ "metric": "budget", "change": 3 }, { "metric": "trust", "change": 1 }, { "metric": "energy", "change": -1 }],
+        "hiddenEffects": [{ "metric": "digitalization", "change": 1 }, { "metric": "fiscalSpace", "change": 3 }],
+        "approvalEffect": 1,
+        "flagsToSet": ["recovery_2021_stability"],
+        "publicMemoryImpact": { "immediateApproval": 1, "groupEffects": [{ "group": "retirees", "change": 2 }, { "group": "youngAdults", "change": -2 }], "reactivationTags": ["budget_policy"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["pandemic_policy"]
+  },
+  {
+    "id": "energy-crisis-2022",
+    "year": 2022,
+    "title": "Energiekrise und Zeitenwende",
+    "category": "security",
+    "headline": "Russlands Angriffskrieg veraendert Energie- und Sicherheitspolitik.",
+    "description": "Die Regierung muss Energieversorgung, Verteidigung und soziale Entlastung gleichzeitig sichern.",
+    "historicalContext": { "summary": "2022 fuehrte Russlands Angriff auf die Ukraine zu Energiekrise und sicherheitspolitischer Zeitenwende.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch reagierte Deutschland mit Energieentlastungen, LNG-Ausbau, Sanktionen und einem Sondervermoegen fuer die Bundeswehr.",
+    "historicalOptionID": "relief-lng-defence",
+    "options": [
+      {
+        "id": "relief-lng-defence",
+        "title": "Entlastung, LNG und Verteidigung kombinieren",
+        "description": "Die Regierung stabilisiert Versorgung und Sicherheit, verschiebt aber Kosten in die Zukunft.",
+        "advisoryNote": "Alle Ressorts warnen vor Zielkonflikten.",
+        "immediateEffects": [{ "metric": "security", "change": 5 }, { "metric": "energy", "change": 4 }, { "metric": "budget", "change": -8 }, { "metric": "livingStandard", "change": 2 }],
+        "hiddenEffects": [{ "metric": "defenceReadiness", "change": 8 }, { "metric": "russianEnergyDependency", "change": -12 }, { "metric": "fiscalSpace", "change": -8 }, { "metric": "russiaRelations", "change": -8 }],
+        "approvalEffect": 2,
+        "conditionalModifiers": [{ "conditions": [{ "requiredFlags": [], "blockedByFlags": [], "visibleMetrics": [], "hiddenMetrics": [{ "metric": "renewableCapacity", "minimum": 55 }] }], "immediateEffects": [{ "metric": "energy", "change": 3 }, { "metric": "budget", "change": 2 }], "hiddenEffects": [{ "metric": "russianEnergyDependency", "change": -5 }], "approvalEffect": 1, "memoryReactivationTags": ["renewables"], "note": "Hohe Erneuerbaren-Kapazitaet mildert die Krise." }],
+        "flagsToSet": ["crisis_2022_relief_lng_defence"],
+        "publicMemoryImpact": { "immediateApproval": 2, "groupEffects": [{ "group": "families", "change": 4 }, { "group": "retirees", "change": 3 }, { "group": "entrepreneurs", "change": 2 }], "reactivationTags": ["energy_strategy", "russia_policy", "security_policy"] }
+      },
+      {
+        "id": "strict-savings-2022",
+        "title": "Haushalt schonen, Preise weitergeben",
+        "description": "Der Staat bewahrt Spielraum, Haushalte und Unternehmen geraten unter Druck.",
+        "advisoryNote": "Finanzpolitiker sehen Disziplin, Sozialverbaende warnen.",
+        "immediateEffects": [{ "metric": "budget", "change": 3 }, { "metric": "livingStandard", "change": -7 }, { "metric": "society", "change": -4 }, { "metric": "energy", "change": -2 }],
+        "hiddenEffects": [{ "metric": "fiscalSpace", "change": 4 }, { "metric": "polarization", "change": 6 }],
+        "approvalEffect": -4,
+        "flagsToSet": ["crisis_2022_savings"],
+        "publicMemoryImpact": { "immediateApproval": -4, "groupEffects": [{ "group": "families", "change": -6 }, { "group": "lowIncomeAndUnemployed", "change": -8 }, { "group": "entrepreneurs", "change": -2 }], "reactivationTags": ["energy_strategy"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["energy_strategy", "russia_policy", "nuclear"]
+  },
+  {
+    "id": "budget-court-2023",
+    "year": 2023,
+    "title": "Haushaltskrise",
+    "category": "budget",
+    "headline": "Finanzierungsplaene geraten rechtlich und politisch unter Druck.",
+    "description": "Die Regierung muss Sparen, Sonderwege oder Priorisierung waehlen.",
+    "historicalContext": { "summary": "2023 sorgten Haushaltsfragen und Schuldenbremse fuer erhebliche politische Konflikte.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch musste die Bundesregierung nach einem Haushaltsurteil Finanzierungsplaene neu ordnen.",
+    "historicalOptionID": "reprioritize-budget",
+    "options": [
+      {
+        "id": "reprioritize-budget",
+        "title": "Prioritaeten offen neu ordnen",
+        "description": "Der Kurs ist schmerzhaft, aber transparent.",
+        "advisoryNote": "Das Kanzleramt setzt auf Glaubwuerdigkeit.",
+        "immediateEffects": [{ "metric": "budget", "change": 3 }, { "metric": "trust", "change": 1 }, { "metric": "society", "change": -2 }],
+        "hiddenEffects": [{ "metric": "fiscalSpace", "change": 3 }, { "metric": "polarization", "change": 1 }],
+        "approvalEffect": 0,
+        "flagsToSet": ["budget_2023_reprioritize"],
+        "publicMemoryImpact": { "immediateApproval": 0, "groupEffects": [{ "group": "publicSector", "change": -1 }], "reactivationTags": ["budget_policy"] }
+      },
+      {
+        "id": "protect-projects",
+        "title": "Zukunftsprojekte schuetzen",
+        "description": "Modernisierung bleibt erhalten, aber Haushaltsvertrauen leidet.",
+        "advisoryNote": "Digital- und Klimaministerien draengen.",
+        "immediateEffects": [{ "metric": "economy", "change": 2 }, { "metric": "energy", "change": 2 }, { "metric": "budget", "change": -4 }, { "metric": "trust", "change": -2 }],
+        "hiddenEffects": [{ "metric": "digitalization", "change": 3 }, { "metric": "renewableCapacity", "change": 3 }, { "metric": "fiscalSpace", "change": -4 }],
+        "approvalEffect": -1,
+        "flagsToSet": ["budget_2023_projects"],
+        "publicMemoryImpact": { "immediateApproval": -1, "groupEffects": [{ "group": "youngAdults", "change": 2 }, { "group": "retirees", "change": -2 }], "reactivationTags": ["budget_policy", "digital_state"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["budget_policy"]
+  },
+  {
+    "id": "industry-defence-2024",
+    "year": 2024,
+    "title": "Industrie, Ukraine und Verteidigung",
+    "category": "security",
+    "headline": "Wirtschaftliche Schwaeche und Sicherheitsdruck fallen zusammen.",
+    "description": "Die Regierung entscheidet, ob sie Industrie, Verteidigung oder Haushalt priorisiert.",
+    "historicalContext": { "summary": "2024 standen Standortdebatten, Ukraine-Unterstuetzung und Verteidigungsfaehigkeit im Fokus.", "sourceNote": "Redaktioneller Prototype-Content." },
+    "historicalReality": "Historisch debattierte Deutschland intensiv ueber Standortkosten, Ukraine-Hilfe und Verteidigungsausgaben.",
+    "historicalOptionID": "industry-defence-balance",
+    "options": [
+      {
+        "id": "industry-defence-balance",
+        "title": "Industrie und Verteidigung balancieren",
+        "description": "Die Regierung stuetzt Standort und Sicherheit, ohne einen Bereich zu vernachlaessigen.",
+        "advisoryNote": "Wirtschaft und Sicherheitsrat fordern beide Prioritaet.",
+        "immediateEffects": [{ "metric": "economy", "change": 3 }, { "metric": "security", "change": 3 }, { "metric": "budget", "change": -5 }],
+        "hiddenEffects": [{ "metric": "defenceReadiness", "change": 5 }, { "metric": "infrastructureQuality", "change": 2 }, { "metric": "fiscalSpace", "change": -5 }],
+        "approvalEffect": 1,
+        "flagsToSet": ["industry_2024_balance"],
+        "publicMemoryImpact": { "immediateApproval": 1, "groupEffects": [{ "group": "entrepreneurs", "change": 3 }, { "group": "workers", "change": 2 }], "reactivationTags": ["security_policy", "industry_policy"] }
+      },
+      {
+        "id": "defence-first-2024",
+        "title": "Verteidigung zuerst",
+        "description": "Sicherheitsfaehigkeit steigt stark, andere Modernisierung leidet.",
+        "advisoryNote": "Partner erwarten mehr Tempo.",
+        "immediateEffects": [{ "metric": "security", "change": 6 }, { "metric": "budget", "change": -5 }, { "metric": "economy", "change": -1 }],
+        "hiddenEffects": [{ "metric": "defenceReadiness", "change": 10 }, { "metric": "fiscalSpace", "change": -5 }],
+        "approvalEffect": 0,
+        "flagsToSet": ["industry_2024_defence_first"],
+        "publicMemoryImpact": { "immediateApproval": 0, "groupEffects": [{ "group": "retirees", "change": -1 }, { "group": "publicSector", "change": 2 }], "reactivationTags": ["security_policy"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["security_policy", "russia_policy"]
+  },
+  {
+    "id": "structural-election-2025",
+    "year": 2025,
+    "title": "Strukturwahl",
+    "category": "election",
+    "headline": "Vor der Wahl stehen Wirtschaft, Migration, Klima und Sicherheit im Zentrum.",
+    "description": "Die Regierung setzt den letzten Schwerpunkt vor der Wahl.",
+    "historicalContext": { "summary": "2025 ist im Spiel ein Wahljahr mit gebuendeltem Strukturkonflikt.", "sourceNote": "Game-Content fuer den Wahlzyklus." },
+    "historicalReality": "Historische Bewertung fuer 2025 bleibt redaktionell zu schaerfen; im Spiel zaehlen die aufgebauten Pfade.",
+    "historicalOptionID": "stability-campaign",
+    "options": [
+      {
+        "id": "stability-campaign",
+        "title": "Stabilitaet und Ausgleich betonen",
+        "description": "Die Regierung versucht, breite Mitte und verlaessliche Verwaltung zu mobilisieren.",
+        "advisoryNote": "Wahlkampfstrategen setzen auf Vertrauen.",
+        "immediateEffects": [{ "metric": "trust", "change": 3 }, { "metric": "society", "change": 2 }],
+        "hiddenEffects": [{ "metric": "polarization", "change": -2 }],
+        "approvalEffect": 2,
+        "flagsToSet": ["election_2025_stability"],
+        "publicMemoryImpact": { "immediateApproval": 2, "groupEffects": [{ "group": "families", "change": 2 }, { "group": "retirees", "change": 2 }], "reactivationTags": ["election_campaign"] }
+      },
+      {
+        "id": "reform-campaign",
+        "title": "Harten Reformwahlkampf fuehren",
+        "description": "Die Regierung setzt auf Richtungsentscheidung und nimmt Konflikt in Kauf.",
+        "advisoryNote": "Der Kurs mobilisiert, kann aber abschrecken.",
+        "immediateEffects": [{ "metric": "economy", "change": 2 }, { "metric": "society", "change": -3 }, { "metric": "trust", "change": -1 }],
+        "hiddenEffects": [{ "metric": "labourMarketFlexibility", "change": 3 }, { "metric": "polarization", "change": 4 }],
+        "approvalEffect": 0,
+        "flagsToSet": ["election_2025_reform"],
+        "publicMemoryImpact": { "immediateApproval": 0, "groupEffects": [{ "group": "entrepreneurs", "change": 4 }, { "group": "workers", "change": -2 }], "reactivationTags": ["election_campaign"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["labour_reform", "budget_policy", "migration_policy"]
+  },
+  {
+    "id": "germany-2026-report",
+    "year": 2026,
+    "title": "Deutschland 2026",
+    "category": "budget",
+    "headline": "Die lange Regierungszeit erreicht ihren Endpunkt.",
+    "description": "Die letzte Entscheidung setzt den Ton fuer den Abschlussbericht.",
+    "historicalContext": { "summary": "2026 dient im Spiel als Abschlussjahr fuer den Vergleich zwischen historischem Deutschland und Spielerpfad.", "sourceNote": "Game-Content fuer den Endscreen." },
+    "historicalReality": "Der finale Vergleich trennt historische Realitaet und Simulation: Deine Werte zeigen den alternativen Pfad.",
+    "historicalOptionID": "institutional-report",
+    "options": [
+      {
+        "id": "institutional-report",
+        "title": "Institutionelle Bilanz ziehen",
+        "description": "Die Regierung betont Staatlichkeit, Vertrauen und langfristige Stabilitaet.",
+        "advisoryNote": "Das Kanzleramt will eine nuechterne Bilanz.",
+        "immediateEffects": [{ "metric": "trust", "change": 2 }, { "metric": "internationalRelations", "change": 1 }],
+        "hiddenEffects": [{ "metric": "euRelations", "change": 1 }],
+        "approvalEffect": 1,
+        "flagsToSet": ["final_2026_institutional"],
+        "publicMemoryImpact": { "immediateApproval": 1, "groupEffects": [{ "group": "publicSector", "change": 2 }], "reactivationTags": ["final_report"] }
+      },
+      {
+        "id": "citizen-report",
+        "title": "Buergerbilanz vorlegen",
+        "description": "Die Regierung bewertet Wohlstand, Lebensstandard und Alltag direkt.",
+        "advisoryNote": "Kommunikatoren erwarten mehr Naehe zu den Waehlern.",
+        "immediateEffects": [{ "metric": "livingStandard", "change": 1 }, { "metric": "trust", "change": 1 }, { "metric": "society", "change": 1 }],
+        "hiddenEffects": [{ "metric": "polarization", "change": -1 }],
+        "approvalEffect": 1,
+        "flagsToSet": ["final_2026_citizen"],
+        "publicMemoryImpact": { "immediateApproval": 1, "groupEffects": [{ "group": "families", "change": 2 }, { "group": "workers", "change": 1 }], "reactivationTags": ["final_report"] }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["final_report"]
+  }
+]

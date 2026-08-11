@@ -92,7 +92,7 @@ import Testing
     #expect(engine.currentEvent?.id == "security-2001")
 }
 
-@Test func eventlessYearCanBeAdvancedThrough() throws {
+@Test func year2002HasFloodEventBefore2003() throws {
     let engine = GameEngine(eventRepository: LocalJSONEventRepository())
     engine.startNewGame()
 
@@ -104,8 +104,9 @@ import Testing
     engine.advanceGame()
 
     #expect(engine.state.currentYear == 2002)
-    #expect(engine.currentEvent == nil)
+    #expect(engine.currentEvent?.id == "floods-2002")
 
+    try engine.choose(option: "fast-relief")
     engine.advanceGame()
 
     #expect(engine.state.currentYear == 2003)
@@ -122,6 +123,7 @@ import Testing
     engine.advanceGame()
     try engine.choose(option: "balanced-security")
     engine.advanceGame()
+    try engine.choose(option: "fast-relief")
     engine.advanceGame()
 
     #expect(engine.state.currentYear == 2003)
@@ -140,6 +142,7 @@ import Testing
     engine.advanceGame()
     try engine.choose(option: "balanced-security")
     engine.advanceGame()
+    try engine.choose(option: "fast-relief")
     engine.advanceGame()
     try engine.choose(option: "own-the-course")
     engine.advanceGame()
@@ -233,6 +236,7 @@ import Testing
     engine.advanceGame()
     try engine.choose(option: "balanced-security")
     engine.advanceGame()
+    try engine.choose(option: "fast-relief")
     engine.advanceGame()
     try engine.choose(option: "own-the-course")
     engine.advanceGame()

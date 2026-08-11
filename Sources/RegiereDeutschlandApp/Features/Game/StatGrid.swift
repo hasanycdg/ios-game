@@ -29,8 +29,14 @@ struct StatGrid: View {
                         .font(.headline)
                 }
                 .padding(12)
-                .background(.thinMaterial)
+                .background(GameTheme.panel.opacity(0.85))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(GameTheme.panelStroke, lineWidth: 1)
+                )
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel("\(title): \(value) von 100")
             }
         }
     }

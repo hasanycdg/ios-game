@@ -1,0 +1,86 @@
+[
+  {
+    "id": "floods-2002",
+    "year": 2002,
+    "title": "Jahrhundertflut",
+    "category": "security",
+    "headline": "Schwere Hochwasser treffen Ost- und Sueddeutschland.",
+    "description": "Die Regierung muss Katastrophenhilfe, Infrastruktur und Haushalt zusammenbringen.",
+    "historicalContext": {
+      "summary": "2002 verursachten Hochwasser in Deutschland grosse Schaeden und wurden politisch sehr sichtbar.",
+      "sourceNote": "Redaktioneller Prototype-Content."
+    },
+    "options": [
+      {
+        "id": "fast-relief",
+        "title": "Schnelle Fluthilfe beschliessen",
+        "description": "Betroffene Regionen erhalten schnelle Hilfe, der Haushalt wird belastet.",
+        "advisoryNote": "Ministerpraesidenten fordern sofortige Zusagen.",
+        "immediateEffects": [
+          { "metric": "trust", "change": 4 },
+          { "metric": "society", "change": 2 },
+          { "metric": "budget", "change": -5 }
+        ],
+        "hiddenEffects": [
+          { "metric": "infrastructureQuality", "change": 2 },
+          { "metric": "fiscalSpace", "change": -5 }
+        ],
+        "approvalEffect": 3,
+        "flagsToSet": ["floods_2002_fast_relief"],
+        "publicMemoryImpact": {
+          "immediateApproval": 3,
+          "groupEffects": [
+            { "group": "families", "change": 3 },
+            { "group": "publicSector", "change": 2 }
+          ],
+          "reactivationTags": ["disaster_response", "infrastructure"]
+        }
+      },
+      {
+        "id": "resilience-program",
+        "title": "Hilfe mit Praeventionsprogramm verbinden",
+        "description": "Der Staat zahlt langsamer, investiert aber in Schutz und Infrastruktur.",
+        "advisoryNote": "Fachleute sehen langfristige Vorteile, Betroffene erwarten Tempo.",
+        "immediateEffects": [
+          { "metric": "trust", "change": 1 },
+          { "metric": "budget", "change": -4 },
+          { "metric": "security", "change": 2 }
+        ],
+        "hiddenEffects": [
+          { "metric": "infrastructureQuality", "change": 6 },
+          { "metric": "healthcareResilience", "change": 2 },
+          { "metric": "fiscalSpace", "change": -4 }
+        ],
+        "approvalEffect": 1,
+        "delayedEffects": [
+          {
+            "delayInYears": 4,
+            "immediateEffects": [
+              { "metric": "security", "change": 2 }
+            ],
+            "hiddenEffects": [
+              { "metric": "infrastructureQuality", "change": 3 }
+            ],
+            "approvalEffect": 1,
+            "flagsToSet": ["floods_2002_resilience_payoff"],
+            "note": "Fruehe Praevention verbessert die Krisenfestigkeit."
+          }
+        ],
+        "flagsToSet": ["floods_2002_resilience"],
+        "publicMemoryImpact": {
+          "immediateApproval": 1,
+          "groupEffects": [
+            { "group": "publicSector", "change": 3 },
+            { "group": "families", "change": 1 }
+          ],
+          "reactivationTags": ["disaster_response", "infrastructure"]
+        }
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": [],
+    "memoryReactivationTags": ["disaster_response"],
+    "historicalReality": "Historisch spielte schnelle Fluthilfe 2002 eine grosse politische Rolle.",
+    "historicalOptionID": "fast-relief"
+  }
+]

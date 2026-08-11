@@ -55,7 +55,32 @@ public struct ElectionEngine: Sendable {
             keyDecisionTitles: state.decisions.suffix(5).map(\.optionTitle),
             finalStats: state.visible,
             defeatReasons: electionResult.reasons,
-            governingStyle: governingStyle(for: state)
+            governingStyle: governingStyle(for: state),
+            score: score(for: state),
+            wonElectionCount: state.electionResults.filter(\.didWin).count,
+            biggestSuccess: biggestSuccess(for: state),
+            biggestMistake: biggestMistake(for: state),
+            biggestButterflyEffect: biggestButterflyEffect(for: state),
+            strongestHistoricalDeviation: strongestDeviation(for: state)
+        )
+    }
+
+    public func endSummary(for state: GameState, reason: GameOverReason) -> GameOverSummary {
+        GameOverSummary(
+            reason: reason,
+            message: reason == .reachedFinalYear ? "Dein Deutschland 2026 ist erreicht." : "Deine Regierung wurde abgewaehlt.",
+            startYear: 2000,
+            endYear: state.currentYear,
+            keyDecisionTitles: state.decisions.suffix(5).map(\.optionTitle),
+            finalStats: state.visible,
+            defeatReasons: [],
+            governingStyle: governingStyle(for: state),
+            score: score(for: state),
+            wonElectionCount: state.electionResults.filter(\.didWin).count,
+            biggestSuccess: biggestSuccess(for: state),
+            biggestMistake: biggestMistake(for: state),
+            biggestButterflyEffect: biggestButterflyEffect(for: state),
+            strongestHistoricalDeviation: strongestDeviation(for: state)
         )
     }
 
@@ -94,6 +119,59 @@ public struct ElectionEngine: Sendable {
 
     private func roundedShare(_ value: Double) -> Double {
         (value * 10).rounded() / 10
+    }
+
+    private func score(for state: GameState) -> Int {
+        let visibleAverage = VisibleMetric.allCases
+            .map { state.visible.value(for: $0) }
+            .reduce(0, +) / VisibleMetric.allCases.count
+        let yearsSurvived = max(0, state.currentYear - 2000)
+        return max(0, (visibleAverage * 8) + (yearsSurvived * 20) + (state.electionResults.filter(\.didWin).count * 90))
+    }
+
+    private func biggestSuccess(for state: GameState) -> String {
+        let pairs: [(String, Int)] = [
+            ("Wirtschaft", state.visible.economy),
+            ("Lebensstandard", state.visible.livingStandard),
+            ("Energie", state.visible.energy),
+            ("Internationale Beziehungen", state.visible.internationalRelations),
+            ("Vertrauen", state.visible.trust)
+        ]
+        return pairs.max(by: { $0.1 < $1.1 })?.0 ?? "Stabilitaet"
+    }
+
+    private func biggestMistake(for state: GameState) -> String {
+        let pairs: [(String, Int)] = [
+            ("Haushalt", state.visible.budget),
+            ("Gesellschaft", state.visible.society),
+            ("Sicherheit", state.visible.security),
+            ("Energie", state.visible.energy),
+            ("Vertrauen", state.visible.trust)
+        ]
+        return pairs.min(by: { $0.1 < $1.1 })?.0 ?? "keine eindeutige Schwachstelle"
+    }
+
+    private func biggestButterflyEffect(for state: GameState) -> String {
+        if state.hidden.renewableCapacity >= 60 {
+            return "Fruehe Energieentscheidungen veraendern die Krisenfestigkeit deutlich."
+        }
+        if state.hidden.digitalization >= 60 {
+            return "Digitale Verwaltung verbessert Staat und Wirtschaft langfristig."
+        }
+        if state.hidden.polarization >= 65 {
+            return "Fruehe Konflikte verhaerten die politische Landschaft."
+        }
+        return "Viele Entscheidungen stabilisieren sich ohne extremen Ausschlag."
+    }
+
+    private func strongestDeviation(for state: GameState) -> String {
+        let historicalChoices = state.decisions.filter { decision in
+            decision.optionID.contains("historical") || decision.optionID.contains("status-quo")
+        }.count
+        if state.decisions.count > 0, historicalChoices < state.decisions.count / 3 {
+            return "Dein Kurs weicht stark von bekannten historischen Pfaden ab."
+        }
+        return "Dein Kurs bleibt in Teilen nah an historischen Kompromissen."
     }
 }
 

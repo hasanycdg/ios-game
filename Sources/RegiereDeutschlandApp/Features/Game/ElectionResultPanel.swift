@@ -37,9 +37,7 @@ struct ElectionResultPanel: View {
             }
             .buttonStyle(.borderedProminent)
         }
-        .padding(16)
-        .background(.thinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .strategyPanel()
     }
 
     private func resultRow(title: String, value: Double) -> some View {

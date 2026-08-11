@@ -121,6 +121,8 @@
     ],
     "conditions": [],
     "followUpEvents": [],
-    "memoryReactivationTags": ["labour_reform"]
+    "memoryReactivationTags": ["labour_reform"],
+    "historicalReality": "Historisch wurden mit der Agenda-Politik tiefgreifende Arbeitsmarkt- und Sozialreformen umgesetzt.",
+    "historicalOptionID": "firm-reform"
   }
 ]

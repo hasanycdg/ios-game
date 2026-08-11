@@ -17,6 +17,16 @@ struct DecisionResultView: View {
                 .font(.body)
                 .foregroundStyle(.secondary)
 
+            if let historicalReality = result.historicalReality {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(result.didChooseHistoricalPath ? "Historischer Pfad" : "Was geschah wirklich?")
+                        .font(.headline)
+                    Text(historicalReality)
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                }
+            }
+
             if !result.visibleEffects.isEmpty || result.approvalEffect != 0 {
                 VStack(alignment: .leading, spacing: 8) {
                     ForEach(result.visibleEffects, id: \.metric) { effect in
@@ -38,9 +48,7 @@ struct DecisionResultView: View {
             }
             .buttonStyle(.borderedProminent)
         }
-        .padding(16)
-        .background(.thinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .strategyPanel()
     }
 
     private func signed(_ value: Int) -> String {

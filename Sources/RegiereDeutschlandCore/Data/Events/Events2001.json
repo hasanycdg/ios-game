@@ -94,7 +94,9 @@
       }
     ],
     "conditions": [],
-    "followUpEvents": []
+    "followUpEvents": [],
+    "historicalReality": "Historisch fuehrten Arbeitsmarktprobleme Anfang der 2000er zu einer laengeren Reformdebatte.",
+    "historicalOptionID": "market-flexibility"
   },
   {
     "id": "security-2001",
@@ -160,6 +162,8 @@
       }
     ],
     "conditions": [],
-    "followUpEvents": []
+    "followUpEvents": [],
+    "historicalReality": "Historisch wurden nach 2001 Sicherheitsgesetze und internationale Zusammenarbeit ausgeweitet.",
+    "historicalOptionID": "balanced-security"
   }
 ]

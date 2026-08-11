@@ -115,6 +115,8 @@
     ],
     "conditions": [],
     "followUpEvents": [],
-    "memoryReactivationTags": ["energy_strategy"]
+    "memoryReactivationTags": ["energy_strategy"],
+    "historicalReality": "Historisch blieb Energiepolitik 2005 ein wichtiges Industrie- und Haushaltsthema.",
+    "historicalOptionID": "industry-priority"
   }
 ]

@@ -62,7 +62,9 @@
       }
     ],
     "followUpEvents": [],
-    "memoryReactivationTags": ["energy_strategy"]
+    "memoryReactivationTags": ["energy_strategy"],
+    "historicalReality": "Historisch wirkten die Energieentscheidungen um 2000 in den Folgejahren weiter nach.",
+    "historicalOptionID": "own-the-course"
   },
   {
     "id": "digital-administration-2003",
@@ -140,6 +142,8 @@
       }
     ],
     "conditions": [],
-    "followUpEvents": []
+    "followUpEvents": [],
+    "historicalReality": "Historisch blieb digitale Verwaltung ein langsames Modernisierungsthema.",
+    "historicalOptionID": "pilot-projects"
   }
 ]

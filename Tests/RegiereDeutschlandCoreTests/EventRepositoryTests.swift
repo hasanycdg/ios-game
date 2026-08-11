@@ -38,8 +38,16 @@ import Testing
     let repository = LocalJSONEventRepository()
 
     #expect(repository.events(for: 2001).count == 2)
-    #expect(repository.events(for: 2002).isEmpty)
+    #expect(repository.events(for: 2002).count == 1)
     #expect(repository.events(for: 2003).count == 2)
     #expect(repository.events(for: 2004).count == 1)
     #expect(repository.events(for: 2005).count == 1)
+}
+
+@Test func repositoryHasPlayableEventsForEveryYearThrough2026() {
+    let repository = LocalJSONEventRepository()
+
+    for year in 2000...2026 {
+        #expect(repository.events(for: year).isEmpty == false)
+    }
 }

@@ -28,7 +28,10 @@ let package = Package(
         ),
         .executableTarget(
             name: "RegiereDeutschlandApp",
-            dependencies: ["RegiereDeutschlandCore"]
+            dependencies: ["RegiereDeutschlandCore"],
+            resources: [
+                .process("Resources")
+            ]
         ),
         .testTarget(
             name: "RegiereDeutschlandCoreTests",

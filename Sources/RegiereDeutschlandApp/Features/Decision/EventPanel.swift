@@ -37,8 +37,10 @@ struct EventPanel: View {
                         .padding(14)
                     }
                     .buttonStyle(.bordered)
+                    .accessibilityHint(option.advisoryNote)
                 }
             }
         }
+        .strategyPanel()
     }
 }

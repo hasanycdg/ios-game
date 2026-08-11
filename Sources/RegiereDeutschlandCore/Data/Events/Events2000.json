@@ -1,0 +1,80 @@
+[
+  {
+    "id": "energy-policy-2000",
+    "year": 2000,
+    "title": "Energiepolitik 2000",
+    "category": "energy",
+    "headline": "Deutschland stellt die Weichen fuer seine Energiezukunft.",
+    "description": "Die Regierung muss entscheiden, ob sie den Umbau des Energiesystems beschleunigt, den bestehenden Mix absichert oder Atomkraft langfristig staerker gewichtet.",
+    "historicalContext": {
+      "summary": "Um 2000 wurden in Deutschland zentrale energiepolitische Weichen gestellt. Der Ausbau erneuerbarer Energien und die Rolle der Atomkraft standen politisch im Fokus.",
+      "sourceNote": "Prototype-Daten fuer den ersten spielbaren Loop."
+    },
+    "options": [
+      {
+        "id": "promote-renewables",
+        "title": "Erneuerbare Energien stark foerdern",
+        "description": "Foerderprogramme schaffen Planungssicherheit. Kurzfristig belastet das den Haushalt, langfristig entsteht mehr Unabhaengigkeit im Energiesystem.",
+        "advisoryNote": "Der Wirtschaftsminister erwartet neue Wachstumsimpulse, warnt aber vor hoeheren Anfangskosten.",
+        "immediateEffects": [
+          { "metric": "energy", "change": 6 },
+          { "metric": "budget", "change": -5 },
+          { "metric": "internationalRelations", "change": 2 },
+          { "metric": "trust", "change": 3 }
+        ],
+        "hiddenEffects": [
+          { "metric": "renewableCapacity", "change": 16 },
+          { "metric": "russianEnergyDependency", "change": -5 },
+          { "metric": "fiscalSpace", "change": -4 },
+          { "metric": "polarization", "change": 2 }
+        ],
+        "approvalEffect": 3,
+        "delayedEffects": [],
+        "flagsToSet": ["energy_2000_renewables_priority"]
+      },
+      {
+        "id": "keep-energy-mix",
+        "title": "Bestehenden Energiemix beibehalten",
+        "description": "Die Regierung vermeidet harte Konflikte und haelt Versorgung und Preise stabil. Der strukturelle Umbau kommt allerdings nur langsam voran.",
+        "advisoryNote": "Das Kanzleramt rechnet mit Stabilitaet, sieht aber wenig strategischen Fortschritt.",
+        "immediateEffects": [
+          { "metric": "budget", "change": 2 },
+          { "metric": "society", "change": 2 },
+          { "metric": "energy", "change": 1 }
+        ],
+        "hiddenEffects": [
+          { "metric": "renewableCapacity", "change": 3 },
+          { "metric": "nuclearCapacity", "change": -2 },
+          { "metric": "russianEnergyDependency", "change": 3 },
+          { "metric": "polarization", "change": -1 }
+        ],
+        "approvalEffect": 1,
+        "delayedEffects": [],
+        "flagsToSet": ["energy_2000_mixed_course"]
+      },
+      {
+        "id": "strengthen-nuclear",
+        "title": "Atomkraft langfristig staerken",
+        "description": "Die Regierung setzt auf grundlastfaehige Kraftwerke und stabile Industriepreise. Der gesellschaftliche Konflikt ueber Sicherheitsfragen verschaerft sich.",
+        "advisoryNote": "Industrieverbaende begruessen die Verlaesslichkeit, Umweltgruppen kuendigen Widerstand an.",
+        "immediateEffects": [
+          { "metric": "energy", "change": 7 },
+          { "metric": "economy", "change": 3 },
+          { "metric": "society", "change": -5 },
+          { "metric": "trust", "change": -2 }
+        ],
+        "hiddenEffects": [
+          { "metric": "nuclearCapacity", "change": 14 },
+          { "metric": "renewableCapacity", "change": -4 },
+          { "metric": "russianEnergyDependency", "change": -3 },
+          { "metric": "polarization", "change": 7 }
+        ],
+        "approvalEffect": -2,
+        "delayedEffects": [],
+        "flagsToSet": ["energy_2000_nuclear_priority"]
+      }
+    ],
+    "conditions": [],
+    "followUpEvents": []
+  }
+]

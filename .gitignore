@@ -1,0 +1,53 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Packages/
+
+# Xcode
+DerivedData/
+build/
+*.xcuserdata/
+*.xcuserstate
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Xcode user data inside projects and workspaces
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# Signing and local credentials
+*.mobileprovision
+*.provisionprofile
+*.cer
+*.p12
+*.key
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Test and coverage output
+*.profraw
+*.profdata
+coverage/
+TestResults/
+*.xcresult
+
+# Logs and local environment
+*.log
+.env
+.env.*
+!.env.example
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo

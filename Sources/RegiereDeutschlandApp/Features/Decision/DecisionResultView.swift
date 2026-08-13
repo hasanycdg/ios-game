@@ -7,64 +7,79 @@ struct DecisionResultView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Entscheidung umgesetzt")
-                .font(.title2.bold())
-
-            Text(result.optionTitle)
-                .font(.headline)
-
-            Text(result.resultText)
-                .font(.body)
-                .foregroundStyle(.secondary)
-
-            if let historicalReality = result.historicalReality {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(result.didChooseHistoricalPath ? "Historischer Pfad" : "Was geschah wirklich?")
+            HStack(spacing: 10) {
+                Image(systemName: "checkmark.seal.fill")
+                    .font(.title2)
+                    .foregroundStyle(GameTheme.green)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Entscheidung umgesetzt")
                         .font(.headline)
-                    Text(historicalReality)
-                        .font(.callout)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(GameTheme.primaryText)
+                    Text(result.optionTitle)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(GameTheme.gold)
                 }
             }
 
-            if !result.visibleEffects.isEmpty || result.approvalEffect != 0 {
-                VStack(alignment: .leading, spacing: 8) {
-                    ForEach(result.visibleEffects, id: \.metric) { effect in
-                        Text("\(displayName(for: effect.metric)): \(signed(effect.change))")
-                    }
+            Text(result.resultText)
+                .font(.callout)
+                .foregroundStyle(GameTheme.secondaryText)
+                .fixedSize(horizontal: false, vertical: true)
 
-                    if result.approvalEffect != 0 {
-                        Text("Zustimmung: \(signed(result.approvalEffect))")
+            // Auswirkungen
+            if !result.visibleEffects.isEmpty || result.approvalEffect != 0 {
+                VStack(alignment: .leading, spacing: 10) {
+                    SectionHeader(title: "Direkte Auswirkungen", systemImage: "chart.bar.fill")
+                    VStack(spacing: 8) {
+                        ForEach(result.visibleEffects, id: \.metric) { effect in
+                            let style = MetricPresentation.style(for: effect.metric)
+                            DeltaRow(label: style.label, icon: style.icon, change: effect.change)
+                        }
+                        if result.approvalEffect != 0 {
+                            DeltaRow(label: "Zustimmung", icon: "person.2.fill", change: result.approvalEffect)
+                        }
                     }
                 }
-                .font(.callout.weight(.medium))
+                .padding(14)
+                .frame(maxWidth: .infinity)
+                .background(
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .fill(GameTheme.surfaceSunken)
+                )
+            }
+
+            // Was geschah wirklich?
+            if let historicalReality = result.historicalReality {
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack(spacing: 6) {
+                        Image(systemName: "clock.badge.checkmark").font(.caption)
+                        Text(result.didChooseHistoricalPath ? "Du bist dem historischen Pfad gefolgt" : "Was geschah wirklich?")
+                            .font(.caption.weight(.bold))
+                            .tracking(0.4)
+                    }
+                    .foregroundStyle(GameTheme.purple)
+                    Text(historicalReality)
+                        .font(.footnote)
+                        .foregroundStyle(GameTheme.secondaryText)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .padding(14)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .fill(GameTheme.purple.opacity(0.10))
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .stroke(GameTheme.purple.opacity(0.3), lineWidth: 1)
+                )
             }
 
             Button(action: onContinue) {
-                Text("Fortfahren")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 12)
+                Label("Fortfahren", systemImage: "arrow.right")
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(PrimaryActionButtonStyle())
         }
-        .strategyPanel()
-    }
-
-    private func signed(_ value: Int) -> String {
-        value > 0 ? "+\(value)" : "\(value)"
-    }
-
-    private func displayName(for metric: VisibleMetric) -> String {
-        switch metric {
-        case .economy: "Wirtschaft"
-        case .budget: "Haushalt"
-        case .livingStandard: "Lebensstandard"
-        case .society: "Gesellschaft"
-        case .security: "Sicherheit"
-        case .energy: "Energie"
-        case .internationalRelations: "International"
-        case .trust: "Vertrauen"
-        }
+        .gameCard(padding: 18)
     }
 }

@@ -1,5 +1,20 @@
 import Foundation
 
+/// Momentaufnahme der Wahlprognose ("Sonntagsfrage") ohne echte Wahl.
+public struct ElectionProjection: Equatable, Sendable {
+    public let governingShare: Double
+    public let oppositionShare: Double
+    public let wouldWin: Bool
+    public let nextElectionYear: Int?
+
+    public init(governingShare: Double, oppositionShare: Double, wouldWin: Bool, nextElectionYear: Int?) {
+        self.governingShare = governingShare
+        self.oppositionShare = oppositionShare
+        self.wouldWin = wouldWin
+        self.nextElectionYear = nextElectionYear
+    }
+}
+
 public struct ElectionEngine: Sendable {
     public let electionYears: Set<Int>
 
@@ -13,7 +28,35 @@ public struct ElectionEngine: Sendable {
             state.pendingElectionResult == nil
     }
 
+    /// Das nächste Wahljahr ab (inkl.) dem angegebenen Jahr.
+    public func nextElectionYear(onOrAfter year: Int) -> Int? {
+        electionYears.filter { $0 >= year }.min()
+    }
+
+    /// Live-Prognose ohne den Zustand zu verändern – Grundlage des Wahlbarometers.
+    public func project(in state: GameState) -> ElectionProjection {
+        let shares = computeShares(in: state)
+        return ElectionProjection(
+            governingShare: roundedShare(shares.governing),
+            oppositionShare: roundedShare(shares.opposition),
+            wouldWin: didWin(governing: shares.governing, opposition: shares.opposition),
+            nextElectionYear: nextElectionYear(onOrAfter: state.currentYear)
+        )
+    }
+
     public func conductElection(in state: GameState) -> ElectionResult {
+        let shares = computeShares(in: state)
+        return ElectionResult(
+            year: state.currentYear,
+            governingPartyShare: roundedShare(shares.governing),
+            oppositionShare: roundedShare(shares.opposition),
+            didWin: didWin(governing: shares.governing, opposition: shares.opposition),
+            reasons: reasons(for: state, governingShare: shares.governing)
+        )
+    }
+
+    /// Berechnet die (ungerundeten) Stimmenanteile. Von Wahl und Prognose geteilt.
+    private func computeShares(in state: GameState) -> (governing: Double, opposition: Double) {
         let fundamentals = Double(
             state.visible.economy +
             state.visible.livingStandard +
@@ -35,15 +78,11 @@ public struct ElectionEngine: Sendable {
             deterministicNoise
         let governingShare = min(52.0, max(24.0, rawShare))
         let oppositionShare = min(55.0, max(25.0, 61.0 - governingShare + max(0.0, 50.0 - Double(state.trustAdjustedApproval())) * 0.04))
-        let didWin = governingShare >= 35.0 && governingShare >= oppositionShare - 1.0
+        return (governingShare, oppositionShare)
+    }
 
-        return ElectionResult(
-            year: state.currentYear,
-            governingPartyShare: roundedShare(governingShare),
-            oppositionShare: roundedShare(oppositionShare),
-            didWin: didWin,
-            reasons: reasons(for: state, governingShare: governingShare)
-        )
+    private func didWin(governing: Double, opposition: Double) -> Bool {
+        governing >= 35.0 && governing >= opposition - 1.0
     }
 
     public func makeGameOverSummary(for state: GameState, electionResult: ElectionResult) -> GameOverSummary {

@@ -9,4 +9,13 @@ extension View {
         self
         #endif
     }
+
+    @ViewBuilder
+    func hiddenNavigationBar() -> some View {
+        #if os(iOS)
+        toolbar(.hidden, for: .navigationBar)
+        #else
+        self
+        #endif
+    }
 }

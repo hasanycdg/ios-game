@@ -86,6 +86,7 @@ public final class GameEngine {
     public private(set) var state: GameState
     public private(set) var currentEvent: GameEvent?
     public private(set) var lastDecisionResult: DecisionResult?
+    public private(set) var annualHistory: [AnnualRecord] = []
 
     public init(
         eventRepository: EventRepository = LocalJSONEventRepository(),
@@ -129,21 +130,25 @@ public final class GameEngine {
             self.currentEvent = eventRepository.events(for: snapshot.state.currentYear).first { $0.id == currentEventID }
         }
         self.lastDecisionResult = snapshot.lastDecisionResult
+        self.annualHistory = snapshot.annualHistory
     }
 
     public func snapshot() -> GameSessionSnapshot {
         GameSessionSnapshot(
             state: state,
             currentEventID: currentEvent?.id,
-            lastDecisionResult: lastDecisionResult
+            lastDecisionResult: lastDecisionResult,
+            annualHistory: annualHistory
         )
     }
 
     public func startNewGame() {
         state = GameStateFactory.initialGermany2000()
         lastDecisionResult = nil
+        annualHistory = []
         prepareCurrentYear()
         currentEvent = nextQueuedEvent()
+        recordAnnualSnapshot()
     }
 
     public func availableEvents() -> [GameEvent] {
@@ -259,6 +264,7 @@ public final class GameEngine {
         }
 
         annualSimulation.applyEndOfYearDevelopment(to: &state)
+        recordAnnualSnapshot()
 
         if electionEngine.shouldHoldElection(in: state) {
             let election = electionEngine.conductElection(in: state)
@@ -376,5 +382,19 @@ public final class GameEngine {
 
     private func makeFinalYearSummary() -> GameOverSummary {
         electionEngine.endSummary(for: state, reason: .reachedFinalYear)
+    }
+
+    /// Speichert bzw. aktualisiert die Jahres-Momentaufnahme für das laufende Jahr.
+    private func recordAnnualSnapshot() {
+        let record = AnnualRecord(
+            year: state.currentYear,
+            visible: state.visible,
+            approval: state.governmentApproval
+        )
+        if let index = annualHistory.firstIndex(where: { $0.year == record.year }) {
+            annualHistory[index] = record
+        } else {
+            annualHistory.append(record)
+        }
     }
 }

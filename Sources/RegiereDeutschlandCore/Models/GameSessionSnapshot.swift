@@ -5,17 +5,20 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
     public let state: GameState
     public let currentEventID: String?
     public let lastDecisionResult: DecisionResult?
+    public let annualHistory: [AnnualRecord]
 
     public init(
         schemaVersion: Int = 1,
         state: GameState,
         currentEventID: String?,
-        lastDecisionResult: DecisionResult?
+        lastDecisionResult: DecisionResult?,
+        annualHistory: [AnnualRecord] = []
     ) {
         self.schemaVersion = schemaVersion
         self.state = state
         self.currentEventID = currentEventID
         self.lastDecisionResult = lastDecisionResult
+        self.annualHistory = annualHistory
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -23,6 +26,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         case state
         case currentEventID
         case lastDecisionResult
+        case annualHistory
     }
 
     public init(from decoder: Decoder) throws {
@@ -31,6 +35,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         state = try container.decode(GameState.self, forKey: .state)
         currentEventID = try container.decodeIfPresent(String.self, forKey: .currentEventID)
         lastDecisionResult = try container.decodeIfPresent(DecisionResult.self, forKey: .lastDecisionResult)
+        annualHistory = try container.decodeIfPresent([AnnualRecord].self, forKey: .annualHistory) ?? []
     }
 }
 

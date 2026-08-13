@@ -19,16 +19,25 @@ final class GameViewModel: ObservableObject {
     @Published private(set) var state: GameState
     @Published private(set) var currentEvent: GameEvent?
     @Published private(set) var phase: Phase
+    @Published private(set) var annualHistory: [AnnualRecord] = []
     #if DEBUG
     @Published private(set) var balanceSummaryText: String = ""
     #endif
 
     private let engine: GameEngine
     private let persistence: GamePersistence
+    private let electionEngine = ElectionEngine()
+    private let newsRepository: NewsRepository
+    private lazy var cachedNews: [NewsItem] = newsRepository.loadNews()
     private var didStoreRunResult = false
 
-    init(mode: StartMode = .newGame, persistence: GamePersistence = GamePersistence()) {
+    init(
+        mode: StartMode = .newGame,
+        persistence: GamePersistence = GamePersistence(),
+        newsRepository: NewsRepository = LocalJSONNewsRepository()
+    ) {
         self.persistence = persistence
+        self.newsRepository = newsRepository
         switch mode {
         case .newGame:
             self.engine = GameEngine()
@@ -44,6 +53,7 @@ final class GameViewModel: ObservableObject {
         self.state = engine.state
         self.currentEvent = engine.currentEvent
         self.phase = Self.phase(for: engine)
+        self.annualHistory = engine.annualHistory
         autosave()
     }
 
@@ -93,9 +103,27 @@ final class GameViewModel: ObservableObject {
         autosave()
     }
 
+    // MARK: Presse & Wahlprognose
+
+    /// Live-Wahlprognose ("Sonntagsfrage") für das Wahlbarometer.
+    var electionProjection: ElectionProjection {
+        electionEngine.project(in: state)
+    }
+
+    /// Historische Welt-/Deutschland-Schlagzeilen des aktuellen Jahres.
+    var worldNews: [NewsItem] {
+        cachedNews.filter { $0.year == state.currentYear }
+    }
+
+    /// Reaktive Schlagzeilen zur Politik des Spielers.
+    var domesticNews: [NewsItem] {
+        DynamicNewsFactory.make(for: state)
+    }
+
     private func syncFromEngine() {
         state = engine.state
         currentEvent = engine.currentEvent
+        annualHistory = engine.annualHistory
     }
 
     private func autosave() {

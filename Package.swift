@@ -13,24 +13,14 @@ let package = Package(
         .library(
             name: "RegiereDeutschlandCore",
             targets: ["RegiereDeutschlandCore"]
-        ),
-        .executable(
-            name: "RegiereDeutschland",
-            targets: ["RegiereDeutschlandApp"]
         )
     ],
     targets: [
         .target(
             name: "RegiereDeutschlandCore",
             resources: [
-                .process("Data/Events")
-            ]
-        ),
-        .executableTarget(
-            name: "RegiereDeutschlandApp",
-            dependencies: ["RegiereDeutschlandCore"],
-            resources: [
-                .process("Resources")
+                .process("Data/Events"),
+                .process("Data/News")
             ]
         ),
         .testTarget(

@@ -4,6 +4,8 @@ import SwiftUI
 /// Ereignis als "Breaking News"-Karte samt Entscheidungsoptionen.
 struct EventCard: View {
     let event: GameEvent
+    let cost: (DecisionOption) -> Int
+    let canAfford: (DecisionOption) -> Bool
     let onChoose: (DecisionOption) -> Void
 
     @State private var showContext = false
@@ -76,7 +78,13 @@ struct EventCard: View {
 
             VStack(spacing: 10) {
                 ForEach(Array(event.options.enumerated()), id: \.element.id) { index, option in
-                    OptionCard(option: option, index: index, accent: category.color) {
+                    OptionCard(
+                        option: option,
+                        index: index,
+                        accent: category.color,
+                        cost: cost(option),
+                        affordable: canAfford(option)
+                    ) {
                         onChoose(option)
                     }
                 }
@@ -91,6 +99,8 @@ private struct OptionCard: View {
     let option: DecisionOption
     let index: Int
     let accent: Color
+    let cost: Int
+    let affordable: Bool
     let action: () -> Void
 
     private let letters = ["A", "B", "C", "D", "E"]
@@ -123,12 +133,20 @@ private struct OptionCard: View {
 
                     Spacer(minLength: 4)
 
-                    Image(systemName: "chevron.right")
-                        .font(.caption.weight(.bold))
-                        .foregroundStyle(GameTheme.tertiaryText)
+                    VStack(spacing: 6) {
+                        CostDots(cost: cost, accent: accent)
+                        Image(systemName: affordable ? "chevron.right" : "lock.fill")
+                            .font(.caption.weight(.bold))
+                            .foregroundStyle(affordable ? GameTheme.tertiaryText : GameTheme.red)
+                    }
                 }
 
-                if !reactions.isEmpty {
+                if !affordable {
+                    Text("Zu teuer – nicht genug politisches Kapital.")
+                        .font(.caption2.weight(.semibold))
+                        .foregroundStyle(GameTheme.red)
+                        .padding(.leading, 46)
+                } else if !reactions.isEmpty {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 6) {
                             ForEach(reactions.prefix(5)) { reaction in
@@ -142,9 +160,28 @@ private struct OptionCard: View {
             .padding(14)
             .frame(maxWidth: .infinity, alignment: .leading)
             .contentShape(Rectangle())
+            .opacity(affordable ? 1 : 0.55)
         }
         .buttonStyle(OptionCardButtonStyle(accent: accent))
-        .accessibilityHint(option.advisoryNote)
+        .disabled(!affordable)
+        .accessibilityHint(affordable ? option.advisoryNote : "Nicht genug politisches Kapital")
+    }
+}
+
+/// Kapitalkosten als Punkte (gefüllt = Kosten).
+private struct CostDots: View {
+    let cost: Int
+    let accent: Color
+
+    var body: some View {
+        HStack(spacing: 3) {
+            ForEach(0..<DecisionCost.maximum, id: \.self) { index in
+                Circle()
+                    .fill(index < cost ? accent : GameTheme.surfaceElevated)
+                    .frame(width: 6, height: 6)
+            }
+        }
+        .accessibilityLabel("Kosten: \(cost) von \(DecisionCost.maximum)")
     }
 }
 

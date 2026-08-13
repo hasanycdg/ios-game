@@ -12,6 +12,10 @@ struct ElectionResultPanel: View {
         ZStack {
             GameTheme.dramaticBackground.ignoresSafeArea()
 
+            if election.didWin {
+                ConfettiView().ignoresSafeArea().zIndex(2)
+            }
+
             ScrollView {
                 VStack(spacing: 22) {
                     VStack(spacing: 8) {
@@ -68,6 +72,7 @@ struct ElectionResultPanel: View {
         .foregroundStyle(GameTheme.primaryText)
         .onAppear {
             withAnimation(.easeInOut(duration: 0.7)) { revealed = true }
+            if election.didWin { Haptics.success() } else { Haptics.warning() }
         }
     }
 

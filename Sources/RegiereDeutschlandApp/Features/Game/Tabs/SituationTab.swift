@@ -10,6 +10,7 @@ struct SituationTab: View {
             VStack(alignment: .leading, spacing: 18) {
                 situationHeader
                 quickStatStrip
+                CoalitionCard(coalition: viewModel.coalition)
                 ElectionBarometer(
                     projection: viewModel.electionProjection,
                     currentYear: viewModel.state.currentYear
@@ -31,7 +32,9 @@ struct SituationTab: View {
                     .font(.caption2.weight(.bold))
                     .tracking(1.2)
                     .foregroundStyle(GameTheme.secondaryText)
-                Spacer(minLength: 0)
+                    .lineLimit(1)
+                Spacer(minLength: 8)
+                CapitalBadge(value: viewModel.politicalCapital, maximum: viewModel.maxCapital)
             }
 
             HStack(alignment: .center, spacing: 16) {
@@ -116,7 +119,12 @@ struct SituationTab: View {
         switch viewModel.phase {
         case .event:
             if let event = viewModel.currentEvent {
-                EventCard(event: event) { option in
+                EventCard(
+                    event: event,
+                    cost: { viewModel.cost(of: $0) },
+                    canAfford: { viewModel.canAfford($0) }
+                ) { option in
+                    Haptics.impact(.medium)
                     withAnimation(.spring(response: 0.4, dampingFraction: 0.85)) {
                         viewModel.choose(option)
                     }

@@ -87,6 +87,10 @@ public final class GameEngine {
     public private(set) var currentEvent: GameEvent?
     public private(set) var lastDecisionResult: DecisionResult?
     public private(set) var annualHistory: [AnnualRecord] = []
+    public private(set) var politicalCapital: Int = 7
+    public private(set) var coalition: CoalitionState = .standard()
+    public private(set) var persona: KanzlerPersona = PersonaCatalog.default
+    public let maxCapital = 10
 
     public init(
         eventRepository: EventRepository = LocalJSONEventRepository(),
@@ -131,6 +135,9 @@ public final class GameEngine {
         }
         self.lastDecisionResult = snapshot.lastDecisionResult
         self.annualHistory = snapshot.annualHistory
+        self.politicalCapital = snapshot.politicalCapital ?? 7
+        self.coalition = snapshot.coalition ?? .standard()
+        self.persona = PersonaCatalog.persona(id: snapshot.personaID ?? PersonaCatalog.default.id)
     }
 
     public func snapshot() -> GameSessionSnapshot {
@@ -138,17 +145,50 @@ public final class GameEngine {
             state: state,
             currentEventID: currentEvent?.id,
             lastDecisionResult: lastDecisionResult,
-            annualHistory: annualHistory
+            annualHistory: annualHistory,
+            politicalCapital: politicalCapital,
+            coalition: coalition,
+            personaID: persona.id
         )
     }
 
-    public func startNewGame() {
-        state = GameStateFactory.initialGermany2000()
+    public func startNewGame(persona: KanzlerPersona = PersonaCatalog.default) {
+        self.persona = persona
+        var initial = GameStateFactory.initialGermany2000()
+        for effect in persona.visibleModifiers { initial.apply(effect) }
+        for effect in persona.hiddenModifiers { initial.apply(effect) }
+        initial.clampAll()
+        state = initial
+        politicalCapital = persona.startingCapital
+        coalition = persona.makeCoalition()
         lastDecisionResult = nil
         annualHistory = []
         prepareCurrentYear()
         currentEvent = nextQueuedEvent()
         recordAnnualSnapshot()
+    }
+
+    // MARK: Politisches Kapital & Koalition
+
+    /// Effektive Kapitalkosten einer Option (inkl. Persona-Rabatt).
+    public func effectiveCost(of option: DecisionOption) -> Int {
+        max(1, DecisionCost.cost(of: option) - persona.costReduction)
+    }
+
+    /// Ob eine Option bezahlbar ist. Die günstigste Option ist immer wählbar,
+    /// damit der Spieler nie handlungsunfähig wird.
+    public func canAfford(_ option: DecisionOption, among options: [DecisionOption]) -> Bool {
+        let cost = effectiveCost(of: option)
+        if politicalCapital >= cost { return true }
+        let minCost = options.map { effectiveCost(of: $0) }.min() ?? cost
+        return cost == minCost
+    }
+
+    private func capitalIncome() -> Int {
+        var income = 3 + persona.capitalIncomeBonus
+        if state.governmentApproval >= 55 { income += 1 }
+        if state.governmentApproval >= 70 { income += 1 }
+        return income
     }
 
     public func availableEvents() -> [GameEvent] {
@@ -232,6 +272,10 @@ public final class GameEngine {
             )
         }
 
+        politicalCapital = max(0, politicalCapital - effectiveCost(of: option))
+        let coalitionDelta = CoalitionDynamics.reaction(to: option, leaning: coalition.leaning, damping: coalition.reactionDamping)
+        coalition.satisfaction = VisibleMetrics.clamped(coalition.satisfaction + coalitionDelta)
+
         state.clampAll()
 
         let result = DecisionResult(
@@ -257,6 +301,11 @@ public final class GameEngine {
         lastDecisionResult = nil
         guard state.gameOverSummary == nil else { return }
         guard state.pendingElectionResult == nil else { return }
+
+        if coalition.isBroken {
+            triggerCoalitionCollapse()
+            return
+        }
 
         if let nextEvent = nextQueuedEvent() {
             currentEvent = nextEvent
@@ -316,7 +365,29 @@ public final class GameEngine {
 
     private func enterYear(_ year: Int) {
         state.currentYear = year
+        politicalCapital = min(maxCapital, politicalCapital + capitalIncome())
         prepareCurrentYear()
+    }
+
+    /// Der Koalitionspartner verlässt die Regierung – es kommt zur Neuwahl.
+    private func triggerCoalitionCollapse() {
+        let base = electionEngine.conductElection(in: state)
+        let election = ElectionResult(
+            year: base.year,
+            governingPartyShare: base.governingPartyShare,
+            oppositionShare: base.oppositionShare,
+            didWin: base.didWin,
+            reasons: ["Koalitionsbruch – vorgezogene Neuwahl"] + base.reasons
+        )
+        state.pendingElectionResult = election
+        state.electionResults.append(election)
+        state.yearProgress.isElectionResolved = true
+        if !election.didWin {
+            state.gameOverSummary = electionEngine.makeGameOverSummary(for: state, electionResult: election)
+        } else {
+            coalition.satisfaction = 45
+        }
+        currentEvent = nil
     }
 
     private func rebuildEventQueue() {

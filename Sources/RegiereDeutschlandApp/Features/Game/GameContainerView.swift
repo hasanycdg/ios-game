@@ -9,8 +9,8 @@ struct GameContainerView: View {
     @Environment(\.scenePhase) private var scenePhase
     @State private var selectedTab = 0
 
-    init(mode: GameViewModel.StartMode = .newGame) {
-        _viewModel = StateObject(wrappedValue: GameViewModel(mode: mode))
+    init(mode: GameViewModel.StartMode = .newGame, persona: KanzlerPersona = PersonaCatalog.default) {
+        _viewModel = StateObject(wrappedValue: GameViewModel(mode: mode, persona: persona))
     }
 
     var body: some View {
@@ -66,6 +66,7 @@ struct GameContainerView: View {
         case .gameOver(let summary):
             GameOverPanel(
                 summary: summary,
+                achievements: viewModel.newlyUnlockedAchievements,
                 onNewGame: {
                     withAnimation(.easeInOut) {
                         selectedTab = 0

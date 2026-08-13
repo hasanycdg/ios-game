@@ -6,19 +6,28 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
     public let currentEventID: String?
     public let lastDecisionResult: DecisionResult?
     public let annualHistory: [AnnualRecord]
+    public let politicalCapital: Int?
+    public let coalition: CoalitionState?
+    public let personaID: String?
 
     public init(
         schemaVersion: Int = 1,
         state: GameState,
         currentEventID: String?,
         lastDecisionResult: DecisionResult?,
-        annualHistory: [AnnualRecord] = []
+        annualHistory: [AnnualRecord] = [],
+        politicalCapital: Int? = nil,
+        coalition: CoalitionState? = nil,
+        personaID: String? = nil
     ) {
         self.schemaVersion = schemaVersion
         self.state = state
         self.currentEventID = currentEventID
         self.lastDecisionResult = lastDecisionResult
         self.annualHistory = annualHistory
+        self.politicalCapital = politicalCapital
+        self.coalition = coalition
+        self.personaID = personaID
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -27,6 +36,9 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         case currentEventID
         case lastDecisionResult
         case annualHistory
+        case politicalCapital
+        case coalition
+        case personaID
     }
 
     public init(from decoder: Decoder) throws {
@@ -36,6 +48,9 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         currentEventID = try container.decodeIfPresent(String.self, forKey: .currentEventID)
         lastDecisionResult = try container.decodeIfPresent(DecisionResult.self, forKey: .lastDecisionResult)
         annualHistory = try container.decodeIfPresent([AnnualRecord].self, forKey: .annualHistory) ?? []
+        politicalCapital = try container.decodeIfPresent(Int.self, forKey: .politicalCapital)
+        coalition = try container.decodeIfPresent(CoalitionState.self, forKey: .coalition)
+        personaID = try container.decodeIfPresent(String.self, forKey: .personaID)
     }
 }
 

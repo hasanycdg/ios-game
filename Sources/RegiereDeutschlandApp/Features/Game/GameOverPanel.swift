@@ -4,6 +4,7 @@ import SwiftUI
 /// Vollbild-Endbericht – Wahlniederlage oder Ende 2026.
 struct GameOverPanel: View {
     let summary: GameOverSummary
+    var achievements: [Achievement] = []
     let onNewGame: () -> Void
     var onExitToMenu: (() -> Void)? = nil
 
@@ -29,6 +30,10 @@ struct GameOverPanel: View {
                     if !summary.keyDecisionTitles.isEmpty {
                         listCard(title: "Prägende Entscheidungen", icon: "star.fill",
                                  tint: GameTheme.gold, items: summary.keyDecisionTitles)
+                    }
+
+                    if !achievements.isEmpty {
+                        achievementsCard
                     }
 
                     VStack(spacing: 10) {
@@ -177,6 +182,35 @@ struct GameOverPanel: View {
                 }
             }
             .gameCard(padding: 16)
+        }
+    }
+
+    private var achievementsCard: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            SectionHeader(title: "Neue Erfolge freigeschaltet", systemImage: "trophy.fill")
+            VStack(spacing: 8) {
+                ForEach(achievements) { achievement in
+                    HStack(spacing: 12) {
+                        Image(systemName: achievement.icon)
+                            .font(.footnote.weight(.bold))
+                            .foregroundStyle(GameTheme.gold)
+                            .frame(width: 32, height: 32)
+                            .background(Circle().fill(GameTheme.gold.opacity(0.15)))
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(achievement.title)
+                                .font(.subheadline.weight(.bold))
+                                .foregroundStyle(GameTheme.primaryText)
+                            Text(achievement.detail)
+                                .font(.caption)
+                                .foregroundStyle(GameTheme.secondaryText)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        Spacer(minLength: 0)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .gameCard(padding: 12, tint: GameTheme.gold)
+                }
+            }
         }
     }
 

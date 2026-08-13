@@ -20,6 +20,11 @@ final class GameViewModel: ObservableObject {
     @Published private(set) var currentEvent: GameEvent?
     @Published private(set) var phase: Phase
     @Published private(set) var annualHistory: [AnnualRecord] = []
+    @Published private(set) var politicalCapital: Int = 7
+    @Published private(set) var coalition: CoalitionState = .standard()
+    @Published private(set) var persona: KanzlerPersona = PersonaCatalog.default
+    @Published private(set) var newlyUnlockedAchievements: [Achievement] = []
+    let maxCapital = 10
     #if DEBUG
     @Published private(set) var balanceSummaryText: String = ""
     #endif
@@ -33,6 +38,7 @@ final class GameViewModel: ObservableObject {
 
     init(
         mode: StartMode = .newGame,
+        persona: KanzlerPersona = PersonaCatalog.default,
         persistence: GamePersistence = GamePersistence(),
         newsRepository: NewsRepository = LocalJSONNewsRepository()
     ) {
@@ -41,20 +47,34 @@ final class GameViewModel: ObservableObject {
         switch mode {
         case .newGame:
             self.engine = GameEngine()
-            self.engine.startNewGame()
+            self.engine.startNewGame(persona: persona)
         case .resume:
             if let snapshot = persistence.loadSnapshot() {
                 self.engine = GameEngine(snapshot: snapshot)
             } else {
                 self.engine = GameEngine()
-                self.engine.startNewGame()
+                self.engine.startNewGame(persona: persona)
             }
         }
         self.state = engine.state
         self.currentEvent = engine.currentEvent
         self.phase = Self.phase(for: engine)
         self.annualHistory = engine.annualHistory
+        self.politicalCapital = engine.politicalCapital
+        self.coalition = engine.coalition
+        self.persona = engine.persona
         autosave()
+    }
+
+    /// Kapitalkosten einer Option (inkl. Persona-Rabatt).
+    func cost(of option: DecisionOption) -> Int {
+        engine.effectiveCost(of: option)
+    }
+
+    /// Ob der Spieler diese Option aktuell wählen kann.
+    func canAfford(_ option: DecisionOption) -> Bool {
+        guard let options = currentEvent?.options else { return true }
+        return engine.canAfford(option, among: options)
     }
 
     func choose(_ option: DecisionOption) {
@@ -93,7 +113,8 @@ final class GameViewModel: ObservableObject {
 
     func startNewGame() {
         didStoreRunResult = false
-        engine.startNewGame()
+        newlyUnlockedAchievements = []
+        engine.startNewGame(persona: persona)
         syncFromEngine()
         phase = Self.phase(for: engine)
         autosave()
@@ -124,6 +145,8 @@ final class GameViewModel: ObservableObject {
         state = engine.state
         currentEvent = engine.currentEvent
         annualHistory = engine.annualHistory
+        politicalCapital = engine.politicalCapital
+        coalition = engine.coalition
     }
 
     private func autosave() {
@@ -147,6 +170,10 @@ final class GameViewModel: ObservableObject {
                 governingStyle: summary.governingStyle
             )
         )
+        let satisfied = AchievementCatalog.satisfiedIDs(summary: summary)
+        if let newIDs = try? persistence.unlockAchievements(satisfied) {
+            newlyUnlockedAchievements = newIDs.compactMap { AchievementCatalog.achievement(id: $0) }
+        }
     }
 
     private static func phase(for engine: GameEngine) -> Phase {

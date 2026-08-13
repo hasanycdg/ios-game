@@ -61,6 +61,90 @@ struct NewsCard: View {
     }
 }
 
+// MARK: - Politisches Kapital
+
+struct CapitalBadge: View {
+    let value: Int
+    let maximum: Int
+
+    var body: some View {
+        HStack(spacing: 6) {
+            Image(systemName: "hexagon.fill")
+                .font(.caption2)
+                .foregroundStyle(GameTheme.gold)
+            Text("Kapital")
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(GameTheme.secondaryText)
+                .lineLimit(1)
+                .fixedSize()
+            Text("\(value)/\(maximum)")
+                .font(.caption.weight(.bold))
+                .foregroundStyle(GameTheme.gold)
+                .monospacedDigit()
+                .lineLimit(1)
+                .fixedSize()
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 6)
+        .background(Capsule().fill(GameTheme.gold.opacity(0.14)))
+        .accessibilityLabel("Politisches Kapital: \(value) von \(maximum)")
+    }
+}
+
+// MARK: - Koalition
+
+struct CoalitionCard: View {
+    let coalition: CoalitionState
+
+    private var color: Color { GameTheme.statusColor(for: coalition.satisfaction) }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 8) {
+                Image(systemName: "person.2.fill")
+                    .font(.footnote.weight(.bold))
+                    .foregroundStyle(GameTheme.gold)
+                Text("KOALITION")
+                    .font(.caption.weight(.bold)).tracking(1.2)
+                    .foregroundStyle(GameTheme.secondaryText)
+                Spacer(minLength: 0)
+                Text(coalition.moodLabel)
+                    .font(.caption2.weight(.heavy))
+                    .foregroundStyle(color)
+                    .padding(.horizontal, 8).padding(.vertical, 3)
+                    .background(Capsule().fill(color.opacity(0.16)))
+            }
+
+            HStack(spacing: 6) {
+                Text(coalition.partnerName)
+                    .font(.subheadline.weight(.bold))
+                    .foregroundStyle(GameTheme.primaryText)
+                Text("· \(coalition.leaning.displayName)")
+                    .font(.caption)
+                    .foregroundStyle(GameTheme.tertiaryText)
+                Spacer(minLength: 0)
+                Text("\(coalition.satisfaction)")
+                    .font(.system(size: 17, weight: .bold, design: .rounded))
+                    .foregroundStyle(color)
+                    .monospacedDigit()
+            }
+
+            ValueBar(value: coalition.satisfaction, height: 7)
+
+            if coalition.satisfaction < 30 {
+                HStack(spacing: 6) {
+                    Image(systemName: "exclamationmark.triangle.fill").font(.caption2)
+                    Text("Der Partner droht mit dem Koalitionsbruch – dann kommt es zur Neuwahl.")
+                        .font(.caption2.weight(.semibold))
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .foregroundStyle(GameTheme.red)
+            }
+        }
+        .gameCard(padding: 16, tint: coalition.satisfaction < 30 ? GameTheme.red : nil)
+    }
+}
+
 // MARK: - Wahlbarometer ("Sonntagsfrage")
 
 struct ElectionBarometer: View {

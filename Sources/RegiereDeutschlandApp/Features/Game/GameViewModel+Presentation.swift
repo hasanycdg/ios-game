@@ -133,7 +133,7 @@ extension GameViewModel {
     /// Ob gerade ein bühnenfüllendes Ereignis (Wahlabend/Game Over) läuft.
     var isShowingFullScreenPhase: Bool {
         switch phase {
-        case .election, .gameOver: return true
+        case .campaign, .election, .gameOver: return true
         default: return false
         }
     }

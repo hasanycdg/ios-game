@@ -44,8 +44,8 @@ public struct ElectionEngine: Sendable {
         )
     }
 
-    public func conductElection(in state: GameState) -> ElectionResult {
-        let shares = computeShares(in: state)
+    public func conductElection(in state: GameState, campaignBonus: Double = 0) -> ElectionResult {
+        let shares = computeShares(in: state, campaignBonus: campaignBonus)
         return ElectionResult(
             year: state.currentYear,
             governingPartyShare: roundedShare(shares.governing),
@@ -56,7 +56,7 @@ public struct ElectionEngine: Sendable {
     }
 
     /// Berechnet die (ungerundeten) Stimmenanteile. Von Wahl und Prognose geteilt.
-    private func computeShares(in state: GameState) -> (governing: Double, opposition: Double) {
+    private func computeShares(in state: GameState, campaignBonus: Double = 0) -> (governing: Double, opposition: Double) {
         let fundamentals = Double(
             state.visible.economy +
             state.visible.livingStandard +
@@ -75,7 +75,8 @@ public struct ElectionEngine: Sendable {
             (fundamentals * 0.11) +
             (Double(state.shortTermMomentum) * 0.08) +
             memoryPenalty +
-            deterministicNoise
+            deterministicNoise +
+            campaignBonus
         let governingShare = min(52.0, max(24.0, rawShare))
         let oppositionShare = min(55.0, max(25.0, 61.0 - governingShare + max(0.0, 50.0 - Double(state.trustAdjustedApproval())) * 0.04))
         return (governingShare, oppositionShare)

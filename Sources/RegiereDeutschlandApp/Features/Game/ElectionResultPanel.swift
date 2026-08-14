@@ -38,6 +38,8 @@ struct ElectionResultPanel: View {
                     }
                     .gameCard(padding: 18)
 
+                    SeatDistributionBar(election: election)
+
                     verdict
 
                     if !election.reasons.isEmpty {

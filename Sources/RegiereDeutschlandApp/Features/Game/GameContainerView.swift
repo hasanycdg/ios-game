@@ -57,6 +57,12 @@ struct GameContainerView: View {
     @ViewBuilder
     private var overlay: some View {
         switch viewModel.phase {
+        case .campaign:
+            CampaignView(year: viewModel.state.currentYear, state: viewModel.state) { focus in
+                withAnimation(.easeInOut) { viewModel.runCampaign(focus) }
+            }
+            .transition(.opacity)
+            .zIndex(1)
         case .election(let election):
             ElectionResultPanel(election: election) {
                 withAnimation(.easeInOut) { viewModel.continueAfterElection() }

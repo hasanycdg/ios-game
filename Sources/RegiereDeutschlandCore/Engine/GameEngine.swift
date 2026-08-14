@@ -90,6 +90,7 @@ public final class GameEngine {
     public private(set) var politicalCapital: Int = 7
     public private(set) var coalition: CoalitionState = .standard()
     public private(set) var persona: KanzlerPersona = PersonaCatalog.default
+    public private(set) var pendingCampaign: Bool = false
     public let maxCapital = 10
 
     public init(
@@ -138,6 +139,7 @@ public final class GameEngine {
         self.politicalCapital = snapshot.politicalCapital ?? 7
         self.coalition = snapshot.coalition ?? .standard()
         self.persona = PersonaCatalog.persona(id: snapshot.personaID ?? PersonaCatalog.default.id)
+        self.pendingCampaign = snapshot.pendingCampaign ?? false
     }
 
     public func snapshot() -> GameSessionSnapshot {
@@ -148,7 +150,8 @@ public final class GameEngine {
             annualHistory: annualHistory,
             politicalCapital: politicalCapital,
             coalition: coalition,
-            personaID: persona.id
+            personaID: persona.id,
+            pendingCampaign: pendingCampaign
         )
     }
 
@@ -161,6 +164,7 @@ public final class GameEngine {
         state = initial
         politicalCapital = persona.startingCapital
         coalition = persona.makeCoalition()
+        pendingCampaign = false
         lastDecisionResult = nil
         annualHistory = []
         prepareCurrentYear()
@@ -316,15 +320,7 @@ public final class GameEngine {
         recordAnnualSnapshot()
 
         if electionEngine.shouldHoldElection(in: state) {
-            let election = electionEngine.conductElection(in: state)
-            state.pendingElectionResult = election
-            state.electionResults.append(election)
-            state.yearProgress.isElectionResolved = true
-
-            if !election.didWin {
-                state.gameOverSummary = electionEngine.makeGameOverSummary(for: state, electionResult: election)
-            }
-
+            pendingCampaign = true
             currentEvent = nil
             return
         }
@@ -337,6 +333,28 @@ public final class GameEngine {
 
         enterYear(state.currentYear + 1)
         currentEvent = nextQueuedEvent()
+    }
+
+    /// Wählt einen Wahlkampf-Schwerpunkt und führt danach die Wahl durch.
+    public func runCampaign(focus: CampaignFocus) {
+        guard pendingCampaign else { return }
+        pendingCampaign = false
+        let bonus = focus.bonus(for: state)
+        let base = electionEngine.conductElection(in: state, campaignBonus: bonus)
+        let election = ElectionResult(
+            year: base.year,
+            governingPartyShare: base.governingPartyShare,
+            oppositionShare: base.oppositionShare,
+            didWin: base.didWin,
+            reasons: ["Wahlkampf-Schwerpunkt: \(focus.title)"] + base.reasons
+        )
+        state.pendingElectionResult = election
+        state.electionResults.append(election)
+        state.yearProgress.isElectionResolved = true
+        if !election.didWin {
+            state.gameOverSummary = electionEngine.makeGameOverSummary(for: state, electionResult: election)
+        }
+        currentEvent = nil
     }
 
     public func continueAfterElection() {

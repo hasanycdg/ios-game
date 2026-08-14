@@ -11,6 +11,7 @@ final class GameViewModel: ObservableObject {
     enum Phase: Equatable {
         case event
         case result(DecisionResult)
+        case campaign
         case election(ElectionResult)
         case gameOver(GameOverSummary)
         case noEvent
@@ -92,6 +93,13 @@ final class GameViewModel: ObservableObject {
 
     func continueAfterResult() {
         engine.advanceGame()
+        syncFromEngine()
+        phase = Self.phase(for: engine)
+        autosave()
+    }
+
+    func runCampaign(_ focus: CampaignFocus) {
+        engine.runCampaign(focus: focus)
         syncFromEngine()
         phase = Self.phase(for: engine)
         autosave()
@@ -183,6 +191,10 @@ final class GameViewModel: ObservableObject {
 
         if let election = engine.state.pendingElectionResult {
             return .election(election)
+        }
+
+        if engine.pendingCampaign {
+            return .campaign
         }
 
         if let result = engine.lastDecisionResult {

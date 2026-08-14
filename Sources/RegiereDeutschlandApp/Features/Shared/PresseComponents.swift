@@ -145,6 +145,60 @@ struct CoalitionCard: View {
     }
 }
 
+// MARK: - Sitzverteilung im Bundestag
+
+struct SeatDistributionBar: View {
+    let election: ElectionResult
+
+    private let totalSeats = 630
+    private var gov: Double { election.governingPartyShare }
+    private var opp: Double { election.oppositionShare }
+    private var rest: Double { max(0, 100 - gov - opp) }
+
+    private func seats(_ share: Double) -> Int { Int((share / 100 * Double(totalSeats)).rounded()) }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            SectionHeader(title: "Sitzverteilung im Bundestag", systemImage: "building.columns.fill",
+                          accessory: "\(totalSeats) Sitze")
+
+            GeometryReader { geo in
+                HStack(spacing: 2) {
+                    segment(width: geo.size.width * CGFloat(gov / 100), color: GameTheme.gold)
+                    segment(width: geo.size.width * CGFloat(opp / 100), color: GameTheme.blue)
+                    segment(width: geo.size.width * CGFloat(rest / 100), color: GameTheme.tertiaryText)
+                }
+            }
+            .frame(height: 14)
+            .clipShape(Capsule())
+
+            VStack(spacing: 8) {
+                legendRow(name: "Deine Koalition", share: gov, color: GameTheme.gold)
+                legendRow(name: "Opposition", share: opp, color: GameTheme.blue)
+                legendRow(name: "Weitere Parteien", share: rest, color: GameTheme.tertiaryText)
+            }
+        }
+        .gameCard(padding: 16)
+    }
+
+    private func segment(width: CGFloat, color: Color) -> some View {
+        Rectangle().fill(color).frame(width: max(0, width))
+    }
+
+    private func legendRow(name: String, share: Double, color: Color) -> some View {
+        HStack(spacing: 8) {
+            Circle().fill(color).frame(width: 9, height: 9)
+            Text(name).font(.caption).foregroundStyle(GameTheme.secondaryText)
+            Spacer(minLength: 0)
+            Text("\(seats(share)) Sitze")
+                .font(.caption.weight(.semibold)).foregroundStyle(GameTheme.primaryText).monospacedDigit()
+            Text(String(format: "%.1f %%", share))
+                .font(.caption2).foregroundStyle(GameTheme.tertiaryText).monospacedDigit()
+                .frame(width: 48, alignment: .trailing)
+        }
+    }
+}
+
 // MARK: - Wahlbarometer ("Sonntagsfrage")
 
 struct ElectionBarometer: View {

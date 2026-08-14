@@ -9,6 +9,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
     public let politicalCapital: Int?
     public let coalition: CoalitionState?
     public let personaID: String?
+    public let pendingCampaign: Bool?
 
     public init(
         schemaVersion: Int = 1,
@@ -18,7 +19,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         annualHistory: [AnnualRecord] = [],
         politicalCapital: Int? = nil,
         coalition: CoalitionState? = nil,
-        personaID: String? = nil
+        personaID: String? = nil,
+        pendingCampaign: Bool? = nil
     ) {
         self.schemaVersion = schemaVersion
         self.state = state
@@ -28,6 +30,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         self.politicalCapital = politicalCapital
         self.coalition = coalition
         self.personaID = personaID
+        self.pendingCampaign = pendingCampaign
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -39,6 +42,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         case politicalCapital
         case coalition
         case personaID
+        case pendingCampaign
     }
 
     public init(from decoder: Decoder) throws {
@@ -51,6 +55,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         politicalCapital = try container.decodeIfPresent(Int.self, forKey: .politicalCapital)
         coalition = try container.decodeIfPresent(CoalitionState.self, forKey: .coalition)
         personaID = try container.decodeIfPresent(String.self, forKey: .personaID)
+        pendingCampaign = try container.decodeIfPresent(Bool.self, forKey: .pendingCampaign)
     }
 }
 

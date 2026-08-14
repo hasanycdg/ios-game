@@ -1,5 +1,8 @@
 import RegiereDeutschlandCore
 import SwiftUI
+#if canImport(UIKit)
+import UIKit
+#endif
 
 /// Vollbild-Endbericht – Wahlniederlage oder Ende 2026.
 struct GameOverPanel: View {
@@ -7,6 +10,8 @@ struct GameOverPanel: View {
     var achievements: [Achievement] = []
     let onNewGame: () -> Void
     var onExitToMenu: (() -> Void)? = nil
+
+    @State private var shareImage: Image?
 
     private var reachedEnd: Bool { summary.reason == .reachedFinalYear }
     private var accent: Color { reachedEnd ? GameTheme.gold : GameTheme.red }
@@ -42,6 +47,16 @@ struct GameOverPanel: View {
                         }
                         .buttonStyle(PrimaryActionButtonStyle())
 
+                        if let shareImage {
+                            ShareLink(
+                                item: shareImage,
+                                preview: SharePreview("Mein Deutschland \(String(summary.startYear))–\(String(summary.endYear))", image: shareImage)
+                            ) {
+                                Label("Ergebnis teilen", systemImage: "square.and.arrow.up")
+                            }
+                            .buttonStyle(SecondaryActionButtonStyle())
+                        }
+
                         if let onExitToMenu {
                             Button(action: onExitToMenu) {
                                 Label("Hauptmenü", systemImage: "house")
@@ -55,6 +70,17 @@ struct GameOverPanel: View {
             }
         }
         .foregroundStyle(GameTheme.primaryText)
+        .onAppear(perform: renderShareImage)
+    }
+
+    private func renderShareImage() {
+        #if canImport(UIKit)
+        let renderer = ImageRenderer(content: ShareCardView(summary: summary))
+        renderer.scale = 3
+        if let uiImage = renderer.uiImage {
+            shareImage = Image(uiImage: uiImage)
+        }
+        #endif
     }
 
     private var header: some View {

@@ -248,6 +248,10 @@ import Testing
     engine.advanceGame()
 
     #expect(engine.state.currentYear == 2005)
+    // Vor der Wahl steht jetzt die Wahlkampf-Phase.
+    #expect(engine.pendingCampaign)
+
+    engine.runCampaign(focus: CampaignFocusCatalog.all[0])
     #expect(engine.state.pendingElectionResult?.year == 2005)
     #expect(engine.state.electionResults.count == 1)
 }

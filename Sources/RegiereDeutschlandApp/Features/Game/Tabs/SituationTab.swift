@@ -146,7 +146,7 @@ struct SituationTab: View {
                     viewModel.continueWithoutEvent()
                 }
             }
-        case .election, .gameOver:
+        case .campaign, .election, .gameOver:
             // Wird als Vollbild-Overlay im Container dargestellt.
             waitingCard
         }

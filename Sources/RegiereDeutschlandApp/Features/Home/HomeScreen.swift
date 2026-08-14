@@ -7,6 +7,8 @@ struct HomeScreen: View {
     @State private var unlockedAchievements: Set<String> = []
     @State private var selectedPersonaID = PersonaCatalog.default.id
     @State private var showAchievements = false
+    @State private var showOnboarding = false
+    @AppStorage("hasSeenRegiereOnboarding") private var hasSeenOnboarding = false
     private let persistence = GamePersistence()
 
     private var selectedPersona: KanzlerPersona {
@@ -24,6 +26,7 @@ struct HomeScreen: View {
                     personaPicker
                     actions
                     footer
+                    howItWorksButton
                     if !runResults.isEmpty { recentRuns }
                     Spacer(minLength: 20)
                 }
@@ -39,12 +42,21 @@ struct HomeScreen: View {
         .sheet(isPresented: $showAchievements) {
             AchievementsSheet(unlocked: unlockedAchievements)
         }
+        .fullScreenCover(isPresented: $showOnboarding) {
+            OnboardingView {
+                hasSeenOnboarding = true
+                showOnboarding = false
+            }
+        }
     }
 
     private func reload() {
         hasSaveGame = persistence.hasSaveGame
         runResults = persistence.loadRunResults()
         unlockedAchievements = persistence.loadUnlockedAchievements()
+        if !hasSeenOnboarding {
+            showOnboarding = true
+        }
     }
 
     // MARK: Hero
@@ -132,6 +144,22 @@ struct HomeScreen: View {
             .padding(.vertical, 12)
             .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(GameTheme.surface))
             .overlay(RoundedRectangle(cornerRadius: 12, style: .continuous).stroke(GameTheme.hairline, lineWidth: 1))
+        }
+        .buttonStyle(.plain)
+    }
+
+    private var howItWorksButton: some View {
+        Button {
+            showOnboarding = true
+        } label: {
+            HStack(spacing: 6) {
+                Image(systemName: "questionmark.circle")
+                Text("So funktioniert das Spiel")
+            }
+            .font(.subheadline.weight(.medium))
+            .foregroundStyle(GameTheme.secondaryText)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 4)
         }
         .buttonStyle(.plain)
     }

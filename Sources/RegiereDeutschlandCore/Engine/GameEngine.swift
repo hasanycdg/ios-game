@@ -97,6 +97,9 @@ public final class GameEngine {
     public private(set) var pendingCoalitionOptions: [CoalitionOption]?
     public private(set) var policies: PolicyState = .standard()
     public private(set) var debt: Int = 60
+    public private(set) var interestGroups: [InterestGroup] = InterestGroupsFactory.standard()
+    public private(set) var partyWings: PartyWings = .standard()
+    public private(set) var hasBundesratMajority: Bool = true
     public let maxCapital = 10
 
     public init(
@@ -152,6 +155,9 @@ public final class GameEngine {
         self.pendingCoalitionOptions = snapshot.pendingCoalitionOptions
         self.policies = snapshot.policies ?? .standard()
         self.debt = snapshot.debt ?? 60
+        self.interestGroups = snapshot.interestGroups ?? InterestGroupsFactory.standard()
+        self.partyWings = snapshot.partyWings ?? .standard()
+        self.hasBundesratMajority = snapshot.hasBundesratMajority ?? true
     }
 
     public func snapshot() -> GameSessionSnapshot {
@@ -169,7 +175,10 @@ public final class GameEngine {
             cabinet: cabinet,
             pendingCoalitionOptions: pendingCoalitionOptions,
             policies: policies,
-            debt: debt
+            debt: debt,
+            interestGroups: interestGroups,
+            partyWings: partyWings,
+            hasBundesratMajority: hasBundesratMajority
         )
     }
 
@@ -189,6 +198,9 @@ public final class GameEngine {
         pendingCoalitionOptions = nil
         policies = .standard()
         debt = 60
+        interestGroups = InterestGroupsFactory.standard()
+        partyWings = .standard()
+        hasBundesratMajority = true
         lastDecisionResult = nil
         annualHistory = []
         prepareCurrentYear()
@@ -344,8 +356,16 @@ public final class GameEngine {
         annualSimulation.applyEndOfYearDevelopment(to: &state)
         applyCabinetInfluence()
         applyPolicyInfluence()
+        applyInterestGroupInfluence()
+        applyFederalism()
+        applyPartyWingInfluence()
         recordAnnualSnapshot()
         applyCorruptionExposure()
+
+        if state.gameOverSummary != nil {
+            currentEvent = nil
+            return
+        }
 
         if electionEngine.shouldHoldElection(in: state) {
             pendingCampaign = true
@@ -485,8 +505,8 @@ public final class GameEngine {
         let alignment = direction * PolicyEngine.leaningPreference(policy, coalition.leaning)
         let voteScore = coalition.satisfaction + alignment * 8
 
-        // Minderheitsregierungen tun sich schwerer, Mehrheiten zu organisieren.
-        let threshold = coalition.isMinority ? 52 : 45
+        // Minderheitsregierungen und ein verlorener Bundesrat erschweren Mehrheiten.
+        let threshold = (coalition.isMinority ? 52 : 45) + (hasBundesratMajority ? 0 : 7)
 
         guard voteScore >= threshold else {
             coalition.satisfaction = VisibleMetrics.clamped(coalition.satisfaction - 4)
@@ -498,6 +518,85 @@ public final class GameEngine {
         state.applyPopulationEffects(PolicyEngine.groupReaction(policy, delta: target - current))
         state.clampAll()
         return .passed
+    }
+
+    /// Interessengruppen driften Richtung Zielzufriedenheit; kippt eine mächtige
+    /// Gruppe, folgt eine Protest-/Streik-Aktion.
+    private func applyInterestGroupInfluence() {
+        for index in interestGroups.indices {
+            let group = interestGroups[index]
+            let target = InterestGroupsFactory.target(group.id, policies: policies, state: state)
+            let step = target > group.satisfaction ? 4 : -4
+            interestGroups[index].satisfaction = VisibleMetrics.clamped(
+                group.satisfaction + (abs(target - group.satisfaction) < 4 ? (target - group.satisfaction) : step)
+            )
+
+            if interestGroups[index].satisfaction <= 18 && group.power >= 2 {
+                let action = InterestGroupsFactory.action(group.id)
+                for effect in action.visible { state.apply(effect) }
+                for effect in action.hidden { state.apply(effect) }
+                approvalEngine.applyDecisionImpact(
+                    PublicMemoryImpact(immediateApproval: action.approval),
+                    optionApprovalEffect: 0, to: &state
+                )
+                state.triggeredHistoricalEchoes.append(
+                    TriggeredHistoricalEcho(year: state.currentYear, sourceEventID: "interest-\(group.id.rawValue)",
+                                            sourceOptionID: "action", note: action.note)
+                )
+                interestGroups[index].satisfaction = VisibleMetrics.clamped(interestGroups[index].satisfaction + 16)
+            }
+        }
+        state.clampAll()
+    }
+
+    /// Partei-Flügel driften mit dem politischen Kurs; bricht der Rückhalt weg,
+    /// stürzt die eigene Partei die Führung.
+    private func applyPartyWingInfluence() {
+        let progTarget = PartyWingsDynamics.progressiveTarget(policies: policies)
+        let tradTarget = PartyWingsDynamics.traditionalTarget(policies: policies)
+        partyWings.progressive = drift(partyWings.progressive, toward: progTarget)
+        partyWings.traditional = drift(partyWings.traditional, toward: tradTarget)
+
+        let wingAverage = (partyWings.progressive + partyWings.traditional) / 2
+        let backingTarget = VisibleMetrics.clamped(
+            Int(Double(wingAverage) * 0.55 + Double(state.governmentApproval) * 0.45) + state.shortTermMomentum / 3
+        )
+        partyWings.leadershipBacking = drift(partyWings.leadershipBacking, toward: backingTarget)
+
+        if partyWings.leadershipBacking <= PartyWings.ousterPoint {
+            state.gameOverSummary = electionEngine.endSummary(
+                for: state, reason: .lostElection,
+                messageOverride: "Deine eigene Partei hat dich gestürzt."
+            )
+        }
+    }
+
+    /// Landtagswahlen verschieben die Mehrheit im Bundesrat.
+    private func applyFederalism() {
+        let offset = state.currentYear - 2000
+        guard offset > 0, offset % 3 == 0, !electionEngine.electionYears.contains(state.currentYear) else { return }
+        let hadMajority = hasBundesratMajority
+        hasBundesratMajority = state.governmentApproval >= 48
+        let note: String
+        if hasBundesratMajority && !hadMajority {
+            note = "Landtagswahlen: Die Regierung gewinnt die Mehrheit im Bundesrat zurück."
+        } else if !hasBundesratMajority && hadMajority {
+            note = "Landtagswahlen: Die Regierung verliert die Mehrheit im Bundesrat – Gesetze werden schwerer."
+        } else if hasBundesratMajority {
+            note = "Landtagswahlen: Die Regierung behauptet ihre Mehrheit im Bundesrat."
+        } else {
+            note = "Landtagswahlen: Die Opposition dominiert weiter den Bundesrat."
+        }
+        state.triggeredHistoricalEchoes.append(
+            TriggeredHistoricalEcho(year: state.currentYear, sourceEventID: "landtagswahl",
+                                    sourceOptionID: "result", note: note)
+        )
+    }
+
+    private func drift(_ value: Int, toward target: Int) -> Int {
+        let delta = target - value
+        if abs(delta) < 4 { return VisibleMetrics.clamped(target) }
+        return VisibleMetrics.clamped(value + (delta > 0 ? 4 : -4))
     }
 
     /// Jährliche Wirkung der Politikfelder auf Werte und Haushalt.

@@ -105,10 +105,10 @@ public struct ElectionEngine: Sendable {
         )
     }
 
-    public func endSummary(for state: GameState, reason: GameOverReason) -> GameOverSummary {
+    public func endSummary(for state: GameState, reason: GameOverReason, messageOverride: String? = nil) -> GameOverSummary {
         GameOverSummary(
             reason: reason,
-            message: reason == .reachedFinalYear ? "Dein Deutschland 2026 ist erreicht." : "Deine Regierung wurde abgewaehlt.",
+            message: messageOverride ?? (reason == .reachedFinalYear ? "Dein Deutschland 2026 ist erreicht." : "Deine Regierung wurde abgewaehlt."),
             startYear: 2000,
             endYear: state.currentYear,
             keyDecisionTitles: state.decisions.suffix(5).map(\.optionTitle),

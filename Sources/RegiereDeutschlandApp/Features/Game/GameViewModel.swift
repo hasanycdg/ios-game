@@ -33,6 +33,9 @@ final class GameViewModel: ObservableObject {
     @Published private(set) var pendingCoalitionOptions: [CoalitionOption]?
     @Published private(set) var policies: PolicyState = .standard()
     @Published private(set) var debt: Int = 60
+    @Published private(set) var interestGroups: [InterestGroup] = InterestGroupsFactory.standard()
+    @Published private(set) var partyWings: PartyWings = .standard()
+    @Published private(set) var hasBundesratMajority: Bool = true
     let maxCapital = 10
 
     var budget: BudgetSummary { engine.budgetSummary() }
@@ -80,6 +83,9 @@ final class GameViewModel: ObservableObject {
         self.pendingCoalitionOptions = engine.pendingCoalitionOptions
         self.policies = engine.policies
         self.debt = engine.debt
+        self.interestGroups = engine.interestGroups
+        self.partyWings = engine.partyWings
+        self.hasBundesratMajority = engine.hasBundesratMajority
         autosave()
     }
 
@@ -193,6 +199,9 @@ final class GameViewModel: ObservableObject {
         pendingCoalitionOptions = engine.pendingCoalitionOptions
         policies = engine.policies
         debt = engine.debt
+        interestGroups = engine.interestGroups
+        partyWings = engine.partyWings
+        hasBundesratMajority = engine.hasBundesratMajority
     }
 
     @discardableResult

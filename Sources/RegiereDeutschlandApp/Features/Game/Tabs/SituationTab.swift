@@ -11,6 +11,7 @@ struct SituationTab: View {
                 situationHeader
                 quickStatStrip
                 CoalitionCard(coalition: viewModel.coalition)
+                PartyWingsCard(wings: viewModel.partyWings)
                 if viewModel.corruption > 0 {
                     ShadowFundsCard(corruption: viewModel.corruption)
                 }

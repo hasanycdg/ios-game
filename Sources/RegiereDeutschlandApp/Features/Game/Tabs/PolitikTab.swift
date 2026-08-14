@@ -12,8 +12,10 @@ struct PolitikTab: View {
             VStack(alignment: .leading, spacing: 20) {
                 masthead
                 blocSummary
+                BundesratCard(hasMajority: viewModel.hasBundesratMajority)
                 pollSection
                 spectrumSection
+                InterestGroupsSection(groups: viewModel.interestGroups)
                 electorateSection
             }
             .padding(16)

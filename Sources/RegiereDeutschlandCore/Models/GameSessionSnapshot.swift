@@ -16,6 +16,9 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
     public let pendingCoalitionOptions: [CoalitionOption]?
     public let policies: PolicyState?
     public let debt: Int?
+    public let interestGroups: [InterestGroup]?
+    public let partyWings: PartyWings?
+    public let hasBundesratMajority: Bool?
 
     public init(
         schemaVersion: Int = 1,
@@ -32,7 +35,10 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         cabinet: Cabinet? = nil,
         pendingCoalitionOptions: [CoalitionOption]? = nil,
         policies: PolicyState? = nil,
-        debt: Int? = nil
+        debt: Int? = nil,
+        interestGroups: [InterestGroup]? = nil,
+        partyWings: PartyWings? = nil,
+        hasBundesratMajority: Bool? = nil
     ) {
         self.schemaVersion = schemaVersion
         self.state = state
@@ -49,6 +55,9 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         self.pendingCoalitionOptions = pendingCoalitionOptions
         self.policies = policies
         self.debt = debt
+        self.interestGroups = interestGroups
+        self.partyWings = partyWings
+        self.hasBundesratMajority = hasBundesratMajority
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -67,6 +76,9 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         case pendingCoalitionOptions
         case policies
         case debt
+        case interestGroups
+        case partyWings
+        case hasBundesratMajority
     }
 
     public init(from decoder: Decoder) throws {
@@ -86,6 +98,9 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         pendingCoalitionOptions = try container.decodeIfPresent([CoalitionOption].self, forKey: .pendingCoalitionOptions)
         policies = try container.decodeIfPresent(PolicyState.self, forKey: .policies)
         debt = try container.decodeIfPresent(Int.self, forKey: .debt)
+        interestGroups = try container.decodeIfPresent([InterestGroup].self, forKey: .interestGroups)
+        partyWings = try container.decodeIfPresent(PartyWings.self, forKey: .partyWings)
+        hasBundesratMajority = try container.decodeIfPresent(Bool.self, forKey: .hasBundesratMajority)
     }
 }
 

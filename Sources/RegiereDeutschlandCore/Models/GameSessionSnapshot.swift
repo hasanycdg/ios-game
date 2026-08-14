@@ -14,6 +14,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
     public let pendingEncounter: PoliticalEncounter?
     public let cabinet: Cabinet?
     public let pendingCoalitionOptions: [CoalitionOption]?
+    public let policies: PolicyState?
+    public let debt: Int?
 
     public init(
         schemaVersion: Int = 1,
@@ -28,7 +30,9 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         corruption: Int? = nil,
         pendingEncounter: PoliticalEncounter? = nil,
         cabinet: Cabinet? = nil,
-        pendingCoalitionOptions: [CoalitionOption]? = nil
+        pendingCoalitionOptions: [CoalitionOption]? = nil,
+        policies: PolicyState? = nil,
+        debt: Int? = nil
     ) {
         self.schemaVersion = schemaVersion
         self.state = state
@@ -43,6 +47,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         self.pendingEncounter = pendingEncounter
         self.cabinet = cabinet
         self.pendingCoalitionOptions = pendingCoalitionOptions
+        self.policies = policies
+        self.debt = debt
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -59,6 +65,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         case pendingEncounter
         case cabinet
         case pendingCoalitionOptions
+        case policies
+        case debt
     }
 
     public init(from decoder: Decoder) throws {
@@ -76,6 +84,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         pendingEncounter = try container.decodeIfPresent(PoliticalEncounter.self, forKey: .pendingEncounter)
         cabinet = try container.decodeIfPresent(Cabinet.self, forKey: .cabinet)
         pendingCoalitionOptions = try container.decodeIfPresent([CoalitionOption].self, forKey: .pendingCoalitionOptions)
+        policies = try container.decodeIfPresent(PolicyState.self, forKey: .policies)
+        debt = try container.decodeIfPresent(Int.self, forKey: .debt)
     }
 }
 

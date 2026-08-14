@@ -54,13 +54,15 @@ struct PolitikTab: View {
                 blocTile(title: "Opposition", value: landscape.oppositionBloc, color: GameTheme.blue)
             }
             if let opp = landscape.strongestOpposition {
-                HStack(spacing: 6) {
-                    Image(systemName: "flag.2.crossed.fill")
-                        .font(.caption).foregroundStyle(PartyPresentation.color(for: opp.id))
-                    Text("Stärkste Opposition:")
-                        .font(.caption).foregroundStyle(GameTheme.secondaryText)
-                    Text(opp.name)
-                        .font(.caption.weight(.bold)).foregroundStyle(GameTheme.primaryText)
+                HStack(spacing: 8) {
+                    Image(systemName: "person.bust.fill")
+                        .font(.footnote).foregroundStyle(PartyPresentation.color(for: opp.id))
+                    VStack(alignment: .leading, spacing: 1) {
+                        Text("Oppositionsführer:in")
+                            .font(.caption2).foregroundStyle(GameTheme.tertiaryText)
+                        Text("\(PartyPresentation.leader(for: opp.id)) · \(opp.name)")
+                            .font(.caption.weight(.bold)).foregroundStyle(GameTheme.primaryText)
+                    }
                     Spacer(minLength: 0)
                     Text(String(format: "%.1f %%", opp.support))
                         .font(.caption.weight(.bold)).foregroundStyle(GameTheme.primaryText).monospacedDigit()

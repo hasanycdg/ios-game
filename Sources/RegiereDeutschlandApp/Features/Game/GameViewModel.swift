@@ -31,7 +31,11 @@ final class GameViewModel: ObservableObject {
     @Published private(set) var pendingEncounter: PoliticalEncounter?
     @Published private(set) var cabinet: Cabinet = .standard()
     @Published private(set) var pendingCoalitionOptions: [CoalitionOption]?
+    @Published private(set) var policies: PolicyState = .standard()
+    @Published private(set) var debt: Int = 60
     let maxCapital = 10
+
+    var budget: BudgetSummary { engine.budgetSummary() }
     #if DEBUG
     @Published private(set) var balanceSummaryText: String = ""
     #endif
@@ -74,6 +78,8 @@ final class GameViewModel: ObservableObject {
         self.pendingEncounter = engine.pendingEncounter
         self.cabinet = engine.cabinet
         self.pendingCoalitionOptions = engine.pendingCoalitionOptions
+        self.policies = engine.policies
+        self.debt = engine.debt
         autosave()
     }
 
@@ -156,7 +162,23 @@ final class GameViewModel: ObservableObject {
 
     /// Reaktive Schlagzeilen zur Politik des Spielers.
     var domesticNews: [NewsItem] {
-        DynamicNewsFactory.make(for: state, corruption: corruption)
+        var items = DynamicNewsFactory.make(for: state, corruption: corruption)
+        if state.governmentApproval <= 46, let opponent = partyLandscape.strongestOpposition {
+            let leader = PartyPresentation.leader(for: opponent.id)
+            items.insert(
+                NewsItem(
+                    id: "opp-attack-\(state.currentYear)-\(state.governmentApproval)",
+                    year: state.currentYear,
+                    scope: .domestic,
+                    category: .society,
+                    headline: "Oppositionsführer \(leader) attackiert die Regierung",
+                    summary: "\(opponent.name) wirft der Regierung Versagen vor und fordert einen Kurswechsel.",
+                    source: "Bundestag"
+                ),
+                at: 0
+            )
+        }
+        return items
     }
 
     private func syncFromEngine() {
@@ -169,6 +191,16 @@ final class GameViewModel: ObservableObject {
         pendingEncounter = engine.pendingEncounter
         cabinet = engine.cabinet
         pendingCoalitionOptions = engine.pendingCoalitionOptions
+        policies = engine.policies
+        debt = engine.debt
+    }
+
+    @discardableResult
+    func attemptPolicyChange(_ policy: PolicyID, to level: Int) -> PolicyVoteResult {
+        let result = engine.attemptPolicyChange(policy, to: level)
+        syncFromEngine()
+        autosave()
+        return result
     }
 
     func resolveEncounter(_ optionID: String) {

@@ -95,6 +95,8 @@ public final class GameEngine {
     public private(set) var pendingEncounter: PoliticalEncounter?
     public private(set) var cabinet: Cabinet = .standard()
     public private(set) var pendingCoalitionOptions: [CoalitionOption]?
+    public private(set) var policies: PolicyState = .standard()
+    public private(set) var debt: Int = 60
     public let maxCapital = 10
 
     public init(
@@ -148,6 +150,8 @@ public final class GameEngine {
         self.pendingEncounter = snapshot.pendingEncounter
         self.cabinet = snapshot.cabinet ?? .standard()
         self.pendingCoalitionOptions = snapshot.pendingCoalitionOptions
+        self.policies = snapshot.policies ?? .standard()
+        self.debt = snapshot.debt ?? 60
     }
 
     public func snapshot() -> GameSessionSnapshot {
@@ -163,7 +167,9 @@ public final class GameEngine {
             corruption: corruption,
             pendingEncounter: pendingEncounter,
             cabinet: cabinet,
-            pendingCoalitionOptions: pendingCoalitionOptions
+            pendingCoalitionOptions: pendingCoalitionOptions,
+            policies: policies,
+            debt: debt
         )
     }
 
@@ -181,6 +187,8 @@ public final class GameEngine {
         pendingEncounter = nil
         cabinet = .standard()
         pendingCoalitionOptions = nil
+        policies = .standard()
+        debt = 60
         lastDecisionResult = nil
         annualHistory = []
         prepareCurrentYear()
@@ -335,6 +343,7 @@ public final class GameEngine {
 
         annualSimulation.applyEndOfYearDevelopment(to: &state)
         applyCabinetInfluence()
+        applyPolicyInfluence()
         recordAnnualSnapshot()
         applyCorruptionExposure()
 
@@ -447,6 +456,67 @@ public final class GameEngine {
         case "socialdemocrats", "greens", "leftists": .left
         default: .liberal
         }
+    }
+
+    // MARK: Gesetze & Haushalt
+
+    /// Aktueller Haushalt aus den Politikfeldern.
+    public func budgetSummary() -> BudgetSummary {
+        let income = PolicyEngine.fiscal(.taxes, level: policies.level(.taxes))
+        let spending = PolicyID.allCases
+            .filter { !$0.isRevenue }
+            .reduce(0) { $0 + PolicyEngine.fiscal($1, level: policies.level($1)) }
+        return BudgetSummary(income: income, spending: spending, debt: debt)
+    }
+
+    /// Versucht, ein Politikfeld zu ändern. Die Änderung kostet Kapital und muss
+    /// im Parlament (Koalition) eine Mehrheit finden.
+    @discardableResult
+    public func attemptPolicyChange(_ policy: PolicyID, to newLevel: Int) -> PolicyVoteResult {
+        let target = min(PolicyEngine.maxLevel, max(0, newLevel))
+        let current = policies.level(policy)
+        guard target != current else { return .unchanged }
+
+        let cost = abs(target - current)
+        guard politicalCapital >= cost else { return .noCapital }
+        politicalCapital -= cost
+
+        let direction = target > current ? 1 : -1
+        let alignment = direction * PolicyEngine.leaningPreference(policy, coalition.leaning)
+        let voteScore = coalition.satisfaction + alignment * 8
+
+        // Minderheitsregierungen tun sich schwerer, Mehrheiten zu organisieren.
+        let threshold = coalition.isMinority ? 52 : 45
+
+        guard voteScore >= threshold else {
+            coalition.satisfaction = VisibleMetrics.clamped(coalition.satisfaction - 4)
+            return .rejected
+        }
+
+        policies.levels[policy.rawValue] = target
+        coalition.satisfaction = VisibleMetrics.clamped(coalition.satisfaction + alignment * 2)
+        state.applyPopulationEffects(PolicyEngine.groupReaction(policy, delta: target - current))
+        state.clampAll()
+        return .passed
+    }
+
+    /// Jährliche Wirkung der Politikfelder auf Werte und Haushalt.
+    private func applyPolicyInfluence() {
+        for policy in PolicyID.allCases {
+            let level = policies.level(policy)
+            for effect in PolicyEngine.annualVisible(policy, level: level) { state.apply(effect) }
+            for effect in PolicyEngine.annualHidden(policy, level: level) { state.apply(effect) }
+        }
+
+        let budget = budgetSummary()
+        debt = min(200, max(0, debt + budget.deficit))
+        if budget.deficit <= 0 {
+            state.apply(GameEffect(metric: .budget, change: 1))
+        } else {
+            state.apply(GameEffect(metric: .budget, change: budget.deficit > 15 ? -2 : -1))
+        }
+        if debt > 120 { state.apply(GameEffect(metric: .budget, change: -1)) }
+        state.clampAll()
     }
 
     /// Neubesetzung eines Ressorts – kostet politisches Kapital.

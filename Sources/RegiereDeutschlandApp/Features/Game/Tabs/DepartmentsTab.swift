@@ -14,6 +14,11 @@ struct DepartmentsTab: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 indexHeader
+                BudgetCard(budget: viewModel.budget)
+                PolicySection(policies: viewModel.policies, capital: viewModel.politicalCapital) { policy, level in
+                    Haptics.impact(.light)
+                    return viewModel.attemptPolicyChange(policy, to: level)
+                }
                 trendCard
 
                 ForEach(MetricPresentation.groups, id: \.title) { group in

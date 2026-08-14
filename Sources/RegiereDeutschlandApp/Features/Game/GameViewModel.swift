@@ -11,6 +11,7 @@ final class GameViewModel: ObservableObject {
     enum Phase: Equatable {
         case event
         case result(DecisionResult)
+        case encounter
         case campaign
         case election(ElectionResult)
         case gameOver(GameOverSummary)
@@ -25,6 +26,8 @@ final class GameViewModel: ObservableObject {
     @Published private(set) var coalition: CoalitionState = .standard()
     @Published private(set) var persona: KanzlerPersona = PersonaCatalog.default
     @Published private(set) var newlyUnlockedAchievements: [Achievement] = []
+    @Published private(set) var corruption: Int = 0
+    @Published private(set) var pendingEncounter: PoliticalEncounter?
     let maxCapital = 10
     #if DEBUG
     @Published private(set) var balanceSummaryText: String = ""
@@ -64,6 +67,8 @@ final class GameViewModel: ObservableObject {
         self.politicalCapital = engine.politicalCapital
         self.coalition = engine.coalition
         self.persona = engine.persona
+        self.corruption = engine.corruption
+        self.pendingEncounter = engine.pendingEncounter
         autosave()
     }
 
@@ -146,7 +151,7 @@ final class GameViewModel: ObservableObject {
 
     /// Reaktive Schlagzeilen zur Politik des Spielers.
     var domesticNews: [NewsItem] {
-        DynamicNewsFactory.make(for: state)
+        DynamicNewsFactory.make(for: state, corruption: corruption)
     }
 
     private func syncFromEngine() {
@@ -155,6 +160,15 @@ final class GameViewModel: ObservableObject {
         annualHistory = engine.annualHistory
         politicalCapital = engine.politicalCapital
         coalition = engine.coalition
+        corruption = engine.corruption
+        pendingEncounter = engine.pendingEncounter
+    }
+
+    func resolveEncounter(_ optionID: String) {
+        engine.resolveEncounter(optionID: optionID)
+        syncFromEngine()
+        phase = Self.phase(for: engine)
+        autosave()
     }
 
     private func autosave() {
@@ -195,6 +209,10 @@ final class GameViewModel: ObservableObject {
 
         if engine.pendingCampaign {
             return .campaign
+        }
+
+        if engine.pendingEncounter != nil {
+            return .encounter
         }
 
         if let result = engine.lastDecisionResult {

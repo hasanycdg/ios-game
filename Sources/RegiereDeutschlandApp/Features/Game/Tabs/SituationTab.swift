@@ -11,6 +11,9 @@ struct SituationTab: View {
                 situationHeader
                 quickStatStrip
                 CoalitionCard(coalition: viewModel.coalition)
+                if viewModel.corruption > 0 {
+                    ShadowFundsCard(corruption: viewModel.corruption)
+                }
                 ElectionBarometer(
                     projection: viewModel.electionProjection,
                     currentYear: viewModel.state.currentYear
@@ -146,7 +149,7 @@ struct SituationTab: View {
                     viewModel.continueWithoutEvent()
                 }
             }
-        case .campaign, .election, .gameOver:
+        case .encounter, .campaign, .election, .gameOver:
             // Wird als Vollbild-Overlay im Container dargestellt.
             waitingCard
         }

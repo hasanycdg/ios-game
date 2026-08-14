@@ -10,6 +10,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
     public let coalition: CoalitionState?
     public let personaID: String?
     public let pendingCampaign: Bool?
+    public let corruption: Int?
+    public let pendingEncounter: PoliticalEncounter?
 
     public init(
         schemaVersion: Int = 1,
@@ -20,7 +22,9 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         politicalCapital: Int? = nil,
         coalition: CoalitionState? = nil,
         personaID: String? = nil,
-        pendingCampaign: Bool? = nil
+        pendingCampaign: Bool? = nil,
+        corruption: Int? = nil,
+        pendingEncounter: PoliticalEncounter? = nil
     ) {
         self.schemaVersion = schemaVersion
         self.state = state
@@ -31,6 +35,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         self.coalition = coalition
         self.personaID = personaID
         self.pendingCampaign = pendingCampaign
+        self.corruption = corruption
+        self.pendingEncounter = pendingEncounter
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -43,6 +49,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         case coalition
         case personaID
         case pendingCampaign
+        case corruption
+        case pendingEncounter
     }
 
     public init(from decoder: Decoder) throws {
@@ -56,6 +64,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         coalition = try container.decodeIfPresent(CoalitionState.self, forKey: .coalition)
         personaID = try container.decodeIfPresent(String.self, forKey: .personaID)
         pendingCampaign = try container.decodeIfPresent(Bool.self, forKey: .pendingCampaign)
+        corruption = try container.decodeIfPresent(Int.self, forKey: .corruption)
+        pendingEncounter = try container.decodeIfPresent(PoliticalEncounter.self, forKey: .pendingEncounter)
     }
 }
 

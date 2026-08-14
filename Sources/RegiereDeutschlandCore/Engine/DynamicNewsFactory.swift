@@ -4,9 +4,24 @@ import Foundation
 /// kommentiert die Politik des Spielers. Rein deterministisch und testbar.
 public enum DynamicNewsFactory {
 
-    public static func make(for state: GameState) -> [NewsItem] {
+    public static func make(for state: GameState, corruption: Int = 0) -> [NewsItem] {
         var items: [NewsItem] = []
         let year = state.currentYear
+
+        // Korruptions-Gerüchte als Vorboten eines möglichen Skandals
+        if corruption >= 20 {
+            items.append(
+                NewsItem(
+                    id: "dyn-corruption-\(year)-\(corruption)",
+                    year: year,
+                    scope: .domestic,
+                    category: .society,
+                    headline: "Gerüchte über dubiose Zahlungen",
+                    summary: "In der Hauptstadt wird über vertrauliche Geldflüsse rund um die Regierung getuschelt.",
+                    source: "Recherche"
+                )
+            )
+        }
 
         // Kabinettsbeschlüsse dieses Jahres
         for decision in state.decisions where decision.year == year {

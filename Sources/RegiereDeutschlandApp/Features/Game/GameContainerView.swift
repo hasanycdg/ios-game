@@ -57,6 +57,14 @@ struct GameContainerView: View {
     @ViewBuilder
     private var overlay: some View {
         switch viewModel.phase {
+        case .encounter:
+            if let encounter = viewModel.pendingEncounter {
+                EncounterView(encounter: encounter) { optionID in
+                    withAnimation(.easeInOut) { viewModel.resolveEncounter(optionID) }
+                }
+                .transition(.opacity)
+                .zIndex(1)
+            }
         case .campaign:
             CampaignView(year: viewModel.state.currentYear, state: viewModel.state) { focus in
                 withAnimation(.easeInOut) { viewModel.runCampaign(focus) }

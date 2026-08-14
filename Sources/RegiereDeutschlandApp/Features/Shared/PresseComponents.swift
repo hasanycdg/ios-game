@@ -199,6 +199,47 @@ struct SeatDistributionBar: View {
     }
 }
 
+// MARK: - Schattenkonto (Korruption)
+
+struct ShadowFundsCard: View {
+    let corruption: Int
+
+    private var risk: (label: String, color: Color) {
+        switch corruption {
+        case 45...:   ("hoch", GameTheme.red)
+        case 25..<45: ("erhöht", GameTheme.amber)
+        default:      ("gering", GameTheme.gold)
+        }
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 8) {
+                Image(systemName: "eye.slash.fill")
+                    .font(.footnote.weight(.bold)).foregroundStyle(GameTheme.red)
+                Text("SCHATTENKONTO")
+                    .font(.caption.weight(.bold)).tracking(1.2)
+                    .foregroundStyle(GameTheme.secondaryText)
+                Spacer(minLength: 0)
+                HStack(spacing: 4) {
+                    Text("Skandalrisiko")
+                        .font(.caption2).foregroundStyle(GameTheme.tertiaryText)
+                    Text(risk.label)
+                        .font(.caption2.weight(.heavy)).foregroundStyle(risk.color)
+                }
+                .padding(.horizontal, 8).padding(.vertical, 3)
+                .background(Capsule().fill(risk.color.opacity(0.16)))
+            }
+            ValueBar(value: corruption, height: 7, color: GameTheme.red)
+            Text("Verdeckte Zuwendungen verschaffen dir Spielraum – doch je größer das Schattenkonto, desto eher fliegt der Skandal auf.")
+                .font(.caption2)
+                .foregroundStyle(GameTheme.tertiaryText)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .gameCard(padding: 16, tint: GameTheme.red)
+    }
+}
+
 // MARK: - Wahlbarometer ("Sonntagsfrage")
 
 struct ElectionBarometer: View {

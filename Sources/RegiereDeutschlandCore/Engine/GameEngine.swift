@@ -91,6 +91,8 @@ public final class GameEngine {
     public private(set) var coalition: CoalitionState = .standard()
     public private(set) var persona: KanzlerPersona = PersonaCatalog.default
     public private(set) var pendingCampaign: Bool = false
+    public private(set) var corruption: Int = 0
+    public private(set) var pendingEncounter: PoliticalEncounter?
     public let maxCapital = 10
 
     public init(
@@ -140,6 +142,8 @@ public final class GameEngine {
         self.coalition = snapshot.coalition ?? .standard()
         self.persona = PersonaCatalog.persona(id: snapshot.personaID ?? PersonaCatalog.default.id)
         self.pendingCampaign = snapshot.pendingCampaign ?? false
+        self.corruption = snapshot.corruption ?? 0
+        self.pendingEncounter = snapshot.pendingEncounter
     }
 
     public func snapshot() -> GameSessionSnapshot {
@@ -151,7 +155,9 @@ public final class GameEngine {
             politicalCapital: politicalCapital,
             coalition: coalition,
             personaID: persona.id,
-            pendingCampaign: pendingCampaign
+            pendingCampaign: pendingCampaign,
+            corruption: corruption,
+            pendingEncounter: pendingEncounter
         )
     }
 
@@ -165,6 +171,8 @@ public final class GameEngine {
         politicalCapital = persona.startingCapital
         coalition = persona.makeCoalition()
         pendingCampaign = false
+        corruption = 0
+        pendingEncounter = nil
         lastDecisionResult = nil
         annualHistory = []
         prepareCurrentYear()
@@ -318,6 +326,7 @@ public final class GameEngine {
 
         annualSimulation.applyEndOfYearDevelopment(to: &state)
         recordAnnualSnapshot()
+        applyCorruptionExposure()
 
         if electionEngine.shouldHoldElection(in: state) {
             pendingCampaign = true
@@ -385,6 +394,49 @@ public final class GameEngine {
         state.currentYear = year
         politicalCapital = min(maxCapital, politicalCapital + capitalIncome())
         prepareCurrentYear()
+        maybeScheduleEncounter(for: year)
+    }
+
+    /// Legt zu Jahresbeginn ggf. ein Interview oder Lobby-Angebot fest.
+    private func maybeScheduleEncounter(for year: Int) {
+        guard pendingEncounter == nil, !electionEngine.electionYears.contains(year) else { return }
+        let offset = year - 2000
+        if offset % 3 == 2 {
+            pendingEncounter = LobbyFactory.make(state: state, year: year)
+        } else if offset % 2 == 1 {
+            pendingEncounter = InterviewFactory.make(state: state, year: year)
+        }
+    }
+
+    /// Wendet die gewählte Antwort einer Begegnung an.
+    public func resolveEncounter(optionID: String) {
+        guard let encounter = pendingEncounter,
+              let option = encounter.options.first(where: { $0.id == optionID }) else { return }
+
+        for effect in option.visibleEffects { state.apply(effect) }
+        if option.polarizationEffect != 0 {
+            state.apply(HiddenEffect(metric: .polarization, change: option.polarizationEffect))
+        }
+        if option.approvalEffect != 0 {
+            approvalEngine.applyDecisionImpact(
+                PublicMemoryImpact(immediateApproval: option.approvalEffect),
+                optionApprovalEffect: 0,
+                to: &state
+            )
+        }
+        politicalCapital = min(maxCapital, politicalCapital + option.capitalReward)
+        corruption = VisibleMetrics.clamped(corruption + option.corruptionEffect)
+
+        state.decisions.append(
+            DecisionRecord(
+                year: state.currentYear,
+                eventID: encounter.kind.rawValue,
+                optionID: option.id,
+                optionTitle: option.title
+            )
+        )
+        pendingEncounter = nil
+        state.clampAll()
     }
 
     /// Der Koalitionspartner verlässt die Regierung – es kommt zur Neuwahl.
@@ -471,6 +523,35 @@ public final class GameEngine {
 
     private func makeFinalYearSummary() -> GameOverSummary {
         electionEngine.endSummary(for: state, reason: .reachedFinalYear)
+    }
+
+    /// Prüft am Jahresende, ob ein Korruptionsskandal auffliegt. Je höher die
+    /// angehäufte Korruption, desto wahrscheinlicher und heftiger.
+    private func applyCorruptionExposure() {
+        guard corruption >= 25 else { return }
+        let roll = (state.currentYear * 31 + corruption * 7) % 100
+        guard roll < (corruption - 10) else { return }
+
+        state.apply(GameEffect(metric: .trust, change: -16))
+        state.apply(GameEffect(metric: .society, change: -8))
+        state.apply(HiddenEffect(metric: .polarization, change: 10))
+        approvalEngine.applyDecisionImpact(
+            PublicMemoryImpact(immediateApproval: -14),
+            optionApprovalEffect: 0,
+            to: &state
+        )
+        coalition.satisfaction = VisibleMetrics.clamped(coalition.satisfaction - 20)
+        corruption = corruption / 3
+        state.historicalFlags.insert("corruption_scandal")
+        state.triggeredHistoricalEchoes.append(
+            TriggeredHistoricalEcho(
+                year: state.currentYear,
+                sourceEventID: "corruption",
+                sourceOptionID: "scandal",
+                note: "Korruptionsskandal: Geheime Zahlungen aufgedeckt – Vertrauen und Zustimmung brechen ein."
+            )
+        )
+        state.clampAll()
     }
 
     /// Speichert bzw. aktualisiert die Jahres-Momentaufnahme für das laufende Jahr.

@@ -12,6 +12,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
     public let pendingCampaign: Bool?
     public let corruption: Int?
     public let pendingEncounter: PoliticalEncounter?
+    public let cabinet: Cabinet?
+    public let pendingCoalitionOptions: [CoalitionOption]?
 
     public init(
         schemaVersion: Int = 1,
@@ -24,7 +26,9 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         personaID: String? = nil,
         pendingCampaign: Bool? = nil,
         corruption: Int? = nil,
-        pendingEncounter: PoliticalEncounter? = nil
+        pendingEncounter: PoliticalEncounter? = nil,
+        cabinet: Cabinet? = nil,
+        pendingCoalitionOptions: [CoalitionOption]? = nil
     ) {
         self.schemaVersion = schemaVersion
         self.state = state
@@ -37,6 +41,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         self.pendingCampaign = pendingCampaign
         self.corruption = corruption
         self.pendingEncounter = pendingEncounter
+        self.cabinet = cabinet
+        self.pendingCoalitionOptions = pendingCoalitionOptions
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -51,6 +57,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         case pendingCampaign
         case corruption
         case pendingEncounter
+        case cabinet
+        case pendingCoalitionOptions
     }
 
     public init(from decoder: Decoder) throws {
@@ -66,6 +74,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         pendingCampaign = try container.decodeIfPresent(Bool.self, forKey: .pendingCampaign)
         corruption = try container.decodeIfPresent(Int.self, forKey: .corruption)
         pendingEncounter = try container.decodeIfPresent(PoliticalEncounter.self, forKey: .pendingEncounter)
+        cabinet = try container.decodeIfPresent(Cabinet.self, forKey: .cabinet)
+        pendingCoalitionOptions = try container.decodeIfPresent([CoalitionOption].self, forKey: .pendingCoalitionOptions)
     }
 }
 

@@ -149,7 +149,7 @@ struct SituationTab: View {
                     viewModel.continueWithoutEvent()
                 }
             }
-        case .encounter, .campaign, .election, .gameOver:
+        case .encounter, .campaign, .election, .coalitionTalks, .gameOver:
             // Wird als Vollbild-Overlay im Container dargestellt.
             waitingCard
         }

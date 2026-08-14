@@ -23,15 +23,30 @@ public struct CoalitionState: Codable, Equatable, Sendable {
     public var leaning: PoliticalLeaning
     public var satisfaction: Int      // 0–100
     public var reactionDamping: Double // 1.0 = normal, <1 = gelassener Partner
+    public var isMinority: Bool
 
     /// Unterhalb dieses Wertes bricht die Koalition.
     public static let breakingPoint = 8
 
-    public init(partnerName: String, leaning: PoliticalLeaning, satisfaction: Int, reactionDamping: Double = 1.0) {
+    public init(partnerName: String, leaning: PoliticalLeaning, satisfaction: Int, reactionDamping: Double = 1.0, isMinority: Bool = false) {
         self.partnerName = partnerName
         self.leaning = leaning
         self.satisfaction = VisibleMetrics.clamped(satisfaction)
         self.reactionDamping = reactionDamping
+        self.isMinority = isMinority
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case partnerName, leaning, satisfaction, reactionDamping, isMinority
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        partnerName = try container.decode(String.self, forKey: .partnerName)
+        leaning = try container.decode(PoliticalLeaning.self, forKey: .leaning)
+        satisfaction = try container.decode(Int.self, forKey: .satisfaction)
+        reactionDamping = try container.decodeIfPresent(Double.self, forKey: .reactionDamping) ?? 1.0
+        isMinority = try container.decodeIfPresent(Bool.self, forKey: .isMinority) ?? false
     }
 
     public static func standard() -> CoalitionState {

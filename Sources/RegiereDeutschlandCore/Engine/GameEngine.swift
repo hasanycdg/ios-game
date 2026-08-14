@@ -93,6 +93,8 @@ public final class GameEngine {
     public private(set) var pendingCampaign: Bool = false
     public private(set) var corruption: Int = 0
     public private(set) var pendingEncounter: PoliticalEncounter?
+    public private(set) var cabinet: Cabinet = .standard()
+    public private(set) var pendingCoalitionOptions: [CoalitionOption]?
     public let maxCapital = 10
 
     public init(
@@ -144,6 +146,8 @@ public final class GameEngine {
         self.pendingCampaign = snapshot.pendingCampaign ?? false
         self.corruption = snapshot.corruption ?? 0
         self.pendingEncounter = snapshot.pendingEncounter
+        self.cabinet = snapshot.cabinet ?? .standard()
+        self.pendingCoalitionOptions = snapshot.pendingCoalitionOptions
     }
 
     public func snapshot() -> GameSessionSnapshot {
@@ -157,7 +161,9 @@ public final class GameEngine {
             personaID: persona.id,
             pendingCampaign: pendingCampaign,
             corruption: corruption,
-            pendingEncounter: pendingEncounter
+            pendingEncounter: pendingEncounter,
+            cabinet: cabinet,
+            pendingCoalitionOptions: pendingCoalitionOptions
         )
     }
 
@@ -173,6 +179,8 @@ public final class GameEngine {
         pendingCampaign = false
         corruption = 0
         pendingEncounter = nil
+        cabinet = .standard()
+        pendingCoalitionOptions = nil
         lastDecisionResult = nil
         annualHistory = []
         prepareCurrentYear()
@@ -200,7 +208,8 @@ public final class GameEngine {
         var income = 3 + persona.capitalIncomeBonus
         if state.governmentApproval >= 55 { income += 1 }
         if state.governmentApproval >= 70 { income += 1 }
-        return income
+        if coalition.isMinority { income -= 1 } // Regieren ohne Mehrheit ist zäher
+        return max(1, income)
     }
 
     public func availableEvents() -> [GameEvent] {
@@ -325,6 +334,7 @@ public final class GameEngine {
         }
 
         annualSimulation.applyEndOfYearDevelopment(to: &state)
+        applyCabinetInfluence()
         recordAnnualSnapshot()
         applyCorruptionExposure()
 
@@ -374,14 +384,93 @@ public final class GameEngine {
             return
         }
 
+        // Nach dem Sieg: Koalitionsverhandlungen.
+        pendingCoalitionOptions = makeCoalitionOptions()
+        currentEvent = nil
+    }
+
+    /// Wählt eine Koalition nach der Wahl und schaltet dann das Jahr fort.
+    public func formCoalition(optionID: String) {
+        guard let options = pendingCoalitionOptions,
+              let choice = options.first(where: { $0.id == optionID }) else { return }
+        pendingCoalitionOptions = nil
+
+        if choice.isMinority {
+            coalition = CoalitionState(partnerName: "Minderheitsregierung", leaning: coalition.leaning,
+                                       satisfaction: 45, reactionDamping: 0, isMinority: true)
+        } else {
+            coalition = CoalitionState(partnerName: choice.partyName, leaning: choice.leaning,
+                                       satisfaction: 60, reactionDamping: 1.0, isMinority: false)
+        }
+
+        guard state.gameOverSummary == nil else { currentEvent = nil; return }
         if state.currentYear >= finalYear {
             state.gameOverSummary = makeFinalYearSummary()
             currentEvent = nil
             return
         }
-
         enterYear(state.currentYear + 1)
         currentEvent = nextQueuedEvent()
+    }
+
+    /// Baut die Koalitionsoptionen aus der aktuellen Parteienlandschaft.
+    private func makeCoalitionOptions() -> [CoalitionOption] {
+        let projection = electionEngine.project(in: state)
+        let landscape = PartyLandscapeFactory.make(state: state, governingShare: projection.governingShare, coalition: coalition)
+        let playerShare = landscape.parties.first { $0.role == .governing }?.support ?? 40
+        let candidates = landscape.parties
+            .filter { $0.role == .opposition }
+            .sorted { $0.support > $1.support }
+            .prefix(3)
+
+        var options = candidates.map { party -> CoalitionOption in
+            let combined = playerShare + party.support
+            return CoalitionOption(
+                id: party.id,
+                partyName: party.name,
+                leaning: coalitionLeaning(for: party.id),
+                combinedShare: (combined * 10).rounded() / 10,
+                formsMajority: combined >= 47,
+                isMinority: false
+            )
+        }
+        options.append(
+            CoalitionOption(id: "none", partyName: "Minderheitsregierung", leaning: coalition.leaning,
+                            combinedShare: (playerShare * 10).rounded() / 10, formsMajority: false, isMinority: true)
+        )
+        return options
+    }
+
+    private func coalitionLeaning(for partyID: String) -> PoliticalLeaning {
+        switch partyID {
+        case "conservatives", "farright": .conservative
+        case "socialdemocrats", "greens", "leftists": .left
+        default: .liberal
+        }
+    }
+
+    /// Neubesetzung eines Ressorts – kostet politisches Kapital.
+    @discardableResult
+    public func reshuffleMinister(_ ministry: Ministry) -> Bool {
+        guard politicalCapital >= 2 else { return false }
+        politicalCapital -= 2
+        let index = Ministry.allCases.firstIndex(of: ministry) ?? 0
+        let seed = state.currentYear &* 31 &+ index &* 17 &+ state.decisions.count &* 5
+        cabinet.ministers[ministry.rawValue] = MinisterPool.make(seed: seed)
+        return true
+    }
+
+    /// Starke Ressorts heben ihren Kennwert leicht, überforderte senken ihn.
+    private func applyCabinetInfluence() {
+        for ministry in Ministry.allCases {
+            let competence = cabinet.minister(ministry).competence
+            if competence >= 70 {
+                state.apply(GameEffect(metric: ministry.metric, change: 1))
+            } else if competence <= 35 {
+                state.apply(GameEffect(metric: ministry.metric, change: -1))
+            }
+        }
+        state.clampAll()
     }
 
     private func prepareCurrentYear() {

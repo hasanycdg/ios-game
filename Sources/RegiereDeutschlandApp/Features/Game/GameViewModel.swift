@@ -14,6 +14,7 @@ final class GameViewModel: ObservableObject {
         case encounter
         case campaign
         case election(ElectionResult)
+        case coalitionTalks
         case gameOver(GameOverSummary)
         case noEvent
     }
@@ -28,6 +29,8 @@ final class GameViewModel: ObservableObject {
     @Published private(set) var newlyUnlockedAchievements: [Achievement] = []
     @Published private(set) var corruption: Int = 0
     @Published private(set) var pendingEncounter: PoliticalEncounter?
+    @Published private(set) var cabinet: Cabinet = .standard()
+    @Published private(set) var pendingCoalitionOptions: [CoalitionOption]?
     let maxCapital = 10
     #if DEBUG
     @Published private(set) var balanceSummaryText: String = ""
@@ -69,6 +72,8 @@ final class GameViewModel: ObservableObject {
         self.persona = engine.persona
         self.corruption = engine.corruption
         self.pendingEncounter = engine.pendingEncounter
+        self.cabinet = engine.cabinet
+        self.pendingCoalitionOptions = engine.pendingCoalitionOptions
         autosave()
     }
 
@@ -162,12 +167,27 @@ final class GameViewModel: ObservableObject {
         coalition = engine.coalition
         corruption = engine.corruption
         pendingEncounter = engine.pendingEncounter
+        cabinet = engine.cabinet
+        pendingCoalitionOptions = engine.pendingCoalitionOptions
     }
 
     func resolveEncounter(_ optionID: String) {
         engine.resolveEncounter(optionID: optionID)
         syncFromEngine()
         phase = Self.phase(for: engine)
+        autosave()
+    }
+
+    func formCoalition(_ optionID: String) {
+        engine.formCoalition(optionID: optionID)
+        syncFromEngine()
+        phase = Self.phase(for: engine)
+        autosave()
+    }
+
+    func reshuffleMinister(_ ministry: Ministry) {
+        engine.reshuffleMinister(ministry)
+        syncFromEngine()
         autosave()
     }
 
@@ -205,6 +225,10 @@ final class GameViewModel: ObservableObject {
 
         if let election = engine.state.pendingElectionResult {
             return .election(election)
+        }
+
+        if let options = engine.pendingCoalitionOptions, !options.isEmpty {
+            return .coalitionTalks
         }
 
         if engine.pendingCampaign {

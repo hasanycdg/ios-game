@@ -71,6 +71,14 @@ struct GameContainerView: View {
             }
             .transition(.opacity)
             .zIndex(1)
+        case .coalitionTalks:
+            if let options = viewModel.pendingCoalitionOptions {
+                CoalitionTalksView(year: viewModel.state.currentYear, options: options) { optionID in
+                    withAnimation(.easeInOut) { viewModel.formCoalition(optionID) }
+                }
+                .transition(.opacity)
+                .zIndex(1)
+            }
         case .election(let election):
             ElectionResultPanel(election: election) {
                 withAnimation(.easeInOut) { viewModel.continueAfterElection() }

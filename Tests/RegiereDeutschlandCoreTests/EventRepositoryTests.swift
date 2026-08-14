@@ -8,7 +8,7 @@ import Testing
     let events = repository.events(for: 2000)
     let event = events.first
 
-    #expect(events.count == 1)
+    #expect(events.count >= 1)
     #expect(event?.id == "energy-policy-2000")
     #expect(event?.title == "Energiepolitik 2000")
 }
@@ -37,11 +37,12 @@ import Testing
 @Test func repositoryLoadsPrototypeEventsThrough2005() {
     let repository = LocalJSONEventRepository()
 
-    #expect(repository.events(for: 2001).count == 2)
-    #expect(repository.events(for: 2002).count == 1)
-    #expect(repository.events(for: 2003).count == 2)
-    #expect(repository.events(for: 2004).count == 1)
-    #expect(repository.events(for: 2005).count == 1)
+    for year in 2001...2005 {
+        #expect(repository.events(for: year).count >= 1)
+    }
+    // Kern-Prototyp-Events bleiben vorhanden.
+    #expect(repository.events(for: 2002).contains { $0.id == "floods-2002" })
+    #expect(repository.events(for: 2003).contains { $0.id == "digital-administration-2003" })
 }
 
 @Test func repositoryHasPlayableEventsForEveryYearThrough2026() {

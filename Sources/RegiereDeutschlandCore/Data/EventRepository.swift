@@ -9,7 +9,7 @@ public struct LocalJSONEventRepository: EventRepository {
     private let bundle: Bundle
     private let resourceNames: [String]
 
-    public init(resourceNames: [String] = ["Events2000", "Events2001", "Events2002", "Events2003", "Events2004", "Events2005", "Events2006To2026", "EventsExtra"]) {
+    public init(resourceNames: [String] = ["Events2000", "Events2001", "Events2002", "Events2003", "Events2004", "Events2005", "Events2006To2026", "EventsExtra", "EventsEarly"]) {
         self.init(bundle: .module, resourceNames: resourceNames)
     }
 

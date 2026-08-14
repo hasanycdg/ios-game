@@ -105,10 +105,6 @@ private struct OptionCard: View {
 
     private let letters = ["A", "B", "C", "D", "E"]
 
-    private var reactions: [StakeholderReaction] {
-        StakeholderAnalysis.reactions(for: option).filter { $0.stance != .neutral }
-    }
-
     var body: some View {
         Button(action: action) {
             VStack(alignment: .leading, spacing: 10) {
@@ -146,15 +142,6 @@ private struct OptionCard: View {
                         .font(.caption2.weight(.semibold))
                         .foregroundStyle(GameTheme.red)
                         .padding(.leading, 46)
-                } else if !reactions.isEmpty {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 6) {
-                            ForEach(reactions.prefix(5)) { reaction in
-                                ReactionChip(reaction: reaction)
-                            }
-                        }
-                    }
-                    .padding(.leading, 46)
                 }
             }
             .padding(14)
@@ -182,24 +169,6 @@ private struct CostDots: View {
             }
         }
         .accessibilityLabel("Kosten: \(cost) von \(DecisionCost.maximum)")
-    }
-}
-
-private struct ReactionChip: View {
-    let reaction: StakeholderReaction
-
-    var body: some View {
-        HStack(spacing: 4) {
-            Image(systemName: reaction.icon).font(.system(size: 9))
-            Text(reaction.name).font(.system(size: 10.5, weight: .semibold))
-            Image(systemName: reaction.symbol).font(.system(size: 8, weight: .bold))
-        }
-        .foregroundStyle(reaction.color)
-        .padding(.horizontal, 7)
-        .padding(.vertical, 4)
-        .background(Capsule().fill(reaction.color.opacity(0.14)))
-        .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(reaction.name): \(reaction.stance == .positive ? "dafür" : "dagegen")")
     }
 }
 

@@ -49,6 +49,15 @@ extension GameViewModel {
         NationMood.weightedApproval(for: state.populationGroups)
     }
 
+    /// Die aktuelle Parteienlandschaft (Umfrage).
+    var partyLandscape: PartyLandscape {
+        PartyLandscapeFactory.make(
+            state: state,
+            governingShare: electionProjection.governingShare,
+            coalition: coalition
+        )
+    }
+
     var nationMood: (word: String, color: Color) {
         NationMood.headline(for: state)
     }

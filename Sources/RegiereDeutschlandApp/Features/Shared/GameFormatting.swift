@@ -129,6 +129,21 @@ struct NewsScopeStyle {
     let color: Color
 }
 
+enum PartyPresentation {
+    static func color(for id: String) -> Color {
+        switch id {
+        case "player":          GameTheme.gold
+        case "partner":         GameTheme.teal
+        case "conservatives":   GameTheme.blue
+        case "socialdemocrats": GameTheme.red
+        case "greens":          GameTheme.green
+        case "leftists":        GameTheme.purple
+        case "farright":        Color(red: 0.62, green: 0.46, blue: 0.32)
+        default:                GameTheme.secondaryText
+        }
+    }
+}
+
 enum NewsPresentation {
     static func style(for scope: NewsScope) -> NewsScopeStyle {
         switch scope {
@@ -136,82 +151,5 @@ enum NewsPresentation {
         case .germany:  NewsScopeStyle(label: "DEUTSCHLAND", color: GameTheme.gold)
         case .domestic: NewsScopeStyle(label: "DEINE POLITIK", color: GameTheme.red)
         }
-    }
-}
-
-// MARK: - Stakeholder-Reaktionen (aus Options-Effekten abgeleitet)
-
-enum StakeholderStance {
-    case positive, negative, neutral
-}
-
-struct StakeholderReaction: Identifiable {
-    let id = UUID()
-    let name: String
-    let icon: String
-    let stance: StakeholderStance
-
-    var color: Color {
-        switch stance {
-        case .positive: GameTheme.green
-        case .negative: GameTheme.red
-        case .neutral:  GameTheme.secondaryText
-        }
-    }
-
-    var symbol: String {
-        switch stance {
-        case .positive: "hand.thumbsup.fill"
-        case .negative: "hand.thumbsdown.fill"
-        case .neutral:  "minus"
-        }
-    }
-}
-
-enum StakeholderAnalysis {
-    /// Leitet qualitative Reaktionen wichtiger Interessengruppen aus den
-    /// (dem Spieler verborgenen) Effektwerten einer Option ab. Bewusst nur
-    /// Tendenz, keine Zahlen – bleibt im Sinne des Designs.
-    static func reactions(for option: DecisionOption) -> [StakeholderReaction] {
-        func visible(_ metric: VisibleMetric) -> Int {
-            option.immediateEffects.filter { $0.metric == metric }.reduce(0) { $0 + $1.change }
-        }
-        func hidden(_ metric: HiddenMetric) -> Int {
-            option.hiddenEffects.filter { $0.metric == metric }.reduce(0) { $0 + $1.change }
-        }
-
-        var result: [StakeholderReaction] = []
-
-        // Wirtschaft / Industrie
-        let industry = visible(.economy) + hidden(.labourMarketFlexibility) - hidden(.russianEnergyDependency) / 2
-        result.append(reaction("Wirtschaft", "briefcase.fill", industry, threshold: 2))
-
-        // Umwelt / Klima
-        let environment = hidden(.renewableCapacity) - hidden(.nuclearCapacity) - hidden(.russianEnergyDependency)
-        result.append(reaction("Umwelt", "leaf.fill", environment, threshold: 3))
-
-        // Haushalt / Finanzen
-        let treasury = visible(.budget) + hidden(.fiscalSpace)
-        result.append(reaction("Haushalt", "banknote.fill", treasury, threshold: 2))
-
-        // Bürger / Wähler
-        let public_ = option.approvalEffect + option.publicMemoryImpact.immediateApproval
-        result.append(reaction("Bürger", "person.2.fill", public_, threshold: 1))
-
-        // Europa / Partner (nur wenn relevant)
-        let allies = visible(.internationalRelations) + hidden(.euRelations)
-        if allies != 0 {
-            result.append(reaction("Europa", "globe.europe.africa.fill", allies, threshold: 2))
-        }
-
-        return result
-    }
-
-    private static func reaction(_ name: String, _ icon: String, _ score: Int, threshold: Int) -> StakeholderReaction {
-        let stance: StakeholderStance
-        if score >= threshold { stance = .positive }
-        else if score <= -threshold { stance = .negative }
-        else { stance = .neutral }
-        return StakeholderReaction(name: name, icon: icon, stance: stance)
     }
 }

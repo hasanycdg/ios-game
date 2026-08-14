@@ -30,9 +30,9 @@ struct GameContainerView: View {
                     .tag(2)
                     .tabItem { Label("Ressorts", systemImage: "chart.bar.fill") }
 
-                PeopleTab(viewModel: viewModel)
+                PolitikTab(viewModel: viewModel)
                     .tag(3)
-                    .tabItem { Label("Volk", systemImage: "person.3.fill") }
+                    .tabItem { Label("Politik", systemImage: "building.columns.fill") }
 
                 ChronicleTab(viewModel: viewModel)
                     .tag(4)

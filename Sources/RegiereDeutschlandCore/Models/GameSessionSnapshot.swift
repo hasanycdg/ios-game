@@ -19,6 +19,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
     public let interestGroups: [InterestGroup]?
     public let partyWings: PartyWings?
     public let hasBundesratMajority: Bool?
+    public let diplomacy: DiplomaticState?
 
     public init(
         schemaVersion: Int = 1,
@@ -38,7 +39,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         debt: Int? = nil,
         interestGroups: [InterestGroup]? = nil,
         partyWings: PartyWings? = nil,
-        hasBundesratMajority: Bool? = nil
+        hasBundesratMajority: Bool? = nil,
+        diplomacy: DiplomaticState? = nil
     ) {
         self.schemaVersion = schemaVersion
         self.state = state
@@ -58,6 +60,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         self.interestGroups = interestGroups
         self.partyWings = partyWings
         self.hasBundesratMajority = hasBundesratMajority
+        self.diplomacy = diplomacy
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -79,6 +82,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         case interestGroups
         case partyWings
         case hasBundesratMajority
+        case diplomacy
     }
 
     public init(from decoder: Decoder) throws {
@@ -101,6 +105,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         interestGroups = try container.decodeIfPresent([InterestGroup].self, forKey: .interestGroups)
         partyWings = try container.decodeIfPresent(PartyWings.self, forKey: .partyWings)
         hasBundesratMajority = try container.decodeIfPresent(Bool.self, forKey: .hasBundesratMajority)
+        diplomacy = try container.decodeIfPresent(DiplomaticState.self, forKey: .diplomacy)
     }
 }
 

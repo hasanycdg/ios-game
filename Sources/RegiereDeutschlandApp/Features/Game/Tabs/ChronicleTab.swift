@@ -1,34 +1,30 @@
 import RegiereDeutschlandCore
 import SwiftUI
 
-/// Chronik-Tab: Timeline der bisherigen Amtszeit.
-struct ChronicleTab: View {
+/// Chronik als wiederverwendbare Sektion (in der Presse eingebettet).
+struct ChronicleSection: View {
     @ObservedObject var viewModel: GameViewModel
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                summaryHeader
+        VStack(alignment: .leading, spacing: 16) {
+            SectionHeader(title: "Deine Chronik", systemImage: "clock.fill")
+            summaryHeader
 
-                let items = viewModel.timeline
-                if items.isEmpty {
-                    EmptyStateView(
-                        icon: "book.pages",
-                        title: "Deine Amtszeit beginnt",
-                        message: "Noch keine Entscheidungen getroffen. Deine Geschichte wird hier festgehalten."
-                    )
-                    .gameCard()
-                } else {
-                    SectionHeader(title: "Verlauf", systemImage: "list.bullet.rectangle")
-                    VStack(spacing: 0) {
-                        ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
-                            TimelineRow(item: item, isLast: index == items.count - 1)
-                        }
+            let items = viewModel.timeline
+            if items.isEmpty {
+                EmptyStateView(
+                    icon: "book.pages",
+                    title: "Deine Amtszeit beginnt",
+                    message: "Noch keine Entscheidungen getroffen. Deine Geschichte wird hier festgehalten."
+                )
+                .gameCard()
+            } else {
+                VStack(spacing: 0) {
+                    ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
+                        TimelineRow(item: item, isLast: index == items.count - 1)
                     }
                 }
             }
-            .padding(16)
-            .padding(.bottom, 24)
         }
     }
 

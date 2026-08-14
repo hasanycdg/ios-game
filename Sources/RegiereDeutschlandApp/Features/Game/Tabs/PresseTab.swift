@@ -34,6 +34,8 @@ struct PresseTab: View {
                         ForEach(world) { NewsCard(item: $0) }
                     }
                 }
+
+                ChronicleSection(viewModel: viewModel)
             }
             .padding(16)
             .padding(.bottom, 24)

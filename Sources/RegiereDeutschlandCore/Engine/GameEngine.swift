@@ -100,6 +100,7 @@ public final class GameEngine {
     public private(set) var interestGroups: [InterestGroup] = InterestGroupsFactory.standard()
     public private(set) var partyWings: PartyWings = .standard()
     public private(set) var hasBundesratMajority: Bool = true
+    public private(set) var diplomacy: DiplomaticState = .standard(from: GameStateFactory.initialGermany2000().hidden)
     public let maxCapital = 10
 
     public init(
@@ -158,6 +159,7 @@ public final class GameEngine {
         self.interestGroups = snapshot.interestGroups ?? InterestGroupsFactory.standard()
         self.partyWings = snapshot.partyWings ?? .standard()
         self.hasBundesratMajority = snapshot.hasBundesratMajority ?? true
+        self.diplomacy = snapshot.diplomacy ?? .standard(from: snapshot.state.hidden)
     }
 
     public func snapshot() -> GameSessionSnapshot {
@@ -178,7 +180,8 @@ public final class GameEngine {
             debt: debt,
             interestGroups: interestGroups,
             partyWings: partyWings,
-            hasBundesratMajority: hasBundesratMajority
+            hasBundesratMajority: hasBundesratMajority,
+            diplomacy: diplomacy
         )
     }
 
@@ -201,6 +204,7 @@ public final class GameEngine {
         interestGroups = InterestGroupsFactory.standard()
         partyWings = .standard()
         hasBundesratMajority = true
+        diplomacy = .standard(from: initial.hidden)
         lastDecisionResult = nil
         annualHistory = []
         prepareCurrentYear()
@@ -358,6 +362,7 @@ public final class GameEngine {
         applyPolicyInfluence()
         applyInterestGroupInfluence()
         applyFederalism()
+        applyDiplomacyDrift()
         applyPartyWingInfluence()
         recordAnnualSnapshot()
         applyCorruptionExposure()
@@ -569,6 +574,45 @@ public final class GameEngine {
                 messageOverride: "Deine eigene Partei hat dich gestürzt."
             )
         }
+    }
+
+    /// Führt eine außenpolitische Aktion aus – kostet politisches Kapital.
+    @discardableResult
+    public func takeDiplomaticAction(_ partner: DiplomaticPartner, actionID: String) -> Bool {
+        guard let action = DiplomaticActionCatalog.actions(for: partner).first(where: { $0.id == actionID }) else { return false }
+        guard politicalCapital >= action.cost else { return false }
+        politicalCapital -= action.cost
+        diplomacy.relations[partner.rawValue] = min(100, max(0, diplomacy.relation(partner) + action.relationDelta))
+        for effect in action.visible { state.apply(effect) }
+        for effect in action.hidden { state.apply(effect) }
+        state.clampAll()
+        return true
+    }
+
+    /// Beziehungen driften ohne Pflege Richtung Neutral; die Gesamtlage wirkt auf
+    /// die internationalen Beziehungen. Sehr kalte Beziehungen lösen eine Krise aus.
+    private func applyDiplomacyDrift() {
+        var total = 0
+        for partner in DiplomaticPartner.allCases {
+            let current = diplomacy.relation(partner)
+            let drifted = current > 50 ? current - 1 : (current < 50 ? current + 1 : current)
+            diplomacy.relations[partner.rawValue] = drifted
+            total += drifted
+        }
+        let average = total / DiplomaticPartner.allCases.count
+        if average >= 60 {
+            state.apply(GameEffect(metric: .internationalRelations, change: 1))
+        } else if average <= 40 {
+            state.apply(GameEffect(metric: .internationalRelations, change: -1))
+        }
+        if let crisis = DiplomaticPartner.allCases.first(where: { diplomacy.relation($0) <= 22 }) {
+            state.triggeredHistoricalEchoes.append(
+                TriggeredHistoricalEcho(year: state.currentYear, sourceEventID: "diplomacy-\(crisis.rawValue)",
+                                        sourceOptionID: "crisis",
+                                        note: "Diplomatische Krise mit \(crisis.title): Das Verhältnis ist zerrüttet.")
+            )
+        }
+        state.clampAll()
     }
 
     /// Landtagswahlen verschieben die Mehrheit im Bundesrat.

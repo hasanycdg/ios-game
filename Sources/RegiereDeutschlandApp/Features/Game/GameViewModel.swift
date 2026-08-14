@@ -36,6 +36,7 @@ final class GameViewModel: ObservableObject {
     @Published private(set) var interestGroups: [InterestGroup] = InterestGroupsFactory.standard()
     @Published private(set) var partyWings: PartyWings = .standard()
     @Published private(set) var hasBundesratMajority: Bool = true
+    @Published private(set) var diplomacy: DiplomaticState = .standard(from: GameStateFactory.initialGermany2000().hidden)
     let maxCapital = 10
 
     var budget: BudgetSummary { engine.budgetSummary() }
@@ -86,6 +87,7 @@ final class GameViewModel: ObservableObject {
         self.interestGroups = engine.interestGroups
         self.partyWings = engine.partyWings
         self.hasBundesratMajority = engine.hasBundesratMajority
+        self.diplomacy = engine.diplomacy
         autosave()
     }
 
@@ -202,6 +204,15 @@ final class GameViewModel: ObservableObject {
         interestGroups = engine.interestGroups
         partyWings = engine.partyWings
         hasBundesratMajority = engine.hasBundesratMajority
+        diplomacy = engine.diplomacy
+    }
+
+    @discardableResult
+    func takeDiplomaticAction(_ partner: DiplomaticPartner, _ actionID: String) -> Bool {
+        let ok = engine.takeDiplomaticAction(partner, actionID: actionID)
+        syncFromEngine()
+        autosave()
+        return ok
     }
 
     @discardableResult

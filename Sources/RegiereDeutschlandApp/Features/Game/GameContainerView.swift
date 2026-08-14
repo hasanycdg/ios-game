@@ -34,9 +34,9 @@ struct GameContainerView: View {
                     .tag(3)
                     .tabItem { Label("Politik", systemImage: "building.columns.fill") }
 
-                ChronicleTab(viewModel: viewModel)
+                DiplomacyTab(viewModel: viewModel)
                     .tag(4)
-                    .tabItem { Label("Chronik", systemImage: "clock.fill") }
+                    .tabItem { Label("Welt", systemImage: "globe.europe.africa.fill") }
             }
             .tint(GameTheme.gold)
 

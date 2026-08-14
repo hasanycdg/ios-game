@@ -1,0 +1,3933 @@
+[
+  {
+    "id": "x-health-2006",
+    "year": 2006,
+    "title": "Gesundheitsreform",
+    "category": "welfare",
+    "headline": "Streit um die Zukunft der Krankenkassen.",
+    "description": "Steigende Kosten im Gesundheitswesen zwingen zu einer Reform der Finanzierung.",
+    "historicalContext": {
+      "summary": "2006 wurde über den Gesundheitsfonds und die Finanzierung der Krankenkassen gerungen."
+    },
+    "options": [
+      {
+        "id": "gh-fund",
+        "title": "Gesundheitsfonds einführen",
+        "description": "Ein zentraler Fonds bündelt die Beiträge.",
+        "advisoryNote": "Fachleute erwarten mehr Effizienz, Kassen fürchten Bürokratie.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 2
+          },
+          {
+            "metric": "budget",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "healthcareResilience",
+            "change": 6
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "retirees",
+              "change": 3
+            },
+            {
+              "group": "workers",
+              "change": 1
+            }
+          ]
+        }
+      },
+      {
+        "id": "gh-market",
+        "title": "Mehr Wettbewerb der Kassen",
+        "description": "Marktkräfte sollen die Kosten senken.",
+        "advisoryNote": "Ökonomen loben es, Sozialverbände warnen vor Zwei-Klassen-Medizin.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "healthcareResilience",
+            "change": -2
+          },
+          {
+            "metric": "labourMarketFlexibility",
+            "change": 3
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 3
+            },
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": -3
+            }
+          ]
+        }
+      },
+      {
+        "id": "gh-delay",
+        "title": "Reform vertagen",
+        "description": "Der Status quo bleibt vorerst bestehen.",
+        "advisoryNote": "Das Kanzleramt vermeidet Streit, verschiebt aber das Problem.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "healthcareResilience",
+            "change": -1
+          }
+        ],
+        "approvalEffect": -1
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "2007 trat der Gesundheitsfonds-Beschluss in Kraft.",
+    "historicalOptionID": "gh-fund"
+  },
+  {
+    "id": "x-worldcup-2006",
+    "year": 2006,
+    "title": "Sommermärchen",
+    "category": "society",
+    "headline": "Die Fußball-WM verzaubert das Land.",
+    "description": "Die Heim-WM sorgt für Euphorie. Wie nutzt die Regierung die gute Stimmung?",
+    "historicalContext": {
+      "summary": "Die WM 2006 hob die Stimmung im Land spürbar."
+    },
+    "options": [
+      {
+        "id": "wm-invest",
+        "title": "Standort-Kampagne starten",
+        "description": "Das positive Bild für Investitionen nutzen.",
+        "advisoryNote": "Wirtschaftsverbände sind begeistert.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 3
+          },
+          {
+            "metric": "internationalRelations",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": 2
+          }
+        ],
+        "approvalEffect": 2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 3
+            },
+            {
+              "group": "youngAdults",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "wm-modest",
+        "title": "Bescheiden bleiben",
+        "description": "Keine große Inszenierung, Fokus aufs Regieren.",
+        "advisoryNote": "Solide, aber eine Chance bleibt ungenutzt.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 1
+          }
+        ]
+      }
+    ],
+    "conditions": []
+  },
+  {
+    "id": "x-digital-2007",
+    "year": 2007,
+    "title": "Digitale Verwaltung",
+    "category": "digitalization",
+    "headline": "Weichenstellung für den digitalen Staat.",
+    "description": "Behörden und Netze sind veraltet. Investiert die Regierung früh in Digitalisierung?",
+    "historicalContext": {
+      "summary": "Ab 2007 begann die Debatte über E-Government und Breitband."
+    },
+    "options": [
+      {
+        "id": "dig-invest",
+        "title": "Groß in Digitalisierung investieren",
+        "description": "Behörden-IT und Netze werden ausgebaut.",
+        "advisoryNote": "Teuer heute, zahlt sich womöglich in Jahren aus.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": -4
+          },
+          {
+            "metric": "economy",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": 10
+          },
+          {
+            "metric": "infrastructureQuality",
+            "change": 4
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -3
+          }
+        ],
+        "approvalEffect": 1,
+        "flagsToSet": [
+          "x_digital_push"
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 4,
+            "immediateEffects": [
+              {
+                "metric": "economy",
+                "change": 2
+              }
+            ],
+            "hiddenEffects": [
+              {
+                "metric": "digitalization",
+                "change": 6
+              }
+            ],
+            "approvalEffect": 1,
+            "flagsToSet": [
+              "x_digital_echo"
+            ],
+            "note": "Die frühe Digital-Investition macht Verwaltung und Wirtschaft schneller."
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 3
+            },
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            }
+          ],
+          "reactivationTags": [
+            "digital"
+          ]
+        }
+      },
+      {
+        "id": "dig-austerity",
+        "title": "Sparen statt Digitalisieren",
+        "description": "Der Haushalt hat Vorrang.",
+        "advisoryNote": "Kurzfristig entlastend, langfristig ein Rückstand.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": 3
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": -3
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": 3
+          }
+        ],
+        "flagsToSet": [
+          "x_digital_slow"
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 4,
+            "hiddenEffects": [
+              {
+                "metric": "digitalization",
+                "change": -4
+              }
+            ],
+            "flagsToSet": [
+              "x_digital_lag_echo"
+            ],
+            "note": "Der Verzicht auf Digitalisierung rächt sich schleichend."
+          }
+        ]
+      },
+      {
+        "id": "dig-pilot",
+        "title": "Nur Pilotprojekte",
+        "description": "Vorsichtig testen, wenig Risiko.",
+        "advisoryNote": "Ein Kompromiss ohne klare Richtung.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": 3
+          }
+        ]
+      }
+    ],
+    "conditions": []
+  },
+  {
+    "id": "x-minwage-2007",
+    "year": 2007,
+    "title": "Mindestlohn-Debatte",
+    "category": "welfare",
+    "headline": "Gewerkschaften fordern einen Mindestlohn.",
+    "description": "Der Niedriglohnsektor wächst. Soll ein flächendeckender Mindestlohn kommen?",
+    "historicalContext": {
+      "summary": "Ab 2007 wurde intensiv über einen gesetzlichen Mindestlohn gestritten."
+    },
+    "options": [
+      {
+        "id": "mw-branch",
+        "title": "Branchen-Mindestlöhne",
+        "description": "Schrittweise für einzelne Branchen.",
+        "advisoryNote": "Ein Kompromiss, der wenige verärgert.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "welfareStrength",
+            "change": 4
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 3
+            },
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": 3
+            },
+            {
+              "group": "entrepreneurs",
+              "change": -2
+            }
+          ]
+        }
+      },
+      {
+        "id": "mw-none",
+        "title": "Auf den Markt vertrauen",
+        "description": "Kein Mindestlohn, Flexibilität erhalten.",
+        "advisoryNote": "Wirtschaft freut sich, Gewerkschaften sind empört.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "labourMarketFlexibility",
+            "change": 4
+          },
+          {
+            "metric": "welfareStrength",
+            "change": -3
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 4
+            },
+            {
+              "group": "workers",
+              "change": -3
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": []
+  },
+  {
+    "id": "x-pension-2008",
+    "year": 2008,
+    "title": "Rente mit 67",
+    "category": "budget",
+    "headline": "Streit um das Renteneintrittsalter.",
+    "description": "Der demografische Wandel belastet die Rentenkasse. Wird das Renteneintrittsalter angehoben?",
+    "historicalContext": {
+      "summary": "2007/2008 wurde die schrittweise Anhebung auf 67 Jahre beschlossen."
+    },
+    "options": [
+      {
+        "id": "pen-reform",
+        "title": "Renteneintrittsalter anheben",
+        "description": "Unpopulär, aber finanziell nachhaltig.",
+        "advisoryNote": "Ökonomen loben es, viele Bürger sind erbost.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": 3
+          },
+          {
+            "metric": "livingStandard",
+            "change": -2
+          },
+          {
+            "metric": "trust",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": 8
+          }
+        ],
+        "approvalEffect": -2,
+        "flagsToSet": [
+          "x_pension_reform"
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 6,
+            "immediateEffects": [
+              {
+                "metric": "budget",
+                "change": 2
+              }
+            ],
+            "hiddenEffects": [
+              {
+                "metric": "fiscalSpace",
+                "change": 4
+              }
+            ],
+            "flagsToSet": [
+              "x_pension_echo"
+            ],
+            "note": "Die frühe Rentenreform stabilisiert später die Staatsfinanzen."
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": -3
+            },
+            {
+              "group": "retirees",
+              "change": -2
+            },
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "pen-keep",
+        "title": "Rentenalter halten",
+        "description": "Sozialer Frieden vor Kassenlage.",
+        "advisoryNote": "Populär heute, teuer morgen.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": -6
+          },
+          {
+            "metric": "welfareStrength",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 2,
+        "flagsToSet": [
+          "x_pension_status"
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 6,
+            "immediateEffects": [
+              {
+                "metric": "budget",
+                "change": -3
+              }
+            ],
+            "hiddenEffects": [
+              {
+                "metric": "fiscalSpace",
+                "change": -4
+              }
+            ],
+            "flagsToSet": [
+              "x_pension_burden_echo"
+            ],
+            "note": "Ohne Reform wächst die Last für die Rentenkasse."
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "retirees",
+              "change": 4
+            },
+            {
+              "group": "workers",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Deutschland beschloss die Rente mit 67.",
+    "historicalOptionID": "pen-reform"
+  },
+  {
+    "id": "x-bankrescue-2008",
+    "year": 2008,
+    "title": "Bankenrettung",
+    "category": "budget",
+    "headline": "Der Staat muss Banken stützen.",
+    "description": "Die Finanzkrise erreicht deutsche Banken. Rettet der Staat mit Milliarden?",
+    "historicalContext": {
+      "summary": "2008 rettete der Staat angeschlagene Banken mit Garantien und Kapital."
+    },
+    "options": [
+      {
+        "id": "br-rescue",
+        "title": "Banken retten",
+        "description": "Systemrelevante Institute werden gestützt.",
+        "advisoryNote": "Alternativlos, sagen die einen; Sozialisierung der Verluste, die anderen.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 3
+          },
+          {
+            "metric": "budget",
+            "change": -6
+          },
+          {
+            "metric": "trust",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": -8
+          }
+        ],
+        "approvalEffect": -1,
+        "delayedEffects": [
+          {
+            "delayInYears": 3,
+            "hiddenEffects": [
+              {
+                "metric": "fiscalSpace",
+                "change": -2
+              }
+            ],
+            "flagsToSet": [
+              "x_bank_debt_echo"
+            ],
+            "note": "Die Bankenrettung von 2008 belastet den Haushalt bis heute."
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            },
+            {
+              "group": "workers",
+              "change": -2
+            },
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": -3
+            }
+          ]
+        }
+      },
+      {
+        "id": "br-conditions",
+        "title": "Retten mit harten Auflagen",
+        "description": "Hilfen nur gegen Staatsanteile und Boni-Deckel.",
+        "advisoryNote": "Riskanter, aber gerechter empfunden.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 1
+          },
+          {
+            "metric": "budget",
+            "change": -4
+          },
+          {
+            "metric": "trust",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": -6
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 2
+            },
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "br-let-fail",
+        "title": "Banken fallen lassen",
+        "description": "Kein Steuergeld für Spekulanten.",
+        "advisoryNote": "Ein gefährliches Signal an die Märkte.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": -6
+          },
+          {
+            "metric": "society",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": 2
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": 3
+            },
+            {
+              "group": "entrepreneurs",
+              "change": -4
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Die Regierung garantierte Spareinlagen und stützte Banken.",
+    "historicalOptionID": "br-conditions"
+  },
+  {
+    "id": "x-taxpromise-2009",
+    "year": 2009,
+    "title": "Steuerversprechen",
+    "category": "budget",
+    "headline": "Im Wahljahr locken Steuersenkungen.",
+    "description": "Nach der Krise ist der Haushalt angespannt. Verspricht die Regierung dennoch Entlastungen?",
+    "historicalContext": {
+      "summary": "Im Wahljahr 2009 wurden Steuersenkungen versprochen."
+    },
+    "options": [
+      {
+        "id": "tax-cut",
+        "title": "Steuern senken",
+        "description": "Entlastung für Bürger und Betriebe.",
+        "advisoryNote": "Beliebt, aber der Haushalt ächzt.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 3
+          },
+          {
+            "metric": "economy",
+            "change": 2
+          },
+          {
+            "metric": "budget",
+            "change": -4
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": -5
+          }
+        ],
+        "approvalEffect": 3,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 3
+            },
+            {
+              "group": "entrepreneurs",
+              "change": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "tax-hold",
+        "title": "Konsolidieren statt versprechen",
+        "description": "Ehrlichkeit vor Wahlgeschenken.",
+        "advisoryNote": "Unspektakulär, aber solide.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": 3
+          },
+          {
+            "metric": "trust",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": 4
+          }
+        ],
+        "approvalEffect": -1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "publicSector",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": []
+  },
+  {
+    "id": "x-defense-2010",
+    "year": 2010,
+    "title": "Bundeswehr der Zukunft",
+    "category": "security",
+    "headline": "Reform der Streitkräfte steht an.",
+    "description": "Nach dem Kalten Krieg: Friedensdividende einstreichen oder die Truppe modernisieren?",
+    "historicalContext": {
+      "summary": "Um 2010 wurde die Wehrpflicht ausgesetzt und die Bundeswehr umgebaut."
+    },
+    "options": [
+      {
+        "id": "def-cut",
+        "title": "Verteidigung zusammenstreichen",
+        "description": "Die Friedensdividende finanziert anderes.",
+        "advisoryNote": "Spart Geld – auf Kosten der Einsatzfähigkeit.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": 4
+          },
+          {
+            "metric": "security",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "defenceReadiness",
+            "change": -10
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": 4
+          }
+        ],
+        "approvalEffect": 1,
+        "flagsToSet": [
+          "x_defense_neglect"
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 6,
+            "hiddenEffects": [
+              {
+                "metric": "defenceReadiness",
+                "change": -4
+              }
+            ],
+            "flagsToSet": [
+              "x_defense_neglect_echo"
+            ],
+            "note": "Die kaputtgesparte Truppe wird sich später rächen."
+          }
+        ]
+      },
+      {
+        "id": "def-modernize",
+        "title": "Streitkräfte modernisieren",
+        "description": "Weniger, aber besser ausgerüstet.",
+        "advisoryNote": "Teuer, aber vorausschauend.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": -4
+          },
+          {
+            "metric": "security",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "defenceReadiness",
+            "change": 10
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -3
+          }
+        ],
+        "flagsToSet": [
+          "x_defense_ready"
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 6,
+            "immediateEffects": [
+              {
+                "metric": "security",
+                "change": 2
+              }
+            ],
+            "hiddenEffects": [
+              {
+                "metric": "defenceReadiness",
+                "change": 4
+              }
+            ],
+            "flagsToSet": [
+              "x_defense_ready_echo"
+            ],
+            "note": "Die frühe Modernisierung macht die Truppe krisenfest."
+          }
+        ]
+      },
+      {
+        "id": "def-keep",
+        "title": "Alles beim Alten",
+        "description": "Keine großen Veränderungen.",
+        "advisoryNote": "Vermeidet Streit, verpasst aber die Reform.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "defenceReadiness",
+            "change": -2
+          }
+        ]
+      }
+    ],
+    "conditions": []
+  },
+  {
+    "id": "x-austerity-2010",
+    "year": 2010,
+    "title": "Sparpaket",
+    "category": "budget",
+    "headline": "Nach der Krise wird gespart.",
+    "description": "Die Schuldenbremse verlangt Konsolidierung. Wo wird gekürzt?",
+    "historicalContext": {
+      "summary": "2010 wurde ein großes Sparpaket beschlossen."
+    },
+    "options": [
+      {
+        "id": "aus-social",
+        "title": "Bei Sozialem sparen",
+        "description": "Kürzungen treffen Transferleistungen.",
+        "advisoryNote": "Der Haushalt atmet auf, die Straße protestiert.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": 5
+          },
+          {
+            "metric": "society",
+            "change": -3
+          },
+          {
+            "metric": "livingStandard",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": 6
+          },
+          {
+            "metric": "welfareStrength",
+            "change": -4
+          },
+          {
+            "metric": "polarization",
+            "change": 4
+          }
+        ],
+        "approvalEffect": -2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": -5
+            },
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "aus-broad",
+        "title": "Breit und moderat kürzen",
+        "description": "Alle tragen ein kleines Stück.",
+        "advisoryNote": "Weniger schmerzhaft, aber auch weniger wirksam.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": 3
+          },
+          {
+            "metric": "society",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": 4
+          }
+        ],
+        "approvalEffect": -1
+      },
+      {
+        "id": "aus-invest",
+        "title": "Sparen aufschieben, investieren",
+        "description": "Wachstum soll die Schulden senken.",
+        "advisoryNote": "Mutig oder unverantwortlich, je nach Sichtweise.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 2
+          },
+          {
+            "metric": "budget",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": -4
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Die Regierung beschloss ein Sparpaket zur Haushaltskonsolidierung.",
+    "historicalOptionID": "aus-broad"
+  },
+  {
+    "id": "x-euroliability-2011",
+    "year": 2011,
+    "title": "Euro-Haftung",
+    "category": "foreignPolicy",
+    "headline": "Deutschland soll für den Euro bürgen.",
+    "description": "Die Schuldenkrise spitzt sich zu. Übernimmt Deutschland Milliarden-Garantien?",
+    "historicalContext": {
+      "summary": "2011 stimmte der Bundestag über die Ausweitung des Euro-Rettungsschirms ab."
+    },
+    "options": [
+      {
+        "id": "eu-guarantee",
+        "title": "Rettungsschirm ausweiten",
+        "description": "Solidarität sichert den Euro.",
+        "advisoryNote": "Europa dankt, die Wähler sind skeptisch.",
+        "immediateEffects": [
+          {
+            "metric": "internationalRelations",
+            "change": 3
+          },
+          {
+            "metric": "budget",
+            "change": -3
+          },
+          {
+            "metric": "trust",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "euRelations",
+            "change": 6
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -4
+          },
+          {
+            "metric": "polarization",
+            "change": 4
+          }
+        ],
+        "approvalEffect": -2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": -2
+            }
+          ]
+        }
+      },
+      {
+        "id": "eu-conditions",
+        "title": "Nur gegen strenge Reformauflagen",
+        "description": "Hilfe ja, aber mit Bedingungen.",
+        "advisoryNote": "Ein harter, aber europäischer Kurs.",
+        "immediateEffects": [
+          {
+            "metric": "internationalRelations",
+            "change": 1
+          },
+          {
+            "metric": "budget",
+            "change": -2
+          },
+          {
+            "metric": "trust",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "euRelations",
+            "change": 2
+          }
+        ]
+      },
+      {
+        "id": "eu-refuse",
+        "title": "Weitere Hilfen ablehnen",
+        "description": "Kein deutsches Geld für fremde Schulden.",
+        "advisoryNote": "Populär daheim, gefährlich für Europa.",
+        "immediateEffects": [
+          {
+            "metric": "internationalRelations",
+            "change": -4
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "euRelations",
+            "change": -8
+          },
+          {
+            "metric": "polarization",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Deutschland trug die Euro-Rettungsschirme mit.",
+    "historicalOptionID": "eu-conditions"
+  },
+  {
+    "id": "x-housing-2012",
+    "year": 2012,
+    "title": "Wohnungspolitik",
+    "category": "society",
+    "headline": "Die Mieten in den Städten steigen.",
+    "description": "Wohnraum wird knapp und teuer. Greift der Staat regulierend ein?",
+    "historicalContext": {
+      "summary": "Ab 2012 wurde über Mietregulierung und Wohnungsbau gestritten."
+    },
+    "options": [
+      {
+        "id": "hou-regulate",
+        "title": "Mieten regulieren",
+        "description": "Eine Mietpreisbremse soll schützen.",
+        "advisoryNote": "Mieter jubeln, Investoren ziehen sich zurück.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 3
+          },
+          {
+            "metric": "society",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "infrastructureQuality",
+            "change": -2
+          }
+        ],
+        "approvalEffect": 2,
+        "flagsToSet": [
+          "x_housing_regulate"
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 7,
+            "hiddenEffects": [
+              {
+                "metric": "infrastructureQuality",
+                "change": -3
+              }
+            ],
+            "flagsToSet": [
+              "x_housing_shortage_echo"
+            ],
+            "note": "Die Regulierung dämpft den Neubau – die Knappheit bleibt."
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 3
+            },
+            {
+              "group": "youngAdults",
+              "change": 3
+            },
+            {
+              "group": "entrepreneurs",
+              "change": -3
+            }
+          ]
+        }
+      },
+      {
+        "id": "hou-build",
+        "title": "Massiv neu bauen",
+        "description": "Angebot schaffen statt regulieren.",
+        "advisoryNote": "Teuer und langsam, aber nachhaltig.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": -4
+          },
+          {
+            "metric": "livingStandard",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "infrastructureQuality",
+            "change": 6
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -3
+          }
+        ],
+        "flagsToSet": [
+          "x_housing_build"
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 7,
+            "immediateEffects": [
+              {
+                "metric": "livingStandard",
+                "change": 3
+              }
+            ],
+            "hiddenEffects": [
+              {
+                "metric": "infrastructureQuality",
+                "change": 3
+              }
+            ],
+            "flagsToSet": [
+              "x_housing_relief_echo"
+            ],
+            "note": "Der frühe Wohnungsbau entspannt später den Markt."
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "families",
+              "change": 3
+            },
+            {
+              "group": "workers",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": []
+  },
+  {
+    "id": "x-childcare-2012",
+    "year": 2012,
+    "title": "Betreuungsgeld",
+    "category": "welfare",
+    "headline": "Streit um Geld für Zuhause-Betreuung.",
+    "description": "Soll der Staat Eltern zahlen, die ihre Kinder zu Hause betreuen?",
+    "historicalContext": {
+      "summary": "2013 wurde das umstrittene Betreuungsgeld eingeführt."
+    },
+    "options": [
+      {
+        "id": "cc-pay",
+        "title": "Betreuungsgeld einführen",
+        "description": "Wahlfreiheit für Familien.",
+        "advisoryNote": "Konservative loben es, andere nennen es Herdprämie.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 2
+          },
+          {
+            "metric": "budget",
+            "change": -2
+          },
+          {
+            "metric": "society",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "polarization",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "families",
+              "change": 3
+            },
+            {
+              "group": "youngAdults",
+              "change": -2
+            }
+          ]
+        }
+      },
+      {
+        "id": "cc-kita",
+        "title": "Stattdessen Kitas ausbauen",
+        "description": "Das Geld fließt in Betreuungsplätze.",
+        "advisoryNote": "Gut für Vereinbarkeit von Familie und Beruf.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 2
+          },
+          {
+            "metric": "economy",
+            "change": 1
+          },
+          {
+            "metric": "budget",
+            "change": -3
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "integrationCapacity",
+            "change": 4
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "families",
+              "change": 3
+            },
+            {
+              "group": "workers",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Das Betreuungsgeld wurde eingeführt, später aber gekippt.",
+    "historicalOptionID": "cc-pay"
+  },
+  {
+    "id": "x-nsa-2013",
+    "year": 2013,
+    "title": "NSA-Affäre",
+    "category": "security",
+    "headline": "Enthüllungen über globale Überwachung.",
+    "description": "Ein Whistleblower deckt Massenüberwachung auf – auch Verbündete spähen mit. Wie reagiert Berlin?",
+    "historicalContext": {
+      "summary": "2013 erschütterte die NSA-Affäre das Vertrauen in die Geheimdienste."
+    },
+    "options": [
+      {
+        "id": "nsa-confront",
+        "title": "Verbündete zur Rede stellen",
+        "description": "Klare Worte Richtung Washington.",
+        "advisoryNote": "Mutig, aber es belastet die Partnerschaft.",
+        "immediateEffects": [
+          {
+            "metric": "trust",
+            "change": 3
+          },
+          {
+            "metric": "internationalRelations",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "usRelations",
+            "change": -6
+          }
+        ],
+        "approvalEffect": 2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "nsa-downplay",
+        "title": "Verhältnismäßig bleiben",
+        "description": "Die Partnerschaft nicht gefährden.",
+        "advisoryNote": "Realpolitisch, aber die Bürger sind enttäuscht.",
+        "immediateEffects": [
+          {
+            "metric": "trust",
+            "change": -3
+          },
+          {
+            "metric": "internationalRelations",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "usRelations",
+            "change": 2
+          }
+        ],
+        "approvalEffect": -2
+      },
+      {
+        "id": "nsa-privacy",
+        "title": "Datenschutz stärken",
+        "description": "Neue Regeln zum Schutz der Bürger.",
+        "advisoryNote": "Ein Signal für die Grundrechte.",
+        "immediateEffects": [
+          {
+            "metric": "trust",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": -1
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": []
+  },
+  {
+    "id": "x-crimea-2014",
+    "year": 2014,
+    "title": "Krim-Krise",
+    "category": "foreignPolicy",
+    "headline": "Russland annektiert die Krim.",
+    "description": "Der Bruch des Völkerrechts fordert eine Antwort. Wie hart wird Deutschland?",
+    "historicalContext": {
+      "summary": "2014 verhängte der Westen als Reaktion Sanktionen gegen Russland."
+    },
+    "options": [
+      {
+        "id": "cr-sanction",
+        "title": "Harte Sanktionen mittragen",
+        "description": "Klare Kante gegen Moskau.",
+        "advisoryNote": "Der Westen ist geeint, die Wirtschaft leidet.",
+        "immediateEffects": [
+          {
+            "metric": "internationalRelations",
+            "change": 3
+          },
+          {
+            "metric": "economy",
+            "change": -3
+          },
+          {
+            "metric": "security",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "russiaRelations",
+            "change": -10
+          },
+          {
+            "metric": "euRelations",
+            "change": 4
+          },
+          {
+            "metric": "usRelations",
+            "change": 4
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": -3
+            }
+          ]
+        }
+      },
+      {
+        "id": "cr-dialogue",
+        "title": "Auf Dialog setzen",
+        "description": "Gesprächskanäle offen halten.",
+        "advisoryNote": "Manche loben Besonnenheit, andere Naivität.",
+        "immediateEffects": [
+          {
+            "metric": "internationalRelations",
+            "change": -1
+          },
+          {
+            "metric": "economy",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "russiaRelations",
+            "change": 4
+          },
+          {
+            "metric": "euRelations",
+            "change": -4
+          }
+        ],
+        "approvalEffect": -1
+      },
+      {
+        "id": "cr-energy",
+        "title": "Energiebeziehungen schützen",
+        "description": "Das Gasgeschäft nicht gefährden.",
+        "advisoryNote": "Kurzfristig klug, langfristig riskant.",
+        "immediateEffects": [
+          {
+            "metric": "energy",
+            "change": 2
+          },
+          {
+            "metric": "economy",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "russianEnergyDependency",
+            "change": 8
+          },
+          {
+            "metric": "russiaRelations",
+            "change": 2
+          },
+          {
+            "metric": "euRelations",
+            "change": -3
+          }
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 8,
+            "hiddenEffects": [
+              {
+                "metric": "russianEnergyDependency",
+                "change": 4
+              }
+            ],
+            "flagsToSet": [
+              "x_gas_dependency_echo"
+            ],
+            "note": "Die Nähe zu russischem Gas fällt Deutschland später auf die Füße."
+          }
+        ]
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Deutschland trug die Sanktionen mit, hielt aber Gesprächskanäle offen.",
+    "historicalOptionID": "cr-sanction"
+  },
+  {
+    "id": "x-refugees-2015",
+    "year": 2015,
+    "title": "Grenzentscheidung",
+    "category": "society",
+    "headline": "Hunderttausende Geflüchtete kommen an.",
+    "description": "Der Zustrom von Schutzsuchenden stellt das Land vor eine historische Entscheidung.",
+    "historicalContext": {
+      "summary": "2015 prägte 'Wir schaffen das' die Flüchtlingspolitik."
+    },
+    "options": [
+      {
+        "id": "ref-open",
+        "title": "Grenzen offen halten",
+        "description": "Humanität als Leitlinie.",
+        "advisoryNote": "Die Welt schaut anerkennend zu, im Land wächst die Spaltung.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": -3
+          },
+          {
+            "metric": "internationalRelations",
+            "change": 3
+          },
+          {
+            "metric": "trust",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "integrationCapacity",
+            "change": -6
+          },
+          {
+            "metric": "polarization",
+            "change": 10
+          },
+          {
+            "metric": "euRelations",
+            "change": 2
+          }
+        ],
+        "approvalEffect": -1,
+        "flagsToSet": [
+          "x_refugees_open"
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 2,
+            "immediateEffects": [
+              {
+                "metric": "economy",
+                "change": 2
+              }
+            ],
+            "hiddenEffects": [
+              {
+                "metric": "integrationCapacity",
+                "change": 5
+              }
+            ],
+            "flagsToSet": [
+              "x_integration_echo"
+            ],
+            "note": "Nach schwierigen Jahren zahlt sich die Integration wirtschaftlich aus."
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 2
+            },
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            },
+            {
+              "group": "retirees",
+              "change": -4
+            }
+          ]
+        }
+      },
+      {
+        "id": "ref-manage",
+        "title": "Ordnen und begrenzen",
+        "description": "Aufnahme mit klaren Regeln und Kontingenten.",
+        "advisoryNote": "Ein Mittelweg, der niemanden ganz zufriedenstellt.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 1
+          },
+          {
+            "metric": "security",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "polarization",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 1
+            }
+          ]
+        }
+      },
+      {
+        "id": "ref-close",
+        "title": "Grenzen schließen",
+        "description": "Härte und Abweisung.",
+        "advisoryNote": "Ein Teil applaudiert, international hagelt es Kritik.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 2
+          },
+          {
+            "metric": "internationalRelations",
+            "change": -4
+          },
+          {
+            "metric": "security",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "polarization",
+            "change": 6
+          },
+          {
+            "metric": "euRelations",
+            "change": -4
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "retirees",
+              "change": 3
+            },
+            {
+              "group": "youngAdults",
+              "change": -3
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Deutschland hielt die Grenzen offen und setzte auf Integration.",
+    "historicalOptionID": "ref-open"
+  },
+  {
+    "id": "x-greece-2015",
+    "year": 2015,
+    "title": "Griechenland-Showdown",
+    "category": "foreignPolicy",
+    "headline": "Grexit oder drittes Hilfspaket?",
+    "description": "Athen steht vor der Pleite. Rettet Europa Griechenland ein weiteres Mal?",
+    "historicalContext": {
+      "summary": "2015 rang die Eurozone um ein drittes Hilfspaket für Griechenland."
+    },
+    "options": [
+      {
+        "id": "gr-help",
+        "title": "Drittes Hilfspaket",
+        "description": "Europa hält zusammen – gegen Auflagen.",
+        "advisoryNote": "Der Euro bleibt stabil, die Wähler grummeln.",
+        "immediateEffects": [
+          {
+            "metric": "internationalRelations",
+            "change": 2
+          },
+          {
+            "metric": "budget",
+            "change": -3
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "euRelations",
+            "change": 6
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -3
+          }
+        ],
+        "approvalEffect": -1
+      },
+      {
+        "id": "gr-exit",
+        "title": "Grexit zulassen",
+        "description": "Kein Geld mehr für Athen.",
+        "advisoryNote": "Ein Tabubruch mit unklaren Folgen.",
+        "immediateEffects": [
+          {
+            "metric": "internationalRelations",
+            "change": -3
+          },
+          {
+            "metric": "economy",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "euRelations",
+            "change": -8
+          },
+          {
+            "metric": "polarization",
+            "change": 4
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Ein drittes Hilfspaket verhinderte den Grexit.",
+    "historicalOptionID": "gr-help"
+  },
+  {
+    "id": "x-digital-2016",
+    "year": 2016,
+    "title": "Digitaler Staat",
+    "category": "digitalization",
+    "headline": "Die frühen Investitionen zahlen sich aus.",
+    "description": "Deutschlands frühe Digitalisierung macht Verwaltung und Wirtschaft schneller.",
+    "historicalContext": {
+      "summary": "Länder, die früh digitalisierten, waren später klar im Vorteil."
+    },
+    "options": [
+      {
+        "id": "dg16-scale",
+        "title": "Digitalisierung ausbauen",
+        "description": "Auf dem Vorsprung aufbauen.",
+        "advisoryNote": "Ein Erfolgsprojekt geht weiter.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 3
+          },
+          {
+            "metric": "livingStandard",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": 6
+          },
+          {
+            "metric": "infrastructureQuality",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 3
+            },
+            {
+              "group": "entrepreneurs",
+              "change": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "dg16-hold",
+        "title": "Erfolg verwalten",
+        "description": "Nicht weiter forcieren.",
+        "advisoryNote": "Solide, aber der Vorsprung schrumpft.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": 1
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "requiredFlags": [
+          "x_digital_push"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "x-digital-2016b",
+    "year": 2016,
+    "title": "Digitaler Rückstand",
+    "category": "digitalization",
+    "headline": "Das Versäumnis rächt sich.",
+    "description": "Der frühere Sparkurs bei der Digitalisierung bremst nun Wirtschaft und Verwaltung.",
+    "historicalContext": {
+      "summary": "Wer die Digitalisierung verschlief, verlor an Wettbewerbsfähigkeit."
+    },
+    "options": [
+      {
+        "id": "dg16b-catch",
+        "title": "Aufholjagd starten",
+        "description": "Jetzt teuer nachrüsten.",
+        "advisoryNote": "Spät, aber besser als nie.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": -5
+          },
+          {
+            "metric": "economy",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": 8
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -4
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "dg16b-ignore",
+        "title": "Weiter zögern",
+        "description": "Andere Prioritäten setzen.",
+        "advisoryNote": "Der Rückstand wächst weiter.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": -4
+          }
+        ],
+        "approvalEffect": -1
+      }
+    ],
+    "conditions": [
+      {
+        "requiredFlags": [
+          "x_digital_slow"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "x-diesel-2016",
+    "year": 2016,
+    "title": "Dieselskandal",
+    "category": "economy",
+    "headline": "Manipulierte Abgaswerte erschüttern die Autoindustrie.",
+    "description": "Ein Abgasskandal trifft die Schlüsselindustrie. Wie hart geht die Regierung mit den Konzernen um?",
+    "historicalContext": {
+      "summary": "Der Dieselskandal ab 2015 belastete Autoindustrie und Vertrauen."
+    },
+    "options": [
+      {
+        "id": "dsl-tough",
+        "title": "Hart durchgreifen",
+        "description": "Bußgelder, Rückrufe, klare Ansagen.",
+        "advisoryNote": "Verbraucher applaudieren, die Branche zittert.",
+        "immediateEffects": [
+          {
+            "metric": "trust",
+            "change": 3
+          },
+          {
+            "metric": "economy",
+            "change": -2
+          },
+          {
+            "metric": "society",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "polarization",
+            "change": 2
+          }
+        ],
+        "approvalEffect": 2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 2
+            },
+            {
+              "group": "entrepreneurs",
+              "change": -3
+            }
+          ]
+        }
+      },
+      {
+        "id": "dsl-protect",
+        "title": "Die Industrie schützen",
+        "description": "Arbeitsplätze vor Strafen.",
+        "advisoryNote": "Ein Deal mit dem Kartell, sagen Kritiker.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 2
+          },
+          {
+            "metric": "trust",
+            "change": -3
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "labourMarketFlexibility",
+            "change": 2
+          }
+        ],
+        "approvalEffect": -1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 3
+            },
+            {
+              "group": "entrepreneurs",
+              "change": 3
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": []
+  },
+  {
+    "id": "x-marriage-2017",
+    "year": 2017,
+    "title": "Ehe für alle",
+    "category": "society",
+    "headline": "Abstimmung über die gleichgeschlechtliche Ehe.",
+    "description": "Die Gesellschaft ist bereit – doch die Koalition ist gespalten. Öffnet Deutschland die Ehe?",
+    "historicalContext": {
+      "summary": "2017 beschloss der Bundestag die Ehe für alle."
+    },
+    "options": [
+      {
+        "id": "marr-yes",
+        "title": "Ehe für alle beschließen",
+        "description": "Ein Meilenstein für Gleichstellung.",
+        "advisoryNote": "Breite Zustimmung, konservativer Gegenwind.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 4
+          },
+          {
+            "metric": "trust",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "polarization",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 5
+            },
+            {
+              "group": "retirees",
+              "change": -2
+            }
+          ]
+        }
+      },
+      {
+        "id": "marr-block",
+        "title": "Weiter blockieren",
+        "description": "Am traditionellen Eheverständnis festhalten.",
+        "advisoryNote": "Die eigene Basis dankt, das Land wirkt rückständig.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": -3
+          },
+          {
+            "metric": "trust",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "polarization",
+            "change": 4
+          }
+        ],
+        "approvalEffect": -2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": -4
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Der Bundestag öffnete die Ehe für gleichgeschlechtliche Paare.",
+    "historicalOptionID": "marr-yes"
+  },
+  {
+    "id": "x-coal-2018",
+    "year": 2018,
+    "title": "Kohleausstieg",
+    "category": "energy",
+    "headline": "Eine Kommission ringt um das Ausstiegsdatum.",
+    "description": "Klimaschutz gegen Strukturwandel: Wann steigt Deutschland aus der Kohle aus?",
+    "historicalContext": {
+      "summary": "Die Kohlekommission empfahl den Ausstieg bis 2038."
+    },
+    "options": [
+      {
+        "id": "coal-fast",
+        "title": "Schneller Ausstieg",
+        "description": "Ambitionierter Klimakurs.",
+        "advisoryNote": "Umwelt jubelt, Reviere fürchten den Niedergang.",
+        "immediateEffects": [
+          {
+            "metric": "energy",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": -2
+          },
+          {
+            "metric": "economy",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "renewableCapacity",
+            "change": 6
+          },
+          {
+            "metric": "polarization",
+            "change": 4
+          }
+        ],
+        "flagsToSet": [
+          "x_coal_fast"
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 4,
+            "hiddenEffects": [
+              {
+                "metric": "renewableCapacity",
+                "change": 4
+              },
+              {
+                "metric": "russianEnergyDependency",
+                "change": -3
+              }
+            ],
+            "flagsToSet": [
+              "x_coal_echo"
+            ],
+            "note": "Der frühe Kohleausstieg beschleunigt den Umbau der Energieversorgung."
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 3
+            },
+            {
+              "group": "workers",
+              "change": -3
+            }
+          ]
+        }
+      },
+      {
+        "id": "coal-2038",
+        "title": "Ausstieg bis 2038",
+        "description": "Ein langer, geordneter Pfad mit Strukturhilfen.",
+        "advisoryNote": "Der Kompromiss der Kommission.",
+        "immediateEffects": [
+          {
+            "metric": "energy",
+            "change": 1
+          },
+          {
+            "metric": "budget",
+            "change": -3
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "renewableCapacity",
+            "change": 3
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -2
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 1
+            }
+          ]
+        }
+      },
+      {
+        "id": "coal-slow",
+        "title": "Kohle länger nutzen",
+        "description": "Versorgungssicherheit vor Klimazielen.",
+        "advisoryNote": "Die Industrie ist erleichtert, das Klima leidet.",
+        "immediateEffects": [
+          {
+            "metric": "energy",
+            "change": 3
+          },
+          {
+            "metric": "economy",
+            "change": 1
+          },
+          {
+            "metric": "society",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "renewableCapacity",
+            "change": -3
+          },
+          {
+            "metric": "polarization",
+            "change": 3
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            },
+            {
+              "group": "youngAdults",
+              "change": -3
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Die Kommission empfahl den Kohleausstieg bis 2038.",
+    "historicalOptionID": "coal-2038"
+  },
+  {
+    "id": "x-fff-2019",
+    "year": 2019,
+    "title": "Fridays for Future",
+    "category": "society",
+    "headline": "Millionen demonstrieren für das Klima.",
+    "description": "Eine Jugendbewegung fordert echten Klimaschutz. Wie ernst nimmt die Regierung sie?",
+    "historicalContext": {
+      "summary": "2019 brachte Fridays for Future den Klimaschutz auf die Agenda."
+    },
+    "options": [
+      {
+        "id": "fff-package",
+        "title": "Großes Klimapaket",
+        "description": "Ambitionierte Ziele, CO2-Preis, Milliarden.",
+        "advisoryNote": "Teuer und mutig – ein Signal an eine Generation.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 3
+          },
+          {
+            "metric": "budget",
+            "change": -4
+          },
+          {
+            "metric": "trust",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "renewableCapacity",
+            "change": 6
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -3
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 5
+            },
+            {
+              "group": "entrepreneurs",
+              "change": -2
+            }
+          ]
+        }
+      },
+      {
+        "id": "fff-symbol",
+        "title": "Symbolische Schritte",
+        "description": "Kleine Maßnahmen, große Worte.",
+        "advisoryNote": "Die Bewegung fühlt sich nicht ernst genommen.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": -1
+          },
+          {
+            "metric": "trust",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "polarization",
+            "change": 3
+          }
+        ],
+        "approvalEffect": -1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": -3
+            }
+          ]
+        }
+      },
+      {
+        "id": "fff-ignore",
+        "title": "Kurs halten",
+        "description": "Wirtschaft vor Klimaeuphorie.",
+        "advisoryNote": "Solide Wählerschaft dankt, die Jugend ist empört.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 1
+          },
+          {
+            "metric": "society",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "polarization",
+            "change": 5
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": -4
+            },
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Die Regierung beschloss ein Klimapaket mit CO2-Preis.",
+    "historicalOptionID": "fff-package"
+  },
+  {
+    "id": "x-grundrente-2019",
+    "year": 2019,
+    "title": "Grundrente",
+    "category": "welfare",
+    "headline": "Streit um eine Rente gegen Altersarmut.",
+    "description": "Langjährige Geringverdiener sollen eine Aufstockung erhalten. Kommt die Grundrente?",
+    "historicalContext": {
+      "summary": "2019 einigte sich die Koalition auf die Grundrente."
+    },
+    "options": [
+      {
+        "id": "gr19-yes",
+        "title": "Grundrente einführen",
+        "description": "Anerkennung für Lebensleistung.",
+        "advisoryNote": "Sozial gerecht, aber teuer.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 3
+          },
+          {
+            "metric": "society",
+            "change": 2
+          },
+          {
+            "metric": "budget",
+            "change": -3
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "welfareStrength",
+            "change": 5
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -2
+          }
+        ],
+        "approvalEffect": 2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "retirees",
+              "change": 4
+            },
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "gr19-means",
+        "title": "Nur mit strenger Prüfung",
+        "description": "Hilfe nur für wirklich Bedürftige.",
+        "advisoryNote": "Sparsamer, aber bürokratisch und kälter.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": -1
+          },
+          {
+            "metric": "society",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "welfareStrength",
+            "change": 2
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "retirees",
+              "change": 1
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Die Grundrente wurde beschlossen.",
+    "historicalOptionID": "gr19-yes"
+  },
+  {
+    "id": "x-housing-2019",
+    "year": 2019,
+    "title": "Wohnungsmarkt",
+    "category": "society",
+    "headline": "Die Bauoffensive von 2012 zahlt sich aus.",
+    "description": "Der frühe Wohnungsbau entspannt nun den Markt.",
+    "historicalContext": {
+      "summary": "Wo früh gebaut wurde, sanken später die Spannungen."
+    },
+    "options": [
+      {
+        "id": "hou19-relief",
+        "title": "Kurs fortsetzen",
+        "description": "Weiter bauen, Angebot sichern.",
+        "advisoryNote": "Ein Erfolg, den man ausbauen kann.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 3
+          },
+          {
+            "metric": "society",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "infrastructureQuality",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "families",
+              "change": 3
+            },
+            {
+              "group": "workers",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "hou19-ease",
+        "title": "Förderung zurückfahren",
+        "description": "Der Markt läuft von allein.",
+        "advisoryNote": "Riskant, aber spart Geld.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": 2
+          },
+          {
+            "metric": "livingStandard",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": 2
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "requiredFlags": [
+          "x_housing_build"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "x-housing-2019b",
+    "year": 2019,
+    "title": "Wohnungsnot",
+    "category": "society",
+    "headline": "Die Mietbremse hat den Neubau gedämpft.",
+    "description": "Die Regulierung von 2012 hält die Mieten niedrig – aber Wohnungen bleiben knapp.",
+    "historicalContext": {
+      "summary": "Regulierung ohne Neubau verschärfte mancherorts die Knappheit."
+    },
+    "options": [
+      {
+        "id": "hou19b-build",
+        "title": "Jetzt zusätzlich bauen",
+        "description": "Angebot schaffen, spät aber nötig.",
+        "advisoryNote": "Teuer, aber es entschärft die Lage.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": -4
+          },
+          {
+            "metric": "livingStandard",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "infrastructureQuality",
+            "change": 5
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -3
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "families",
+              "change": 2
+            },
+            {
+              "group": "youngAdults",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "hou19b-tighten",
+        "title": "Regulierung verschärfen",
+        "description": "Noch strengere Mietregeln.",
+        "advisoryNote": "Mieter dankbar, Investoren fliehen.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "infrastructureQuality",
+            "change": -3
+          },
+          {
+            "metric": "polarization",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 3
+            },
+            {
+              "group": "entrepreneurs",
+              "change": -4
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [
+      {
+        "requiredFlags": [
+          "x_housing_regulate"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "x-corona2-2020",
+    "year": 2020,
+    "title": "Zweite Corona-Welle",
+    "category": "society",
+    "headline": "Die Infektionszahlen steigen erneut.",
+    "description": "Nach dem Sommer droht eine zweite Welle. Wie hart wird der Herbst?",
+    "historicalContext": {
+      "summary": "Im Herbst 2020 kam der zweite Lockdown."
+    },
+    "options": [
+      {
+        "id": "c2-lockdown",
+        "title": "Harter Lockdown",
+        "description": "Kontakte runter, koste es was es wolle.",
+        "advisoryNote": "Rettet Leben, ruiniert Branchen.",
+        "immediateEffects": [
+          {
+            "metric": "security",
+            "change": 2
+          },
+          {
+            "metric": "economy",
+            "change": -5
+          },
+          {
+            "metric": "society",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "healthcareResilience",
+            "change": 4
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -4
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": -4
+            },
+            {
+              "group": "retirees",
+              "change": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "c2-balance",
+        "title": "Vorsichtiger Mittelweg",
+        "description": "Gezielte statt flächendeckender Maßnahmen.",
+        "advisoryNote": "Ein Balanceakt mit Risiko.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": -2
+          },
+          {
+            "metric": "society",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "healthcareResilience",
+            "change": 1
+          },
+          {
+            "metric": "polarization",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 1
+      },
+      {
+        "id": "c2-open",
+        "title": "Offen bleiben",
+        "description": "Wirtschaft und Freiheit priorisieren.",
+        "advisoryNote": "Mutig oder fahrlässig – die Zahlen entscheiden.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": -3
+          },
+          {
+            "metric": "security",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "healthcareResilience",
+            "change": -6
+          },
+          {
+            "metric": "polarization",
+            "change": 5
+          }
+        ],
+        "approvalEffect": -1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 4
+            },
+            {
+              "group": "retirees",
+              "change": -4
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Deutschland ging in einen zweiten Lockdown.",
+    "historicalOptionID": "c2-lockdown"
+  },
+  {
+    "id": "x-vaccine-2021",
+    "year": 2021,
+    "title": "Impfkampagne",
+    "category": "society",
+    "headline": "Der Impfstoff kommt – wie schnell impft Deutschland?",
+    "description": "Impfstoffe sind da, aber knapp und die Skepsis groß. Wie forsch geht die Kampagne los?",
+    "historicalContext": {
+      "summary": "2021 startete die Impfkampagne gegen Corona."
+    },
+    "options": [
+      {
+        "id": "vac-push",
+        "title": "Impfoffensive",
+        "description": "Massiv beschaffen, überall impfen.",
+        "advisoryNote": "Ein Kraftakt, der die Pandemie brechen kann.",
+        "immediateEffects": [
+          {
+            "metric": "security",
+            "change": 2
+          },
+          {
+            "metric": "livingStandard",
+            "change": 2
+          },
+          {
+            "metric": "budget",
+            "change": -3
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "healthcareResilience",
+            "change": 8
+          }
+        ],
+        "approvalEffect": 2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "retirees",
+              "change": 4
+            },
+            {
+              "group": "workers",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "vac-mandate",
+        "title": "Über Impfpflicht nachdenken",
+        "description": "Für bestimmte Gruppen verpflichtend.",
+        "advisoryNote": "Wirksam, aber hoch umstritten.",
+        "immediateEffects": [
+          {
+            "metric": "security",
+            "change": 1
+          },
+          {
+            "metric": "society",
+            "change": -3
+          },
+          {
+            "metric": "trust",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "healthcareResilience",
+            "change": 4
+          },
+          {
+            "metric": "polarization",
+            "change": 8
+          }
+        ],
+        "approvalEffect": -1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": -3
+            },
+            {
+              "group": "retirees",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "vac-slow",
+        "title": "Freiwillig und langsam",
+        "description": "Kein Druck, viel Geduld.",
+        "advisoryNote": "Gesellschaftlich sanft, medizinisch riskant.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 1
+          },
+          {
+            "metric": "security",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "healthcareResilience",
+            "change": -2
+          }
+        ]
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Die Impfkampagne nahm 2021 Fahrt auf.",
+    "historicalOptionID": "vac-push"
+  },
+  {
+    "id": "x-defense-2022",
+    "year": 2022,
+    "title": "Zeitenwende",
+    "category": "security",
+    "headline": "Der Krieg zwingt zur Aufrüstung – auf einer kaputtgesparten Truppe.",
+    "description": "Der Angriff auf die Ukraine verlangt eine starke Bundeswehr. Doch jahrelanges Sparen rächt sich nun.",
+    "historicalContext": {
+      "summary": "Die 'Zeitenwende' 2022 offenbarte Ausrüstungsmängel der Bundeswehr."
+    },
+    "options": [
+      {
+        "id": "d22-fund",
+        "title": "Sondervermögen auflegen",
+        "description": "100 Milliarden für die Aufholjagd.",
+        "advisoryNote": "Historisch, teuer, überfällig.",
+        "immediateEffects": [
+          {
+            "metric": "security",
+            "change": 3
+          },
+          {
+            "metric": "budget",
+            "change": -5
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "defenceReadiness",
+            "change": 12
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -6
+          }
+        ],
+        "approvalEffect": 2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 1
+            }
+          ]
+        }
+      },
+      {
+        "id": "d22-slow",
+        "title": "Vorsichtig nachrüsten",
+        "description": "Schritt für Schritt, ohne Schuldenberg.",
+        "advisoryNote": "Zu wenig, zu langsam, sagen die Verbündeten.",
+        "immediateEffects": [
+          {
+            "metric": "security",
+            "change": 1
+          },
+          {
+            "metric": "budget",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "defenceReadiness",
+            "change": 4
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "requiredFlags": [
+          "x_defense_neglect"
+        ]
+      }
+    ],
+    "historicalReality": "Deutschland legte ein 100-Milliarden-Sondervermögen auf.",
+    "historicalOptionID": "d22-fund"
+  },
+  {
+    "id": "x-defense-2022b",
+    "year": 2022,
+    "title": "Zeitenwende",
+    "category": "security",
+    "headline": "Die frühe Modernisierung zahlt sich aus.",
+    "description": "Der Krieg verlangt Stärke – und die modernisierte Bundeswehr ist vorbereitet.",
+    "historicalContext": {
+      "summary": "Wer früh modernisierte, stand 2022 besser da."
+    },
+    "options": [
+      {
+        "id": "d22b-lead",
+        "title": "Führungsrolle übernehmen",
+        "description": "Verbündete unterstützen, Stärke zeigen.",
+        "advisoryNote": "Deutschland wird zum Anker der Allianz.",
+        "immediateEffects": [
+          {
+            "metric": "security",
+            "change": 3
+          },
+          {
+            "metric": "internationalRelations",
+            "change": 3
+          },
+          {
+            "metric": "budget",
+            "change": -3
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "defenceReadiness",
+            "change": 8
+          },
+          {
+            "metric": "euRelations",
+            "change": 4
+          },
+          {
+            "metric": "usRelations",
+            "change": 4
+          }
+        ],
+        "approvalEffect": 2
+      },
+      {
+        "id": "d22b-hold",
+        "title": "Verlässlich unterstützen",
+        "description": "Solide, ohne Übermut.",
+        "advisoryNote": "Ruhig und respektiert.",
+        "immediateEffects": [
+          {
+            "metric": "security",
+            "change": 2
+          },
+          {
+            "metric": "internationalRelations",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "defenceReadiness",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 1
+      }
+    ],
+    "conditions": [
+      {
+        "requiredFlags": [
+          "x_defense_ready"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "x-gasprice-2022",
+    "year": 2022,
+    "title": "Gaspreiskrise",
+    "category": "energy",
+    "headline": "Die Energiepreise explodieren.",
+    "description": "Russisches Gas bleibt aus, die Preise steigen dramatisch. Wie stützt der Staat Bürger und Betriebe?",
+    "historicalContext": {
+      "summary": "2022 führte die Regierung Gaspreisbremsen und Entlastungen ein."
+    },
+    "options": [
+      {
+        "id": "gas-brake",
+        "title": "Preisbremse und Entlastungen",
+        "description": "Milliarden gegen den Preisschock.",
+        "advisoryNote": "Rettet den sozialen Frieden, kostet Unsummen.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 3
+          },
+          {
+            "metric": "economy",
+            "change": 1
+          },
+          {
+            "metric": "budget",
+            "change": -6
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": -6
+          }
+        ],
+        "approvalEffect": 2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 3
+            },
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": 3
+            },
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "gas-market",
+        "title": "Den Markt regeln lassen",
+        "description": "Wenig Eingriff, harte Anpassung.",
+        "advisoryNote": "Ordnungspolitisch sauber, sozial brutal.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": -4
+          },
+          {
+            "metric": "society",
+            "change": -3
+          },
+          {
+            "metric": "budget",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "polarization",
+            "change": 6
+          }
+        ],
+        "approvalEffect": -3,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": -5
+            }
+          ]
+        }
+      },
+      {
+        "id": "gas-lng",
+        "title": "Schnell LNG und Erneuerbare",
+        "description": "Neue Quellen und Tempo beim Umbau.",
+        "advisoryNote": "Teuer, aber es macht unabhängiger.",
+        "immediateEffects": [
+          {
+            "metric": "energy",
+            "change": 3
+          },
+          {
+            "metric": "budget",
+            "change": -4
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "russianEnergyDependency",
+            "change": -10
+          },
+          {
+            "metric": "renewableCapacity",
+            "change": 5
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -3
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Deutschland führte Gaspreisbremsen ein und baute LNG-Terminals.",
+    "historicalOptionID": "gas-brake"
+  },
+  {
+    "id": "x-heating-2023",
+    "year": 2023,
+    "title": "Heizungsgesetz",
+    "category": "energy",
+    "headline": "Streit um das Ende der Öl- und Gasheizung.",
+    "description": "Ein Gesetz soll klimafreundliches Heizen erzwingen – und spaltet Koalition wie Land.",
+    "historicalContext": {
+      "summary": "2023 spaltete das Heizungsgesetz die Ampel."
+    },
+    "options": [
+      {
+        "id": "heat-push",
+        "title": "Ambitioniert durchsetzen",
+        "description": "Klarer Pfad weg von fossilem Heizen.",
+        "advisoryNote": "Klimapolitisch konsequent, aber teuer für Hausbesitzer.",
+        "immediateEffects": [
+          {
+            "metric": "energy",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": -3
+          },
+          {
+            "metric": "trust",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "renewableCapacity",
+            "change": 5
+          },
+          {
+            "metric": "polarization",
+            "change": 8
+          }
+        ],
+        "approvalEffect": -2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 2
+            },
+            {
+              "group": "retirees",
+              "change": -4
+            },
+            {
+              "group": "families",
+              "change": -2
+            }
+          ]
+        }
+      },
+      {
+        "id": "heat-soft",
+        "title": "Abschwächen und fördern",
+        "description": "Mehr Zeit, mehr Zuschüsse.",
+        "advisoryNote": "Ein Rückzieher, der die Wogen glättet.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 1
+          },
+          {
+            "metric": "budget",
+            "change": -3
+          },
+          {
+            "metric": "trust",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "renewableCapacity",
+            "change": 2
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -2
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "families",
+              "change": 2
+            },
+            {
+              "group": "retirees",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "heat-scrap",
+        "title": "Gesetz kippen",
+        "description": "Kein Zwang beim Heizen.",
+        "advisoryNote": "Populär, aber ein klimapolitischer Offenbarungseid.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 2
+          },
+          {
+            "metric": "trust",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "renewableCapacity",
+            "change": -4
+          },
+          {
+            "metric": "polarization",
+            "change": 4
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "retirees",
+              "change": 3
+            },
+            {
+              "group": "youngAdults",
+              "change": -3
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Das Heizungsgesetz wurde stark abgeschwächt beschlossen.",
+    "historicalOptionID": "heat-soft"
+  },
+  {
+    "id": "x-pension-2024",
+    "year": 2024,
+    "title": "Rente auf solidem Grund",
+    "category": "budget",
+    "headline": "Die Reform von 2008 zeigt Wirkung.",
+    "description": "Die frühe Rentenreform stabilisiert die Kassen – nun ist Spielraum für Verbesserungen.",
+    "historicalContext": {
+      "summary": "Frühe Rentenreformen entlasteten später die Haushalte."
+    },
+    "options": [
+      {
+        "id": "pen24-boost",
+        "title": "Renten gezielt anheben",
+        "description": "Der Spielraum kommt den Rentnern zugute.",
+        "advisoryNote": "Sozial und finanzierbar.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": 2
+          },
+          {
+            "metric": "budget",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "welfareStrength",
+            "change": 4
+          }
+        ],
+        "approvalEffect": 2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "retirees",
+              "change": 4
+            }
+          ]
+        }
+      },
+      {
+        "id": "pen24-save",
+        "title": "Spielraum sparen",
+        "description": "Das Polster für Krisen behalten.",
+        "advisoryNote": "Vernünftig, aber undankbar.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": 3
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": 5
+          }
+        ],
+        "approvalEffect": -1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "retirees",
+              "change": -1
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [
+      {
+        "requiredFlags": [
+          "x_pension_reform"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "x-pension-2024b",
+    "year": 2024,
+    "title": "Rentenkasse am Limit",
+    "category": "budget",
+    "headline": "Die versäumte Reform belastet nun schwer.",
+    "description": "Ohne frühe Reform frisst die Rente einen wachsenden Teil des Haushalts.",
+    "historicalContext": {
+      "summary": "Aufgeschobene Rentenreformen wurden später teuer."
+    },
+    "options": [
+      {
+        "id": "pen24b-reform",
+        "title": "Jetzt spät reformieren",
+        "description": "Unpopuläre Einschnitte nachholen.",
+        "advisoryNote": "Schmerzhaft, aber unvermeidlich.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": -3
+          },
+          {
+            "metric": "trust",
+            "change": -2
+          },
+          {
+            "metric": "budget",
+            "change": 3
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": 6
+          }
+        ],
+        "approvalEffect": -3,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "retirees",
+              "change": -5
+            },
+            {
+              "group": "workers",
+              "change": -2
+            }
+          ]
+        }
+      },
+      {
+        "id": "pen24b-debt",
+        "title": "Über Schulden finanzieren",
+        "description": "Die Last in die Zukunft verschieben.",
+        "advisoryNote": "Kurzfristig ruhig, langfristig gefährlich.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 1
+          },
+          {
+            "metric": "budget",
+            "change": -4
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": -6
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "retirees",
+              "change": 3
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [
+      {
+        "requiredFlags": [
+          "x_pension_status"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "x-ai-2024",
+    "year": 2024,
+    "title": "KI-Regulierung",
+    "category": "digitalization",
+    "headline": "Wie geht Deutschland mit Künstlicher Intelligenz um?",
+    "description": "KI verändert Wirtschaft und Alltag rasant. Setzt Deutschland auf Innovation oder auf strenge Regeln?",
+    "historicalContext": {
+      "summary": "Ab 2024 rang die EU um die Regulierung Künstlicher Intelligenz."
+    },
+    "options": [
+      {
+        "id": "ai-innovate",
+        "title": "Innovation fördern",
+        "description": "Freiraum und Investitionen für KI.",
+        "advisoryNote": "Chancen für den Standort, Risiken inklusive.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 3
+          },
+          {
+            "metric": "society",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": 8
+          },
+          {
+            "metric": "polarization",
+            "change": 2
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 4
+            },
+            {
+              "group": "youngAdults",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "ai-regulate",
+        "title": "Streng regulieren",
+        "description": "Grundrechte und Sicherheit zuerst.",
+        "advisoryNote": "Schützt die Bürger, bremst die Wirtschaft.",
+        "immediateEffects": [
+          {
+            "metric": "trust",
+            "change": 3
+          },
+          {
+            "metric": "economy",
+            "change": -2
+          },
+          {
+            "metric": "society",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": -2
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 2
+            },
+            {
+              "group": "entrepreneurs",
+              "change": -3
+            }
+          ]
+        }
+      },
+      {
+        "id": "ai-balance",
+        "title": "Ausgewogene Regeln",
+        "description": "Innovation mit Leitplanken.",
+        "advisoryNote": "Der schwierige Mittelweg.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 1
+          },
+          {
+            "metric": "trust",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 1
+      }
+    ],
+    "conditions": []
+  },
+  {
+    "id": "x-econ-2025",
+    "year": 2025,
+    "title": "Wirtschaftswende",
+    "category": "economy",
+    "headline": "Der Standort schwächelt – ein großer Wurf ist nötig.",
+    "description": "Hohe Kosten, Bürokratie, Fachkräftemangel. Wie belebt die Regierung die Wirtschaft?",
+    "historicalContext": {
+      "summary": "2025 stand die Wettbewerbsfähigkeit des Standorts im Zentrum."
+    },
+    "options": [
+      {
+        "id": "ec25-relief",
+        "title": "Entlasten und entbürokratisieren",
+        "description": "Steuern runter, Regeln schlanker.",
+        "advisoryNote": "Die Wirtschaft atmet auf, dem Staat fehlt Geld.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 4
+          },
+          {
+            "metric": "budget",
+            "change": -3
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "labourMarketFlexibility",
+            "change": 5
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -3
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 5
+            },
+            {
+              "group": "workers",
+              "change": 1
+            }
+          ]
+        }
+      },
+      {
+        "id": "ec25-invest",
+        "title": "Staatlich investieren",
+        "description": "Milliarden in Infrastruktur und Zukunft.",
+        "advisoryNote": "Ein Konjunkturmotor auf Pump.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 3
+          },
+          {
+            "metric": "budget",
+            "change": -5
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "infrastructureQuality",
+            "change": 6
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -5
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 3
+            },
+            {
+              "group": "families",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "ec25-status",
+        "title": "Auf Selbstheilung setzen",
+        "description": "Der Markt richtet es schon.",
+        "advisoryNote": "Ordnungspolitisch pur, riskant im Abschwung.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": -1
+          },
+          {
+            "metric": "budget",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": 2
+          }
+        ],
+        "approvalEffect": -1
+      }
+    ],
+    "conditions": []
+  },
+  {
+    "id": "x-buergergeld-2025",
+    "year": 2025,
+    "title": "Bürgergeld-Reform",
+    "category": "welfare",
+    "headline": "Streit um die Grundsicherung.",
+    "description": "Kritiker sagen, es lohne sich zu wenig zu arbeiten. Wird das Bürgergeld verschärft?",
+    "historicalContext": {
+      "summary": "2024/2025 wurde über Sanktionen und Höhe des Bürgergelds gestritten."
+    },
+    "options": [
+      {
+        "id": "bg-tighten",
+        "title": "Strenger machen",
+        "description": "Mehr Druck, härtere Sanktionen.",
+        "advisoryNote": "Ein Teil applaudiert, Sozialverbände protestieren.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": -2
+          },
+          {
+            "metric": "budget",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "labourMarketFlexibility",
+            "change": 4
+          },
+          {
+            "metric": "welfareStrength",
+            "change": -3
+          },
+          {
+            "metric": "polarization",
+            "change": 4
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 3
+            },
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": -5
+            }
+          ]
+        }
+      },
+      {
+        "id": "bg-protect",
+        "title": "Sozial absichern",
+        "description": "Würde und Sicherheit erhalten.",
+        "advisoryNote": "Menschlich, aber teuer und umstritten.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": 1
+          },
+          {
+            "metric": "budget",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "welfareStrength",
+            "change": 4
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": 4
+            },
+            {
+              "group": "workers",
+              "change": 1
+            },
+            {
+              "group": "entrepreneurs",
+              "change": -2
+            }
+          ]
+        }
+      },
+      {
+        "id": "bg-reform",
+        "title": "Anreize klug umbauen",
+        "description": "Zuverdienst erleichtern statt strafen.",
+        "advisoryNote": "Ein pragmatischer Mittelweg.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 1
+          },
+          {
+            "metric": "livingStandard",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "labourMarketFlexibility",
+            "change": 2
+          },
+          {
+            "metric": "welfareStrength",
+            "change": 1
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 2
+            },
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": []
+  }
+]

@@ -22,9 +22,9 @@ import Testing
     tense.visible.security = 35
 
     let calmRight = PartyLandscapeFactory.make(state: calm, governingShare: 40, coalition: .standard())
-        .parties.first { $0.id == "farright" }?.support ?? 0
+        .parties.first { $0.id == "afd" }?.support ?? 0
     let tenseRight = PartyLandscapeFactory.make(state: tense, governingShare: 40, coalition: .standard())
-        .parties.first { $0.id == "farright" }?.support ?? 0
+        .parties.first { $0.id == "afd" }?.support ?? 0
 
     #expect(tenseRight > calmRight)
 }

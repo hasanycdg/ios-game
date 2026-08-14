@@ -9,6 +9,9 @@ public struct DecisionResult: Codable, Equatable, Sendable {
     public let resultText: String
     public let historicalReality: String?
     public let didChooseHistoricalPath: Bool
+    /// Ausführlicher historischer Hintergrund des Ereignisses – wird erst nach
+    /// der Entscheidung (aufklappbar) gezeigt, nicht davor.
+    public let historicalBackground: String?
 
     public init(
         year: Int,
@@ -18,7 +21,8 @@ public struct DecisionResult: Codable, Equatable, Sendable {
         approvalEffect: Int,
         resultText: String,
         historicalReality: String? = nil,
-        didChooseHistoricalPath: Bool = false
+        didChooseHistoricalPath: Bool = false,
+        historicalBackground: String? = nil
     ) {
         self.year = year
         self.eventTitle = eventTitle
@@ -28,6 +32,7 @@ public struct DecisionResult: Codable, Equatable, Sendable {
         self.resultText = resultText
         self.historicalReality = historicalReality
         self.didChooseHistoricalPath = didChooseHistoricalPath
+        self.historicalBackground = historicalBackground
     }
 }
 
@@ -90,6 +95,11 @@ public final class GameEngine {
     public private(set) var politicalCapital: Int = 7
     public private(set) var coalition: CoalitionState = .standard()
     public private(set) var persona: KanzlerPersona = PersonaCatalog.default
+    public private(set) var playerParty: PlayerParty = PartyCatalog.default
+    public private(set) var playerName: String = PartyCatalog.defaultChancellorName
+    /// True, solange die erste Regierung nach dem Wahlsieg noch gebildet wird
+    /// (Szenario-Start). Steuert, dass die Koalitionsbildung im Startjahr bleibt.
+    public private(set) var awaitingInitialCoalition: Bool = false
     public private(set) var pendingCampaign: Bool = false
     public private(set) var corruption: Int = 0
     public private(set) var pendingEncounter: PoliticalEncounter?
@@ -149,6 +159,9 @@ public final class GameEngine {
         self.politicalCapital = snapshot.politicalCapital ?? 7
         self.coalition = snapshot.coalition ?? .standard()
         self.persona = PersonaCatalog.persona(id: snapshot.personaID ?? PersonaCatalog.default.id)
+        self.playerParty = PartyCatalog.party(id: snapshot.playerPartyID ?? PartyCatalog.default.id)
+        self.playerName = snapshot.playerName ?? PartyCatalog.defaultChancellorName
+        self.awaitingInitialCoalition = snapshot.awaitingInitialCoalition ?? false
         self.pendingCampaign = snapshot.pendingCampaign ?? false
         self.corruption = snapshot.corruption ?? 0
         self.pendingEncounter = snapshot.pendingEncounter
@@ -171,6 +184,9 @@ public final class GameEngine {
             politicalCapital: politicalCapital,
             coalition: coalition,
             personaID: persona.id,
+            playerPartyID: playerParty.id,
+            playerName: playerName,
+            awaitingInitialCoalition: awaitingInitialCoalition,
             pendingCampaign: pendingCampaign,
             corruption: corruption,
             pendingEncounter: pendingEncounter,
@@ -185,8 +201,36 @@ public final class GameEngine {
         )
     }
 
+    /// Direktstart mit einem reinen Persona-Profil (v.a. Tests). Beginnt sofort
+    /// mit dem ersten Ereignis, ohne Koalitionsbildung.
     public func startNewGame(persona: KanzlerPersona = PersonaCatalog.default) {
+        resetForNewGame(persona: persona, party: PartyCatalog.default, playerName: PartyCatalog.defaultChancellorName)
+        awaitingInitialCoalition = false
+        pendingCoalitionOptions = nil
+        currentEvent = nextQueuedEvent()
+        recordAnnualSnapshot()
+    }
+
+    /// Szenario-Start: Die Wahl ist gewonnen, jetzt wird die Regierung gebildet.
+    /// Das Spiel öffnet mit den Koalitionsverhandlungen und bleibt dabei im Startjahr.
+    public func startNewGame(party: PlayerParty, playerName: String) {
+        let name = playerName.trimmingCharacters(in: .whitespacesAndNewlines)
+        resetForNewGame(
+            persona: party.profile,
+            party: party,
+            playerName: name.isEmpty ? PartyCatalog.defaultChancellorName : name
+        )
+        awaitingInitialCoalition = true
+        currentEvent = nil
+        pendingCoalitionOptions = makeInitialCoalitionOptions()
+        recordAnnualSnapshot()
+    }
+
+    /// Gemeinsamer Reset für beide Einstiege.
+    private func resetForNewGame(persona: KanzlerPersona, party: PlayerParty, playerName: String) {
         self.persona = persona
+        self.playerParty = party
+        self.playerName = playerName
         var initial = GameStateFactory.initialGermany2000()
         for effect in persona.visibleModifiers { initial.apply(effect) }
         for effect in persona.hiddenModifiers { initial.apply(effect) }
@@ -208,8 +252,6 @@ public final class GameEngine {
         lastDecisionResult = nil
         annualHistory = []
         prepareCurrentYear()
-        currentEvent = nextQueuedEvent()
-        recordAnnualSnapshot()
     }
 
     // MARK: Politisches Kapital & Koalition
@@ -331,7 +373,8 @@ public final class GameEngine {
             approvalEffect: approvalEffect,
             resultText: option.description,
             historicalReality: event.historicalReality,
-            didChooseHistoricalPath: event.historicalOptionID == option.id
+            didChooseHistoricalPath: event.historicalOptionID == option.id,
+            historicalBackground: event.historicalContext.summary.isEmpty ? nil : event.historicalContext.summary
         )
         lastDecisionResult = result
         currentEvent = nil
@@ -423,7 +466,8 @@ public final class GameEngine {
         currentEvent = nil
     }
 
-    /// Wählt eine Koalition nach der Wahl und schaltet dann das Jahr fort.
+    /// Wählt eine Koalition und schaltet dann fort. Beim Szenario-Start bleibt
+    /// die Regierung im Startjahr; nach einer Wahl geht es ins Folgejahr.
     public func formCoalition(optionID: String) {
         guard let options = pendingCoalitionOptions,
               let choice = options.first(where: { $0.id == optionID }) else { return }
@@ -437,6 +481,13 @@ public final class GameEngine {
                                        satisfaction: 60, reactionDamping: 1.0, isMinority: false)
         }
 
+        // Szenario-Start: Regierung gebildet, erstes Ereignis im Startjahr laden.
+        if awaitingInitialCoalition {
+            awaitingInitialCoalition = false
+            currentEvent = nextQueuedEvent()
+            return
+        }
+
         guard state.gameOverSummary == nil else { currentEvent = nil; return }
         if state.currentYear >= finalYear {
             state.gameOverSummary = makeFinalYearSummary()
@@ -447,11 +498,34 @@ public final class GameEngine {
         currentEvent = nextQueuedEvent()
     }
 
+    /// Startkoalition: bietet die natürlichen Partner der gewählten Partei an,
+    /// gewichtet nach realem Ausgangs-Stimmenanteil.
+    private func makeInitialCoalitionOptions() -> [CoalitionOption] {
+        let playerShare = playerParty.baseSupport
+        var options = playerParty.naturalPartnerIDs.compactMap { id -> CoalitionOption? in
+            guard let ref = PartyCatalog.reference(id: id) else { return nil }
+            let combined = playerShare + ref.baseSupport
+            return CoalitionOption(
+                id: ref.id,
+                partyName: ref.name,
+                leaning: ref.leaning,
+                combinedShare: (combined * 10).rounded() / 10,
+                formsMajority: combined >= 47,
+                isMinority: false
+            )
+        }
+        options.append(
+            CoalitionOption(id: "none", partyName: "Minderheitsregierung", leaning: playerParty.leaning,
+                            combinedShare: (playerShare * 10).rounded() / 10, formsMajority: false, isMinority: true)
+        )
+        return options
+    }
+
     /// Baut die Koalitionsoptionen aus der aktuellen Parteienlandschaft.
     private func makeCoalitionOptions() -> [CoalitionOption] {
         let projection = electionEngine.project(in: state)
-        let landscape = PartyLandscapeFactory.make(state: state, governingShare: projection.governingShare, coalition: coalition)
-        let playerShare = landscape.parties.first { $0.role == .governing }?.support ?? 40
+        let landscape = PartyLandscapeFactory.make(state: state, governingShare: projection.governingShare, coalition: coalition, playerParty: playerParty)
+        let playerShare = landscape.parties.first { $0.role == .governing }?.support ?? playerParty.baseSupport
         let candidates = landscape.parties
             .filter { $0.role == .opposition }
             .sorted { $0.support > $1.support }
@@ -462,7 +536,7 @@ public final class GameEngine {
             return CoalitionOption(
                 id: party.id,
                 partyName: party.name,
-                leaning: coalitionLeaning(for: party.id),
+                leaning: PartyCatalog.leaning(for: party.id),
                 combinedShare: (combined * 10).rounded() / 10,
                 formsMajority: combined >= 47,
                 isMinority: false
@@ -473,14 +547,6 @@ public final class GameEngine {
                             combinedShare: (playerShare * 10).rounded() / 10, formsMajority: false, isMinority: true)
         )
         return options
-    }
-
-    private func coalitionLeaning(for partyID: String) -> PoliticalLeaning {
-        switch partyID {
-        case "conservatives", "farright": .conservative
-        case "socialdemocrats", "greens", "leftists": .left
-        default: .liberal
-        }
     }
 
     // MARK: Gesetze & Haushalt

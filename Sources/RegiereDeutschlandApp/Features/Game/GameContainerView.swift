@@ -9,8 +9,10 @@ struct GameContainerView: View {
     @Environment(\.scenePhase) private var scenePhase
     @State private var selectedTab = 0
 
-    init(mode: GameViewModel.StartMode = .newGame, persona: KanzlerPersona = PersonaCatalog.default) {
-        _viewModel = StateObject(wrappedValue: GameViewModel(mode: mode, persona: persona))
+    init(mode: GameViewModel.StartMode = .newGame,
+         party: PlayerParty = PartyCatalog.default,
+         playerName: String = PartyCatalog.defaultChancellorName) {
+        _viewModel = StateObject(wrappedValue: GameViewModel(mode: mode, party: party, playerName: playerName))
     }
 
     var body: some View {
@@ -73,7 +75,12 @@ struct GameContainerView: View {
             .zIndex(1)
         case .coalitionTalks:
             if let options = viewModel.pendingCoalitionOptions {
-                CoalitionTalksView(year: viewModel.state.currentYear, options: options) { optionID in
+                CoalitionTalksView(
+                    year: viewModel.state.currentYear,
+                    options: options,
+                    isInitial: viewModel.isFormingInitialGovernment,
+                    playerPartyName: viewModel.playerParty.name
+                ) { optionID in
                     withAnimation(.easeInOut) { viewModel.formCoalition(optionID) }
                 }
                 .transition(.opacity)

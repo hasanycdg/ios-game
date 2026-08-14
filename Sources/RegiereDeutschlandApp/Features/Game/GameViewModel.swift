@@ -26,11 +26,14 @@ final class GameViewModel: ObservableObject {
     @Published private(set) var politicalCapital: Int = 7
     @Published private(set) var coalition: CoalitionState = .standard()
     @Published private(set) var persona: KanzlerPersona = PersonaCatalog.default
+    @Published private(set) var playerParty: PlayerParty = PartyCatalog.default
+    @Published private(set) var playerName: String = PartyCatalog.defaultChancellorName
     @Published private(set) var newlyUnlockedAchievements: [Achievement] = []
     @Published private(set) var corruption: Int = 0
     @Published private(set) var pendingEncounter: PoliticalEncounter?
     @Published private(set) var cabinet: Cabinet = .standard()
     @Published private(set) var pendingCoalitionOptions: [CoalitionOption]?
+    @Published private(set) var isFormingInitialGovernment = false
     @Published private(set) var policies: PolicyState = .standard()
     @Published private(set) var debt: Int = 60
     @Published private(set) var interestGroups: [InterestGroup] = InterestGroupsFactory.standard()
@@ -53,7 +56,8 @@ final class GameViewModel: ObservableObject {
 
     init(
         mode: StartMode = .newGame,
-        persona: KanzlerPersona = PersonaCatalog.default,
+        party: PlayerParty = PartyCatalog.default,
+        playerName: String = PartyCatalog.defaultChancellorName,
         persistence: GamePersistence = GamePersistence(),
         newsRepository: NewsRepository = LocalJSONNewsRepository()
     ) {
@@ -62,13 +66,13 @@ final class GameViewModel: ObservableObject {
         switch mode {
         case .newGame:
             self.engine = GameEngine()
-            self.engine.startNewGame(persona: persona)
+            self.engine.startNewGame(party: party, playerName: playerName)
         case .resume:
             if let snapshot = persistence.loadSnapshot() {
                 self.engine = GameEngine(snapshot: snapshot)
             } else {
                 self.engine = GameEngine()
-                self.engine.startNewGame(persona: persona)
+                self.engine.startNewGame(party: party, playerName: playerName)
             }
         }
         self.state = engine.state
@@ -78,10 +82,13 @@ final class GameViewModel: ObservableObject {
         self.politicalCapital = engine.politicalCapital
         self.coalition = engine.coalition
         self.persona = engine.persona
+        self.playerParty = engine.playerParty
+        self.playerName = engine.playerName
         self.corruption = engine.corruption
         self.pendingEncounter = engine.pendingEncounter
         self.cabinet = engine.cabinet
         self.pendingCoalitionOptions = engine.pendingCoalitionOptions
+        self.isFormingInitialGovernment = engine.awaitingInitialCoalition
         self.policies = engine.policies
         self.debt = engine.debt
         self.interestGroups = engine.interestGroups
@@ -146,7 +153,7 @@ final class GameViewModel: ObservableObject {
     func startNewGame() {
         didStoreRunResult = false
         newlyUnlockedAchievements = []
-        engine.startNewGame(persona: persona)
+        engine.startNewGame(party: playerParty, playerName: playerName)
         syncFromEngine()
         phase = Self.phase(for: engine)
         autosave()
@@ -195,10 +202,13 @@ final class GameViewModel: ObservableObject {
         annualHistory = engine.annualHistory
         politicalCapital = engine.politicalCapital
         coalition = engine.coalition
+        playerParty = engine.playerParty
+        playerName = engine.playerName
         corruption = engine.corruption
         pendingEncounter = engine.pendingEncounter
         cabinet = engine.cabinet
         pendingCoalitionOptions = engine.pendingCoalitionOptions
+        isFormingInitialGovernment = engine.awaitingInitialCoalition
         policies = engine.policies
         debt = engine.debt
         interestGroups = engine.interestGroups

@@ -132,25 +132,25 @@ struct NewsScopeStyle {
 enum PartyPresentation {
     static func leader(for id: String) -> String {
         switch id {
-        case "conservatives":   "Dr. Berger"
-        case "socialdemocrats": "Frau Vogt"
-        case "greens":          "Frau Sommer"
-        case "leftists":        "Herr Albrecht"
-        case "farright":        "Herr Stein"
-        default:                "die Opposition"
+        case "cdu":    "Dr. Berger"
+        case "spd":    "Frau Vogt"
+        case "gruene": "Frau Sommer"
+        case "fdp":    "Herr Lang"
+        case "linke":  "Herr Albrecht"
+        case "afd":    "Herr Stein"
+        default:       "die Opposition"
         }
     }
 
     static func color(for id: String) -> Color {
         switch id {
-        case "player":          GameTheme.gold
-        case "partner":         GameTheme.teal
-        case "conservatives":   GameTheme.blue
-        case "socialdemocrats": GameTheme.red
-        case "greens":          GameTheme.green
-        case "leftists":        GameTheme.purple
-        case "farright":        Color(red: 0.62, green: 0.46, blue: 0.32)
-        default:                GameTheme.secondaryText
+        case "spd":    GameTheme.red
+        case "cdu":    Color(red: 0.78, green: 0.80, blue: 0.85) // Schwarz/Neutral, auf Dunkel hell
+        case "gruene": GameTheme.green
+        case "fdp":    GameTheme.amber                            // Gelb
+        case "linke":  GameTheme.purple
+        case "afd":    GameTheme.blue
+        default:       GameTheme.secondaryText
         }
     }
 }

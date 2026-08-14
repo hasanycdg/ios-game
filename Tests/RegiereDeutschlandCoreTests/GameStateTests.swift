@@ -6,8 +6,8 @@ import Testing
     let state = GameStateFactory.initialGermany2000()
 
     #expect(state.currentYear == 2000)
-    #expect(state.governmentApproval == 52)
-    #expect(state.visible.economy == 58)
+    #expect(state.governmentApproval == 54)
+    #expect(state.visible.economy == 54)
     #expect(state.hidden.renewableCapacity == 16)
     #expect(state.decisions.isEmpty)
     #expect(state.electionResults.isEmpty)

@@ -54,7 +54,8 @@ extension GameViewModel {
         PartyLandscapeFactory.make(
             state: state,
             governingShare: electionProjection.governingShare,
-            coalition: coalition
+            coalition: coalition,
+            playerParty: playerParty
         )
     }
 

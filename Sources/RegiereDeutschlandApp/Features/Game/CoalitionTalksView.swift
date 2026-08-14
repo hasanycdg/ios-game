@@ -1,10 +1,12 @@
 import RegiereDeutschlandCore
 import SwiftUI
 
-/// Vollbild-Koalitionsverhandlungen nach einer gewonnenen Wahl.
+/// Vollbild-Koalitionsverhandlungen – nach einer Wahl oder beim Amtsantritt.
 struct CoalitionTalksView: View {
     let year: Int
     let options: [CoalitionOption]
+    var isInitial: Bool = false
+    var playerPartyName: String = ""
     let onSelect: (String) -> Void
 
     var body: some View {
@@ -14,7 +16,9 @@ struct CoalitionTalksView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     header
-                    Text("Du hast die Wahl gewonnen. Mit wem willst du regieren?")
+                    Text(isInitial
+                         ? "Deine Partei hat die Wahl gewonnen. Bilde jetzt deine Regierung – mit wem willst du regieren?"
+                         : "Du hast die Wahl gewonnen. Mit wem willst du regieren?")
                         .font(.callout)
                         .foregroundStyle(GameTheme.secondaryText)
                         .multilineTextAlignment(.center)
@@ -35,10 +39,12 @@ struct CoalitionTalksView: View {
     private var header: some View {
         VStack(spacing: 8) {
             FlagRibbon(height: 5).frame(width: 90)
-            Text("KOALITIONSVERHANDLUNGEN")
+            Text(isInitial ? "REGIERUNGSBILDUNG" : "KOALITIONSVERHANDLUNGEN")
                 .font(.caption.weight(.heavy)).tracking(2.5)
                 .foregroundStyle(GameTheme.gold)
-            Text("Bundestagswahl \(String(year))")
+            Text(isInitial
+                 ? "\(playerPartyName) · Amtsantritt \(String(year))"
+                 : "Bundestagswahl \(String(year))")
                 .font(.system(size: 24, weight: .bold, design: .rounded))
                 .foregroundStyle(GameTheme.primaryText)
         }

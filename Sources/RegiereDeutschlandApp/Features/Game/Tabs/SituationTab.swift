@@ -10,6 +10,9 @@ struct SituationTab: View {
             VStack(alignment: .leading, spacing: 18) {
                 situationHeader
                 quickStatStrip
+                // Der Entscheidungs-Loop steht bewusst weit oben – er ist die
+                // Hauptaktion des Tabs, nicht das Ende einer langen Karten-Liste.
+                phaseContent
                 CoalitionCard(coalition: viewModel.coalition)
                 PartyWingsCard(wings: viewModel.partyWings)
                 if viewModel.corruption > 0 {
@@ -19,7 +22,6 @@ struct SituationTab: View {
                     projection: viewModel.electionProjection,
                     currentYear: viewModel.state.currentYear
                 )
-                phaseContent
             }
             .padding(16)
             .padding(.bottom, 24)
@@ -31,12 +33,24 @@ struct SituationTab: View {
     private var situationHeader: some View {
         VStack(alignment: .leading, spacing: 14) {
             HStack(spacing: 10) {
-                FlagRibbon(height: 4).frame(width: 46)
-                Text("AMTSZEIT · \(viewModel.yearsInOffice + 1). JAHR")
-                    .font(.caption2.weight(.bold))
-                    .tracking(1.2)
-                    .foregroundStyle(GameTheme.secondaryText)
-                    .lineLimit(1)
+                Circle()
+                    .fill(PartyPresentation.color(for: viewModel.playerParty.id).opacity(0.18))
+                    .frame(width: 34, height: 34)
+                    .overlay(
+                        Text(viewModel.playerParty.shortName.prefix(3))
+                            .font(.system(size: 10, weight: .heavy))
+                            .foregroundStyle(PartyPresentation.color(for: viewModel.playerParty.id))
+                    )
+                VStack(alignment: .leading, spacing: 1) {
+                    Text(viewModel.playerName)
+                        .font(.subheadline.weight(.bold))
+                        .foregroundStyle(GameTheme.primaryText)
+                        .lineLimit(1)
+                    Text("\(viewModel.playerParty.name) · \(viewModel.yearsInOffice + 1). Amtsjahr")
+                        .font(.caption2.weight(.semibold))
+                        .foregroundStyle(GameTheme.secondaryText)
+                        .lineLimit(1)
+                }
                 Spacer(minLength: 8)
                 CapitalBadge(value: viewModel.politicalCapital, maximum: viewModel.maxCapital)
             }

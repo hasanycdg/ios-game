@@ -8,8 +8,6 @@ struct EventCard: View {
     let canAfford: (DecisionOption) -> Bool
     let onChoose: (DecisionOption) -> Void
 
-    @State private var showContext = false
-
     private var category: CategoryStyle {
         CategoryPresentation.style(for: event.category)
     }
@@ -38,39 +36,6 @@ struct EventCard: View {
                 .font(.callout)
                 .foregroundStyle(GameTheme.secondaryText)
                 .fixedSize(horizontal: false, vertical: true)
-
-            // Historischer Hintergrund (einklappbar)
-            if !event.historicalContext.summary.isEmpty {
-                Button {
-                    withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
-                        showContext.toggle()
-                    }
-                } label: {
-                    HStack(spacing: 6) {
-                        Image(systemName: "book.closed.fill").font(.caption2)
-                        Text("Historischer Hintergrund")
-                            .font(.caption.weight(.semibold))
-                        Image(systemName: showContext ? "chevron.up" : "chevron.down")
-                            .font(.caption2.weight(.bold))
-                    }
-                    .foregroundStyle(GameTheme.gold)
-                }
-                .buttonStyle(.plain)
-
-                if showContext {
-                    Text(event.historicalContext.summary)
-                        .font(.footnote)
-                        .foregroundStyle(GameTheme.secondaryText)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding(12)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(
-                            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                .fill(GameTheme.surfaceSunken)
-                        )
-                        .transition(.opacity.combined(with: .move(edge: .top)))
-                }
-            }
 
             Divider().overlay(GameTheme.hairline)
 

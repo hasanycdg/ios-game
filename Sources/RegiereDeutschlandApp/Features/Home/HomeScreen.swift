@@ -5,14 +5,22 @@ struct HomeScreen: View {
     @State private var hasSaveGame = false
     @State private var runResults: [RunResult] = []
     @State private var unlockedAchievements: Set<String> = []
-    @State private var selectedPersonaID = PersonaCatalog.default.id
+    @State private var selectedPartyID = PartyCatalog.default.id
+    @State private var playerName = ""
     @State private var showAchievements = false
     @State private var showOnboarding = false
     @AppStorage("hasSeenRegiereOnboarding") private var hasSeenOnboarding = false
+    @AppStorage("regiereChancellorName") private var storedName = ""
+    @FocusState private var nameFocused: Bool
     private let persistence = GamePersistence()
 
-    private var selectedPersona: KanzlerPersona {
-        PersonaCatalog.persona(id: selectedPersonaID)
+    private var selectedParty: PlayerParty {
+        PartyCatalog.party(id: selectedPartyID)
+    }
+
+    private var effectiveName: String {
+        let trimmed = playerName.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? PartyCatalog.defaultChancellorName : trimmed
     }
 
     var body: some View {
@@ -23,7 +31,8 @@ struct HomeScreen: View {
                 VStack(spacing: 24) {
                     Spacer(minLength: 28)
                     hero
-                    personaPicker
+                    nameField
+                    partyPicker
                     actions
                     footer
                     howItWorksButton
@@ -54,6 +63,9 @@ struct HomeScreen: View {
         hasSaveGame = persistence.hasSaveGame
         runResults = persistence.loadRunResults()
         unlockedAchievements = persistence.loadUnlockedAchievements()
+        if playerName.isEmpty, !storedName.isEmpty {
+            playerName = storedName
+        }
         if !hasSeenOnboarding {
             showOnboarding = true
         }
@@ -85,17 +97,55 @@ struct HomeScreen: View {
         }
     }
 
-    // MARK: Kanzler-Auswahl
+    // MARK: Name & Partei
 
-    private var personaPicker: some View {
+    private var nameField: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionHeader(title: "Wähle deinen Kanzler", systemImage: "person.crop.circle.badge.checkmark")
+            SectionHeader(title: "Dein Name", systemImage: "signature")
+            HStack(spacing: 10) {
+                Image(systemName: "person.fill")
+                    .font(.subheadline)
+                    .foregroundStyle(GameTheme.gold)
+                TextField("", text: $playerName, prompt: Text("z. B. \(PartyCatalog.defaultChancellorName)")
+                    .foregroundColor(GameTheme.tertiaryText))
+                    .textInputAutocapitalization(.words)
+                    .autocorrectionDisabled()
+                    .submitLabel(.done)
+                    .focused($nameFocused)
+                    .foregroundStyle(GameTheme.primaryText)
+                    .tint(GameTheme.gold)
+                    .onSubmit { nameFocused = false }
+                if !playerName.isEmpty {
+                    Button {
+                        playerName = ""
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundStyle(GameTheme.tertiaryText)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 13)
+            .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(GameTheme.surface))
+            .overlay(
+                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    .stroke(nameFocused ? GameTheme.gold : GameTheme.hairline, lineWidth: 1)
+            )
+            .onChange(of: playerName) { _, _ in storedName = effectiveName }
+        }
+    }
+
+    private var partyPicker: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            SectionHeader(title: "Wähle deine Partei", systemImage: "flag.2.crossed.fill")
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    ForEach(PersonaCatalog.all) { persona in
-                        PersonaCard(persona: persona, isSelected: persona.id == selectedPersonaID) {
+                    ForEach(PartyCatalog.playable) { party in
+                        PartyCard(party: party, isSelected: party.id == selectedPartyID) {
+                            Haptics.impact(.light)
                             withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
-                                selectedPersonaID = persona.id
+                                selectedPartyID = party.id
                             }
                         }
                     }
@@ -116,12 +166,12 @@ struct HomeScreen: View {
                 .buttonStyle(PrimaryActionButtonStyle())
 
                 NavigationLink {
-                    GameContainerView(mode: .newGame, persona: selectedPersona)
+                    GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName)
                 } label: { Label("Neues Spiel", systemImage: "flag.fill") }
                 .buttonStyle(SecondaryActionButtonStyle())
             } else {
                 NavigationLink {
-                    GameContainerView(mode: .newGame, persona: selectedPersona)
+                    GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName)
                 } label: { Label("Neues Spiel", systemImage: "flag.fill") }
                 .buttonStyle(PrimaryActionButtonStyle())
             }
@@ -177,41 +227,58 @@ struct HomeScreen: View {
     }
 }
 
-private struct PersonaCard: View {
-    let persona: KanzlerPersona
+private struct PartyCard: View {
+    let party: PlayerParty
     let isSelected: Bool
     let action: () -> Void
 
+    private var accent: Color { PartyPresentation.color(for: party.id) }
+
     var body: some View {
         Button(action: action) {
-            VStack(alignment: .leading, spacing: 10) {
-                HStack {
-                    Image(systemName: persona.icon)
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(spacing: 8) {
+                    Image(systemName: party.profile.icon)
                         .font(.headline)
-                        .foregroundStyle(GameTheme.gold)
-                        .frame(width: 34, height: 34)
-                        .background(Circle().fill(GameTheme.gold.opacity(0.15)))
+                        .foregroundStyle(accent)
+                        .frame(width: 36, height: 36)
+                        .background(Circle().fill(accent.opacity(0.18)))
+                    VStack(alignment: .leading, spacing: 1) {
+                        Text(party.name)
+                            .font(.subheadline.weight(.heavy))
+                            .foregroundStyle(GameTheme.primaryText)
+                        Text(party.fullName)
+                            .font(.system(size: 9.5))
+                            .foregroundStyle(GameTheme.tertiaryText)
+                            .lineLimit(1)
+                    }
                     Spacer(minLength: 0)
                     if isSelected {
                         Image(systemName: "checkmark.circle.fill")
-                            .foregroundStyle(GameTheme.gold)
+                            .foregroundStyle(accent)
                     }
                 }
-                Text(persona.title)
-                    .font(.subheadline.weight(.bold))
-                    .foregroundStyle(GameTheme.primaryText)
-                Text(persona.tagline)
+                Text(party.tagline)
                     .font(.caption2)
                     .foregroundStyle(GameTheme.secondaryText)
                     .fixedSize(horizontal: false, vertical: true)
                 Spacer(minLength: 0)
+                HStack(spacing: 5) {
+                    Image(systemName: "person.2.fill").font(.system(size: 8))
+                    Text("Partner: " + party.naturalPartnerIDs.prefix(2).compactMap {
+                        PartyCatalog.reference(id: $0)?.name
+                    }.joined(separator: ", "))
+                        .font(.system(size: 9, weight: .semibold))
+                        .lineLimit(1)
+                }
+                .foregroundStyle(GameTheme.tertiaryText)
             }
             .padding(13)
-            .frame(width: 190, height: 150, alignment: .topLeading)
+            .frame(width: 210, height: 158, alignment: .topLeading)
             .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(GameTheme.surface))
             .overlay(
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .stroke(isSelected ? GameTheme.gold : GameTheme.hairline, lineWidth: isSelected ? 2 : 1)
+                    .stroke(isSelected ? accent : GameTheme.hairline, lineWidth: isSelected ? 2 : 1)
             )
         }
         .buttonStyle(.plain)

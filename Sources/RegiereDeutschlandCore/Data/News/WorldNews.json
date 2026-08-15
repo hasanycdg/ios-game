@@ -248,7 +248,7 @@
     "scope": "germany",
     "category": "election",
     "headline": "Schwarz-Gelb gewinnt die Wahl",
-    "summary": "Union und FDP bilden die neue Bundesregierung.",
+    "summary": "Christdemokraten und Liberale bilden die neue Bundesregierung.",
     "source": "Innenpolitik"
   },
   {
@@ -329,7 +329,7 @@
     "scope": "germany",
     "category": "election",
     "headline": "Merkel gewinnt, Große Koalition entsteht",
-    "summary": "Union und SPD einigen sich auf eine gemeinsame Regierung.",
+    "summary": "Christdemokraten und Sozialdemokraten einigen sich auf eine gemeinsame Regierung.",
     "source": "Innenpolitik"
   },
   {
@@ -427,8 +427,8 @@
     "year": 2017,
     "scope": "germany",
     "category": "election",
-    "headline": "Die AfD zieht in den Bundestag ein",
-    "summary": "Erstmals sitzt eine Partei rechts der Union stark im Parlament.",
+    "headline": "Die AfP zieht in den Bundestag ein",
+    "summary": "Erstmals sitzt eine Partei rechts der Christdemokraten stark im Parlament.",
     "source": "Innenpolitik"
   },
   {
@@ -527,7 +527,7 @@
     "scope": "germany",
     "category": "election",
     "headline": "Die Ampel löst die Ära Merkel ab",
-    "summary": "SPD, Grüne und FDP bilden eine neue Regierung unter Scholz.",
+    "summary": "SDP, Grün-Alternative und FDV bilden eine neue Regierung unter Scholz.",
     "source": "Innenpolitik"
   },
   {
@@ -607,7 +607,7 @@
     "year": 2024,
     "scope": "germany",
     "category": "election",
-    "headline": "AfD stark bei Landtagswahlen im Osten",
+    "headline": "AfP stark bei Landtagswahlen im Osten",
     "summary": "Die Partei erzielt historische Ergebnisse in mehreren Ländern.",
     "source": "Deutschland"
   },

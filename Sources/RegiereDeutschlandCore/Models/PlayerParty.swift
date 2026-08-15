@@ -99,16 +99,16 @@ public enum PartyCatalog {
     public static let playable: [PlayerParty] = [
         PlayerParty(
             id: "spd",
-            name: "SPD",
+            name: "SDP",
             fullName: "Sozialdemokratische Partei",
-            shortName: "SPD",
+            shortName: "SDP",
             tagline: "Soziale Gerechtigkeit und ein starker Sozialstaat.",
             spectrum: 0.36,
             leaning: .left,
             baseSupport: 40,
             profile: KanzlerPersona(
                 id: "spd",
-                title: "SPD",
+                title: "SDP",
                 tagline: "Soziale Gerechtigkeit und ein starker Sozialstaat.",
                 icon: "figure.2.arms.open",
                 visibleModifiers: [
@@ -123,23 +123,23 @@ public enum PartyCatalog {
                 startingCapital: 7,
                 coalitionLeaning: .left,
                 coalitionSatisfaction: 62,
-                coalitionPartnerName: "Grüne"
+                coalitionPartnerName: "Grün-Alternative"
             ),
             naturalPartnerIDs: ["gruene", "fdp", "linke"],
             agenda: PartyAgendaCatalog.agenda(for: "spd")
         ),
         PlayerParty(
             id: "cdu",
-            name: "CDU/CSU",
-            fullName: "Christlich Demokratische Union",
-            shortName: "CDU",
+            name: "CDV/CSV",
+            fullName: "Christlich-Demokratische Volkspartei",
+            shortName: "CDV",
             tagline: "Wirtschaftskraft, innere Sicherheit, solide Kasse.",
             spectrum: 0.66,
             leaning: .conservative,
             baseSupport: 37,
             profile: KanzlerPersona(
                 id: "cdu",
-                title: "CDU/CSU",
+                title: "CDV/CSV",
                 tagline: "Wirtschaftskraft, innere Sicherheit, solide Kasse.",
                 icon: "building.columns.fill",
                 visibleModifiers: [
@@ -155,23 +155,23 @@ public enum PartyCatalog {
                 startingCapital: 7,
                 coalitionLeaning: .liberal,
                 coalitionSatisfaction: 64,
-                coalitionPartnerName: "FDP"
+                coalitionPartnerName: "FDV"
             ),
             naturalPartnerIDs: ["fdp", "gruene", "spd"],
             agenda: PartyAgendaCatalog.agenda(for: "cdu")
         ),
         PlayerParty(
             id: "gruene",
-            name: "Grüne",
-            fullName: "Bündnis 90/Die Grünen",
-            shortName: "GRÜ",
+            name: "Grün-Alternative",
+            fullName: "Grüne Alternative",
+            shortName: "GAL",
             tagline: "Klima, Ökologie und gesellschaftlicher Fortschritt.",
             spectrum: 0.24,
             leaning: .left,
             baseSupport: 8,
             profile: KanzlerPersona(
                 id: "gruene",
-                title: "Grüne",
+                title: "Grün-Alternative",
                 tagline: "Klima, Ökologie und gesellschaftlicher Fortschritt.",
                 icon: "leaf.fill",
                 visibleModifiers: [
@@ -189,23 +189,23 @@ public enum PartyCatalog {
                 capitalIncomeBonus: 1,
                 coalitionLeaning: .left,
                 coalitionSatisfaction: 60,
-                coalitionPartnerName: "SPD"
+                coalitionPartnerName: "SDP"
             ),
             naturalPartnerIDs: ["spd", "cdu", "fdp"],
             agenda: PartyAgendaCatalog.agenda(for: "gruene")
         ),
         PlayerParty(
             id: "fdp",
-            name: "FDP",
-            fullName: "Freie Demokratische Partei",
-            shortName: "FDP",
+            name: "FDV",
+            fullName: "Freie Demokratische Volkspartei",
+            shortName: "FDV",
             tagline: "Freie Wirtschaft, weniger Staat, solide Finanzen.",
             spectrum: 0.62,
             leaning: .liberal,
             baseSupport: 7,
             profile: KanzlerPersona(
                 id: "fdp",
-                title: "FDP",
+                title: "FDV",
                 tagline: "Freie Wirtschaft, weniger Staat, solide Finanzen.",
                 icon: "chart.line.uptrend.xyaxis",
                 visibleModifiers: [
@@ -223,7 +223,7 @@ public enum PartyCatalog {
                 costReduction: 1,
                 coalitionLeaning: .conservative,
                 coalitionSatisfaction: 64,
-                coalitionPartnerName: "CDU/CSU"
+                coalitionPartnerName: "CDV/CSV"
             ),
             naturalPartnerIDs: ["cdu", "spd", "gruene"],
             agenda: PartyAgendaCatalog.agenda(for: "fdp")
@@ -242,12 +242,12 @@ public enum PartyCatalog {
 
     /// Alle Parteien der Umfrage-Landschaft mit ihren realen Ausgangswerten.
     public static let landscape: [PartyReference] = [
-        PartyReference(id: "spd", name: "SPD", shortName: "SPD", spectrum: 0.36, leaning: .left, baseSupport: 40, isPlayable: true),
-        PartyReference(id: "cdu", name: "CDU/CSU", shortName: "CDU", spectrum: 0.66, leaning: .conservative, baseSupport: 37, isPlayable: true),
-        PartyReference(id: "gruene", name: "Grüne", shortName: "GRÜ", spectrum: 0.24, leaning: .left, baseSupport: 8, isPlayable: true),
-        PartyReference(id: "fdp", name: "FDP", shortName: "FDP", spectrum: 0.62, leaning: .liberal, baseSupport: 7, isPlayable: true),
-        PartyReference(id: "linke", name: "Die Linke", shortName: "LNK", spectrum: 0.12, leaning: .left, baseSupport: 5, isPlayable: false),
-        PartyReference(id: "afd", name: "AfD", shortName: "AfD", spectrum: 0.92, leaning: .conservative, baseSupport: 1, isPlayable: false)
+        PartyReference(id: "spd", name: "SDP", shortName: "SDP", spectrum: 0.36, leaning: .left, baseSupport: 40, isPlayable: true),
+        PartyReference(id: "cdu", name: "CDV/CSV", shortName: "CDV", spectrum: 0.66, leaning: .conservative, baseSupport: 37, isPlayable: true),
+        PartyReference(id: "gruene", name: "Grün-Alternative", shortName: "GAL", spectrum: 0.24, leaning: .left, baseSupport: 8, isPlayable: true),
+        PartyReference(id: "fdp", name: "FDV", shortName: "FDV", spectrum: 0.62, leaning: .liberal, baseSupport: 7, isPlayable: true),
+        PartyReference(id: "linke", name: "Linksbündnis", shortName: "LNK", spectrum: 0.12, leaning: .left, baseSupport: 5, isPlayable: false),
+        PartyReference(id: "afd", name: "AfP", shortName: "AfP", spectrum: 0.92, leaning: .conservative, baseSupport: 1, isPlayable: false)
     ]
 
     public static func reference(id: String) -> PartyReference? {

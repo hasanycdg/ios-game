@@ -86,8 +86,16 @@ struct GameContainerView: View {
                 .transition(.opacity)
                 .zIndex(1)
             }
+        case .coalitionNegotiation:
+            if let talks = viewModel.pendingCoalitionTalks {
+                CoalitionNegotiationView(negotiation: talks) { acceptedIDs in
+                    withAnimation(.easeInOut) { viewModel.concludeCoalitionTalks(accepted: acceptedIDs) }
+                }
+                .transition(.opacity)
+                .zIndex(1)
+            }
         case .election(let election):
-            ElectionResultPanel(election: election) {
+            ElectionResultPanel(election: election, parties: viewModel.partyLandscape.parties) {
                 withAnimation(.easeInOut) { viewModel.continueAfterElection() }
             }
             .transition(.opacity)

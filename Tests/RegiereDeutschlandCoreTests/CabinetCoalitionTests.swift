@@ -32,11 +32,17 @@ import Testing
     let engine = GameEngine(snapshot: snapshot, eventRepository: LocalJSONEventRepository())
     #expect(engine.pendingCoalitionOptions?.count == 2)
 
+    // Schritt 1: Partner wählen → Koalitionsgespräche starten.
     engine.formCoalition(optionID: "conservatives")
+    #expect(engine.pendingCoalitionOptions == nil)
+    #expect(engine.pendingCoalitionTalks?.partnerName == "Konservative")
+
+    // Schritt 2: Gespräche abschließen → Koalition steht.
+    engine.concludeCoalitionTalks(acceptedDemandIDs: [])
     #expect(engine.coalition.partnerName == "Konservative")
     #expect(engine.coalition.leaning == .conservative)
     #expect(engine.coalition.isMinority == false)
-    #expect(engine.pendingCoalitionOptions == nil)
+    #expect(engine.pendingCoalitionTalks == nil)
 }
 
 @Test func minorityGovernmentIsMarkedAndCannotBreak() {
@@ -50,4 +56,33 @@ import Testing
     engine.formCoalition(optionID: "none")
     #expect(engine.coalition.isMinority)
     #expect(engine.coalition.partnerName == "Minderheitsregierung")
+}
+
+@Test func acceptingCoalitionDemandsPleasesPartnerAndShiftsPolicy() {
+    let engine = GameEngine(eventRepository: LocalJSONEventRepository())
+    engine.startNewGame(party: PartyCatalog.party(id: "spd"), playerName: "Test")
+    let partner = engine.pendingCoalitionOptions!.first { !$0.isMinority }!
+    let renewablesBefore = engine.state.hidden.renewableCapacity
+
+    engine.formCoalition(optionID: partner.id)
+    let talks = engine.pendingCoalitionTalks
+    #expect(talks?.demands.isEmpty == false)
+
+    engine.concludeCoalitionTalks(acceptedDemandIDs: Set(talks!.demands.map(\.id)))
+    #expect(engine.pendingCoalitionTalks == nil)
+    #expect(engine.coalition.partnerName == partner.partyName)
+    #expect(engine.coalition.satisfaction >= 60)
+    // Die Grünen fordern u.a. den Ausbau Erneuerbarer – die Zusage wirkt.
+    #expect(engine.state.hidden.renewableCapacity >= renewablesBefore)
+    // Nach der Startkoalition ist das erste Ereignis geladen.
+    #expect(engine.currentEvent != nil)
+}
+
+@Test func rejectingCoalitionDemandsLeavesPartnerUnhappy() {
+    let engine = GameEngine(eventRepository: LocalJSONEventRepository())
+    engine.startNewGame(party: PartyCatalog.party(id: "spd"), playerName: "Test")
+    let partner = engine.pendingCoalitionOptions!.first { !$0.isMinority }!
+    engine.formCoalition(optionID: partner.id)
+    engine.concludeCoalitionTalks(acceptedDemandIDs: [])
+    #expect(engine.coalition.satisfaction < 52)
 }

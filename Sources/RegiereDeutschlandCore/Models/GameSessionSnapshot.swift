@@ -17,6 +17,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
     public let pendingEncounter: PoliticalEncounter?
     public let cabinet: Cabinet?
     public let pendingCoalitionOptions: [CoalitionOption]?
+    public let pendingCoalitionTalks: CoalitionNegotiation?
     public let policies: PolicyState?
     public let debt: Int?
     public let interestGroups: [InterestGroup]?
@@ -41,6 +42,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         pendingEncounter: PoliticalEncounter? = nil,
         cabinet: Cabinet? = nil,
         pendingCoalitionOptions: [CoalitionOption]? = nil,
+        pendingCoalitionTalks: CoalitionNegotiation? = nil,
         policies: PolicyState? = nil,
         debt: Int? = nil,
         interestGroups: [InterestGroup]? = nil,
@@ -64,6 +66,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         self.pendingEncounter = pendingEncounter
         self.cabinet = cabinet
         self.pendingCoalitionOptions = pendingCoalitionOptions
+        self.pendingCoalitionTalks = pendingCoalitionTalks
         self.policies = policies
         self.debt = debt
         self.interestGroups = interestGroups
@@ -89,6 +92,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         case pendingEncounter
         case cabinet
         case pendingCoalitionOptions
+        case pendingCoalitionTalks
         case policies
         case debt
         case interestGroups
@@ -115,6 +119,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         pendingEncounter = try container.decodeIfPresent(PoliticalEncounter.self, forKey: .pendingEncounter)
         cabinet = try container.decodeIfPresent(Cabinet.self, forKey: .cabinet)
         pendingCoalitionOptions = try container.decodeIfPresent([CoalitionOption].self, forKey: .pendingCoalitionOptions)
+        pendingCoalitionTalks = try container.decodeIfPresent(CoalitionNegotiation.self, forKey: .pendingCoalitionTalks)
         policies = try container.decodeIfPresent(PolicyState.self, forKey: .policies)
         debt = try container.decodeIfPresent(Int.self, forKey: .debt)
         interestGroups = try container.decodeIfPresent([InterestGroup].self, forKey: .interestGroups)

@@ -105,6 +105,7 @@ public final class GameEngine {
     public private(set) var pendingEncounter: PoliticalEncounter?
     public private(set) var cabinet: Cabinet = .standard()
     public private(set) var pendingCoalitionOptions: [CoalitionOption]?
+    public private(set) var pendingCoalitionTalks: CoalitionNegotiation?
     public private(set) var policies: PolicyState = .standard()
     public private(set) var debt: Int = 60
     public private(set) var interestGroups: [InterestGroup] = InterestGroupsFactory.standard()
@@ -167,6 +168,7 @@ public final class GameEngine {
         self.pendingEncounter = snapshot.pendingEncounter
         self.cabinet = snapshot.cabinet ?? .standard()
         self.pendingCoalitionOptions = snapshot.pendingCoalitionOptions
+        self.pendingCoalitionTalks = snapshot.pendingCoalitionTalks
         self.policies = snapshot.policies ?? .standard()
         self.debt = snapshot.debt ?? 60
         self.interestGroups = snapshot.interestGroups ?? InterestGroupsFactory.standard()
@@ -192,6 +194,7 @@ public final class GameEngine {
             pendingEncounter: pendingEncounter,
             cabinet: cabinet,
             pendingCoalitionOptions: pendingCoalitionOptions,
+            pendingCoalitionTalks: pendingCoalitionTalks,
             policies: policies,
             debt: debt,
             interestGroups: interestGroups,
@@ -243,6 +246,7 @@ public final class GameEngine {
         pendingEncounter = nil
         cabinet = .standard()
         pendingCoalitionOptions = nil
+        pendingCoalitionTalks = nil
         policies = .standard()
         debt = 60
         interestGroups = InterestGroupsFactory.standard()
@@ -466,8 +470,9 @@ public final class GameEngine {
         currentEvent = nil
     }
 
-    /// Wählt eine Koalition und schaltet dann fort. Beim Szenario-Start bleibt
-    /// die Regierung im Startjahr; nach einer Wahl geht es ins Folgejahr.
+    /// Schritt 1 der Koalitionsbildung: Der Kanzler wählt einen Partner (oder die
+    /// Minderheitsregierung). Bei einem Partner starten die Koalitionsgespräche;
+    /// eine Minderheitsregierung wird sofort gebildet.
     public func formCoalition(optionID: String) {
         guard let options = pendingCoalitionOptions,
               let choice = options.first(where: { $0.id == optionID }) else { return }
@@ -476,12 +481,54 @@ public final class GameEngine {
         if choice.isMinority {
             coalition = CoalitionState(partnerName: "Minderheitsregierung", leaning: coalition.leaning,
                                        satisfaction: 45, reactionDamping: 0, isMinority: true)
-        } else {
-            coalition = CoalitionState(partnerName: choice.partyName, leaning: choice.leaning,
-                                       satisfaction: 60, reactionDamping: 1.0, isMinority: false)
+            finalizeCoalition()
+            return
         }
 
-        // Szenario-Start: Regierung gebildet, erstes Ereignis im Startjahr laden.
+        // Partner gewählt → Koalitionsgespräche mit seinen Forderungen eröffnen.
+        pendingCoalitionTalks = CoalitionNegotiation(
+            partnerID: choice.id,
+            partnerName: choice.partyName,
+            leaning: choice.leaning,
+            combinedShare: choice.combinedShare,
+            formsMajority: choice.formsMajority,
+            isInitial: awaitingInitialCoalition,
+            demands: PartyAgendaCatalog.topDemands(for: choice.id, count: 2)
+        )
+    }
+
+    /// Schritt 2: Der Kanzler sagt Forderungen zu oder lehnt sie ab. Zusagen
+    /// stimmen den Partner milde und verschieben die Politik, kosten aber oft.
+    public func concludeCoalitionTalks(acceptedDemandIDs: Set<String>) {
+        guard let talks = pendingCoalitionTalks else { return }
+        pendingCoalitionTalks = nil
+
+        var satisfaction = 52
+        for demand in talks.demands {
+            if acceptedDemandIDs.contains(demand.id) {
+                for effect in demand.visibleEffects { state.apply(effect) }
+                for effect in demand.hiddenEffects { state.apply(effect) }
+                satisfaction += demand.satisfactionReward
+            } else {
+                // Eine abgelehnte Forderung verstimmt den Partner spürbar.
+                satisfaction -= 9
+            }
+        }
+        state.clampAll()
+
+        coalition = CoalitionState(
+            partnerName: talks.partnerName,
+            leaning: talks.leaning,
+            satisfaction: VisibleMetrics.clamped(satisfaction),
+            reactionDamping: 1.0,
+            isMinority: false
+        )
+        finalizeCoalition()
+    }
+
+    /// Schließt die Regierungsbildung ab und schaltet fort. Beim Szenario-Start
+    /// bleibt die Regierung im Startjahr; nach einer Wahl geht es ins Folgejahr.
+    private func finalizeCoalition() {
         if awaitingInitialCoalition {
             awaitingInitialCoalition = false
             currentEvent = nextQueuedEvent()
@@ -772,8 +819,21 @@ public final class GameEngine {
         if offset % 3 == 2 {
             pendingEncounter = LobbyFactory.make(state: state, year: year)
         } else if offset % 2 == 1 {
-            pendingEncounter = InterviewFactory.make(state: state, year: year)
+            pendingEncounter = InterviewFactory.make(
+                state: state,
+                year: year,
+                coalition: coalition,
+                playerPartyName: playerParty.name,
+                opponentName: strongestOpponentName()
+            )
         }
+    }
+
+    /// Name der stärksten Oppositionspartei – für Interview-Flavor.
+    private func strongestOpponentName() -> String {
+        let projection = electionEngine.project(in: state)
+        let landscape = PartyLandscapeFactory.make(state: state, governingShare: projection.governingShare, coalition: coalition, playerParty: playerParty)
+        return landscape.strongestOpposition?.name ?? "die Opposition"
     }
 
     /// Wendet die gewählte Antwort einer Begegnung an.

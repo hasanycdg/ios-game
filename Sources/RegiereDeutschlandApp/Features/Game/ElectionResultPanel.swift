@@ -4,6 +4,7 @@ import SwiftUI
 /// Vollbild-"Wahlabend" – dramatischer Moment über allen Tabs.
 struct ElectionResultPanel: View {
     let election: ElectionResult
+    var parties: [Party] = []
     let onContinue: () -> Void
 
     @State private var revealed = false
@@ -39,6 +40,10 @@ struct ElectionResultPanel: View {
                     .gameCard(padding: 18)
 
                     SeatDistributionBar(election: election)
+
+                    if !parties.isEmpty {
+                        partyBreakdown
+                    }
 
                     verdict
 
@@ -76,6 +81,47 @@ struct ElectionResultPanel: View {
             withAnimation(.easeInOut(duration: 0.7)) { revealed = true }
             if election.didWin { Haptics.success() } else { Haptics.warning() }
         }
+    }
+
+    private var partyBreakdown: some View {
+        let maxSupport = parties.map(\.support).max() ?? 1
+        return VStack(alignment: .leading, spacing: 12) {
+            SectionHeader(title: "Ergebnis nach Parteien", systemImage: "chart.bar.xaxis")
+            VStack(spacing: 10) {
+                ForEach(parties) { party in
+                    let color = PartyPresentation.color(for: party.id)
+                    HStack(spacing: 10) {
+                        Circle().fill(color).frame(width: 9, height: 9)
+                        Text(party.name)
+                            .font(.footnote.weight(.semibold))
+                            .foregroundStyle(GameTheme.primaryText)
+                        if party.role != .opposition {
+                            Text(party.role == .governing ? "Regierung" : "Koalition")
+                                .font(.system(size: 8.5, weight: .heavy))
+                                .foregroundStyle(GameTheme.gold)
+                                .padding(.horizontal, 5).padding(.vertical, 1.5)
+                                .background(Capsule().fill(GameTheme.gold.opacity(0.15)))
+                        }
+                        Spacer(minLength: 6)
+                        GeometryReader { geo in
+                            ZStack(alignment: .leading) {
+                                Capsule().fill(GameTheme.surfaceSunken)
+                                Capsule().fill(color)
+                                    .frame(width: revealed ? max(4, geo.size.width * CGFloat(party.support / max(1, maxSupport))) : 0)
+                            }
+                        }
+                        .frame(width: 90, height: 7)
+                        .animation(.easeOut(duration: 0.9), value: revealed)
+                        Text(String(format: "%.1f", party.support))
+                            .font(.caption.weight(.bold)).monospacedDigit()
+                            .foregroundStyle(GameTheme.primaryText)
+                            .frame(width: 38, alignment: .trailing)
+                    }
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .gameCard(padding: 18)
     }
 
     private var verdict: some View {

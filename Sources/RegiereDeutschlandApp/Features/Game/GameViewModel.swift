@@ -15,6 +15,7 @@ final class GameViewModel: ObservableObject {
         case campaign
         case election(ElectionResult)
         case coalitionTalks
+        case coalitionNegotiation
         case gameOver(GameOverSummary)
         case noEvent
     }
@@ -33,6 +34,7 @@ final class GameViewModel: ObservableObject {
     @Published private(set) var pendingEncounter: PoliticalEncounter?
     @Published private(set) var cabinet: Cabinet = .standard()
     @Published private(set) var pendingCoalitionOptions: [CoalitionOption]?
+    @Published private(set) var pendingCoalitionTalks: CoalitionNegotiation?
     @Published private(set) var isFormingInitialGovernment = false
     @Published private(set) var policies: PolicyState = .standard()
     @Published private(set) var debt: Int = 60
@@ -88,6 +90,7 @@ final class GameViewModel: ObservableObject {
         self.pendingEncounter = engine.pendingEncounter
         self.cabinet = engine.cabinet
         self.pendingCoalitionOptions = engine.pendingCoalitionOptions
+        self.pendingCoalitionTalks = engine.pendingCoalitionTalks
         self.isFormingInitialGovernment = engine.awaitingInitialCoalition
         self.policies = engine.policies
         self.debt = engine.debt
@@ -208,6 +211,7 @@ final class GameViewModel: ObservableObject {
         pendingEncounter = engine.pendingEncounter
         cabinet = engine.cabinet
         pendingCoalitionOptions = engine.pendingCoalitionOptions
+        pendingCoalitionTalks = engine.pendingCoalitionTalks
         isFormingInitialGovernment = engine.awaitingInitialCoalition
         policies = engine.policies
         debt = engine.debt
@@ -242,6 +246,13 @@ final class GameViewModel: ObservableObject {
 
     func formCoalition(_ optionID: String) {
         engine.formCoalition(optionID: optionID)
+        syncFromEngine()
+        phase = Self.phase(for: engine)
+        autosave()
+    }
+
+    func concludeCoalitionTalks(accepted: Set<String>) {
+        engine.concludeCoalitionTalks(acceptedDemandIDs: accepted)
         syncFromEngine()
         phase = Self.phase(for: engine)
         autosave()
@@ -291,6 +302,10 @@ final class GameViewModel: ObservableObject {
 
         if let options = engine.pendingCoalitionOptions, !options.isEmpty {
             return .coalitionTalks
+        }
+
+        if engine.pendingCoalitionTalks != nil {
+            return .coalitionNegotiation
         }
 
         if engine.pendingCampaign {

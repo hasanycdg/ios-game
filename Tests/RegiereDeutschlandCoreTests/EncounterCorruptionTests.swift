@@ -36,8 +36,28 @@ import Testing
 @Test func interviewReflectsTheWeakestMetric() {
     var state = GameStateFactory.initialGermany2000()
     state.visible.economy = 20
-    let interview = InterviewFactory.make(state: state, year: 2001)
+    // Jahr 2002: kein Führungs-Interview (nur alle 3 Jahre), daher spiegelt es
+    // den schwächsten Wert – hier die Wirtschaft.
+    let interview = InterviewFactory.make(state: state, year: 2002)
     #expect(interview.kind == .interview)
     #expect(interview.prompt.contains("Wirtschaft"))
     #expect(interview.options.count == 3)
+}
+
+@Test func interviewsVaryWithTheSituation() {
+    // Angespannte Koalition und Höhenflug erzeugen andere Interviews als die
+    // reine Schwachstellen-Frage.
+    var tenseCoalition = GameStateFactory.initialGermany2000()
+    tenseCoalition.visible.economy = 20
+    let rift = InterviewFactory.make(
+        state: tenseCoalition, year: 2004,
+        coalition: CoalitionState(partnerName: "Grüne", leaning: .left, satisfaction: 20)
+    )
+    #expect(rift.title == "Krisengespräch")
+
+    var strong = GameStateFactory.initialGermany2000()
+    strong.governmentApproval = 80
+    let highApproval = InterviewFactory.make(state: strong, year: 2004)
+    #expect(highApproval.title == "Das große Interview")
+    #expect(rift.prompt != highApproval.prompt)
 }

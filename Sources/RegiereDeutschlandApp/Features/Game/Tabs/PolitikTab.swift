@@ -15,6 +15,7 @@ struct PolitikTab: View {
                 BundesratCard(hasMajority: viewModel.hasBundesratMajority)
                 pollSection
                 spectrumSection
+                partyAgendasSection
                 InterestGroupsSection(groups: viewModel.interestGroups)
                 electorateSection
             }
@@ -184,6 +185,21 @@ struct PolitikTab: View {
         min(34, 12 + CGFloat(support) * 0.55)
     }
 
+    // MARK: Was die Parteien wollen
+
+    private var partyAgendasSection: some View {
+        // Parteien mit Agenda, in der Reihenfolge ihrer Umfragestärke.
+        let withAgenda = landscape.parties.filter { !PartyAgendaCatalog.agenda(for: $0.id).isEmpty }
+        return VStack(alignment: .leading, spacing: 12) {
+            SectionHeader(title: "Was die Parteien wollen", systemImage: "list.bullet.rectangle")
+            VStack(spacing: 10) {
+                ForEach(withAgenda) { party in
+                    PartyAgendaCard(party: party)
+                }
+            }
+        }
+    }
+
     // MARK: Wählerschaft
 
     private var electorateSection: some View {
@@ -218,6 +234,63 @@ struct PolitikTab: View {
                 }
             }
         }
+    }
+}
+
+/// Aufklappbare Karte mit der Agenda (Vorhaben) einer Partei.
+private struct PartyAgendaCard: View {
+    let party: Party
+    @State private var expanded = false
+
+    private var color: Color { PartyPresentation.color(for: party.id) }
+    private var agenda: [AgendaItem] { PartyAgendaCatalog.agenda(for: party.id) }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Button {
+                withAnimation(.spring(response: 0.3, dampingFraction: 0.85)) { expanded.toggle() }
+            } label: {
+                HStack(spacing: 10) {
+                    Circle().fill(color).frame(width: 10, height: 10)
+                    Text(party.name)
+                        .font(.subheadline.weight(.bold))
+                        .foregroundStyle(GameTheme.primaryText)
+                    Spacer(minLength: 0)
+                    Text("\(agenda.count) Vorhaben")
+                        .font(.caption2.weight(.semibold))
+                        .foregroundStyle(GameTheme.tertiaryText)
+                    Image(systemName: expanded ? "chevron.up" : "chevron.down")
+                        .font(.caption2.weight(.bold))
+                        .foregroundStyle(GameTheme.tertiaryText)
+                }
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+
+            if expanded {
+                VStack(alignment: .leading, spacing: 8) {
+                    ForEach(agenda) { item in
+                        HStack(alignment: .top, spacing: 8) {
+                            Image(systemName: "checkmark.circle.fill")
+                                .font(.caption2)
+                                .foregroundStyle(color)
+                                .padding(.top, 1)
+                            VStack(alignment: .leading, spacing: 1) {
+                                Text(item.title)
+                                    .font(.caption.weight(.bold))
+                                    .foregroundStyle(GameTheme.primaryText)
+                                Text(item.summary)
+                                    .font(.caption2)
+                                    .foregroundStyle(GameTheme.secondaryText)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+                        }
+                    }
+                }
+                .transition(.opacity.combined(with: .move(edge: .top)))
+            }
+        }
+        .gameCard(padding: 14)
     }
 }
 

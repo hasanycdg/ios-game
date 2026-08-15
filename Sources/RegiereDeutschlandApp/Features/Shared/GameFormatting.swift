@@ -150,6 +150,7 @@ enum PartyPresentation {
         case "fdp":    GameTheme.amber                            // Gelb
         case "linke":  GameTheme.purple
         case "afd":    GameTheme.blue
+        case "custom": GameTheme.teal   // eigene Partei
         default:       GameTheme.secondaryText
         }
     }

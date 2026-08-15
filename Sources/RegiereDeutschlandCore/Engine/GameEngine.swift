@@ -160,7 +160,8 @@ public final class GameEngine {
         self.politicalCapital = snapshot.politicalCapital ?? 7
         self.coalition = snapshot.coalition ?? .standard()
         self.persona = PersonaCatalog.persona(id: snapshot.personaID ?? PersonaCatalog.default.id)
-        self.playerParty = PartyCatalog.party(id: snapshot.playerPartyID ?? PartyCatalog.default.id)
+        // Eigene Parteien werden vollständig gespeichert; eingebaute per ID aufgelöst.
+        self.playerParty = snapshot.playerPartyData ?? PartyCatalog.party(id: snapshot.playerPartyID ?? PartyCatalog.default.id)
         self.playerName = snapshot.playerName ?? PartyCatalog.defaultChancellorName
         self.awaitingInitialCoalition = snapshot.awaitingInitialCoalition ?? false
         self.pendingCampaign = snapshot.pendingCampaign ?? false
@@ -187,6 +188,7 @@ public final class GameEngine {
             coalition: coalition,
             personaID: persona.id,
             playerPartyID: playerParty.id,
+            playerPartyData: playerParty,
             playerName: playerName,
             awaitingInitialCoalition: awaitingInitialCoalition,
             pendingCampaign: pendingCampaign,

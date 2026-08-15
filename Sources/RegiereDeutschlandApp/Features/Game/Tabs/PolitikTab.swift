@@ -188,13 +188,19 @@ struct PolitikTab: View {
     // MARK: Was die Parteien wollen
 
     private var partyAgendasSection: some View {
-        // Parteien mit Agenda, in der Reihenfolge ihrer Umfragestärke.
-        let withAgenda = landscape.parties.filter { !PartyAgendaCatalog.agenda(for: $0.id).isEmpty }
+        // Agenda je Partei: für die Spielerpartei die (evtl. selbst gewählte),
+        // sonst aus dem Katalog. In Reihenfolge der Umfragestärke.
+        let playerParty = viewModel.playerParty
+        let pairs: [(party: Party, agenda: [AgendaItem])] = landscape.parties.compactMap { party in
+            let agenda = party.id == playerParty.id ? playerParty.agenda : PartyAgendaCatalog.agenda(for: party.id)
+            return agenda.isEmpty ? nil : (party, agenda)
+        }
         return VStack(alignment: .leading, spacing: 12) {
             SectionHeader(title: "Was die Parteien wollen", systemImage: "list.bullet.rectangle")
             VStack(spacing: 10) {
-                ForEach(withAgenda) { party in
-                    PartyAgendaCard(party: party)
+                ForEach(pairs, id: \.party.id) { pair in
+                    PartyAgendaCard(party: pair.party, agenda: pair.agenda,
+                                    isPlayer: pair.party.id == playerParty.id)
                 }
             }
         }
@@ -240,10 +246,11 @@ struct PolitikTab: View {
 /// Aufklappbare Karte mit der Agenda (Vorhaben) einer Partei.
 private struct PartyAgendaCard: View {
     let party: Party
+    let agenda: [AgendaItem]
+    var isPlayer: Bool = false
     @State private var expanded = false
 
     private var color: Color { PartyPresentation.color(for: party.id) }
-    private var agenda: [AgendaItem] { PartyAgendaCatalog.agenda(for: party.id) }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -255,6 +262,13 @@ private struct PartyAgendaCard: View {
                     Text(party.name)
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(GameTheme.primaryText)
+                    if isPlayer {
+                        Text("DEIN PROGRAMM")
+                            .font(.system(size: 8.5, weight: .heavy)).tracking(0.5)
+                            .foregroundStyle(GameTheme.gold)
+                            .padding(.horizontal, 6).padding(.vertical, 2)
+                            .background(Capsule().fill(GameTheme.gold.opacity(0.15)))
+                    }
                     Spacer(minLength: 0)
                     Text("\(agenda.count) Vorhaben")
                         .font(.caption2.weight(.semibold))

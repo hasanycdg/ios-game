@@ -33,6 +33,7 @@ struct HomeScreen: View {
                     hero
                     nameField
                     partyPicker
+                    foundPartyButton
                     actions
                     footer
                     howItWorksButton
@@ -134,6 +135,29 @@ struct HomeScreen: View {
             )
             .onChange(of: playerName) { _, _ in storedName = effectiveName }
         }
+    }
+
+    private var foundPartyButton: some View {
+        NavigationLink {
+            PartyFounderView(playerName: effectiveName)
+        } label: {
+            HStack(spacing: 8) {
+                Image(systemName: "plus.circle.fill")
+                Text("Oder: eigene Partei gründen")
+                Spacer(minLength: 0)
+                Image(systemName: "chevron.right").font(.caption.weight(.bold))
+            }
+            .font(.subheadline.weight(.semibold))
+            .foregroundStyle(GameTheme.teal)
+            .padding(.vertical, 13).padding(.horizontal, 16)
+            .frame(maxWidth: .infinity)
+            .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(GameTheme.surface))
+            .overlay(
+                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    .stroke(GameTheme.teal.opacity(0.4), lineWidth: 1)
+            )
+        }
+        .buttonStyle(.plain)
     }
 
     private var partyPicker: some View {

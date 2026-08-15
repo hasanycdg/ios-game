@@ -4,7 +4,7 @@ import Foundation
 /// Ersetzt die früheren „Kanzler-Typen": jede Partei bringt ihr eigenes
 /// Start-Profil (Werte-Modifikatoren, Kapital) und ihre natürlichen
 /// Koalitionspartner mit.
-public struct PlayerParty: Identifiable, Equatable, Sendable {
+public struct PlayerParty: Identifiable, Equatable, Codable, Sendable {
     public let id: String
     public let name: String            // z.B. "SPD"
     public let fullName: String        // z.B. "Sozialdemokratische Partei"
@@ -15,6 +15,10 @@ public struct PlayerParty: Identifiable, Equatable, Sendable {
     public let baseSupport: Double      // realer Ausgangswert um 2000 (%)
     public let profile: KanzlerPersona  // Start-Profil für die Engine-Mechanik
     public let naturalPartnerIDs: [String]
+    /// Die Vorhaben (Agenda) der Partei – bei eigenen Parteien vom Spieler gewählt.
+    public let agenda: [AgendaItem]
+    /// True, wenn der Spieler diese Partei selbst gegründet hat.
+    public let isCustom: Bool
 
     public init(
         id: String,
@@ -26,7 +30,9 @@ public struct PlayerParty: Identifiable, Equatable, Sendable {
         leaning: PoliticalLeaning,
         baseSupport: Double,
         profile: KanzlerPersona,
-        naturalPartnerIDs: [String]
+        naturalPartnerIDs: [String],
+        agenda: [AgendaItem] = [],
+        isCustom: Bool = false
     ) {
         self.id = id
         self.name = name
@@ -38,6 +44,29 @@ public struct PlayerParty: Identifiable, Equatable, Sendable {
         self.baseSupport = baseSupport
         self.profile = profile
         self.naturalPartnerIDs = naturalPartnerIDs
+        self.agenda = agenda
+        self.isCustom = isCustom
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case id, name, fullName, shortName, tagline, spectrum, leaning
+        case baseSupport, profile, naturalPartnerIDs, agenda, isCustom
+    }
+
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id = try c.decode(String.self, forKey: .id)
+        name = try c.decode(String.self, forKey: .name)
+        fullName = try c.decode(String.self, forKey: .fullName)
+        shortName = try c.decode(String.self, forKey: .shortName)
+        tagline = try c.decodeIfPresent(String.self, forKey: .tagline) ?? ""
+        spectrum = try c.decode(Double.self, forKey: .spectrum)
+        leaning = try c.decode(PoliticalLeaning.self, forKey: .leaning)
+        baseSupport = try c.decode(Double.self, forKey: .baseSupport)
+        profile = try c.decode(KanzlerPersona.self, forKey: .profile)
+        naturalPartnerIDs = try c.decodeIfPresent([String].self, forKey: .naturalPartnerIDs) ?? []
+        agenda = try c.decodeIfPresent([AgendaItem].self, forKey: .agenda) ?? []
+        isCustom = try c.decodeIfPresent(Bool.self, forKey: .isCustom) ?? false
     }
 }
 
@@ -96,7 +125,8 @@ public enum PartyCatalog {
                 coalitionSatisfaction: 62,
                 coalitionPartnerName: "Grüne"
             ),
-            naturalPartnerIDs: ["gruene", "fdp", "linke"]
+            naturalPartnerIDs: ["gruene", "fdp", "linke"],
+            agenda: PartyAgendaCatalog.agenda(for: "spd")
         ),
         PlayerParty(
             id: "cdu",
@@ -127,7 +157,8 @@ public enum PartyCatalog {
                 coalitionSatisfaction: 64,
                 coalitionPartnerName: "FDP"
             ),
-            naturalPartnerIDs: ["fdp", "gruene", "spd"]
+            naturalPartnerIDs: ["fdp", "gruene", "spd"],
+            agenda: PartyAgendaCatalog.agenda(for: "cdu")
         ),
         PlayerParty(
             id: "gruene",
@@ -160,7 +191,8 @@ public enum PartyCatalog {
                 coalitionSatisfaction: 60,
                 coalitionPartnerName: "SPD"
             ),
-            naturalPartnerIDs: ["spd", "cdu", "fdp"]
+            naturalPartnerIDs: ["spd", "cdu", "fdp"],
+            agenda: PartyAgendaCatalog.agenda(for: "gruene")
         ),
         PlayerParty(
             id: "fdp",
@@ -193,7 +225,8 @@ public enum PartyCatalog {
                 coalitionSatisfaction: 64,
                 coalitionPartnerName: "CDU/CSU"
             ),
-            naturalPartnerIDs: ["cdu", "spd", "gruene"]
+            naturalPartnerIDs: ["cdu", "spd", "gruene"],
+            agenda: PartyAgendaCatalog.agenda(for: "fdp")
         )
     ]
 

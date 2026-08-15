@@ -2,7 +2,7 @@ import Foundation
 
 /// Ein Kanzler-Archetyp: verändert Startwerte, politisches Kapital und den
 /// Koalitionspartner. Gibt jedem Run einen eigenen Charakter.
-public struct KanzlerPersona: Identifiable, Equatable, Sendable {
+public struct KanzlerPersona: Identifiable, Equatable, Codable, Sendable {
     public let id: String
     public let title: String
     public let tagline: String

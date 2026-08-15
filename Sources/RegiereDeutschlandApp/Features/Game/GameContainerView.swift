@@ -86,6 +86,20 @@ struct GameContainerView: View {
                 .transition(.opacity)
                 .zIndex(1)
             }
+        case .briefing:
+            SituationBriefingView(
+                year: viewModel.state.currentYear,
+                playerName: viewModel.playerName,
+                party: viewModel.playerParty,
+                state: viewModel.state,
+                governanceIndex: viewModel.governanceIndex,
+                nationMood: viewModel.nationMood,
+                nextElectionYear: viewModel.electionProjection.nextElectionYear
+            ) {
+                withAnimation(.easeInOut) { viewModel.dismissBriefing() }
+            }
+            .transition(.opacity)
+            .zIndex(1)
         case .coalitionNegotiation:
             if let talks = viewModel.pendingCoalitionTalks {
                 CoalitionNegotiationView(negotiation: talks) { acceptedIDs in

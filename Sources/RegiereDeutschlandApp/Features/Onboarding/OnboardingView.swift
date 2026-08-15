@@ -30,6 +30,28 @@ enum OnboardingContent {
             bullets: []
         ),
         OnboardingPage(
+            icon: "flag.2.crossed.fill",
+            accent: GameTheme.teal,
+            kicker: "Dein Start",
+            title: "Wähle oder gründe deine Partei",
+            message: "Tritt für eine echte Partei an – oder gründe deine eigene und gib ihr Namen, Ideologie und Ziele.",
+            bullets: [
+                .init(icon: "building.columns.fill", text: "Bestehende Parteien: SPD, CDU/CSU, Grüne oder FDP – je mit eigenem Profil."),
+                .init(icon: "plus.circle.fill", text: "Eigene Partei: Ideologie und Ziele bestimmen deinen Kurs und dein Programm.")
+            ]
+        ),
+        OnboardingPage(
+            icon: "signature",
+            accent: GameTheme.gold,
+            kicker: "Regierungsbildung",
+            title: "Bilde deine Regierung",
+            message: "Du hast die Wahl gewonnen. Jetzt schmiedest du eine Koalition – oder regierst als Minderheit.",
+            bullets: [
+                .init(icon: "person.2.fill", text: "Wähle einen Partner, der zu dir passt und eine Mehrheit trägt."),
+                .init(icon: "quote.opening", text: "In den Koalitionsgesprächen stellt der Partner Forderungen – sag zu oder lehne ab.")
+            ]
+        ),
+        OnboardingPage(
             icon: "bubble.left.and.bubble.right.fill",
             accent: GameTheme.teal,
             kicker: "Jedes Jahr",
@@ -66,11 +88,11 @@ enum OnboardingContent {
             icon: "checkmark.seal.fill",
             accent: GameTheme.gold,
             kicker: "Alle 4 Jahre",
-            title: "Gewinne Wahlen, schmiede Koalitionen",
-            message: "Zur Bundestagswahl zählt deine Bilanz. Führe Wahlkampf, verhandle Koalitionen – oder das Spiel ist vorbei.",
+            title: "Gewinne Wahlen alle 4 Jahre",
+            message: "Zur Bundestagswahl zählt deine Bilanz. Führe Wahlkampf und verhandle neue Koalitionen – oder das Spiel ist vorbei.",
             bullets: [
                 .init(icon: "megaphone.fill", text: "Im Wahlkampf setzt du einen Schwerpunkt, der Stimmen bringt."),
-                .init(icon: "person.3.fill", text: "Ohne eigene Mehrheit brauchst du Partner mit eigenen Bedingungen.")
+                .init(icon: "person.3.fill", text: "Verlierst du die Wahl, endet deine Amtszeit.")
             ]
         ),
         OnboardingPage(

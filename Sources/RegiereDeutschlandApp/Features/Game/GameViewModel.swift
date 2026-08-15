@@ -14,6 +14,7 @@ final class GameViewModel: ObservableObject {
         case encounter
         case campaign
         case election(ElectionResult)
+        case briefing
         case coalitionTalks
         case coalitionNegotiation
         case gameOver(GameOverSummary)
@@ -251,6 +252,13 @@ final class GameViewModel: ObservableObject {
         autosave()
     }
 
+    func dismissBriefing() {
+        engine.dismissInitialBriefing()
+        syncFromEngine()
+        phase = Self.phase(for: engine)
+        autosave()
+    }
+
     func concludeCoalitionTalks(accepted: Set<String>) {
         engine.concludeCoalitionTalks(acceptedDemandIDs: accepted)
         syncFromEngine()
@@ -298,6 +306,10 @@ final class GameViewModel: ObservableObject {
 
         if let election = engine.state.pendingElectionResult {
             return .election(election)
+        }
+
+        if engine.awaitingInitialBriefing {
+            return .briefing
         }
 
         if let options = engine.pendingCoalitionOptions, !options.isEmpty {

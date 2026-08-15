@@ -13,6 +13,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
     public let playerPartyData: PlayerParty?
     public let playerName: String?
     public let awaitingInitialCoalition: Bool?
+    public let awaitingInitialBriefing: Bool?
     public let pendingCampaign: Bool?
     public let corruption: Int?
     public let pendingEncounter: PoliticalEncounter?
@@ -39,6 +40,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         playerPartyData: PlayerParty? = nil,
         playerName: String? = nil,
         awaitingInitialCoalition: Bool? = nil,
+        awaitingInitialBriefing: Bool? = nil,
         pendingCampaign: Bool? = nil,
         corruption: Int? = nil,
         pendingEncounter: PoliticalEncounter? = nil,
@@ -64,6 +66,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         self.playerPartyData = playerPartyData
         self.playerName = playerName
         self.awaitingInitialCoalition = awaitingInitialCoalition
+        self.awaitingInitialBriefing = awaitingInitialBriefing
         self.pendingCampaign = pendingCampaign
         self.corruption = corruption
         self.pendingEncounter = pendingEncounter
@@ -91,6 +94,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         case playerPartyData
         case playerName
         case awaitingInitialCoalition
+        case awaitingInitialBriefing
         case pendingCampaign
         case corruption
         case pendingEncounter
@@ -119,6 +123,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         playerPartyData = try container.decodeIfPresent(PlayerParty.self, forKey: .playerPartyData)
         playerName = try container.decodeIfPresent(String.self, forKey: .playerName)
         awaitingInitialCoalition = try container.decodeIfPresent(Bool.self, forKey: .awaitingInitialCoalition)
+        awaitingInitialBriefing = try container.decodeIfPresent(Bool.self, forKey: .awaitingInitialBriefing)
         pendingCampaign = try container.decodeIfPresent(Bool.self, forKey: .pendingCampaign)
         corruption = try container.decodeIfPresent(Int.self, forKey: .corruption)
         pendingEncounter = try container.decodeIfPresent(PoliticalEncounter.self, forKey: .pendingEncounter)

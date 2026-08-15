@@ -86,3 +86,24 @@ import Testing
     engine.concludeCoalitionTalks(acceptedDemandIDs: [])
     #expect(engine.coalition.satisfaction < 52)
 }
+
+@Test func newGameOpensWithBriefingBeforeCoalition() {
+    let engine = GameEngine(eventRepository: LocalJSONEventRepository())
+    engine.startNewGame(party: PartyCatalog.party(id: "spd"), playerName: "Test")
+
+    // Zuerst das Lage-Briefing …
+    #expect(engine.awaitingInitialBriefing)
+    // … dann die Regierungsbildung, weiterhin im Startjahr.
+    engine.dismissInitialBriefing()
+    #expect(engine.awaitingInitialBriefing == false)
+    #expect(engine.pendingCoalitionOptions != nil)
+    #expect(engine.state.currentYear == 2000)
+    #expect(engine.currentEvent == nil)
+}
+
+@Test func briefingStateSurvivesSnapshot() {
+    let engine = GameEngine(eventRepository: LocalJSONEventRepository())
+    engine.startNewGame(party: PartyCatalog.party(id: "cdu"), playerName: "X")
+    let restored = GameEngine(snapshot: engine.snapshot(), eventRepository: LocalJSONEventRepository())
+    #expect(restored.awaitingInitialBriefing)
+}

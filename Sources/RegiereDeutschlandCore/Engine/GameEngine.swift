@@ -100,6 +100,9 @@ public final class GameEngine {
     /// True, solange die erste Regierung nach dem Wahlsieg noch gebildet wird
     /// (Szenario-Start). Steuert, dass die Koalitionsbildung im Startjahr bleibt.
     public private(set) var awaitingInitialCoalition: Bool = false
+    /// True, solange zu Spielbeginn noch das Lage-Briefing gezeigt wird
+    /// (vor der Regierungsbildung).
+    public private(set) var awaitingInitialBriefing: Bool = false
     public private(set) var pendingCampaign: Bool = false
     public private(set) var corruption: Int = 0
     public private(set) var pendingEncounter: PoliticalEncounter?
@@ -164,6 +167,7 @@ public final class GameEngine {
         self.playerParty = snapshot.playerPartyData ?? PartyCatalog.party(id: snapshot.playerPartyID ?? PartyCatalog.default.id)
         self.playerName = snapshot.playerName ?? PartyCatalog.defaultChancellorName
         self.awaitingInitialCoalition = snapshot.awaitingInitialCoalition ?? false
+        self.awaitingInitialBriefing = snapshot.awaitingInitialBriefing ?? false
         self.pendingCampaign = snapshot.pendingCampaign ?? false
         self.corruption = snapshot.corruption ?? 0
         self.pendingEncounter = snapshot.pendingEncounter
@@ -191,6 +195,7 @@ public final class GameEngine {
             playerPartyData: playerParty,
             playerName: playerName,
             awaitingInitialCoalition: awaitingInitialCoalition,
+            awaitingInitialBriefing: awaitingInitialBriefing,
             pendingCampaign: pendingCampaign,
             corruption: corruption,
             pendingEncounter: pendingEncounter,
@@ -211,6 +216,7 @@ public final class GameEngine {
     public func startNewGame(persona: KanzlerPersona = PersonaCatalog.default) {
         resetForNewGame(persona: persona, party: PartyCatalog.default, playerName: PartyCatalog.defaultChancellorName)
         awaitingInitialCoalition = false
+        awaitingInitialBriefing = false
         pendingCoalitionOptions = nil
         currentEvent = nextQueuedEvent()
         recordAnnualSnapshot()
@@ -226,9 +232,15 @@ public final class GameEngine {
             playerName: name.isEmpty ? PartyCatalog.defaultChancellorName : name
         )
         awaitingInitialCoalition = true
+        awaitingInitialBriefing = true
         currentEvent = nil
         pendingCoalitionOptions = makeInitialCoalitionOptions()
         recordAnnualSnapshot()
+    }
+
+    /// Schließt das Lage-Briefing ab; danach beginnt die Regierungsbildung.
+    public func dismissInitialBriefing() {
+        awaitingInitialBriefing = false
     }
 
     /// Gemeinsamer Reset für beide Einstiege.

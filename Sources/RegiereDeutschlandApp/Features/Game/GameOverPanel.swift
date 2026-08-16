@@ -8,6 +8,8 @@ import UIKit
 struct GameOverPanel: View {
     let summary: GameOverSummary
     var achievements: [Achievement] = []
+    var programResults: [GoalProgress] = []
+    var partyName: String = ""
     let onNewGame: () -> Void
     var onExitToMenu: (() -> Void)? = nil
 
@@ -25,6 +27,7 @@ struct GameOverPanel: View {
                     header
                     scoreHero
                     endReport
+                    if !programResults.isEmpty { programCard }
                     finalStatsCard
 
                     if !summary.defeatReasons.isEmpty {
@@ -180,6 +183,55 @@ struct GameOverPanel: View {
         }
         .frame(maxWidth: .infinity, minHeight: 96, alignment: .topLeading)
         .gameCard(padding: 14)
+    }
+
+    private var fulfilledCount: Int { programResults.filter { $0.status == .fulfilled }.count }
+
+    private var programCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            SectionHeader(title: partyName.isEmpty ? "Programm-Bilanz" : "Programm: \(partyName)",
+                          systemImage: "target",
+                          accessory: "\(fulfilledCount)/\(programResults.count) erreicht")
+            VStack(spacing: 9) {
+                ForEach(programResults) { r in
+                    HStack(spacing: 11) {
+                        Image(systemName: statusIcon(r.status))
+                            .font(.footnote.weight(.bold))
+                            .foregroundStyle(statusColor(r.status))
+                            .frame(width: 22)
+                        VStack(alignment: .leading, spacing: 3) {
+                            HStack {
+                                Text(r.goal.title)
+                                    .font(.caption.weight(.bold))
+                                    .foregroundStyle(GameTheme.primaryText)
+                                Spacer(minLength: 6)
+                                Text("\(r.metricLabel) \(r.metricValue)")
+                                    .font(.caption2)
+                                    .foregroundStyle(GameTheme.tertiaryText)
+                            }
+                            ValueBar(value: r.percent, height: 6)
+                        }
+                    }
+                }
+            }
+            .gameCard(padding: 16)
+        }
+    }
+
+    private func statusIcon(_ s: GoalStatus) -> String {
+        switch s {
+        case .fulfilled: "checkmark.seal.fill"
+        case .partial:   "circle.lefthalf.filled"
+        case .missed:    "xmark.seal.fill"
+        }
+    }
+
+    private func statusColor(_ s: GoalStatus) -> Color {
+        switch s {
+        case .fulfilled: GameTheme.green
+        case .partial:   GameTheme.amber
+        case .missed:    GameTheme.red
+        }
     }
 
     private var finalStatsCard: some View {

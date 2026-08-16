@@ -118,6 +118,8 @@ struct GameContainerView: View {
             GameOverPanel(
                 summary: summary,
                 achievements: viewModel.newlyUnlockedAchievements,
+                programResults: viewModel.programResults,
+                partyName: viewModel.playerParty.name,
                 onNewGame: {
                     withAnimation(.easeInOut) {
                         selectedTab = 0

@@ -195,12 +195,15 @@ struct PolitikTab: View {
             let agenda = party.id == playerParty.id ? playerParty.agenda : PartyAgendaCatalog.agenda(for: party.id)
             return agenda.isEmpty ? nil : (party, agenda)
         }
+        let progressByID = Dictionary(uniqueKeysWithValues: viewModel.programResults.map { ($0.goal.id, $0) })
         return VStack(alignment: .leading, spacing: 12) {
             SectionHeader(title: "Was die Parteien wollen", systemImage: "list.bullet.rectangle")
             VStack(spacing: 10) {
                 ForEach(pairs, id: \.party.id) { pair in
+                    let isPlayer = pair.party.id == playerParty.id
                     PartyAgendaCard(party: pair.party, agenda: pair.agenda,
-                                    isPlayer: pair.party.id == playerParty.id)
+                                    isPlayer: isPlayer,
+                                    progressByID: isPlayer ? progressByID : [:])
                 }
             }
         }
@@ -248,6 +251,7 @@ private struct PartyAgendaCard: View {
     let party: Party
     let agenda: [AgendaItem]
     var isPlayer: Bool = false
+    var progressByID: [String: GoalProgress] = [:]
     @State private var expanded = false
 
     private var color: Color { PartyPresentation.color(for: party.id) }
@@ -284,15 +288,24 @@ private struct PartyAgendaCard: View {
             if expanded {
                 VStack(alignment: .leading, spacing: 8) {
                     ForEach(agenda) { item in
+                        let prog = progressByID[item.id]
                         HStack(alignment: .top, spacing: 8) {
-                            Image(systemName: "checkmark.circle.fill")
+                            Image(systemName: prog.map(statusIcon) ?? "checkmark.circle.fill")
                                 .font(.caption2)
-                                .foregroundStyle(color)
+                                .foregroundStyle(prog.map(statusColor) ?? color)
                                 .padding(.top, 1)
                             VStack(alignment: .leading, spacing: 1) {
-                                Text(item.title)
-                                    .font(.caption.weight(.bold))
-                                    .foregroundStyle(GameTheme.primaryText)
+                                HStack(spacing: 6) {
+                                    Text(item.title)
+                                        .font(.caption.weight(.bold))
+                                        .foregroundStyle(GameTheme.primaryText)
+                                    Spacer(minLength: 0)
+                                    if let prog {
+                                        Text("\(prog.status.label) · \(prog.percent)%")
+                                            .font(.system(size: 9.5, weight: .bold))
+                                            .foregroundStyle(statusColor(prog))
+                                    }
+                                }
                                 Text(item.summary)
                                     .font(.caption2)
                                     .foregroundStyle(GameTheme.secondaryText)
@@ -305,6 +318,22 @@ private struct PartyAgendaCard: View {
             }
         }
         .gameCard(padding: 14)
+    }
+
+    private func statusIcon(_ p: GoalProgress) -> String {
+        switch p.status {
+        case .fulfilled: "checkmark.seal.fill"
+        case .partial:   "circle.lefthalf.filled"
+        case .missed:    "xmark.seal.fill"
+        }
+    }
+
+    private func statusColor(_ p: GoalProgress) -> Color {
+        switch p.status {
+        case .fulfilled: GameTheme.green
+        case .partial:   GameTheme.amber
+        case .missed:    GameTheme.red
+        }
     }
 }
 

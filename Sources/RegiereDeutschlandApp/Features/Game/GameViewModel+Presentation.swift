@@ -49,6 +49,16 @@ extension GameViewModel {
         NationMood.weightedApproval(for: state.populationGroups)
     }
 
+    /// Fortschritt beim Umsetzen des eigenen Partei-Programms.
+    var programResults: [GoalProgress] {
+        GoalEvaluator.evaluate(agenda: playerParty.agenda, state: state)
+    }
+
+    /// Anzahl vollständig erreichter Programm-Ziele.
+    var fulfilledGoalCount: Int {
+        GoalEvaluator.fulfilledCount(programResults)
+    }
+
     /// Die aktuelle Parteienlandschaft (Umfrage).
     var partyLandscape: PartyLandscape {
         PartyLandscapeFactory.make(

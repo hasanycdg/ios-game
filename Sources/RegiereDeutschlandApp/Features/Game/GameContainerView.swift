@@ -11,8 +11,9 @@ struct GameContainerView: View {
 
     init(mode: GameViewModel.StartMode = .newGame,
          party: PlayerParty = PartyCatalog.default,
-         playerName: String = PartyCatalog.defaultChancellorName) {
-        _viewModel = StateObject(wrappedValue: GameViewModel(mode: mode, party: party, playerName: playerName))
+         playerName: String = PartyCatalog.defaultChancellorName,
+         difficulty: Difficulty = .normal) {
+        _viewModel = StateObject(wrappedValue: GameViewModel(mode: mode, party: party, playerName: playerName, difficulty: difficulty))
     }
 
     var body: some View {

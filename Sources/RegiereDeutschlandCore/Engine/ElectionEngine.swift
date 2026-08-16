@@ -34,8 +34,8 @@ public struct ElectionEngine: Sendable {
     }
 
     /// Live-Prognose ohne den Zustand zu verändern – Grundlage des Wahlbarometers.
-    public func project(in state: GameState) -> ElectionProjection {
-        let shares = computeShares(in: state)
+    public func project(in state: GameState, shareBonus: Double = 0) -> ElectionProjection {
+        let shares = computeShares(in: state, campaignBonus: shareBonus)
         return ElectionProjection(
             governingShare: roundedShare(shares.governing),
             oppositionShare: roundedShare(shares.opposition),
@@ -44,8 +44,8 @@ public struct ElectionEngine: Sendable {
         )
     }
 
-    public func conductElection(in state: GameState, campaignBonus: Double = 0) -> ElectionResult {
-        let shares = computeShares(in: state, campaignBonus: campaignBonus)
+    public func conductElection(in state: GameState, campaignBonus: Double = 0, shareBonus: Double = 0) -> ElectionResult {
+        let shares = computeShares(in: state, campaignBonus: campaignBonus + shareBonus)
         return ElectionResult(
             year: state.currentYear,
             governingPartyShare: roundedShare(shares.governing),

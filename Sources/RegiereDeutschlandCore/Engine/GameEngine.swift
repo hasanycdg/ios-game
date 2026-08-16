@@ -97,6 +97,7 @@ public final class GameEngine {
     public private(set) var persona: KanzlerPersona = PersonaCatalog.default
     public private(set) var playerParty: PlayerParty = PartyCatalog.default
     public private(set) var playerName: String = PartyCatalog.defaultChancellorName
+    public private(set) var difficulty: Difficulty = .normal
     /// True, solange die erste Regierung nach dem Wahlsieg noch gebildet wird
     /// (Szenario-Start). Steuert, dass die Koalitionsbildung im Startjahr bleibt.
     public private(set) var awaitingInitialCoalition: Bool = false
@@ -166,6 +167,7 @@ public final class GameEngine {
         // Eigene Parteien werden vollständig gespeichert; eingebaute per ID aufgelöst.
         self.playerParty = snapshot.playerPartyData ?? PartyCatalog.party(id: snapshot.playerPartyID ?? PartyCatalog.default.id)
         self.playerName = snapshot.playerName ?? PartyCatalog.defaultChancellorName
+        self.difficulty = snapshot.difficulty.flatMap(Difficulty.init(rawValue:)) ?? .normal
         self.awaitingInitialCoalition = snapshot.awaitingInitialCoalition ?? false
         self.awaitingInitialBriefing = snapshot.awaitingInitialBriefing ?? false
         self.pendingCampaign = snapshot.pendingCampaign ?? false
@@ -194,6 +196,7 @@ public final class GameEngine {
             playerPartyID: playerParty.id,
             playerPartyData: playerParty,
             playerName: playerName,
+            difficulty: difficulty.rawValue,
             awaitingInitialCoalition: awaitingInitialCoalition,
             awaitingInitialBriefing: awaitingInitialBriefing,
             pendingCampaign: pendingCampaign,
@@ -214,6 +217,7 @@ public final class GameEngine {
     /// Direktstart mit einem reinen Persona-Profil (v.a. Tests). Beginnt sofort
     /// mit dem ersten Ereignis, ohne Koalitionsbildung.
     public func startNewGame(persona: KanzlerPersona = PersonaCatalog.default) {
+        difficulty = .normal
         resetForNewGame(persona: persona, party: PartyCatalog.default, playerName: PartyCatalog.defaultChancellorName)
         awaitingInitialCoalition = false
         awaitingInitialBriefing = false
@@ -224,7 +228,8 @@ public final class GameEngine {
 
     /// Szenario-Start: Die Wahl ist gewonnen, jetzt wird die Regierung gebildet.
     /// Das Spiel öffnet mit den Koalitionsverhandlungen und bleibt dabei im Startjahr.
-    public func startNewGame(party: PlayerParty, playerName: String) {
+    public func startNewGame(party: PlayerParty, playerName: String, difficulty: Difficulty = .normal) {
+        self.difficulty = difficulty
         let name = playerName.trimmingCharacters(in: .whitespacesAndNewlines)
         resetForNewGame(
             persona: party.profile,
@@ -253,7 +258,7 @@ public final class GameEngine {
         for effect in persona.hiddenModifiers { initial.apply(effect) }
         initial.clampAll()
         state = initial
-        politicalCapital = persona.startingCapital
+        politicalCapital = max(1, min(maxCapital, persona.startingCapital + difficulty.startingCapitalBonus))
         coalition = persona.makeCoalition()
         pendingCampaign = false
         corruption = 0
@@ -289,7 +294,7 @@ public final class GameEngine {
     }
 
     private func capitalIncome() -> Int {
-        var income = 3 + persona.capitalIncomeBonus
+        var income = 3 + persona.capitalIncomeBonus + difficulty.capitalIncomeBonus
         if state.governmentApproval >= 55 { income += 1 }
         if state.governmentApproval >= 70 { income += 1 }
         if coalition.isMinority { income -= 1 } // Regieren ohne Mehrheit ist zäher
@@ -454,7 +459,7 @@ public final class GameEngine {
         guard pendingCampaign else { return }
         pendingCampaign = false
         let bonus = focus.bonus(for: state)
-        let base = electionEngine.conductElection(in: state, campaignBonus: bonus)
+        let base = electionEngine.conductElection(in: state, campaignBonus: bonus, shareBonus: difficulty.electionShareBonus)
         let election = ElectionResult(
             year: base.year,
             governingPartyShare: base.governingPartyShare,
@@ -883,7 +888,7 @@ public final class GameEngine {
 
     /// Der Koalitionspartner verlässt die Regierung – es kommt zur Neuwahl.
     private func triggerCoalitionCollapse() {
-        let base = electionEngine.conductElection(in: state)
+        let base = electionEngine.conductElection(in: state, shareBonus: difficulty.electionShareBonus)
         let election = ElectionResult(
             year: base.year,
             governingPartyShare: base.governingPartyShare,

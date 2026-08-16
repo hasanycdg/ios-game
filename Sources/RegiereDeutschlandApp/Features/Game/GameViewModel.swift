@@ -30,6 +30,7 @@ final class GameViewModel: ObservableObject {
     @Published private(set) var persona: KanzlerPersona = PersonaCatalog.default
     @Published private(set) var playerParty: PlayerParty = PartyCatalog.default
     @Published private(set) var playerName: String = PartyCatalog.defaultChancellorName
+    @Published private(set) var difficulty: Difficulty = .normal
     @Published private(set) var newlyUnlockedAchievements: [Achievement] = []
     @Published private(set) var corruption: Int = 0
     @Published private(set) var pendingEncounter: PoliticalEncounter?
@@ -61,6 +62,7 @@ final class GameViewModel: ObservableObject {
         mode: StartMode = .newGame,
         party: PlayerParty = PartyCatalog.default,
         playerName: String = PartyCatalog.defaultChancellorName,
+        difficulty: Difficulty = .normal,
         persistence: GamePersistence = GamePersistence(),
         newsRepository: NewsRepository = LocalJSONNewsRepository()
     ) {
@@ -69,13 +71,13 @@ final class GameViewModel: ObservableObject {
         switch mode {
         case .newGame:
             self.engine = GameEngine()
-            self.engine.startNewGame(party: party, playerName: playerName)
+            self.engine.startNewGame(party: party, playerName: playerName, difficulty: difficulty)
         case .resume:
             if let snapshot = persistence.loadSnapshot() {
                 self.engine = GameEngine(snapshot: snapshot)
             } else {
                 self.engine = GameEngine()
-                self.engine.startNewGame(party: party, playerName: playerName)
+                self.engine.startNewGame(party: party, playerName: playerName, difficulty: difficulty)
             }
         }
         self.state = engine.state
@@ -87,6 +89,7 @@ final class GameViewModel: ObservableObject {
         self.persona = engine.persona
         self.playerParty = engine.playerParty
         self.playerName = engine.playerName
+        self.difficulty = engine.difficulty
         self.corruption = engine.corruption
         self.pendingEncounter = engine.pendingEncounter
         self.cabinet = engine.cabinet
@@ -157,7 +160,7 @@ final class GameViewModel: ObservableObject {
     func startNewGame() {
         didStoreRunResult = false
         newlyUnlockedAchievements = []
-        engine.startNewGame(party: playerParty, playerName: playerName)
+        engine.startNewGame(party: playerParty, playerName: playerName, difficulty: difficulty)
         syncFromEngine()
         phase = Self.phase(for: engine)
         autosave()
@@ -171,7 +174,7 @@ final class GameViewModel: ObservableObject {
 
     /// Live-Wahlprognose ("Sonntagsfrage") für das Wahlbarometer.
     var electionProjection: ElectionProjection {
-        electionEngine.project(in: state)
+        electionEngine.project(in: state, shareBonus: difficulty.electionShareBonus)
     }
 
     /// Historische Welt-/Deutschland-Schlagzeilen des aktuellen Jahres.
@@ -208,6 +211,7 @@ final class GameViewModel: ObservableObject {
         coalition = engine.coalition
         playerParty = engine.playerParty
         playerName = engine.playerName
+        difficulty = engine.difficulty
         corruption = engine.corruption
         pendingEncounter = engine.pendingEncounter
         cabinet = engine.cabinet

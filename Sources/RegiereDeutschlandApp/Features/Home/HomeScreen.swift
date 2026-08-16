@@ -11,6 +11,7 @@ struct HomeScreen: View {
     @State private var showOnboarding = false
     @AppStorage("hasSeenRegiereOnboarding") private var hasSeenOnboarding = false
     @AppStorage("regiereChancellorName") private var storedName = ""
+    @AppStorage("regiereDifficulty") private var difficultyRaw = Difficulty.normal.rawValue
     @FocusState private var nameFocused: Bool
     private let persistence = GamePersistence()
 
@@ -21,6 +22,10 @@ struct HomeScreen: View {
     private var effectiveName: String {
         let trimmed = playerName.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmed.isEmpty ? PartyCatalog.defaultChancellorName : trimmed
+    }
+
+    private var selectedDifficulty: Difficulty {
+        Difficulty(rawValue: difficultyRaw) ?? .normal
     }
 
     var body: some View {
@@ -34,6 +39,7 @@ struct HomeScreen: View {
                     nameField
                     partyPicker
                     foundPartyButton
+                    difficultyPicker
                     actions
                     footer
                     howItWorksButton
@@ -139,7 +145,7 @@ struct HomeScreen: View {
 
     private var foundPartyButton: some View {
         NavigationLink {
-            PartyFounderView(playerName: effectiveName)
+            PartyFounderView(playerName: effectiveName, difficulty: selectedDifficulty)
         } label: {
             HStack(spacing: 8) {
                 Image(systemName: "plus.circle.fill")
@@ -158,6 +164,41 @@ struct HomeScreen: View {
             )
         }
         .buttonStyle(.plain)
+    }
+
+    private var difficultyPicker: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            SectionHeader(title: "Schwierigkeit", systemImage: "dial.medium",
+                          accessory: selectedDifficulty.subtitle)
+            HStack(spacing: 8) {
+                ForEach(Difficulty.allCases, id: \.self) { level in
+                    let isOn = level == selectedDifficulty
+                    Button {
+                        Haptics.impact(.light)
+                        withAnimation(.spring(response: 0.25, dampingFraction: 0.8)) {
+                            difficultyRaw = level.rawValue
+                        }
+                    } label: {
+                        HStack(spacing: 6) {
+                            Image(systemName: level.icon).font(.caption2.weight(.bold))
+                            Text(level.title).font(.subheadline.weight(.bold))
+                        }
+                        .foregroundStyle(isOn ? Color(red: 0.12, green: 0.10, blue: 0.05) : GameTheme.secondaryText)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 11)
+                        .background(
+                            RoundedRectangle(cornerRadius: 11, style: .continuous)
+                                .fill(isOn ? GameTheme.goldGradient : LinearGradient(colors: [GameTheme.surface, GameTheme.surface], startPoint: .top, endPoint: .bottom))
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 11, style: .continuous)
+                                .stroke(isOn ? Color.clear : GameTheme.hairline, lineWidth: 1)
+                        )
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+        }
     }
 
     private var partyPicker: some View {
@@ -190,12 +231,12 @@ struct HomeScreen: View {
                 .buttonStyle(PrimaryActionButtonStyle())
 
                 NavigationLink {
-                    GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName)
+                    GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName, difficulty: selectedDifficulty)
                 } label: { Label("Neues Spiel", systemImage: "flag.fill") }
                 .buttonStyle(SecondaryActionButtonStyle())
             } else {
                 NavigationLink {
-                    GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName)
+                    GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName, difficulty: selectedDifficulty)
                 } label: { Label("Neues Spiel", systemImage: "flag.fill") }
                 .buttonStyle(PrimaryActionButtonStyle())
             }

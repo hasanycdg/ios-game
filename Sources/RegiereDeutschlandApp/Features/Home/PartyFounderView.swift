@@ -5,6 +5,7 @@ import RegiereDeutschlandCore
 /// spielbare Partei, mit der man ins Spiel startet.
 struct PartyFounderView: View {
     let playerName: String
+    var difficulty: Difficulty = .normal
 
     @State private var partyName = ""
     @State private var shortName = ""
@@ -186,7 +187,7 @@ struct PartyFounderView: View {
     private var startButton: some View {
         VStack(spacing: 8) {
             NavigationLink {
-                GameContainerView(mode: .newGame, party: builtParty, playerName: playerName)
+                GameContainerView(mode: .newGame, party: builtParty, playerName: playerName, difficulty: difficulty)
             } label: {
                 Label("Partei gründen & regieren", systemImage: "flag.fill")
             }

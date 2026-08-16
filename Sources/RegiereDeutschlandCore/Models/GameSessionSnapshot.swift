@@ -12,6 +12,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
     public let playerPartyID: String?
     public let playerPartyData: PlayerParty?
     public let playerName: String?
+    public let difficulty: String?
     public let awaitingInitialCoalition: Bool?
     public let awaitingInitialBriefing: Bool?
     public let pendingCampaign: Bool?
@@ -39,6 +40,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         playerPartyID: String? = nil,
         playerPartyData: PlayerParty? = nil,
         playerName: String? = nil,
+        difficulty: String? = nil,
         awaitingInitialCoalition: Bool? = nil,
         awaitingInitialBriefing: Bool? = nil,
         pendingCampaign: Bool? = nil,
@@ -65,6 +67,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         self.playerPartyID = playerPartyID
         self.playerPartyData = playerPartyData
         self.playerName = playerName
+        self.difficulty = difficulty
         self.awaitingInitialCoalition = awaitingInitialCoalition
         self.awaitingInitialBriefing = awaitingInitialBriefing
         self.pendingCampaign = pendingCampaign
@@ -93,6 +96,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         case playerPartyID
         case playerPartyData
         case playerName
+        case difficulty
         case awaitingInitialCoalition
         case awaitingInitialBriefing
         case pendingCampaign
@@ -122,6 +126,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         playerPartyID = try container.decodeIfPresent(String.self, forKey: .playerPartyID)
         playerPartyData = try container.decodeIfPresent(PlayerParty.self, forKey: .playerPartyData)
         playerName = try container.decodeIfPresent(String.self, forKey: .playerName)
+        difficulty = try container.decodeIfPresent(String.self, forKey: .difficulty)
         awaitingInitialCoalition = try container.decodeIfPresent(Bool.self, forKey: .awaitingInitialCoalition)
         awaitingInitialBriefing = try container.decodeIfPresent(Bool.self, forKey: .awaitingInitialBriefing)
         pendingCampaign = try container.decodeIfPresent(Bool.self, forKey: .pendingCampaign)

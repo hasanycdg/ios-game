@@ -98,6 +98,9 @@ public final class GameEngine {
     public private(set) var playerParty: PlayerParty = PartyCatalog.default
     public private(set) var playerName: String = PartyCatalog.defaultChancellorName
     public private(set) var difficulty: Difficulty = .normal
+    /// Seed für die Wiederspielwert-Varianz (Event-Reihenfolge & -Auswahl pro
+    /// Jahr). 0 = deterministisch (Tests, Balance-Simulation).
+    public private(set) var randomSeed: UInt64 = 0
     /// True, solange die erste Regierung nach dem Wahlsieg noch gebildet wird
     /// (Szenario-Start). Steuert, dass die Koalitionsbildung im Startjahr bleibt.
     public private(set) var awaitingInitialCoalition: Bool = false
@@ -168,6 +171,7 @@ public final class GameEngine {
         self.playerParty = snapshot.playerPartyData ?? PartyCatalog.party(id: snapshot.playerPartyID ?? PartyCatalog.default.id)
         self.playerName = snapshot.playerName ?? PartyCatalog.defaultChancellorName
         self.difficulty = snapshot.difficulty.flatMap(Difficulty.init(rawValue:)) ?? .normal
+        self.randomSeed = snapshot.randomSeed.flatMap(UInt64.init) ?? 0
         self.awaitingInitialCoalition = snapshot.awaitingInitialCoalition ?? false
         self.awaitingInitialBriefing = snapshot.awaitingInitialBriefing ?? false
         self.pendingCampaign = snapshot.pendingCampaign ?? false
@@ -197,6 +201,7 @@ public final class GameEngine {
             playerPartyData: playerParty,
             playerName: playerName,
             difficulty: difficulty.rawValue,
+            randomSeed: randomSeed == 0 ? nil : String(randomSeed),
             awaitingInitialCoalition: awaitingInitialCoalition,
             awaitingInitialBriefing: awaitingInitialBriefing,
             pendingCampaign: pendingCampaign,
@@ -218,6 +223,7 @@ public final class GameEngine {
     /// mit dem ersten Ereignis, ohne Koalitionsbildung.
     public func startNewGame(persona: KanzlerPersona = PersonaCatalog.default) {
         difficulty = .normal
+        randomSeed = 0
         resetForNewGame(persona: persona, party: PartyCatalog.default, playerName: PartyCatalog.defaultChancellorName)
         awaitingInitialCoalition = false
         awaitingInitialBriefing = false
@@ -228,8 +234,9 @@ public final class GameEngine {
 
     /// Szenario-Start: Die Wahl ist gewonnen, jetzt wird die Regierung gebildet.
     /// Das Spiel öffnet mit den Koalitionsverhandlungen und bleibt dabei im Startjahr.
-    public func startNewGame(party: PlayerParty, playerName: String, difficulty: Difficulty = .normal) {
+    public func startNewGame(party: PlayerParty, playerName: String, difficulty: Difficulty = .normal, seed: UInt64 = 0) {
         self.difficulty = difficulty
+        self.randomSeed = seed
         let name = playerName.trimmingCharacters(in: .whitespacesAndNewlines)
         resetForNewGame(
             persona: party.profile,
@@ -908,7 +915,16 @@ public final class GameEngine {
     }
 
     private func rebuildEventQueue() {
-        let pendingIDs = availableEvents().map(\.id)
+        var pendingIDs = availableEvents().map(\.id)
+        // Wiederspielwert: bei gesetztem Seed die Reihenfolge mischen und pro Jahr
+        // eine zufällige Teilauswahl zeigen – so fühlt sich jeder Durchlauf anders
+        // an. Seed 0 (Tests/Balance) bleibt deterministisch: volle Datei-Reihenfolge.
+        if randomSeed != 0, pendingIDs.count > 1 {
+            var rng = SeededRandom(seed: randomSeed &+ UInt64(bitPattern: Int64(state.currentYear)))
+            pendingIDs.shuffle(using: &rng)
+            let cap = min(pendingIDs.count, 4)
+            pendingIDs = Array(pendingIDs.prefix(cap))
+        }
         state.eventQueue = EventQueue(year: state.currentYear, pendingEventIDs: pendingIDs)
     }
 

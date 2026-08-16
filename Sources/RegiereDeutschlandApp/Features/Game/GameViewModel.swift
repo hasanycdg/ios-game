@@ -71,13 +71,13 @@ final class GameViewModel: ObservableObject {
         switch mode {
         case .newGame:
             self.engine = GameEngine()
-            self.engine.startNewGame(party: party, playerName: playerName, difficulty: difficulty)
+            self.engine.startNewGame(party: party, playerName: playerName, difficulty: difficulty, seed: Self.freshSeed())
         case .resume:
             if let snapshot = persistence.loadSnapshot() {
                 self.engine = GameEngine(snapshot: snapshot)
             } else {
                 self.engine = GameEngine()
-                self.engine.startNewGame(party: party, playerName: playerName, difficulty: difficulty)
+                self.engine.startNewGame(party: party, playerName: playerName, difficulty: difficulty, seed: Self.freshSeed())
             }
         }
         self.state = engine.state
@@ -160,7 +160,7 @@ final class GameViewModel: ObservableObject {
     func startNewGame() {
         didStoreRunResult = false
         newlyUnlockedAchievements = []
-        engine.startNewGame(party: playerParty, playerName: playerName, difficulty: difficulty)
+        engine.startNewGame(party: playerParty, playerName: playerName, difficulty: difficulty, seed: Self.freshSeed())
         syncFromEngine()
         phase = Self.phase(for: engine)
         autosave()
@@ -301,6 +301,11 @@ final class GameViewModel: ObservableObject {
         if let newIDs = try? persistence.unlockAchievements(satisfied) {
             newlyUnlockedAchievements = newIDs.compactMap { AchievementCatalog.achievement(id: $0) }
         }
+    }
+
+    /// Frischer Zufalls-Seed für die Wiederspielwert-Varianz (nie 0).
+    private static func freshSeed() -> UInt64 {
+        UInt64.random(in: 1 ... .max)
     }
 
     private static func phase(for engine: GameEngine) -> Phase {

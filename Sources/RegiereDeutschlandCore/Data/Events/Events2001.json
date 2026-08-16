@@ -4,18 +4,18 @@
     "year": 2001,
     "title": "Arbeitsmarkt unter Druck",
     "category": "economy",
-    "headline": "Wachstum kuehlt ab, die Arbeitslosigkeit bleibt politisch belastend.",
+    "headline": "Wachstum kühlt ab, die Arbeitslosigkeit bleibt politisch belastend.",
     "description": "Die Regierung sucht nach einem Kurs zwischen Flexibilisierung, sozialer Absicherung und Investitionen in Qualifizierung.",
     "historicalContext": {
-      "summary": "Zu Beginn der 2000er stand Deutschland vor strukturellen Arbeitsmarktproblemen und einer Debatte ueber Reformen.",
-      "sourceNote": "Prototype-Daten fuer Schritt 6-10."
+      "summary": "Zu Beginn der 2000er stand Deutschland vor strukturellen Arbeitsmarktproblemen und einer Debatte über Reformen.",
+      "sourceNote": "Prototype-Daten für Schritt 6-10."
     },
     "options": [
       {
         "id": "training-investment",
         "title": "Qualifizierungsoffensive starten",
-        "description": "Weiterbildung stabilisiert Beschaeftigungsperspektiven, belastet aber den Haushalt.",
-        "advisoryNote": "Arbeitsminister und Familienverbaende sehen Chancen, das Finanzministerium bremst.",
+        "description": "Weiterbildung stabilisiert Beschäftigungsperspektiven, belastet aber den Haushalt.",
+        "advisoryNote": "Arbeitsminister und Familienverbände sehen Chancen, das Finanzministerium bremst.",
         "immediateEffects": [
           { "metric": "economy", "change": 2 },
           { "metric": "budget", "change": -3 },
@@ -42,7 +42,7 @@
         "id": "market-flexibility",
         "title": "Arbeitsmarkt flexibilisieren",
         "description": "Unternehmen erhalten mehr Spielraum. Die Reform kann Dynamik bringen, trifft aber auf sozialen Widerstand.",
-        "advisoryNote": "Wirtschaftsverbaende erwarten mehr Einstellungen, Gewerkschaften warnen vor Unsicherheit.",
+        "advisoryNote": "Wirtschaftsverbände erwarten mehr Einstellungen, Gewerkschaften warnen vor Unsicherheit.",
         "immediateEffects": [
           { "metric": "economy", "change": 4 },
           { "metric": "society", "change": -3 },
@@ -68,8 +68,8 @@
       {
         "id": "protect-status-quo",
         "title": "Bestehende Sicherungen verteidigen",
-        "description": "Die Regierung vermeidet soziale Haerten, riskiert aber, dass strukturelle Probleme liegen bleiben.",
-        "advisoryNote": "Sozialverbaende begruessen den Kurs, Oekonomen zweifeln an der langfristigen Tragfaehigkeit.",
+        "description": "Die Regierung vermeidet soziale Härten, riskiert aber, dass strukturelle Probleme liegen bleiben.",
+        "advisoryNote": "Sozialverbände begrüßen den Kurs, Oekonomen zweifeln an der langfristigen Tragfähigkeit.",
         "immediateEffects": [
           { "metric": "society", "change": 3 },
           { "metric": "budget", "change": -2 },
@@ -95,7 +95,7 @@
     ],
     "conditions": [],
     "followUpEvents": [],
-    "historicalReality": "Historisch fuehrten Arbeitsmarktprobleme Anfang der 2000er zu einer laengeren Reformdebatte.",
+    "historicalReality": "Historisch führten Arbeitsmarktprobleme Anfang der 2000er zu einer längeren Reformdebatte.",
     "historicalOptionID": "market-flexibility"
   },
   {
@@ -103,11 +103,11 @@
     "year": 2001,
     "title": "Innere Sicherheit neu ausrichten",
     "category": "security",
-    "headline": "Sicherheitsbehoerden fordern neue Befugnisse.",
-    "description": "Nach internationalen Schocks waechst der Druck, Sicherheitspolitik und Freiheitsrechte neu auszubalancieren.",
+    "headline": "Sicherheitsbehörden fordern neue Befugnisse.",
+    "description": "Nach internationalen Schocks wächst der Druck, Sicherheitspolitik und Freiheitsrechte neu auszubalancieren.",
     "historicalContext": {
-      "summary": "Anfang der 2000er wurden Sicherheitsgesetze in vielen westlichen Demokratien verschaerft.",
-      "sourceNote": "Prototype-Daten fuer Schritt 6-10."
+      "summary": "Anfang der 2000er wurden Sicherheitsgesetze in vielen westlichen Demokratien verschärft.",
+      "sourceNote": "Prototype-Daten für Schritt 6-10."
     },
     "options": [
       {
@@ -138,8 +138,8 @@
       {
         "id": "hardline-security",
         "title": "Umfassende Befugnisse geben",
-        "description": "Sicherheit steigt sichtbar, doch Buergerrechtsdebatten belasten das Vertrauen.",
-        "advisoryNote": "Sicherheitsbehoerden draengen, Datenschutzbeauftragte warnen.",
+        "description": "Sicherheit steigt sichtbar, doch Bürgerrechtsdebatten belasten das Vertrauen.",
+        "advisoryNote": "Sicherheitsbehörden drängen, Datenschutzbeauftragte warnen.",
         "immediateEffects": [
           { "metric": "security", "change": 7 },
           { "metric": "trust", "change": -4 },

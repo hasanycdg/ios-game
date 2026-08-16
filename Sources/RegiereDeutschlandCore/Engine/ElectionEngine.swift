@@ -89,7 +89,7 @@ public struct ElectionEngine: Sendable {
     public func makeGameOverSummary(for state: GameState, electionResult: ElectionResult) -> GameOverSummary {
         GameOverSummary(
             reason: .lostElection,
-            message: "Deine Regierung wurde abgewaehlt.",
+            message: "Deine Regierung wurde abgewählt.",
             startYear: 2000,
             endYear: electionResult.year,
             keyDecisionTitles: state.decisions.suffix(5).map(\.optionTitle),
@@ -108,7 +108,7 @@ public struct ElectionEngine: Sendable {
     public func endSummary(for state: GameState, reason: GameOverReason, messageOverride: String? = nil) -> GameOverSummary {
         GameOverSummary(
             reason: reason,
-            message: messageOverride ?? (reason == .reachedFinalYear ? "Dein Deutschland 2026 ist erreicht." : "Deine Regierung wurde abgewaehlt."),
+            message: messageOverride ?? (reason == .reachedFinalYear ? "Dein Deutschland 2026 ist erreicht." : "Deine Regierung wurde abgewählt."),
             startYear: 2000,
             endYear: state.currentYear,
             keyDecisionTitles: state.decisions.suffix(5).map(\.optionTitle),
@@ -126,11 +126,11 @@ public struct ElectionEngine: Sendable {
 
     public func governingStyle(for state: GameState) -> String {
         if state.hidden.renewableCapacity >= 45 && state.hidden.euRelations >= 68 {
-            return "Modernisierer mit europaeischem Kurs"
+            return "Modernisierer mit europäischem Kurs"
         }
 
         if state.hidden.fiscalSpace >= 55 && state.visible.budget >= 55 {
-            return "Haushaltspolitischer Stabilitaetskurs"
+            return "Haushaltspolitischer Stabilitätskurs"
         }
 
         if state.hidden.nuclearCapacity >= 55 {
@@ -177,7 +177,7 @@ public struct ElectionEngine: Sendable {
             ("Internationale Beziehungen", state.visible.internationalRelations),
             ("Vertrauen", state.visible.trust)
         ]
-        return pairs.max(by: { $0.1 < $1.1 })?.0 ?? "Stabilitaet"
+        return pairs.max(by: { $0.1 < $1.1 })?.0 ?? "Stabilität"
     }
 
     private func biggestMistake(for state: GameState) -> String {

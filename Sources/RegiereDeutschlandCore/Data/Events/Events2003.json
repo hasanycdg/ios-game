@@ -4,17 +4,17 @@
     "year": 2003,
     "title": "Historisches Echo: Energiepfad",
     "category": "historicalEcho",
-    "headline": "Eine Entscheidung aus dem Jahr 2000 praegt die aktuelle Debatte.",
-    "description": "Ministerien verweisen auf fruehere Weichenstellungen. Die Regierung kann den Pfad bestaetigen oder politisch abfedern.",
+    "headline": "Eine Entscheidung aus dem Jahr 2000 prägt die aktuelle Debatte.",
+    "description": "Ministerien verweisen auf frühere Weichenstellungen. Die Regierung kann den Pfad bestätigen oder politisch abfedern.",
     "historicalContext": {
-      "summary": "Langfristige Energiepolitik zeigt ihre Wirkung oft erst Jahre spaeter.",
-      "sourceNote": "Prototype-Historical-Echo fuer Schritt 7."
+      "summary": "Langfristige Energiepolitik zeigt ihre Wirkung oft erst Jahre später.",
+      "sourceNote": "Prototype-Historical-Echo für Schritt 7."
     },
     "options": [
       {
         "id": "own-the-course",
         "title": "Den Kurs offensiv vertreten",
-        "description": "Die Regierung erklaert die fruehere Entscheidung zum strategischen Projekt.",
+        "description": "Die Regierung erklärt die frühere Entscheidung zum strategischen Projekt.",
         "advisoryNote": "Kommunikatoren erwarten klare Profilbildung, aber auch neue Angriffsflanken.",
         "immediateEffects": [
           { "metric": "trust", "change": 2 }
@@ -71,18 +71,18 @@
     "year": 2003,
     "title": "Digitale Verwaltung",
     "category": "digitalization",
-    "headline": "Laender und Kommunen fordern eine gemeinsame Digitalstrategie.",
+    "headline": "Länder und Kommunen fordern eine gemeinsame Digitalstrategie.",
     "description": "Die Regierung entscheidet, ob Digitalisierung als Infrastrukturprojekt priorisiert wird.",
     "historicalContext": {
       "summary": "Digitale Verwaltung wurde in Deutschland lange als strukturelle Modernisierungsaufgabe diskutiert.",
-      "sourceNote": "Prototype-Daten fuer Schritt 6-10."
+      "sourceNote": "Prototype-Daten für Schritt 6-10."
     },
     "options": [
       {
         "id": "federal-platforms",
         "title": "Gemeinsame Plattformen finanzieren",
-        "description": "Standards und Plattformen kosten Geld, koennen spaeter aber Staat und Wirtschaft entlasten.",
-        "advisoryNote": "Kommunen begruessen klare Standards, der Haushalt sieht neue Lasten.",
+        "description": "Standards und Plattformen kosten Geld, können später aber Staat und Wirtschaft entlasten.",
+        "advisoryNote": "Kommunen begrüßen klare Standards, der Haushalt sieht neue Lasten.",
         "immediateEffects": [
           { "metric": "budget", "change": -4 },
           { "metric": "trust", "change": 2 }
@@ -122,7 +122,7 @@
         "id": "pilot-projects",
         "title": "Pilotprojekte statt Grossprogramm",
         "description": "Der Staat testet vorsichtig und schont den Haushalt, der grosse Modernisierungsschub bleibt aus.",
-        "advisoryNote": "Das Finanzministerium begruesst den Ansatz, Digitalexperten kritisieren fehlendes Tempo.",
+        "advisoryNote": "Das Finanzministerium begrüßt den Ansatz, Digitalexperten kritisieren fehlendes Tempo.",
         "immediateEffects": [
           { "metric": "budget", "change": 1 }
         ],

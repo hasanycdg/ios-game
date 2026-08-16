@@ -372,7 +372,7 @@ public final class GameEngine {
                     sourceEventID: event.id,
                     sourceOptionID: option.id,
                     startedYear: state.currentYear,
-                    note: "Langfristige Effekte sind fuer spaetere Jahre vorgemerkt."
+                    note: "Langfristige Effekte sind für spätere Jahre vorgemerkt."
                 )
             )
         }

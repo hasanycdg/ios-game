@@ -34,7 +34,7 @@ import Testing
     let resumed = GameEngine(snapshot: engine.snapshot(), eventRepository: LocalJSONEventRepository())
 
     #expect(resumed.state.decisions.count == 1)
-    #expect(resumed.lastDecisionResult?.optionTitle == "Erneuerbare Energien stark foerdern")
+    #expect(resumed.lastDecisionResult?.optionTitle == "Erneuerbare Energien stark fördern")
 }
 
 @Test func decisionResultContainsHistoricalCompareData() throws {

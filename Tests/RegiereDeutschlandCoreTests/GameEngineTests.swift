@@ -47,7 +47,7 @@ private func play(_ engine: GameEngine, firstChoice: String? = nil, untilYear ye
 
     let result = try engine.choose(option: "promote-renewables")
 
-    #expect(result.optionTitle == "Erneuerbare Energien stark foerdern")
+    #expect(result.optionTitle == "Erneuerbare Energien stark fördern")
     #expect(engine.state.visible.energy == 58)
     #expect(engine.state.visible.budget == 48)
     #expect(engine.state.hidden.renewableCapacity == 32)
@@ -214,7 +214,7 @@ private func play(_ engine: GameEngine, firstChoice: String? = nil, untilYear ye
 
     #expect(result.didWin == false)
     #expect(summary.reason == .lostElection)
-    #expect(summary.message == "Deine Regierung wurde abgewaehlt.")
+    #expect(summary.message == "Deine Regierung wurde abgewählt.")
 }
 
 @Test func playablePrototypeCanReachThe2005Election() {

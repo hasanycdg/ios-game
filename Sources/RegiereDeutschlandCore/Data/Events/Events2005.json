@@ -8,7 +8,7 @@
     "description": "Die Regierung muss entscheiden, ob sie Preise kurzfristig abfedert oder den Strukturwandel beschleunigt.",
     "historicalContext": {
       "summary": "Energiepreise wurden in den 2000ern zunehmend zu einem wirtschafts- und sozialpolitischen Thema.",
-      "sourceNote": "Prototype-Daten fuer Schritt 7 und 10."
+      "sourceNote": "Prototype-Daten für Schritt 7 und 10."
     },
     "options": [
       {
@@ -39,7 +39,7 @@
       {
         "id": "accelerate-transition",
         "title": "Umbau beschleunigen",
-        "description": "Die Regierung nutzt die Krise, um Investitionen in Unabhaengigkeit zu erhoehen.",
+        "description": "Die Regierung nutzt die Krise, um Investitionen in Unabhängigkeit zu erhöhen.",
         "advisoryNote": "Strategen sehen langfristige Vorteile, kurzfristig bleiben Kosten sichtbar.",
         "immediateEffects": [
           { "metric": "energy", "change": 3 },
@@ -73,7 +73,7 @@
             ],
             "approvalEffect": 1,
             "memoryReactivationTags": ["renewables"],
-            "note": "Fruehe Erneuerbaren-Kapazitaet macht den Umbau glaubwuerdiger."
+            "note": "Frühe Erneuerbaren-Kapazität macht den Umbau glaubwürdiger."
           }
         ],
         "flagsToSet": ["energy_2005_transition"],
@@ -89,8 +89,8 @@
       {
         "id": "industry-priority",
         "title": "Industriepreise stabilisieren",
-        "description": "Die Regierung stuetzt energieintensive Unternehmen und setzt auf Arbeitsplaetze.",
-        "advisoryNote": "Industrie und Gewerkschaften begruessen Sicherheit, Verbraucher fuehlen sich zweitrangig.",
+        "description": "Die Regierung stützt energieintensive Unternehmen und setzt auf Arbeitsplätze.",
+        "advisoryNote": "Industrie und Gewerkschaften begrüßen Sicherheit, Verbraucher fühlen sich zweitrangig.",
         "immediateEffects": [
           { "metric": "economy", "change": 4 },
           { "metric": "budget", "change": -3 },

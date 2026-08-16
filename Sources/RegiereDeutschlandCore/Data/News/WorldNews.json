@@ -1,0 +1,659 @@
+[
+  {
+    "id": "news-2000-1",
+    "year": 2000,
+    "scope": "world",
+    "category": "economy",
+    "headline": "Höhepunkt der Dotcom-Blase",
+    "summary": "Technologiewerte erreichen Rekordstände, bevor die Kurse zu bröckeln beginnen.",
+    "source": "Wirtschaft"
+  },
+  {
+    "id": "news-2000-2",
+    "year": 2000,
+    "scope": "germany",
+    "category": "society",
+    "headline": "Expo 2000 in Hannover",
+    "summary": "Erstmals findet eine Weltausstellung in Deutschland statt.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2000-3",
+    "year": 2000,
+    "scope": "world",
+    "category": "foreignPolicy",
+    "headline": "US-Wahlkrimi: Bush gegen Gore",
+    "summary": "Ein Streit um Floridas Stimmen entscheidet die US-Präsidentschaft erst nach Wochen.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2001-1",
+    "year": 2001,
+    "scope": "world",
+    "category": "security",
+    "headline": "Terroranschläge vom 11. September",
+    "summary": "Angriffe auf New York und Washington verändern die Weltpolitik.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2001-2",
+    "year": 2001,
+    "scope": "germany",
+    "category": "economy",
+    "headline": "Letztes Jahr der D-Mark",
+    "summary": "Deutschland bereitet die Einführung des Euro-Bargelds vor.",
+    "source": "Wirtschaft"
+  },
+  {
+    "id": "news-2001-3",
+    "year": 2001,
+    "scope": "germany",
+    "category": "security",
+    "headline": "Bundeswehr geht nach Afghanistan",
+    "summary": "Deutschland beteiligt sich am internationalen Einsatz gegen den Terror.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2002-1",
+    "year": 2002,
+    "scope": "germany",
+    "category": "economy",
+    "headline": "Der Euro wird Bargeld",
+    "summary": "Zum 1. Januar löst der Euro die D-Mark im Portemonnaie ab.",
+    "source": "Wirtschaft"
+  },
+  {
+    "id": "news-2002-2",
+    "year": 2002,
+    "scope": "germany",
+    "category": "society",
+    "headline": "Jahrhundertflut an der Elbe",
+    "summary": "Ein extremes Hochwasser verwüstet weite Teile Ostdeutschlands.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2002-3",
+    "year": 2002,
+    "scope": "germany",
+    "category": "election",
+    "headline": "Schröder bleibt Kanzler",
+    "summary": "Rot-Grün gewinnt die Bundestagswahl hauchdünn.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2003-1",
+    "year": 2003,
+    "scope": "world",
+    "category": "foreignPolicy",
+    "headline": "Der Irak-Krieg beginnt",
+    "summary": "Deutschland lehnt eine Beteiligung am US-geführten Krieg ab.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2003-2",
+    "year": 2003,
+    "scope": "germany",
+    "category": "welfare",
+    "headline": "Agenda 2010 angekündigt",
+    "summary": "Kanzler Schröder kündigt tiefgreifende Sozial- und Arbeitsmarktreformen an.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2003-3",
+    "year": 2003,
+    "scope": "world",
+    "category": "society",
+    "headline": "SARS-Ausbruch alarmiert Asien",
+    "summary": "Eine neue Atemwegserkrankung breitet sich international aus.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2004-1",
+    "year": 2004,
+    "scope": "world",
+    "category": "foreignPolicy",
+    "headline": "EU-Osterweiterung",
+    "summary": "Zehn neue Staaten treten der Europäischen Union bei.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2004-2",
+    "year": 2004,
+    "scope": "germany",
+    "category": "welfare",
+    "headline": "Proteste gegen Hartz-Reformen",
+    "summary": "Montagsdemonstrationen richten sich gegen die Arbeitsmarktreformen.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2004-3",
+    "year": 2004,
+    "scope": "world",
+    "category": "society",
+    "headline": "Tsunami im Indischen Ozean",
+    "summary": "Ein Seebeben löst eine Flutwelle mit Hunderttausenden Opfern aus.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2005-1",
+    "year": 2005,
+    "scope": "germany",
+    "category": "election",
+    "headline": "Angela Merkel wird Kanzlerin",
+    "summary": "Erstmals steht eine Frau an der Spitze der Bundesregierung.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2005-2",
+    "year": 2005,
+    "scope": "world",
+    "category": "society",
+    "headline": "Benedikt XVI. wird Papst",
+    "summary": "Mit Joseph Ratzinger wird wieder ein Deutscher zum Papst gewählt.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2005-3",
+    "year": 2005,
+    "scope": "world",
+    "category": "society",
+    "headline": "Hurrikan Katrina verwüstet New Orleans",
+    "summary": "Eine Sturmkatastrophe trifft den Süden der USA schwer.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2006-1",
+    "year": 2006,
+    "scope": "germany",
+    "category": "society",
+    "headline": "Sommermärchen: WM in Deutschland",
+    "summary": "Die Fußball-Weltmeisterschaft macht das Land zur Gastgeber-Nation.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2006-2",
+    "year": 2006,
+    "scope": "world",
+    "category": "economy",
+    "headline": "Weltwirtschaft wächst kräftig",
+    "summary": "Ein globaler Aufschwung treibt Handel und Rohstoffpreise.",
+    "source": "Wirtschaft"
+  },
+  {
+    "id": "news-2007-1",
+    "year": 2007,
+    "scope": "world",
+    "category": "digitalization",
+    "headline": "Das erste iPhone erscheint",
+    "summary": "Apple läutet das Zeitalter der Smartphones ein.",
+    "source": "Wirtschaft"
+  },
+  {
+    "id": "news-2007-2",
+    "year": 2007,
+    "scope": "world",
+    "category": "economy",
+    "headline": "Risse am US-Immobilienmarkt",
+    "summary": "Erste Erschütterungen kündigen die spätere Finanzkrise an.",
+    "source": "Wirtschaft"
+  },
+  {
+    "id": "news-2007-3",
+    "year": 2007,
+    "scope": "world",
+    "category": "energy",
+    "headline": "EU beschließt Klimaziele für 2020",
+    "summary": "Die Union verpflichtet sich zu mehr Klimaschutz und Erneuerbaren.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2008-1",
+    "year": 2008,
+    "scope": "world",
+    "category": "economy",
+    "headline": "Lehman-Pleite stürzt Welt in Finanzkrise",
+    "summary": "Der Zusammenbruch der US-Bank erschüttert das globale Finanzsystem.",
+    "source": "Wirtschaft"
+  },
+  {
+    "id": "news-2008-2",
+    "year": 2008,
+    "scope": "germany",
+    "category": "economy",
+    "headline": "Merkel garantiert die Spareinlagen",
+    "summary": "Die Regierung will eine Panik an den Sparkonten verhindern.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2008-3",
+    "year": 2008,
+    "scope": "world",
+    "category": "foreignPolicy",
+    "headline": "Barack Obama gewinnt die US-Wahl",
+    "summary": "Erstmals wird ein Afroamerikaner zum US-Präsidenten gewählt.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2009-1",
+    "year": 2009,
+    "scope": "germany",
+    "category": "economy",
+    "headline": "Abwrackprämie und Konjunkturpakete",
+    "summary": "Milliardenhilfen sollen die Wirtschaft durch die Krise tragen.",
+    "source": "Wirtschaft"
+  },
+  {
+    "id": "news-2009-2",
+    "year": 2009,
+    "scope": "germany",
+    "category": "election",
+    "headline": "Schwarz-Gelb gewinnt die Wahl",
+    "summary": "Christdemokraten und Liberale bilden die neue Bundesregierung.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2009-3",
+    "year": 2009,
+    "scope": "world",
+    "category": "economy",
+    "headline": "Griechenlands Schulden erschüttern den Euro",
+    "summary": "Dramatische Defizite lösen die europäische Schuldenkrise aus.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2010-1",
+    "year": 2010,
+    "scope": "world",
+    "category": "economy",
+    "headline": "Erstes Rettungspaket für Griechenland",
+    "summary": "Die Euro-Staaten stützen Athen mit Milliardenhilfen.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2010-2",
+    "year": 2010,
+    "scope": "world",
+    "category": "energy",
+    "headline": "Ölkatastrophe im Golf von Mexiko",
+    "summary": "Die Havarie der Deepwater Horizon verursacht eine Umweltkatastrophe.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2011-1",
+    "year": 2011,
+    "scope": "world",
+    "category": "energy",
+    "headline": "Reaktorkatastrophe in Fukushima",
+    "summary": "Erdbeben und Tsunami lösen einen Super-GAU in Japan aus.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2011-2",
+    "year": 2011,
+    "scope": "germany",
+    "category": "energy",
+    "headline": "Deutschland beschließt den Atomausstieg",
+    "summary": "Als Reaktion auf Fukushima wird der beschleunigte Ausstieg besiegelt.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2011-3",
+    "year": 2011,
+    "scope": "world",
+    "category": "foreignPolicy",
+    "headline": "Arabischer Frühling erschüttert Regime",
+    "summary": "Proteste stürzen Machthaber in Nordafrika und Nahost.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2012-1",
+    "year": 2012,
+    "scope": "world",
+    "category": "economy",
+    "headline": "'Whatever it takes' rettet den Euro",
+    "summary": "EZB-Chef Draghi verspricht, die Gemeinschaftswährung zu verteidigen.",
+    "source": "Wirtschaft"
+  },
+  {
+    "id": "news-2012-2",
+    "year": 2012,
+    "scope": "germany",
+    "category": "energy",
+    "headline": "Die Energiewende nimmt Fahrt auf",
+    "summary": "Der Ausbau von Wind- und Solarenergie beschleunigt sich.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2013-1",
+    "year": 2013,
+    "scope": "germany",
+    "category": "election",
+    "headline": "Merkel gewinnt, Große Koalition entsteht",
+    "summary": "Christdemokraten und Sozialdemokraten einigen sich auf eine gemeinsame Regierung.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2013-2",
+    "year": 2013,
+    "scope": "world",
+    "category": "security",
+    "headline": "NSA-Affäre erschüttert das Vertrauen",
+    "summary": "Enthüllungen offenbaren die globale Überwachung durch Geheimdienste.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2013-3",
+    "year": 2013,
+    "scope": "germany",
+    "category": "society",
+    "headline": "Hochwasser an Elbe und Donau",
+    "summary": "Erneut kämpfen Regionen gegen Jahrhundertfluten.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2014-1",
+    "year": 2014,
+    "scope": "world",
+    "category": "foreignPolicy",
+    "headline": "Russland annektiert die Krim",
+    "summary": "Der Bruch des Völkerrechts führt zu Sanktionen gegen Moskau.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2014-2",
+    "year": 2014,
+    "scope": "world",
+    "category": "society",
+    "headline": "Deutschland wird Fußball-Weltmeister",
+    "summary": "Die Nationalmannschaft triumphiert bei der WM in Brasilien.",
+    "source": "Sport"
+  },
+  {
+    "id": "news-2015-1",
+    "year": 2015,
+    "scope": "germany",
+    "category": "society",
+    "headline": "Flüchtlingskrise erreicht Deutschland",
+    "summary": "Hunderttausende Menschen suchen Schutz vor Krieg und Verfolgung.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2015-2",
+    "year": 2015,
+    "scope": "world",
+    "category": "energy",
+    "headline": "Pariser Klimaabkommen beschlossen",
+    "summary": "Die Weltgemeinschaft einigt sich auf verbindliche Klimaziele.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2015-3",
+    "year": 2015,
+    "scope": "germany",
+    "category": "economy",
+    "headline": "VW-Dieselskandal erschüttert die Autoindustrie",
+    "summary": "Manipulierte Abgaswerte kosten den Konzern Milliarden.",
+    "source": "Wirtschaft"
+  },
+  {
+    "id": "news-2016-1",
+    "year": 2016,
+    "scope": "world",
+    "category": "foreignPolicy",
+    "headline": "Großbritannien stimmt für den Brexit",
+    "summary": "Die Briten votieren knapp für den Austritt aus der EU.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2016-2",
+    "year": 2016,
+    "scope": "world",
+    "category": "foreignPolicy",
+    "headline": "Donald Trump gewinnt die US-Wahl",
+    "summary": "Der Wahlsieg des Außenseiters überrascht die Welt.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2016-3",
+    "year": 2016,
+    "scope": "germany",
+    "category": "security",
+    "headline": "Anschlag auf dem Breitscheidplatz",
+    "summary": "Ein Attentäter tötet Menschen auf einem Berliner Weihnachtsmarkt.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2017-1",
+    "year": 2017,
+    "scope": "germany",
+    "category": "election",
+    "headline": "Die AfP zieht in den Bundestag ein",
+    "summary": "Erstmals sitzt eine Partei rechts der Christdemokraten stark im Parlament.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2017-2",
+    "year": 2017,
+    "scope": "germany",
+    "category": "society",
+    "headline": "Ehe für alle beschlossen",
+    "summary": "Der Bundestag öffnet die Ehe für gleichgeschlechtliche Paare.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2018-1",
+    "year": 2018,
+    "scope": "germany",
+    "category": "election",
+    "headline": "Zähe GroKo-Bildung endet",
+    "summary": "Erst Monate nach der Wahl steht die neue Regierung.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2018-2",
+    "year": 2018,
+    "scope": "germany",
+    "category": "energy",
+    "headline": "Diesel-Fahrverbote in Städten",
+    "summary": "Gerichte erlauben Fahrverbote zur Luftreinhaltung.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2018-3",
+    "year": 2018,
+    "scope": "germany",
+    "category": "society",
+    "headline": "Hitzesommer und Dürre",
+    "summary": "Extreme Trockenheit belastet Landwirtschaft und Wälder.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2019-1",
+    "year": 2019,
+    "scope": "world",
+    "category": "energy",
+    "headline": "Fridays for Future erfasst die Welt",
+    "summary": "Millionen junge Menschen demonstrieren für mehr Klimaschutz.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2019-2",
+    "year": 2019,
+    "scope": "germany",
+    "category": "energy",
+    "headline": "Kommission empfiehlt Kohleausstieg bis 2038",
+    "summary": "Deutschland will schrittweise aus der Kohleverstromung aussteigen.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2020-1",
+    "year": 2020,
+    "scope": "world",
+    "category": "society",
+    "headline": "Corona-Pandemie legt die Welt lahm",
+    "summary": "Lockdowns und Kontaktbeschränkungen prägen den Alltag.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2020-2",
+    "year": 2020,
+    "scope": "germany",
+    "category": "economy",
+    "headline": "Milliarden-Rettungsschirme für die Wirtschaft",
+    "summary": "Der Staat stützt Unternehmen und Beschäftigte durch die Krise.",
+    "source": "Wirtschaft"
+  },
+  {
+    "id": "news-2020-3",
+    "year": 2020,
+    "scope": "world",
+    "category": "economy",
+    "headline": "EU beschließt gemeinsamen Wiederaufbaufonds",
+    "summary": "Erstmals nimmt die Union gemeinsam Schulden auf.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2021-1",
+    "year": 2021,
+    "scope": "germany",
+    "category": "society",
+    "headline": "Impfkampagne gegen Corona startet",
+    "summary": "Die ersten Impfungen wecken Hoffnung auf ein Ende der Pandemie.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2021-2",
+    "year": 2021,
+    "scope": "germany",
+    "category": "election",
+    "headline": "Die Ampel löst die Ära Merkel ab",
+    "summary": "SDP, Grün-Alternative und FDV bilden eine neue Regierung unter Scholz.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2021-3",
+    "year": 2021,
+    "scope": "germany",
+    "category": "society",
+    "headline": "Flutkatastrophe im Ahrtal",
+    "summary": "Sturzfluten fordern zahlreiche Todesopfer im Westen Deutschlands.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2022-1",
+    "year": 2022,
+    "scope": "world",
+    "category": "foreignPolicy",
+    "headline": "Russland überfällt die Ukraine",
+    "summary": "Der Angriffskrieg bringt den Krieg zurück nach Europa.",
+    "source": "Ausland"
+  },
+  {
+    "id": "news-2022-2",
+    "year": 2022,
+    "scope": "germany",
+    "category": "security",
+    "headline": "'Zeitenwende' für die Bundeswehr",
+    "summary": "Ein Sondervermögen von 100 Milliarden soll die Truppe stärken.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2022-3",
+    "year": 2022,
+    "scope": "germany",
+    "category": "energy",
+    "headline": "Energiekrise nach dem Gas-Stopp",
+    "summary": "Ausbleibende russische Lieferungen treiben die Preise in die Höhe.",
+    "source": "Wirtschaft"
+  },
+  {
+    "id": "news-2023-1",
+    "year": 2023,
+    "scope": "germany",
+    "category": "energy",
+    "headline": "Letzte Atomkraftwerke gehen vom Netz",
+    "summary": "Deutschland beendet die Ära der Kernenergie.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2023-2",
+    "year": 2023,
+    "scope": "germany",
+    "category": "energy",
+    "headline": "Streit ums Heizungsgesetz",
+    "summary": "Die Wärmewende spaltet die Regierungskoalition.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2023-3",
+    "year": 2023,
+    "scope": "germany",
+    "category": "economy",
+    "headline": "Die Wirtschaft rutscht in die Rezession",
+    "summary": "Hohe Kosten und schwache Nachfrage belasten den Standort.",
+    "source": "Wirtschaft"
+  },
+  {
+    "id": "news-2024-1",
+    "year": 2024,
+    "scope": "germany",
+    "category": "budget",
+    "headline": "Haushaltskrise nach Karlsruher Urteil",
+    "summary": "Ein Verfassungsgerichtsurteil reißt Milliardenlöcher in den Etat.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2024-2",
+    "year": 2024,
+    "scope": "germany",
+    "category": "election",
+    "headline": "AfP stark bei Landtagswahlen im Osten",
+    "summary": "Die Partei erzielt historische Ergebnisse in mehreren Ländern.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2024-3",
+    "year": 2024,
+    "scope": "germany",
+    "category": "society",
+    "headline": "Fußball-EM zu Gast in Deutschland",
+    "summary": "Das Land richtet das Turnier aus und feiert ein Sommerfest.",
+    "source": "Sport"
+  },
+  {
+    "id": "news-2025-1",
+    "year": 2025,
+    "scope": "germany",
+    "category": "election",
+    "headline": "Vorgezogene Bundestagswahl",
+    "summary": "Nach dem Bruch der Regierung bestimmt Deutschland vorzeitig ein neues Parlament.",
+    "source": "Innenpolitik"
+  },
+  {
+    "id": "news-2025-2",
+    "year": 2025,
+    "scope": "germany",
+    "category": "economy",
+    "headline": "Ringen um den Wirtschaftsstandort",
+    "summary": "Hohe Energiekosten und Bürokratie stehen im Zentrum der Debatte.",
+    "source": "Wirtschaft"
+  },
+  {
+    "id": "news-2026-1",
+    "year": 2026,
+    "scope": "germany",
+    "category": "society",
+    "headline": "Ein Vierteljahrhundert im Rückblick",
+    "summary": "Deutschland blickt auf 25 Jahre voller Umbrüche und Krisen zurück.",
+    "source": "Deutschland"
+  },
+  {
+    "id": "news-2026-2",
+    "year": 2026,
+    "scope": "world",
+    "category": "foreignPolicy",
+    "headline": "Eine neue Weltordnung nimmt Gestalt an",
+    "summary": "Machtverschiebungen prägen die internationale Politik.",
+    "source": "Ausland"
+  }
+]

@@ -56,6 +56,20 @@ public struct DelayedEffect: Codable, Equatable, Sendable {
         self.flagsToSet = flagsToSet
         self.note = note
     }
+
+    private enum CodingKeys: String, CodingKey {
+        case delayInYears, immediateEffects, hiddenEffects, approvalEffect, flagsToSet, note
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        delayInYears = try container.decode(Int.self, forKey: .delayInYears)
+        immediateEffects = try container.decodeIfPresent([GameEffect].self, forKey: .immediateEffects) ?? []
+        hiddenEffects = try container.decodeIfPresent([HiddenEffect].self, forKey: .hiddenEffects) ?? []
+        approvalEffect = try container.decodeIfPresent(Int.self, forKey: .approvalEffect) ?? 0
+        flagsToSet = try container.decodeIfPresent([String].self, forKey: .flagsToSet) ?? []
+        note = try container.decodeIfPresent(String.self, forKey: .note)
+    }
 }
 
 public struct ConditionalModifier: Codable, Equatable, Sendable {
@@ -115,6 +129,20 @@ public struct EventCondition: Codable, Equatable, Sendable {
         self.blockedByFlags = blockedByFlags
         self.visibleMetrics = visibleMetrics
         self.hiddenMetrics = hiddenMetrics
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case requiredFlags, blockedByFlags, visibleMetrics, hiddenMetrics
+    }
+
+    // Toleranter Decoder: fehlende Felder sind erlaubt, damit Event-JSON
+    // nur die relevanten Bedingungen angeben muss.
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        requiredFlags = try container.decodeIfPresent([String].self, forKey: .requiredFlags) ?? []
+        blockedByFlags = try container.decodeIfPresent([String].self, forKey: .blockedByFlags) ?? []
+        visibleMetrics = try container.decodeIfPresent([MetricCondition<VisibleMetric>].self, forKey: .visibleMetrics) ?? []
+        hiddenMetrics = try container.decodeIfPresent([MetricCondition<HiddenMetric>].self, forKey: .hiddenMetrics) ?? []
     }
 
     public func isSatisfied(by state: GameState) -> Bool {

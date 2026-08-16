@@ -8,6 +8,7 @@ public final class GamePersistence {
     private let fileManager: FileManager
     private let saveURL: URL
     private let runResultsURL: URL
+    private let achievementsURL: URL
 
     public init(
         fileManager: FileManager = .default,
@@ -20,6 +21,7 @@ public final class GamePersistence {
             ?? fileManager.temporaryDirectory.appendingPathComponent("RegiereDeutschland", isDirectory: true)
         self.saveURL = directory.appendingPathComponent("savegame.json")
         self.runResultsURL = directory.appendingPathComponent("run-results.json")
+        self.achievementsURL = directory.appendingPathComponent("achievements.json")
     }
 
     public var hasSaveGame: Bool {
@@ -54,6 +56,24 @@ public final class GamePersistence {
         results = Array(results.prefix(20))
         let data = try JSONEncoder.prettyGameEncoder.encode(results)
         try data.write(to: runResultsURL, options: [.atomic])
+    }
+
+    public func loadUnlockedAchievements() -> Set<String> {
+        guard let data = try? Data(contentsOf: achievementsURL) else { return [] }
+        return (try? JSONDecoder.gameDecoder.decode(Set<String>.self, from: data)) ?? []
+    }
+
+    /// Schaltet die angegebenen Erfolge frei und gibt die *neu* hinzugekommenen zurück.
+    @discardableResult
+    public func unlockAchievements(_ ids: [String]) throws -> [String] {
+        var unlocked = loadUnlockedAchievements()
+        let newlyUnlocked = ids.filter { !unlocked.contains($0) }
+        guard !newlyUnlocked.isEmpty else { return [] }
+        unlocked.formUnion(newlyUnlocked)
+        try ensureDirectoryExists()
+        let data = try JSONEncoder.prettyGameEncoder.encode(unlocked)
+        try data.write(to: achievementsURL, options: [.atomic])
+        return newlyUnlocked
     }
 
     private func ensureDirectoryExists() throws {

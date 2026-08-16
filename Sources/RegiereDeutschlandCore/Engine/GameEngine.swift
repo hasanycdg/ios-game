@@ -9,6 +9,9 @@ public struct DecisionResult: Codable, Equatable, Sendable {
     public let resultText: String
     public let historicalReality: String?
     public let didChooseHistoricalPath: Bool
+    /// Ausführlicher historischer Hintergrund des Ereignisses – wird erst nach
+    /// der Entscheidung (aufklappbar) gezeigt, nicht davor.
+    public let historicalBackground: String?
 
     public init(
         year: Int,
@@ -18,7 +21,8 @@ public struct DecisionResult: Codable, Equatable, Sendable {
         approvalEffect: Int,
         resultText: String,
         historicalReality: String? = nil,
-        didChooseHistoricalPath: Bool = false
+        didChooseHistoricalPath: Bool = false,
+        historicalBackground: String? = nil
     ) {
         self.year = year
         self.eventTitle = eventTitle
@@ -28,6 +32,7 @@ public struct DecisionResult: Codable, Equatable, Sendable {
         self.resultText = resultText
         self.historicalReality = historicalReality
         self.didChooseHistoricalPath = didChooseHistoricalPath
+        self.historicalBackground = historicalBackground
     }
 }
 
@@ -86,6 +91,35 @@ public final class GameEngine {
     public private(set) var state: GameState
     public private(set) var currentEvent: GameEvent?
     public private(set) var lastDecisionResult: DecisionResult?
+    public private(set) var annualHistory: [AnnualRecord] = []
+    public private(set) var politicalCapital: Int = 7
+    public private(set) var coalition: CoalitionState = .standard()
+    public private(set) var persona: KanzlerPersona = PersonaCatalog.default
+    public private(set) var playerParty: PlayerParty = PartyCatalog.default
+    public private(set) var playerName: String = PartyCatalog.defaultChancellorName
+    public private(set) var difficulty: Difficulty = .normal
+    /// Seed für die Wiederspielwert-Varianz (Event-Reihenfolge & -Auswahl pro
+    /// Jahr). 0 = deterministisch (Tests, Balance-Simulation).
+    public private(set) var randomSeed: UInt64 = 0
+    /// True, solange die erste Regierung nach dem Wahlsieg noch gebildet wird
+    /// (Szenario-Start). Steuert, dass die Koalitionsbildung im Startjahr bleibt.
+    public private(set) var awaitingInitialCoalition: Bool = false
+    /// True, solange zu Spielbeginn noch das Lage-Briefing gezeigt wird
+    /// (vor der Regierungsbildung).
+    public private(set) var awaitingInitialBriefing: Bool = false
+    public private(set) var pendingCampaign: Bool = false
+    public private(set) var corruption: Int = 0
+    public private(set) var pendingEncounter: PoliticalEncounter?
+    public private(set) var cabinet: Cabinet = .standard()
+    public private(set) var pendingCoalitionOptions: [CoalitionOption]?
+    public private(set) var pendingCoalitionTalks: CoalitionNegotiation?
+    public private(set) var policies: PolicyState = .standard()
+    public private(set) var debt: Int = 60
+    public private(set) var interestGroups: [InterestGroup] = InterestGroupsFactory.standard()
+    public private(set) var partyWings: PartyWings = .standard()
+    public private(set) var hasBundesratMajority: Bool = true
+    public private(set) var diplomacy: DiplomaticState = .standard(from: GameStateFactory.initialGermany2000().hidden)
+    public let maxCapital = 10
 
     public init(
         eventRepository: EventRepository = LocalJSONEventRepository(),
@@ -129,21 +163,149 @@ public final class GameEngine {
             self.currentEvent = eventRepository.events(for: snapshot.state.currentYear).first { $0.id == currentEventID }
         }
         self.lastDecisionResult = snapshot.lastDecisionResult
+        self.annualHistory = snapshot.annualHistory
+        self.politicalCapital = snapshot.politicalCapital ?? 7
+        self.coalition = snapshot.coalition ?? .standard()
+        self.persona = PersonaCatalog.persona(id: snapshot.personaID ?? PersonaCatalog.default.id)
+        // Eigene Parteien werden vollständig gespeichert; eingebaute per ID aufgelöst.
+        self.playerParty = snapshot.playerPartyData ?? PartyCatalog.party(id: snapshot.playerPartyID ?? PartyCatalog.default.id)
+        self.playerName = snapshot.playerName ?? PartyCatalog.defaultChancellorName
+        self.difficulty = snapshot.difficulty.flatMap(Difficulty.init(rawValue:)) ?? .normal
+        self.randomSeed = snapshot.randomSeed.flatMap(UInt64.init) ?? 0
+        self.awaitingInitialCoalition = snapshot.awaitingInitialCoalition ?? false
+        self.awaitingInitialBriefing = snapshot.awaitingInitialBriefing ?? false
+        self.pendingCampaign = snapshot.pendingCampaign ?? false
+        self.corruption = snapshot.corruption ?? 0
+        self.pendingEncounter = snapshot.pendingEncounter
+        self.cabinet = snapshot.cabinet ?? .standard()
+        self.pendingCoalitionOptions = snapshot.pendingCoalitionOptions
+        self.pendingCoalitionTalks = snapshot.pendingCoalitionTalks
+        self.policies = snapshot.policies ?? .standard()
+        self.debt = snapshot.debt ?? 60
+        self.interestGroups = snapshot.interestGroups ?? InterestGroupsFactory.standard()
+        self.partyWings = snapshot.partyWings ?? .standard()
+        self.hasBundesratMajority = snapshot.hasBundesratMajority ?? true
+        self.diplomacy = snapshot.diplomacy ?? .standard(from: snapshot.state.hidden)
     }
 
     public func snapshot() -> GameSessionSnapshot {
         GameSessionSnapshot(
             state: state,
             currentEventID: currentEvent?.id,
-            lastDecisionResult: lastDecisionResult
+            lastDecisionResult: lastDecisionResult,
+            annualHistory: annualHistory,
+            politicalCapital: politicalCapital,
+            coalition: coalition,
+            personaID: persona.id,
+            playerPartyID: playerParty.id,
+            playerPartyData: playerParty,
+            playerName: playerName,
+            difficulty: difficulty.rawValue,
+            randomSeed: randomSeed == 0 ? nil : String(randomSeed),
+            awaitingInitialCoalition: awaitingInitialCoalition,
+            awaitingInitialBriefing: awaitingInitialBriefing,
+            pendingCampaign: pendingCampaign,
+            corruption: corruption,
+            pendingEncounter: pendingEncounter,
+            cabinet: cabinet,
+            pendingCoalitionOptions: pendingCoalitionOptions,
+            pendingCoalitionTalks: pendingCoalitionTalks,
+            policies: policies,
+            debt: debt,
+            interestGroups: interestGroups,
+            partyWings: partyWings,
+            hasBundesratMajority: hasBundesratMajority,
+            diplomacy: diplomacy
         )
     }
 
-    public func startNewGame() {
-        state = GameStateFactory.initialGermany2000()
-        lastDecisionResult = nil
-        prepareCurrentYear()
+    /// Direktstart mit einem reinen Persona-Profil (v.a. Tests). Beginnt sofort
+    /// mit dem ersten Ereignis, ohne Koalitionsbildung.
+    public func startNewGame(persona: KanzlerPersona = PersonaCatalog.default) {
+        difficulty = .normal
+        randomSeed = 0
+        resetForNewGame(persona: persona, party: PartyCatalog.default, playerName: PartyCatalog.defaultChancellorName)
+        awaitingInitialCoalition = false
+        awaitingInitialBriefing = false
+        pendingCoalitionOptions = nil
         currentEvent = nextQueuedEvent()
+        recordAnnualSnapshot()
+    }
+
+    /// Szenario-Start: Die Wahl ist gewonnen, jetzt wird die Regierung gebildet.
+    /// Das Spiel öffnet mit den Koalitionsverhandlungen und bleibt dabei im Startjahr.
+    public func startNewGame(party: PlayerParty, playerName: String, difficulty: Difficulty = .normal, seed: UInt64 = 0) {
+        self.difficulty = difficulty
+        self.randomSeed = seed
+        let name = playerName.trimmingCharacters(in: .whitespacesAndNewlines)
+        resetForNewGame(
+            persona: party.profile,
+            party: party,
+            playerName: name.isEmpty ? PartyCatalog.defaultChancellorName : name
+        )
+        awaitingInitialCoalition = true
+        awaitingInitialBriefing = true
+        currentEvent = nil
+        pendingCoalitionOptions = makeInitialCoalitionOptions()
+        recordAnnualSnapshot()
+    }
+
+    /// Schließt das Lage-Briefing ab; danach beginnt die Regierungsbildung.
+    public func dismissInitialBriefing() {
+        awaitingInitialBriefing = false
+    }
+
+    /// Gemeinsamer Reset für beide Einstiege.
+    private func resetForNewGame(persona: KanzlerPersona, party: PlayerParty, playerName: String) {
+        self.persona = persona
+        self.playerParty = party
+        self.playerName = playerName
+        var initial = GameStateFactory.initialGermany2000()
+        for effect in persona.visibleModifiers { initial.apply(effect) }
+        for effect in persona.hiddenModifiers { initial.apply(effect) }
+        initial.clampAll()
+        state = initial
+        politicalCapital = max(1, min(maxCapital, persona.startingCapital + difficulty.startingCapitalBonus))
+        coalition = persona.makeCoalition()
+        pendingCampaign = false
+        corruption = 0
+        pendingEncounter = nil
+        cabinet = .standard()
+        pendingCoalitionOptions = nil
+        pendingCoalitionTalks = nil
+        policies = .standard()
+        debt = 60
+        interestGroups = InterestGroupsFactory.standard()
+        partyWings = .standard()
+        hasBundesratMajority = true
+        diplomacy = .standard(from: initial.hidden)
+        lastDecisionResult = nil
+        annualHistory = []
+        prepareCurrentYear()
+    }
+
+    // MARK: Politisches Kapital & Koalition
+
+    /// Effektive Kapitalkosten einer Option (inkl. Persona-Rabatt).
+    public func effectiveCost(of option: DecisionOption) -> Int {
+        max(1, DecisionCost.cost(of: option) - persona.costReduction)
+    }
+
+    /// Ob eine Option bezahlbar ist. Die günstigste Option ist immer wählbar,
+    /// damit der Spieler nie handlungsunfähig wird.
+    public func canAfford(_ option: DecisionOption, among options: [DecisionOption]) -> Bool {
+        let cost = effectiveCost(of: option)
+        if politicalCapital >= cost { return true }
+        let minCost = options.map { effectiveCost(of: $0) }.min() ?? cost
+        return cost == minCost
+    }
+
+    private func capitalIncome() -> Int {
+        var income = 3 + persona.capitalIncomeBonus + difficulty.capitalIncomeBonus
+        if state.governmentApproval >= 55 { income += 1 }
+        if state.governmentApproval >= 70 { income += 1 }
+        if coalition.isMinority { income -= 1 } // Regieren ohne Mehrheit ist zäher
+        return max(1, income)
     }
 
     public func availableEvents() -> [GameEvent] {
@@ -222,10 +384,14 @@ public final class GameEngine {
                     sourceEventID: event.id,
                     sourceOptionID: option.id,
                     startedYear: state.currentYear,
-                    note: "Langfristige Effekte sind fuer spaetere Jahre vorgemerkt."
+                    note: "Langfristige Effekte sind für spätere Jahre vorgemerkt."
                 )
             )
         }
+
+        politicalCapital = max(0, politicalCapital - effectiveCost(of: option))
+        let coalitionDelta = CoalitionDynamics.reaction(to: option, leaning: coalition.leaning, damping: coalition.reactionDamping)
+        coalition.satisfaction = VisibleMetrics.clamped(coalition.satisfaction + coalitionDelta)
 
         state.clampAll()
 
@@ -237,7 +403,8 @@ public final class GameEngine {
             approvalEffect: approvalEffect,
             resultText: option.description,
             historicalReality: event.historicalReality,
-            didChooseHistoricalPath: event.historicalOptionID == option.id
+            didChooseHistoricalPath: event.historicalOptionID == option.id,
+            historicalBackground: event.historicalContext.summary.isEmpty ? nil : event.historicalContext.summary
         )
         lastDecisionResult = result
         currentEvent = nil
@@ -253,23 +420,33 @@ public final class GameEngine {
         guard state.gameOverSummary == nil else { return }
         guard state.pendingElectionResult == nil else { return }
 
+        if coalition.isBroken {
+            triggerCoalitionCollapse()
+            return
+        }
+
         if let nextEvent = nextQueuedEvent() {
             currentEvent = nextEvent
             return
         }
 
         annualSimulation.applyEndOfYearDevelopment(to: &state)
+        applyCabinetInfluence()
+        applyPolicyInfluence()
+        applyInterestGroupInfluence()
+        applyFederalism()
+        applyDiplomacyDrift()
+        applyPartyWingInfluence()
+        recordAnnualSnapshot()
+        applyCorruptionExposure()
+
+        if state.gameOverSummary != nil {
+            currentEvent = nil
+            return
+        }
 
         if electionEngine.shouldHoldElection(in: state) {
-            let election = electionEngine.conductElection(in: state)
-            state.pendingElectionResult = election
-            state.electionResults.append(election)
-            state.yearProgress.isElectionResolved = true
-
-            if !election.didWin {
-                state.gameOverSummary = electionEngine.makeGameOverSummary(for: state, electionResult: election)
-            }
-
+            pendingCampaign = true
             currentEvent = nil
             return
         }
@@ -284,6 +461,28 @@ public final class GameEngine {
         currentEvent = nextQueuedEvent()
     }
 
+    /// Wählt einen Wahlkampf-Schwerpunkt und führt danach die Wahl durch.
+    public func runCampaign(focus: CampaignFocus) {
+        guard pendingCampaign else { return }
+        pendingCampaign = false
+        let bonus = focus.bonus(for: state)
+        let base = electionEngine.conductElection(in: state, campaignBonus: bonus, shareBonus: difficulty.electionShareBonus)
+        let election = ElectionResult(
+            year: base.year,
+            governingPartyShare: base.governingPartyShare,
+            oppositionShare: base.oppositionShare,
+            didWin: base.didWin,
+            reasons: ["Wahlkampf-Schwerpunkt: \(focus.title)"] + base.reasons
+        )
+        state.pendingElectionResult = election
+        state.electionResults.append(election)
+        state.yearProgress.isElectionResolved = true
+        if !election.didWin {
+            state.gameOverSummary = electionEngine.makeGameOverSummary(for: state, electionResult: election)
+        }
+        currentEvent = nil
+    }
+
     public func continueAfterElection() {
         guard let election = state.pendingElectionResult else { return }
         state.pendingElectionResult = nil
@@ -292,14 +491,338 @@ public final class GameEngine {
             return
         }
 
+        // Nach dem Sieg: Koalitionsverhandlungen.
+        pendingCoalitionOptions = makeCoalitionOptions()
+        currentEvent = nil
+    }
+
+    /// Schritt 1 der Koalitionsbildung: Der Kanzler wählt einen Partner (oder die
+    /// Minderheitsregierung). Bei einem Partner starten die Koalitionsgespräche;
+    /// eine Minderheitsregierung wird sofort gebildet.
+    public func formCoalition(optionID: String) {
+        guard let options = pendingCoalitionOptions,
+              let choice = options.first(where: { $0.id == optionID }) else { return }
+        pendingCoalitionOptions = nil
+
+        if choice.isMinority {
+            coalition = CoalitionState(partnerName: "Minderheitsregierung", leaning: coalition.leaning,
+                                       satisfaction: 45, reactionDamping: 0, isMinority: true)
+            finalizeCoalition()
+            return
+        }
+
+        // Partner gewählt → Koalitionsgespräche mit seinen Forderungen eröffnen.
+        pendingCoalitionTalks = CoalitionNegotiation(
+            partnerID: choice.id,
+            partnerName: choice.partyName,
+            leaning: choice.leaning,
+            combinedShare: choice.combinedShare,
+            formsMajority: choice.formsMajority,
+            isInitial: awaitingInitialCoalition,
+            demands: PartyAgendaCatalog.topDemands(for: choice.id, count: 2)
+        )
+    }
+
+    /// Schritt 2: Der Kanzler sagt Forderungen zu oder lehnt sie ab. Zusagen
+    /// stimmen den Partner milde und verschieben die Politik, kosten aber oft.
+    public func concludeCoalitionTalks(acceptedDemandIDs: Set<String>) {
+        guard let talks = pendingCoalitionTalks else { return }
+        pendingCoalitionTalks = nil
+
+        var satisfaction = 52
+        for demand in talks.demands {
+            if acceptedDemandIDs.contains(demand.id) {
+                for effect in demand.visibleEffects { state.apply(effect) }
+                for effect in demand.hiddenEffects { state.apply(effect) }
+                satisfaction += demand.satisfactionReward
+            } else {
+                // Eine abgelehnte Forderung verstimmt den Partner spürbar.
+                satisfaction -= 9
+            }
+        }
+        state.clampAll()
+
+        coalition = CoalitionState(
+            partnerName: talks.partnerName,
+            leaning: talks.leaning,
+            satisfaction: VisibleMetrics.clamped(satisfaction),
+            reactionDamping: 1.0,
+            isMinority: false
+        )
+        finalizeCoalition()
+    }
+
+    /// Schließt die Regierungsbildung ab und schaltet fort. Beim Szenario-Start
+    /// bleibt die Regierung im Startjahr; nach einer Wahl geht es ins Folgejahr.
+    private func finalizeCoalition() {
+        if awaitingInitialCoalition {
+            awaitingInitialCoalition = false
+            currentEvent = nextQueuedEvent()
+            return
+        }
+
+        guard state.gameOverSummary == nil else { currentEvent = nil; return }
         if state.currentYear >= finalYear {
             state.gameOverSummary = makeFinalYearSummary()
             currentEvent = nil
             return
         }
-
         enterYear(state.currentYear + 1)
         currentEvent = nextQueuedEvent()
+    }
+
+    /// Startkoalition: bietet die natürlichen Partner der gewählten Partei an,
+    /// gewichtet nach realem Ausgangs-Stimmenanteil.
+    private func makeInitialCoalitionOptions() -> [CoalitionOption] {
+        let playerShare = playerParty.baseSupport
+        var options = playerParty.naturalPartnerIDs.compactMap { id -> CoalitionOption? in
+            guard let ref = PartyCatalog.reference(id: id) else { return nil }
+            let combined = playerShare + ref.baseSupport
+            return CoalitionOption(
+                id: ref.id,
+                partyName: ref.name,
+                leaning: ref.leaning,
+                combinedShare: (combined * 10).rounded() / 10,
+                formsMajority: combined >= 47,
+                isMinority: false
+            )
+        }
+        options.append(
+            CoalitionOption(id: "none", partyName: "Minderheitsregierung", leaning: playerParty.leaning,
+                            combinedShare: (playerShare * 10).rounded() / 10, formsMajority: false, isMinority: true)
+        )
+        return options
+    }
+
+    /// Baut die Koalitionsoptionen aus der aktuellen Parteienlandschaft.
+    private func makeCoalitionOptions() -> [CoalitionOption] {
+        let projection = electionEngine.project(in: state)
+        let landscape = PartyLandscapeFactory.make(state: state, governingShare: projection.governingShare, coalition: coalition, playerParty: playerParty)
+        let playerShare = landscape.parties.first { $0.role == .governing }?.support ?? playerParty.baseSupport
+        let candidates = landscape.parties
+            .filter { $0.role == .opposition }
+            .sorted { $0.support > $1.support }
+            .prefix(3)
+
+        var options = candidates.map { party -> CoalitionOption in
+            let combined = playerShare + party.support
+            return CoalitionOption(
+                id: party.id,
+                partyName: party.name,
+                leaning: PartyCatalog.leaning(for: party.id),
+                combinedShare: (combined * 10).rounded() / 10,
+                formsMajority: combined >= 47,
+                isMinority: false
+            )
+        }
+        options.append(
+            CoalitionOption(id: "none", partyName: "Minderheitsregierung", leaning: coalition.leaning,
+                            combinedShare: (playerShare * 10).rounded() / 10, formsMajority: false, isMinority: true)
+        )
+        return options
+    }
+
+    // MARK: Gesetze & Haushalt
+
+    /// Aktueller Haushalt aus den Politikfeldern.
+    public func budgetSummary() -> BudgetSummary {
+        let income = PolicyEngine.fiscal(.taxes, level: policies.level(.taxes))
+        let spending = PolicyID.allCases
+            .filter { !$0.isRevenue }
+            .reduce(0) { $0 + PolicyEngine.fiscal($1, level: policies.level($1)) }
+        return BudgetSummary(income: income, spending: spending, debt: debt)
+    }
+
+    /// Versucht, ein Politikfeld zu ändern. Die Änderung kostet Kapital und muss
+    /// im Parlament (Koalition) eine Mehrheit finden.
+    @discardableResult
+    public func attemptPolicyChange(_ policy: PolicyID, to newLevel: Int) -> PolicyVoteResult {
+        let target = min(PolicyEngine.maxLevel, max(0, newLevel))
+        let current = policies.level(policy)
+        guard target != current else { return .unchanged }
+
+        let cost = abs(target - current)
+        guard politicalCapital >= cost else { return .noCapital }
+        politicalCapital -= cost
+
+        let direction = target > current ? 1 : -1
+        let alignment = direction * PolicyEngine.leaningPreference(policy, coalition.leaning)
+        let voteScore = coalition.satisfaction + alignment * 8
+
+        // Minderheitsregierungen und ein verlorener Bundesrat erschweren Mehrheiten.
+        let threshold = (coalition.isMinority ? 52 : 45) + (hasBundesratMajority ? 0 : 7)
+
+        guard voteScore >= threshold else {
+            coalition.satisfaction = VisibleMetrics.clamped(coalition.satisfaction - 4)
+            return .rejected
+        }
+
+        policies.levels[policy.rawValue] = target
+        coalition.satisfaction = VisibleMetrics.clamped(coalition.satisfaction + alignment * 2)
+        state.applyPopulationEffects(PolicyEngine.groupReaction(policy, delta: target - current))
+        state.clampAll()
+        return .passed
+    }
+
+    /// Interessengruppen driften Richtung Zielzufriedenheit; kippt eine mächtige
+    /// Gruppe, folgt eine Protest-/Streik-Aktion.
+    private func applyInterestGroupInfluence() {
+        for index in interestGroups.indices {
+            let group = interestGroups[index]
+            let target = InterestGroupsFactory.target(group.id, policies: policies, state: state)
+            let step = target > group.satisfaction ? 4 : -4
+            interestGroups[index].satisfaction = VisibleMetrics.clamped(
+                group.satisfaction + (abs(target - group.satisfaction) < 4 ? (target - group.satisfaction) : step)
+            )
+
+            if interestGroups[index].satisfaction <= 18 && group.power >= 2 {
+                let action = InterestGroupsFactory.action(group.id)
+                for effect in action.visible { state.apply(effect) }
+                for effect in action.hidden { state.apply(effect) }
+                approvalEngine.applyDecisionImpact(
+                    PublicMemoryImpact(immediateApproval: action.approval),
+                    optionApprovalEffect: 0, to: &state
+                )
+                state.triggeredHistoricalEchoes.append(
+                    TriggeredHistoricalEcho(year: state.currentYear, sourceEventID: "interest-\(group.id.rawValue)",
+                                            sourceOptionID: "action", note: action.note)
+                )
+                interestGroups[index].satisfaction = VisibleMetrics.clamped(interestGroups[index].satisfaction + 16)
+            }
+        }
+        state.clampAll()
+    }
+
+    /// Partei-Flügel driften mit dem politischen Kurs; bricht der Rückhalt weg,
+    /// stürzt die eigene Partei die Führung.
+    private func applyPartyWingInfluence() {
+        let progTarget = PartyWingsDynamics.progressiveTarget(policies: policies)
+        let tradTarget = PartyWingsDynamics.traditionalTarget(policies: policies)
+        partyWings.progressive = drift(partyWings.progressive, toward: progTarget)
+        partyWings.traditional = drift(partyWings.traditional, toward: tradTarget)
+
+        let wingAverage = (partyWings.progressive + partyWings.traditional) / 2
+        let backingTarget = VisibleMetrics.clamped(
+            Int(Double(wingAverage) * 0.55 + Double(state.governmentApproval) * 0.45) + state.shortTermMomentum / 3
+        )
+        partyWings.leadershipBacking = drift(partyWings.leadershipBacking, toward: backingTarget)
+
+        if partyWings.leadershipBacking <= PartyWings.ousterPoint {
+            state.gameOverSummary = electionEngine.endSummary(
+                for: state, reason: .lostElection,
+                messageOverride: "Deine eigene Partei hat dich gestürzt."
+            )
+        }
+    }
+
+    /// Führt eine außenpolitische Aktion aus – kostet politisches Kapital.
+    @discardableResult
+    public func takeDiplomaticAction(_ partner: DiplomaticPartner, actionID: String) -> Bool {
+        guard let action = DiplomaticActionCatalog.actions(for: partner).first(where: { $0.id == actionID }) else { return false }
+        guard politicalCapital >= action.cost else { return false }
+        politicalCapital -= action.cost
+        diplomacy.relations[partner.rawValue] = min(100, max(0, diplomacy.relation(partner) + action.relationDelta))
+        for effect in action.visible { state.apply(effect) }
+        for effect in action.hidden { state.apply(effect) }
+        state.clampAll()
+        return true
+    }
+
+    /// Beziehungen driften ohne Pflege Richtung Neutral; die Gesamtlage wirkt auf
+    /// die internationalen Beziehungen. Sehr kalte Beziehungen lösen eine Krise aus.
+    private func applyDiplomacyDrift() {
+        var total = 0
+        for partner in DiplomaticPartner.allCases {
+            let current = diplomacy.relation(partner)
+            let drifted = current > 50 ? current - 1 : (current < 50 ? current + 1 : current)
+            diplomacy.relations[partner.rawValue] = drifted
+            total += drifted
+        }
+        let average = total / DiplomaticPartner.allCases.count
+        if average >= 60 {
+            state.apply(GameEffect(metric: .internationalRelations, change: 1))
+        } else if average <= 40 {
+            state.apply(GameEffect(metric: .internationalRelations, change: -1))
+        }
+        if let crisis = DiplomaticPartner.allCases.first(where: { diplomacy.relation($0) <= 22 }) {
+            state.triggeredHistoricalEchoes.append(
+                TriggeredHistoricalEcho(year: state.currentYear, sourceEventID: "diplomacy-\(crisis.rawValue)",
+                                        sourceOptionID: "crisis",
+                                        note: "Diplomatische Krise mit \(crisis.title): Das Verhältnis ist zerrüttet.")
+            )
+        }
+        state.clampAll()
+    }
+
+    /// Landtagswahlen verschieben die Mehrheit im Bundesrat.
+    private func applyFederalism() {
+        let offset = state.currentYear - 2000
+        guard offset > 0, offset % 3 == 0, !electionEngine.electionYears.contains(state.currentYear) else { return }
+        let hadMajority = hasBundesratMajority
+        hasBundesratMajority = state.governmentApproval >= 48
+        let note: String
+        if hasBundesratMajority && !hadMajority {
+            note = "Landtagswahlen: Die Regierung gewinnt die Mehrheit im Bundesrat zurück."
+        } else if !hasBundesratMajority && hadMajority {
+            note = "Landtagswahlen: Die Regierung verliert die Mehrheit im Bundesrat – Gesetze werden schwerer."
+        } else if hasBundesratMajority {
+            note = "Landtagswahlen: Die Regierung behauptet ihre Mehrheit im Bundesrat."
+        } else {
+            note = "Landtagswahlen: Die Opposition dominiert weiter den Bundesrat."
+        }
+        state.triggeredHistoricalEchoes.append(
+            TriggeredHistoricalEcho(year: state.currentYear, sourceEventID: "landtagswahl",
+                                    sourceOptionID: "result", note: note)
+        )
+    }
+
+    private func drift(_ value: Int, toward target: Int) -> Int {
+        let delta = target - value
+        if abs(delta) < 4 { return VisibleMetrics.clamped(target) }
+        return VisibleMetrics.clamped(value + (delta > 0 ? 4 : -4))
+    }
+
+    /// Jährliche Wirkung der Politikfelder auf Werte und Haushalt.
+    private func applyPolicyInfluence() {
+        for policy in PolicyID.allCases {
+            let level = policies.level(policy)
+            for effect in PolicyEngine.annualVisible(policy, level: level) { state.apply(effect) }
+            for effect in PolicyEngine.annualHidden(policy, level: level) { state.apply(effect) }
+        }
+
+        let budget = budgetSummary()
+        debt = min(200, max(0, debt + budget.deficit))
+        if budget.deficit <= 0 {
+            state.apply(GameEffect(metric: .budget, change: 1))
+        } else {
+            state.apply(GameEffect(metric: .budget, change: budget.deficit > 15 ? -2 : -1))
+        }
+        if debt > 120 { state.apply(GameEffect(metric: .budget, change: -1)) }
+        state.clampAll()
+    }
+
+    /// Neubesetzung eines Ressorts – kostet politisches Kapital.
+    @discardableResult
+    public func reshuffleMinister(_ ministry: Ministry) -> Bool {
+        guard politicalCapital >= 2 else { return false }
+        politicalCapital -= 2
+        let index = Ministry.allCases.firstIndex(of: ministry) ?? 0
+        let seed = state.currentYear &* 31 &+ index &* 17 &+ state.decisions.count &* 5
+        cabinet.ministers[ministry.rawValue] = MinisterPool.make(seed: seed)
+        return true
+    }
+
+    /// Starke Ressorts heben ihren Kennwert leicht, überforderte senken ihn.
+    private func applyCabinetInfluence() {
+        for ministry in Ministry.allCases {
+            let competence = cabinet.minister(ministry).competence
+            if competence >= 70 {
+                state.apply(GameEffect(metric: ministry.metric, change: 1))
+            } else if competence <= 35 {
+                state.apply(GameEffect(metric: ministry.metric, change: -1))
+            }
+        }
+        state.clampAll()
     }
 
     private func prepareCurrentYear() {
@@ -310,11 +833,98 @@ public final class GameEngine {
 
     private func enterYear(_ year: Int) {
         state.currentYear = year
+        politicalCapital = min(maxCapital, politicalCapital + capitalIncome())
         prepareCurrentYear()
+        maybeScheduleEncounter(for: year)
+    }
+
+    /// Legt zu Jahresbeginn ggf. ein Interview oder Lobby-Angebot fest.
+    private func maybeScheduleEncounter(for year: Int) {
+        guard pendingEncounter == nil, !electionEngine.electionYears.contains(year) else { return }
+        let offset = year - 2000
+        if offset % 3 == 2 {
+            pendingEncounter = LobbyFactory.make(state: state, year: year)
+        } else if offset % 2 == 1 {
+            pendingEncounter = InterviewFactory.make(
+                state: state,
+                year: year,
+                coalition: coalition,
+                playerPartyName: playerParty.name,
+                opponentName: strongestOpponentName()
+            )
+        }
+    }
+
+    /// Name der stärksten Oppositionspartei – für Interview-Flavor.
+    private func strongestOpponentName() -> String {
+        let projection = electionEngine.project(in: state)
+        let landscape = PartyLandscapeFactory.make(state: state, governingShare: projection.governingShare, coalition: coalition, playerParty: playerParty)
+        return landscape.strongestOpposition?.name ?? "die Opposition"
+    }
+
+    /// Wendet die gewählte Antwort einer Begegnung an.
+    public func resolveEncounter(optionID: String) {
+        guard let encounter = pendingEncounter,
+              let option = encounter.options.first(where: { $0.id == optionID }) else { return }
+
+        for effect in option.visibleEffects { state.apply(effect) }
+        if option.polarizationEffect != 0 {
+            state.apply(HiddenEffect(metric: .polarization, change: option.polarizationEffect))
+        }
+        if option.approvalEffect != 0 {
+            approvalEngine.applyDecisionImpact(
+                PublicMemoryImpact(immediateApproval: option.approvalEffect),
+                optionApprovalEffect: 0,
+                to: &state
+            )
+        }
+        politicalCapital = min(maxCapital, politicalCapital + option.capitalReward)
+        corruption = VisibleMetrics.clamped(corruption + option.corruptionEffect)
+
+        state.decisions.append(
+            DecisionRecord(
+                year: state.currentYear,
+                eventID: encounter.kind.rawValue,
+                optionID: option.id,
+                optionTitle: option.title
+            )
+        )
+        pendingEncounter = nil
+        state.clampAll()
+    }
+
+    /// Der Koalitionspartner verlässt die Regierung – es kommt zur Neuwahl.
+    private func triggerCoalitionCollapse() {
+        let base = electionEngine.conductElection(in: state, shareBonus: difficulty.electionShareBonus)
+        let election = ElectionResult(
+            year: base.year,
+            governingPartyShare: base.governingPartyShare,
+            oppositionShare: base.oppositionShare,
+            didWin: base.didWin,
+            reasons: ["Koalitionsbruch – vorgezogene Neuwahl"] + base.reasons
+        )
+        state.pendingElectionResult = election
+        state.electionResults.append(election)
+        state.yearProgress.isElectionResolved = true
+        if !election.didWin {
+            state.gameOverSummary = electionEngine.makeGameOverSummary(for: state, electionResult: election)
+        } else {
+            coalition.satisfaction = 45
+        }
+        currentEvent = nil
     }
 
     private func rebuildEventQueue() {
-        let pendingIDs = availableEvents().map(\.id)
+        var pendingIDs = availableEvents().map(\.id)
+        // Wiederspielwert: bei gesetztem Seed die Reihenfolge mischen und pro Jahr
+        // eine zufällige Teilauswahl zeigen – so fühlt sich jeder Durchlauf anders
+        // an. Seed 0 (Tests/Balance) bleibt deterministisch: volle Datei-Reihenfolge.
+        if randomSeed != 0, pendingIDs.count > 1 {
+            var rng = SeededRandom(seed: randomSeed &+ UInt64(bitPattern: Int64(state.currentYear)))
+            pendingIDs.shuffle(using: &rng)
+            let cap = min(pendingIDs.count, 4)
+            pendingIDs = Array(pendingIDs.prefix(cap))
+        }
         state.eventQueue = EventQueue(year: state.currentYear, pendingEventIDs: pendingIDs)
     }
 
@@ -376,5 +986,48 @@ public final class GameEngine {
 
     private func makeFinalYearSummary() -> GameOverSummary {
         electionEngine.endSummary(for: state, reason: .reachedFinalYear)
+    }
+
+    /// Prüft am Jahresende, ob ein Korruptionsskandal auffliegt. Je höher die
+    /// angehäufte Korruption, desto wahrscheinlicher und heftiger.
+    private func applyCorruptionExposure() {
+        guard corruption >= 25 else { return }
+        let roll = (state.currentYear * 31 + corruption * 7) % 100
+        guard roll < (corruption - 10) else { return }
+
+        state.apply(GameEffect(metric: .trust, change: -16))
+        state.apply(GameEffect(metric: .society, change: -8))
+        state.apply(HiddenEffect(metric: .polarization, change: 10))
+        approvalEngine.applyDecisionImpact(
+            PublicMemoryImpact(immediateApproval: -14),
+            optionApprovalEffect: 0,
+            to: &state
+        )
+        coalition.satisfaction = VisibleMetrics.clamped(coalition.satisfaction - 20)
+        corruption = corruption / 3
+        state.historicalFlags.insert("corruption_scandal")
+        state.triggeredHistoricalEchoes.append(
+            TriggeredHistoricalEcho(
+                year: state.currentYear,
+                sourceEventID: "corruption",
+                sourceOptionID: "scandal",
+                note: "Korruptionsskandal: Geheime Zahlungen aufgedeckt – Vertrauen und Zustimmung brechen ein."
+            )
+        )
+        state.clampAll()
+    }
+
+    /// Speichert bzw. aktualisiert die Jahres-Momentaufnahme für das laufende Jahr.
+    private func recordAnnualSnapshot() {
+        let record = AnnualRecord(
+            year: state.currentYear,
+            visible: state.visible,
+            approval: state.governmentApproval
+        )
+        if let index = annualHistory.firstIndex(where: { $0.year == record.year }) {
+            annualHistory[index] = record
+        } else {
+            annualHistory.append(record)
+        }
     }
 }

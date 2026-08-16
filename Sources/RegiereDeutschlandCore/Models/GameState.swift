@@ -171,19 +171,24 @@ public enum GameStateFactory {
     }
 }
 
+/// Ausgangslage Deutschlands im Jahr 2000 als 0–100-Index, an der realen Lage
+/// kalibriert: Dotcom-Wachstum bei ~9,6 % Arbeitslosigkeit (Wirtschaft mittel),
+/// durch UMTS-Erlöse fast ausgeglichener Haushalt, Atomkonsens 2000, EU-Motor
+/// unter Schröder/Fischer – aber durch die CDU-Spendenaffäre erschüttertes
+/// Vertrauen in die Politik.
 private enum InitialGermany2000 {
     static let currentYear = 2000
-    static let governmentApproval = 52
+    static let governmentApproval = 54
 
     static let visible = VisibleMetrics(
-        economy: 58,
-        budget: 48,
-        livingStandard: 64,
-        society: 61,
-        security: 70,
-        energy: 55,
-        internationalRelations: 68,
-        trust: 50
+        economy: 54,            // Dotcom-Boom, aber hohe Arbeitslosigkeit
+        budget: 53,             // UMTS-Erlöse, Eichel-Konsolidierung
+        livingStandard: 62,     // hoher Wohlstand, Ost-West-Gefälle
+        society: 58,            // stabil, aber Integrationsdebatte
+        security: 68,           // vor dem 11. September, hohe innere Sicherheit
+        energy: 52,             // Atomausstiegs-Konsens, fossil geprägt
+        internationalRelations: 66, // EU-Motor, transatlantisch stabil
+        trust: 44               // CDU-Spendenaffäre, Politikverdrossenheit
     )
 
     static let hidden = HiddenMetrics(

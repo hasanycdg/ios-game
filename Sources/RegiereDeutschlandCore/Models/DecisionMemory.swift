@@ -14,6 +14,17 @@ public struct PublicMemoryImpact: Codable, Equatable, Sendable {
         self.groupEffects = groupEffects
         self.reactivationTags = reactivationTags
     }
+
+    private enum CodingKeys: String, CodingKey {
+        case immediateApproval, groupEffects, reactivationTags
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        immediateApproval = try container.decodeIfPresent(Int.self, forKey: .immediateApproval) ?? 0
+        groupEffects = try container.decodeIfPresent([PopulationApprovalEffect].self, forKey: .groupEffects) ?? []
+        reactivationTags = try container.decodeIfPresent([String].self, forKey: .reactivationTags) ?? []
+    }
 }
 
 public struct DecisionMemoryRecord: Codable, Equatable, Identifiable, Sendable {

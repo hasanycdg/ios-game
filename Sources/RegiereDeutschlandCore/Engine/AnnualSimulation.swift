@@ -36,6 +36,13 @@ public struct AnnualSimulation: Sendable {
             state.apply(GameEffect(metric: .livingStandard, change: 1))
         }
 
+        // Amtsmüdigkeit: Sehr hohe Zustimmung lässt sich über die Jahre schwerer
+        // halten und driftet zur Mitte – Wahlen bleiben so umkämpft.
+        if state.governmentApproval > 62 {
+            let fatigue = -min(3, (state.governmentApproval - 62) / 8 + 1)
+            state.applyApprovalChange(fatigue)
+        }
+
         memoryService.decayMemory(in: &state)
         approvalEngine.normalizePopulationApproval(for: &state)
         state.yearProgress.isAnnualSimulationApplied = true

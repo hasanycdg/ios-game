@@ -5,5 +5,7 @@ struct RootView: View {
         NavigationStack {
             HomeScreen()
         }
+        .tint(GameTheme.gold)
+        .preferredColorScheme(.dark)
     }
 }

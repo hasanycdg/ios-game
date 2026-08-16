@@ -4,10 +4,10 @@
     "year": 2002,
     "title": "Jahrhundertflut",
     "category": "security",
-    "headline": "Schwere Hochwasser treffen Ost- und Sueddeutschland.",
+    "headline": "Schwere Hochwasser treffen Ost- und Süddeutschland.",
     "description": "Die Regierung muss Katastrophenhilfe, Infrastruktur und Haushalt zusammenbringen.",
     "historicalContext": {
-      "summary": "2002 verursachten Hochwasser in Deutschland grosse Schaeden und wurden politisch sehr sichtbar.",
+      "summary": "2002 verursachten Hochwasser in Deutschland grosse Schäden und wurden politisch sehr sichtbar.",
       "sourceNote": "Redaktioneller Prototype-Content."
     },
     "options": [
@@ -15,7 +15,7 @@
         "id": "fast-relief",
         "title": "Schnelle Fluthilfe beschliessen",
         "description": "Betroffene Regionen erhalten schnelle Hilfe, der Haushalt wird belastet.",
-        "advisoryNote": "Ministerpraesidenten fordern sofortige Zusagen.",
+        "advisoryNote": "Ministerpräsidenten fordern sofortige Zusagen.",
         "immediateEffects": [
           { "metric": "trust", "change": 4 },
           { "metric": "society", "change": 2 },
@@ -38,7 +38,7 @@
       },
       {
         "id": "resilience-program",
-        "title": "Hilfe mit Praeventionsprogramm verbinden",
+        "title": "Hilfe mit Präventionsprogramm verbinden",
         "description": "Der Staat zahlt langsamer, investiert aber in Schutz und Infrastruktur.",
         "advisoryNote": "Fachleute sehen langfristige Vorteile, Betroffene erwarten Tempo.",
         "immediateEffects": [
@@ -63,7 +63,7 @@
             ],
             "approvalEffect": 1,
             "flagsToSet": ["floods_2002_resilience_payoff"],
-            "note": "Fruehe Praevention verbessert die Krisenfestigkeit."
+            "note": "Frühe Prävention verbessert die Krisenfestigkeit."
           }
         ],
         "flagsToSet": ["floods_2002_resilience"],

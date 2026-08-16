@@ -1,0 +1,1751 @@
+[
+  {
+    "id": "x-eu-2000",
+    "year": 2000,
+    "title": "EU-Osterweiterung",
+    "category": "foreignPolicy",
+    "headline": "Die Union will nach Osten wachsen.",
+    "description": "Mittel- und osteuropäische Staaten wollen der EU beitreten. Wie stark treibt Deutschland das voran?",
+    "historicalContext": {
+      "summary": "Um 2000 wurde die EU-Osterweiterung von 2004 vorbereitet."
+    },
+    "options": [
+      {
+        "id": "eu00-push",
+        "title": "Beitritte aktiv fördern",
+        "description": "Deutschland als Motor der Erweiterung.",
+        "advisoryNote": "Chancen für die Wirtschaft, Sorgen um Löhne.",
+        "immediateEffects": [
+          {
+            "metric": "internationalRelations",
+            "change": 3
+          },
+          {
+            "metric": "economy",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "euRelations",
+            "change": 8
+          },
+          {
+            "metric": "labourMarketFlexibility",
+            "change": 2
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 3
+            },
+            {
+              "group": "workers",
+              "change": -2
+            }
+          ]
+        }
+      },
+      {
+        "id": "eu00-cautious",
+        "title": "Schrittweise und mit Übergangsfristen",
+        "description": "Erweiterung ja, aber abgesichert.",
+        "advisoryNote": "Ein besonnener Mittelweg.",
+        "immediateEffects": [
+          {
+            "metric": "internationalRelations",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "euRelations",
+            "change": 4
+          }
+        ],
+        "approvalEffect": 1
+      },
+      {
+        "id": "eu00-slow",
+        "title": "Bremsen",
+        "description": "Erst die eigenen Interessen sichern.",
+        "advisoryNote": "Schützt kurzfristig, verärgert die Partner.",
+        "immediateEffects": [
+          {
+            "metric": "internationalRelations",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "euRelations",
+            "change": -4
+          },
+          {
+            "metric": "polarization",
+            "change": 2
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Deutschland trieb die EU-Osterweiterung 2004 mit voran.",
+    "historicalOptionID": "eu00-cautious"
+  },
+  {
+    "id": "x-pension-riester-2000",
+    "year": 2000,
+    "title": "Riester-Rente",
+    "category": "welfare",
+    "headline": "Die Rente soll um eine private Säule ergänzt werden.",
+    "description": "Die umlagefinanzierte Rente gerät demografisch unter Druck. Baut Deutschland eine private Vorsorge auf?",
+    "historicalContext": {
+      "summary": "Um 2001 wurde die Riester-Rente als private Vorsorge eingeführt."
+    },
+    "options": [
+      {
+        "id": "ri-private",
+        "title": "Private Vorsorge fördern",
+        "description": "Zulagen für private Altersvorsorge.",
+        "advisoryNote": "Ökonomen loben die Vorsorge, Kritiker die Kosten.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 1
+          },
+          {
+            "metric": "budget",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": 3
+          },
+          {
+            "metric": "welfareStrength",
+            "change": -1
+          }
+        ],
+        "flagsToSet": [
+          "x_riester"
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 16,
+            "immediateEffects": [
+              {
+                "metric": "livingStandard",
+                "change": 2
+              }
+            ],
+            "hiddenEffects": [
+              {
+                "metric": "fiscalSpace",
+                "change": 3
+              }
+            ],
+            "flagsToSet": [
+              "x_riester_echo"
+            ],
+            "note": "Die frühe private Vorsorge entlastet später die Rentenkasse."
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 2
+            },
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            },
+            {
+              "group": "retirees",
+              "change": -1
+            }
+          ]
+        }
+      },
+      {
+        "id": "ri-public",
+        "title": "Auf die gesetzliche Rente setzen",
+        "description": "Stärkung der solidarischen Rente.",
+        "advisoryNote": "Sozial, aber demografisch riskant.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "welfareStrength",
+            "change": 4
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -3
+          }
+        ],
+        "approvalEffect": 1,
+        "flagsToSet": [
+          "x_public_pension"
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "retirees",
+              "change": 3
+            },
+            {
+              "group": "workers",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Deutschland führte die private Riester-Rente ein.",
+    "historicalOptionID": "ri-private"
+  },
+  {
+    "id": "x-911-2001",
+    "year": 2001,
+    "title": "Nach dem 11. September",
+    "category": "security",
+    "headline": "Die Terroranschläge verändern die Sicherheitspolitik.",
+    "description": "Die Welt ist im Schock. Wie weit geht Deutschland bei Sicherheit und Solidarität?",
+    "historicalContext": {
+      "summary": "Nach 9/11 beteiligte sich Deutschland am Einsatz in Afghanistan."
+    },
+    "options": [
+      {
+        "id": "911-solidarity",
+        "title": "Uneingeschränkte Solidarität",
+        "description": "An der Seite der Verbündeten – auch militärisch.",
+        "advisoryNote": "Transatlantisch geschlossen, im Land umstritten.",
+        "immediateEffects": [
+          {
+            "metric": "internationalRelations",
+            "change": 3
+          },
+          {
+            "metric": "security",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "usRelations",
+            "change": 8
+          },
+          {
+            "metric": "defenceReadiness",
+            "change": 3
+          },
+          {
+            "metric": "polarization",
+            "change": 4
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": -3
+            }
+          ]
+        }
+      },
+      {
+        "id": "911-security",
+        "title": "Innere Sicherheit ausbauen",
+        "description": "Neue Befugnisse für die Behörden.",
+        "advisoryNote": "Sicherheit gegen Freiheitsrechte.",
+        "immediateEffects": [
+          {
+            "metric": "security",
+            "change": 3
+          },
+          {
+            "metric": "trust",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "polarization",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "retirees",
+              "change": 3
+            },
+            {
+              "group": "youngAdults",
+              "change": -2
+            }
+          ]
+        }
+      },
+      {
+        "id": "911-restraint",
+        "title": "Zurückhaltung wahren",
+        "description": "Solidarität ja, Militär nein.",
+        "advisoryNote": "Friedenspolitisch klar, bündnispolitisch heikel.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 2
+          },
+          {
+            "metric": "internationalRelations",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "usRelations",
+            "change": -4
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 3
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Deutschland sicherte Solidarität zu und ging nach Afghanistan.",
+    "historicalOptionID": "911-solidarity"
+  },
+  {
+    "id": "x-pisa-2002",
+    "year": 2002,
+    "title": "PISA-Schock",
+    "category": "digitalization",
+    "headline": "Deutschlands Schüler schneiden schlecht ab.",
+    "description": "Eine internationale Studie offenbart Schwächen im Bildungssystem. Wie reagiert die Regierung?",
+    "historicalContext": {
+      "summary": "Der PISA-Schock 2001/2002 löste eine Bildungsdebatte aus."
+    },
+    "options": [
+      {
+        "id": "pisa-invest",
+        "title": "Groß in Bildung investieren",
+        "description": "Ganztagsschulen, mehr Lehrer, frühe Förderung.",
+        "advisoryNote": "Teuer, aber eine Investition in die Zukunft.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": -4
+          },
+          {
+            "metric": "society",
+            "change": 2
+          },
+          {
+            "metric": "livingStandard",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": 4
+          },
+          {
+            "metric": "integrationCapacity",
+            "change": 4
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -3
+          }
+        ],
+        "approvalEffect": 1,
+        "flagsToSet": [
+          "x_edu_push"
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 13,
+            "immediateEffects": [
+              {
+                "metric": "economy",
+                "change": 3
+              }
+            ],
+            "hiddenEffects": [
+              {
+                "metric": "digitalization",
+                "change": 5
+              },
+              {
+                "metric": "labourMarketFlexibility",
+                "change": 3
+              }
+            ],
+            "flagsToSet": [
+              "x_edu_echo"
+            ],
+            "note": "Die frühe Bildungsoffensive stärkt eine Generation später die Wirtschaft."
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "families",
+              "change": 4
+            },
+            {
+              "group": "youngAdults",
+              "change": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "pisa-reform",
+        "title": "Nur Strukturen reformieren",
+        "description": "Vergleichstests und Standards ohne große Ausgaben.",
+        "advisoryNote": "Billiger, aber weniger wirksam.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "integrationCapacity",
+            "change": 1
+          }
+        ],
+        "flagsToSet": [
+          "x_edu_status"
+        ]
+      },
+      {
+        "id": "pisa-ignore",
+        "title": "Wenig ändern",
+        "description": "Bildung ist Ländersache.",
+        "advisoryNote": "Verpasste Chance, sagen die Kritiker.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": -2
+          }
+        ],
+        "approvalEffect": -1,
+        "flagsToSet": [
+          "x_edu_neglect"
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "families",
+              "change": -3
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Der PISA-Schock führte zu Ganztagsschulen und Bildungsreformen.",
+    "historicalOptionID": "pisa-invest"
+  },
+  {
+    "id": "x-agenda-2003",
+    "year": 2003,
+    "title": "Agenda 2010",
+    "category": "welfare",
+    "headline": "Schröders große Sozial- und Arbeitsmarktreform.",
+    "description": "Hohe Arbeitslosigkeit zwingt zu Reformen. Setzt die Regierung die schmerzhafte Agenda 2010 durch?",
+    "historicalContext": {
+      "summary": "2003 kündigte Kanzler Schröder die Agenda 2010 an – ein historischer Einschnitt."
+    },
+    "options": [
+      {
+        "id": "ag-reform",
+        "title": "Agenda 2010 durchsetzen",
+        "description": "Arbeitsmarkt flexibilisieren, Sozialstaat umbauen.",
+        "advisoryNote": "Ökonomen loben Mut, die eigene Basis rebelliert.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 3
+          },
+          {
+            "metric": "society",
+            "change": -4
+          },
+          {
+            "metric": "livingStandard",
+            "change": -2
+          },
+          {
+            "metric": "trust",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "labourMarketFlexibility",
+            "change": 12
+          },
+          {
+            "metric": "welfareStrength",
+            "change": -6
+          },
+          {
+            "metric": "polarization",
+            "change": 8
+          }
+        ],
+        "approvalEffect": -3,
+        "flagsToSet": [
+          "x_agenda_reform"
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 7,
+            "immediateEffects": [
+              {
+                "metric": "economy",
+                "change": 4
+              }
+            ],
+            "hiddenEffects": [
+              {
+                "metric": "labourMarketFlexibility",
+                "change": 4
+              }
+            ],
+            "approvalEffect": 2,
+            "flagsToSet": [
+              "x_agenda_echo"
+            ],
+            "note": "Die harten Reformen von 2003 senken Jahre später die Arbeitslosigkeit spürbar."
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 5
+            },
+            {
+              "group": "workers",
+              "change": -4
+            },
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": -5
+            }
+          ]
+        }
+      },
+      {
+        "id": "ag-soft",
+        "title": "Behutsam reformieren",
+        "description": "Kleinere Schritte, sozial abgefedert.",
+        "advisoryNote": "Vermeidet den Aufstand, verschiebt das Problem.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 1
+          },
+          {
+            "metric": "economy",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "labourMarketFlexibility",
+            "change": 3
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -2
+          }
+        ],
+        "flagsToSet": [
+          "x_agenda_status"
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "ag-none",
+        "title": "Keine harten Reformen",
+        "description": "Sozialstaat schützen, Kurs halten.",
+        "advisoryNote": "Populär bei der Basis, teuer für den Standort.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 2
+          },
+          {
+            "metric": "livingStandard",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "labourMarketFlexibility",
+            "change": -4
+          },
+          {
+            "metric": "welfareStrength",
+            "change": 3
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -4
+          }
+        ],
+        "approvalEffect": 1,
+        "flagsToSet": [
+          "x_agenda_status"
+        ],
+        "delayedEffects": [
+          {
+            "delayInYears": 7,
+            "immediateEffects": [
+              {
+                "metric": "economy",
+                "change": -3
+              }
+            ],
+            "flagsToSet": [
+              "x_agenda_stall_echo"
+            ],
+            "note": "Ohne Reformen bleibt die Arbeitslosigkeit hoch."
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 3
+            },
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": 3
+            },
+            {
+              "group": "entrepreneurs",
+              "change": -3
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Deutschland setzte die Agenda 2010 um – gegen große Widerstände.",
+    "historicalOptionID": "ag-reform"
+  },
+  {
+    "id": "x-iraq-2003",
+    "year": 2003,
+    "title": "Irak-Krieg",
+    "category": "foreignPolicy",
+    "headline": "Der Druck zur Beteiligung wächst.",
+    "description": "Die USA führen einen Krieg gegen den Irak. Schließt sich Deutschland an?",
+    "historicalContext": {
+      "summary": "2003 lehnte Deutschland eine Beteiligung am Irak-Krieg ab."
+    },
+    "options": [
+      {
+        "id": "iraq-refuse",
+        "title": "Beteiligung ablehnen",
+        "description": "Ein klares Nein zum Krieg.",
+        "advisoryNote": "Im Land beliebt, in Washington verärgert.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 3
+          },
+          {
+            "metric": "trust",
+            "change": 2
+          },
+          {
+            "metric": "internationalRelations",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "usRelations",
+            "change": -8
+          },
+          {
+            "metric": "euRelations",
+            "change": 2
+          }
+        ],
+        "approvalEffect": 3,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 4
+            }
+          ]
+        }
+      },
+      {
+        "id": "iraq-neutral",
+        "title": "Neutral bleiben",
+        "description": "Weder Ja noch Nein.",
+        "advisoryNote": "Vermeidet Festlegung, wirkt aber unentschlossen.",
+        "immediateEffects": [
+          {
+            "metric": "trust",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "usRelations",
+            "change": -2
+          }
+        ],
+        "approvalEffect": -1
+      },
+      {
+        "id": "iraq-support",
+        "title": "Verbündete unterstützen",
+        "description": "Transatlantische Treue über alles.",
+        "advisoryNote": "Bündnistreu, aber gegen die Mehrheit im Land.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": -4
+          },
+          {
+            "metric": "internationalRelations",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "usRelations",
+            "change": 6
+          },
+          {
+            "metric": "polarization",
+            "change": 5
+          }
+        ],
+        "approvalEffect": -3,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": -5
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Deutschland verweigerte die Beteiligung am Irak-Krieg.",
+    "historicalOptionID": "iraq-refuse"
+  },
+  {
+    "id": "x-hartz-2004",
+    "year": 2004,
+    "title": "Hartz IV",
+    "category": "welfare",
+    "headline": "Die Arbeitsmarktreform trifft die Straße.",
+    "description": "Die Zusammenlegung von Arbeitslosen- und Sozialhilfe löst Massenproteste aus. Hält die Regierung Kurs?",
+    "historicalContext": {
+      "summary": "2004 lösten die Hartz-Reformen Montagsdemonstrationen aus."
+    },
+    "options": [
+      {
+        "id": "h4-hold",
+        "title": "Kurs halten",
+        "description": "Die Reform durchziehen.",
+        "advisoryNote": "Standhaft oder stur, je nach Sichtweise.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": -3
+          },
+          {
+            "metric": "trust",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "labourMarketFlexibility",
+            "change": 5
+          },
+          {
+            "metric": "polarization",
+            "change": 5
+          }
+        ],
+        "approvalEffect": -2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": -5
+            },
+            {
+              "group": "entrepreneurs",
+              "change": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "h4-soften",
+        "title": "Nachbessern",
+        "description": "Härten abfedern, Sätze anheben.",
+        "advisoryNote": "Ein Zugeständnis, das etwas Druck nimmt.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 1
+          },
+          {
+            "metric": "budget",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "welfareStrength",
+            "change": 2
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": 2
+            },
+            {
+              "group": "workers",
+              "change": 1
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Die Regierung hielt an Hartz IV fest, besserte aber leicht nach.",
+    "historicalOptionID": "h4-soften"
+  },
+  {
+    "id": "x-cap-2004",
+    "year": 2004,
+    "title": "Standort im Wettbewerb",
+    "category": "digitalization",
+    "headline": "Globalisierung setzt die Industrie unter Druck.",
+    "description": "Unternehmen drohen mit Abwanderung. Wie sichert Deutschland Arbeitsplätze und Innovation?",
+    "historicalContext": {
+      "summary": "Mitte der 2000er wuchs der Druck auf den Wirtschaftsstandort."
+    },
+    "options": [
+      {
+        "id": "cap-innovate",
+        "title": "In Forschung investieren",
+        "description": "Zukunftstechnologien fördern.",
+        "advisoryNote": "Teuer, aber vorausschauend.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 2
+          },
+          {
+            "metric": "budget",
+            "change": -3
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": 5
+          },
+          {
+            "metric": "infrastructureQuality",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            },
+            {
+              "group": "youngAdults",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "cap-lowcost",
+        "title": "Auf Kostensenkung setzen",
+        "description": "Löhne und Steuern niedrig halten.",
+        "advisoryNote": "Kurzfristig wettbewerbsfähig, sozial umstritten.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 3
+          },
+          {
+            "metric": "society",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "labourMarketFlexibility",
+            "change": 4
+          },
+          {
+            "metric": "welfareStrength",
+            "change": -2
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 4
+            },
+            {
+              "group": "workers",
+              "change": -3
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Deutschland setzte auf Innovation und moderate Reformen.",
+    "historicalOptionID": "cap-innovate"
+  },
+  {
+    "id": "x-vat-2005",
+    "year": 2005,
+    "title": "Mehrwertsteuer",
+    "category": "budget",
+    "headline": "Zur Haushaltssanierung droht eine Steuererhöhung.",
+    "description": "Der Haushalt ist angespannt. Kündigt die Regierung eine Mehrwertsteuererhöhung an?",
+    "historicalContext": {
+      "summary": "2005/2006 wurde die Erhöhung der Mehrwertsteuer beschlossen."
+    },
+    "options": [
+      {
+        "id": "vat-raise",
+        "title": "Mehrwertsteuer erhöhen",
+        "description": "Mehr Einnahmen für den Haushalt.",
+        "advisoryNote": "Solide Kasse, teurer Alltag.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": 4
+          },
+          {
+            "metric": "livingStandard",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": 6
+          }
+        ],
+        "approvalEffect": -2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": -3
+            },
+            {
+              "group": "workers",
+              "change": -2
+            }
+          ]
+        }
+      },
+      {
+        "id": "vat-cut-spend",
+        "title": "Stattdessen Ausgaben kürzen",
+        "description": "Sparen statt Steuern erhöhen.",
+        "advisoryNote": "Ordnungspolitisch sauber, sozial hart.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": 3
+          },
+          {
+            "metric": "society",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": 4
+          },
+          {
+            "metric": "welfareStrength",
+            "change": -2
+          }
+        ],
+        "approvalEffect": -1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": -3
+            }
+          ]
+        }
+      },
+      {
+        "id": "vat-none",
+        "title": "Weder noch",
+        "description": "Auf Wachstum hoffen.",
+        "advisoryNote": "Riskant, wenn das Wachstum ausbleibt.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 1
+          },
+          {
+            "metric": "budget",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": -3
+          }
+        ],
+        "approvalEffect": 1
+      }
+    ],
+    "conditions": [],
+    "historicalReality": "Deutschland erhöhte die Mehrwertsteuer von 16 auf 19 Prozent.",
+    "historicalOptionID": "vat-raise"
+  },
+  {
+    "id": "x-agenda-2011",
+    "year": 2011,
+    "title": "Das Jobwunder",
+    "category": "economy",
+    "headline": "Die Reformen von 2003 zahlen sich aus.",
+    "description": "Die Agenda 2010 wirkt: Die Arbeitslosigkeit sinkt auf ein Rekordtief.",
+    "historicalContext": {
+      "summary": "Deutschlands Arbeitsmarkt erholte sich Ende der 2000er stark – eine Spätfolge der Reformen."
+    },
+    "options": [
+      {
+        "id": "ag11-share",
+        "title": "Den Erfolg verteilen",
+        "description": "Löhne steigen, alle profitieren.",
+        "advisoryNote": "Der Aufschwung kommt an.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 3
+          },
+          {
+            "metric": "livingStandard",
+            "change": 3
+          },
+          {
+            "metric": "society",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "welfareStrength",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 3,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 4
+            },
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "ag11-consolidate",
+        "title": "Erfolg zum Sparen nutzen",
+        "description": "Gute Zeiten, um Schulden zu senken.",
+        "advisoryNote": "Vernünftig, aber undankbar.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": 4
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": 6
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [
+      {
+        "requiredFlags": [
+          "x_agenda_reform"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "x-agenda-2011b",
+    "year": 2011,
+    "title": "Reformstau",
+    "category": "economy",
+    "headline": "Die versäumten Reformen rächen sich.",
+    "description": "Ohne die Reformen von 2003 bleibt die Arbeitslosigkeit hoch und der Standort schwach.",
+    "historicalContext": {
+      "summary": "Ausgebliebene Arbeitsmarktreformen bremsten Wachstum und Beschäftigung."
+    },
+    "options": [
+      {
+        "id": "ag11b-reform",
+        "title": "Jetzt spät reformieren",
+        "description": "Nachholen, was 2003 versäumt wurde.",
+        "advisoryNote": "Schmerzhaft, aber nötig.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": -3
+          },
+          {
+            "metric": "trust",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "labourMarketFlexibility",
+            "change": 8
+          },
+          {
+            "metric": "polarization",
+            "change": 5
+          }
+        ],
+        "approvalEffect": -2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 3
+            },
+            {
+              "group": "workers",
+              "change": -3
+            }
+          ]
+        }
+      },
+      {
+        "id": "ag11b-subsidize",
+        "title": "Mit Subventionen stützen",
+        "description": "Arbeitsplätze künstlich erhalten.",
+        "advisoryNote": "Teuer und nicht nachhaltig.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 1
+          },
+          {
+            "metric": "budget",
+            "change": -4
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": -5
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [
+      {
+        "requiredFlags": [
+          "x_agenda_status"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "x-edu-2015",
+    "year": 2015,
+    "title": "Bildungsrepublik",
+    "category": "digitalization",
+    "headline": "Die Bildungsoffensive von 2002 trägt Früchte.",
+    "description": "Die frühen Investitionen zahlen sich aus: gut ausgebildete Fachkräfte stärken die Wirtschaft.",
+    "historicalContext": {
+      "summary": "Wer früh in Bildung investierte, hatte später einen Fachkräftevorteil."
+    },
+    "options": [
+      {
+        "id": "edu15-scale",
+        "title": "Weiter vorangehen",
+        "description": "Auf dem Vorsprung aufbauen.",
+        "advisoryNote": "Ein Erfolgsmodell.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 3
+          },
+          {
+            "metric": "society",
+            "change": 2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": 5
+          },
+          {
+            "metric": "labourMarketFlexibility",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 3
+            },
+            {
+              "group": "families",
+              "change": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "edu15-hold",
+        "title": "Erfolg verwalten",
+        "description": "Nicht weiter forcieren.",
+        "advisoryNote": "Solide, aber der Vorsprung schrumpft.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 1
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "requiredFlags": [
+          "x_edu_push"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "x-edu-2015b",
+    "year": 2015,
+    "title": "Fachkräftemangel",
+    "category": "digitalization",
+    "headline": "Die versäumte Bildungsreform rächt sich.",
+    "description": "Weil früh gespart wurde, fehlen nun qualifizierte Fachkräfte.",
+    "historicalContext": {
+      "summary": "Bildungsversäumnisse zeigten sich später als Fachkräftemangel."
+    },
+    "options": [
+      {
+        "id": "edu15b-immig",
+        "title": "Auf Zuwanderung setzen",
+        "description": "Fachkräfte aus dem Ausland gewinnen.",
+        "advisoryNote": "Pragmatisch, aber politisch heikel.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "integrationCapacity",
+            "change": 4
+          },
+          {
+            "metric": "polarization",
+            "change": 3
+          }
+        ],
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 3
+            }
+          ]
+        }
+      },
+      {
+        "id": "edu15b-train",
+        "title": "Spät nachschulen",
+        "description": "Jetzt teuer in Weiterbildung investieren.",
+        "advisoryNote": "Besser spät als nie.",
+        "immediateEffects": [
+          {
+            "metric": "budget",
+            "change": -4
+          },
+          {
+            "metric": "economy",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": 4
+          },
+          {
+            "metric": "fiscalSpace",
+            "change": -3
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [
+      {
+        "requiredFlags": [
+          "x_edu_neglect"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "x-riester-2016",
+    "year": 2016,
+    "title": "Private Vorsorge zahlt sich aus",
+    "category": "welfare",
+    "headline": "Die Riester-Entscheidung von 2001 wirkt nach.",
+    "description": "Die früh aufgebaute private Vorsorge entlastet nun die Rentenkasse.",
+    "historicalContext": {
+      "summary": "Frühe private Vorsorge federte den demografischen Druck etwas ab."
+    },
+    "options": [
+      {
+        "id": "ri16-extend",
+        "title": "Vorsorge ausbauen",
+        "description": "Noch mehr private und betriebliche Vorsorge.",
+        "advisoryNote": "Nachhaltig, aber nicht für alle erschwinglich.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 2
+          },
+          {
+            "metric": "budget",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "fiscalSpace",
+            "change": 4
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 2
+            },
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "ri16-public",
+        "title": "Gesetzliche Rente stärken",
+        "description": "Zurück zu mehr solidarischer Absicherung.",
+        "advisoryNote": "Sozial ausgewogen, teurer.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": 1
+          },
+          {
+            "metric": "budget",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "welfareStrength",
+            "change": 4
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "retirees",
+              "change": 3
+            },
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": [
+      {
+        "requiredFlags": [
+          "x_riester"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "x-legacy-2026",
+    "year": 2026,
+    "title": "Vermächtnis",
+    "category": "society",
+    "headline": "Ein Vierteljahrhundert Regierung geht zu Ende.",
+    "description": "Am Ende der langen Amtszeit: Wie will die Regierung in Erinnerung bleiben?",
+    "historicalContext": {
+      "summary": "2026 markiert das Ende des Spielzeitraums – Zeit für eine Bilanz."
+    },
+    "options": [
+      {
+        "id": "leg-reform",
+        "title": "Als mutige Reformerin",
+        "description": "Letzte große Weichen stellen.",
+        "advisoryNote": "Ein Vermächtnis mit Ecken und Kanten.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": -1
+          },
+          {
+            "metric": "trust",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "digitalization",
+            "change": 4
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 3
+            },
+            {
+              "group": "entrepreneurs",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "leg-unity",
+        "title": "Als Brückenbauerin",
+        "description": "Das Land versöhnt übergeben.",
+        "advisoryNote": "Ein Vermächtnis der Stabilität.",
+        "immediateEffects": [
+          {
+            "metric": "society",
+            "change": 3
+          },
+          {
+            "metric": "trust",
+            "change": 3
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "polarization",
+            "change": -6
+          }
+        ],
+        "approvalEffect": 2,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "workers",
+              "change": 2
+            },
+            {
+              "group": "retirees",
+              "change": 2
+            }
+          ]
+        }
+      },
+      {
+        "id": "leg-quiet",
+        "title": "Leise abtreten",
+        "description": "Ohne großes Finale.",
+        "advisoryNote": "Bescheiden, aber blass.",
+        "immediateEffects": [
+          {
+            "metric": "trust",
+            "change": 1
+          }
+        ]
+      }
+    ],
+    "conditions": []
+  },
+  {
+    "id": "x-future-2026",
+    "year": 2026,
+    "title": "Weichen für die Zukunft",
+    "category": "digitalization",
+    "headline": "Welches Deutschland übergibst du?",
+    "description": "Zum Abschluss: Wohin soll die Reise langfristig gehen?",
+    "historicalContext": {
+      "summary": "Am Ende zählt, welche Grundlagen für die Zukunft gelegt wurden."
+    },
+    "options": [
+      {
+        "id": "fut-green",
+        "title": "Klimaneutrale Zukunft",
+        "description": "Alles auf Nachhaltigkeit ausrichten.",
+        "advisoryNote": "Ambitioniert und teuer.",
+        "immediateEffects": [
+          {
+            "metric": "energy",
+            "change": 2
+          },
+          {
+            "metric": "economy",
+            "change": -1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "renewableCapacity",
+            "change": 6
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "youngAdults",
+              "change": 4
+            }
+          ]
+        }
+      },
+      {
+        "id": "fut-econ",
+        "title": "Wirtschaftliche Stärke",
+        "description": "Standort und Wohlstand zuerst.",
+        "advisoryNote": "Solide, aber weniger visionär.",
+        "immediateEffects": [
+          {
+            "metric": "economy",
+            "change": 3
+          },
+          {
+            "metric": "budget",
+            "change": 1
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "labourMarketFlexibility",
+            "change": 3
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "entrepreneurs",
+              "change": 3
+            },
+            {
+              "group": "workers",
+              "change": 1
+            }
+          ]
+        }
+      },
+      {
+        "id": "fut-social",
+        "title": "Sozialer Zusammenhalt",
+        "description": "Gerechtigkeit als Leitbild.",
+        "advisoryNote": "Warmherzig, aber kostspielig.",
+        "immediateEffects": [
+          {
+            "metric": "livingStandard",
+            "change": 2
+          },
+          {
+            "metric": "society",
+            "change": 2
+          },
+          {
+            "metric": "budget",
+            "change": -2
+          }
+        ],
+        "hiddenEffects": [
+          {
+            "metric": "welfareStrength",
+            "change": 4
+          }
+        ],
+        "approvalEffect": 1,
+        "publicMemoryImpact": {
+          "groupEffects": [
+            {
+              "group": "lowIncomeAndUnemployed",
+              "change": 3
+            },
+            {
+              "group": "families",
+              "change": 2
+            }
+          ]
+        }
+      }
+    ],
+    "conditions": []
+  }
+]

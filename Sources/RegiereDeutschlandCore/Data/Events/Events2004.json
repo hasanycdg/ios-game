@@ -8,14 +8,14 @@
     "description": "Die Regierung muss entscheiden, wie stark der Sozialstaat reformiert wird.",
     "historicalContext": {
       "summary": "Mitte der 2000er standen Arbeitsmarkt- und Sozialreformen im Zentrum der Bundespolitik.",
-      "sourceNote": "Prototype-Daten fuer Schritt 8-10."
+      "sourceNote": "Prototype-Daten für Schritt 8-10."
     },
     "options": [
       {
         "id": "firm-reform",
         "title": "Harte Reform durchziehen",
         "description": "Der Haushalt gewinnt Spielraum und der Arbeitsmarkt wird flexibler. Viele Betroffene empfinden den Kurs als Bruch.",
-        "advisoryNote": "Oekonomen erwarten Wirkung, Sozialverbaende warnen vor Vertrauensverlust.",
+        "advisoryNote": "Oekonomen erwarten Wirkung, Sozialverbände warnen vor Vertrauensverlust.",
         "immediateEffects": [
           { "metric": "budget", "change": 6 },
           { "metric": "economy", "change": 3 },
@@ -44,7 +44,7 @@
         "id": "soft-reform",
         "title": "Reform sozial abfedern",
         "description": "Die Regierung reformiert, baut aber Schutzmechanismen ein. Das Ergebnis ist teurer, aber weniger spaltend.",
-        "advisoryNote": "Koalitionsstrategen sehen den politisch tragfaehigeren Weg.",
+        "advisoryNote": "Koalitionsstrategen sehen den politisch tragfähigeren Weg.",
         "immediateEffects": [
           { "metric": "budget", "change": 1 },
           { "metric": "economy", "change": 2 },

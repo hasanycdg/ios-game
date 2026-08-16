@@ -65,11 +65,38 @@ public struct GameBalanceSimulator: Sendable {
         engine.startNewGame()
 
         var iterations = 0
-        while engine.state.gameOverSummary == nil && iterations < 300 {
+        while engine.state.gameOverSummary == nil && iterations < 800 {
             iterations += 1
 
+            // Wahlkampf → Schwerpunkt setzen.
+            if engine.pendingCampaign {
+                engine.runCampaign(focus: CampaignFocusCatalog.all[0])
+                continue
+            }
+            // Wahlabend → auswerten.
             if engine.state.pendingElectionResult != nil {
                 engine.continueAfterElection()
+                continue
+            }
+            // Partnerwahl → ersten mehrheitsfähigen (sonst ersten) Partner.
+            if let options = engine.pendingCoalitionOptions {
+                let choice = options.first { $0.formsMajority } ?? options.first
+                if let choice { engine.formCoalition(optionID: choice.id) }
+                continue
+            }
+            // Koalitionsgespräche → alle Forderungen zusagen.
+            if let talks = engine.pendingCoalitionTalks {
+                engine.concludeCoalitionTalks(acceptedDemandIDs: Set(talks.demands.map(\.id)))
+                continue
+            }
+            // Amtsantritts-Briefing (nur beim Partei-Start) → weiter.
+            if engine.awaitingInitialBriefing {
+                engine.dismissInitialBriefing()
+                continue
+            }
+            // Interview / Lobby → erste Antwort.
+            if let encounter = engine.pendingEncounter {
+                engine.resolveEncounter(optionID: encounter.options.first!.id)
                 continue
             }
 

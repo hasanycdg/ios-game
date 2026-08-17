@@ -16,9 +16,16 @@ Spielszenen komponiert (Marken-Hintergrund, Schwarz-Rot-Gold-Band, Überschrift)
 
 ## Format
 
-- Größe: **1290 × 2796 px** (Portrait). Passt in den 6,5"/6,7"-Slot von
-  App Store Connect; für das 6,9"-Display kann Apple hochskalieren oder du
-  renderst mit 1320 × 2868 neu.
+- Quelldateien (`0*.png`): **1290 × 2796 px** (Portrait). Das ist **keine** der
+  von App Store Connect akzeptierten Größen – daher nicht direkt hochladen.
+- **Upload-fertig:** `appstore-6.7/` enthält dieselben acht Screenshots auf
+  exakt **1284 × 2778 px** (6,7"-Portrait) skaliert – eine der vier zulässigen
+  Größen (1242 × 2688, 2688 × 1242, 1284 × 2778, 2778 × 1284). Ohne Alpha-Kanal,
+  RGB, direkt in den Screenshot-Slot ladbar. Diese Bilder decken auch den
+  6,5"- und 6,9"-Slot ab (Apple skaliert automatisch).
+- Verzerrungsfrei erzeugt (uniform auf Breite 1284 skaliert, dann zentriert auf
+  2778 px Höhe zugeschnitten – es fällt nur reiner Hintergrund weg):
+  `sips --resampleWidth 1284 f.png && sips -c 2778 1284 f.png`
 - Die unbearbeiteten Geräte-Screenshots (1206 × 2622, 6,1") liegen nicht im
   Repo; sie lassen sich jederzeit neu aus dem Simulator ziehen.
 

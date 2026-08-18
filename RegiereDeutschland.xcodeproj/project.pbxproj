@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1A0000000000000000000012 /* RegiereDeutschlandCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1A0000000000000000000011 /* RegiereDeutschlandCore */; };
+		1A0000000000000000000016 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 1A0000000000000000000014 /* RevenueCat */; };
+		1A0000000000000000000017 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1A0000000000000000000015 /* RevenueCatUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A0000000000000000000012 /* RegiereDeutschlandCore in Frameworks */,
+				1A0000000000000000000016 /* RevenueCat in Frameworks */,
+				1A0000000000000000000017 /* RevenueCatUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +71,8 @@
 			name = RegiereDeutschland;
 			packageProductDependencies = (
 				1A0000000000000000000011 /* RegiereDeutschlandCore */,
+				1A0000000000000000000014 /* RevenueCat */,
+				1A0000000000000000000015 /* RevenueCatUI */,
 			);
 			productName = RegiereDeutschland;
 			productReference = 1A0000000000000000000005 /* RegiereDeutschland.app */;
@@ -99,6 +105,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				1A0000000000000000000010 /* XCLocalSwiftPackageReference "." */,
+				1A0000000000000000000013 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1A0000000000000000000003 /* Products */;
@@ -275,10 +282,31 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		1A0000000000000000000013 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.14.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		1A0000000000000000000011 /* RegiereDeutschlandCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RegiereDeutschlandCore;
+		};
+		1A0000000000000000000014 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A0000000000000000000013 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
+		1A0000000000000000000015 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A0000000000000000000013 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCatUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

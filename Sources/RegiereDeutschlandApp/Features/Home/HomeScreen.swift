@@ -2,6 +2,7 @@ import SwiftUI
 import RegiereDeutschlandCore
 
 struct HomeScreen: View {
+    @Environment(PurchaseManager.self) private var purchases
     @State private var hasSaveGame = false
     @State private var runResults: [RunResult] = []
     @State private var unlockedAchievements: Set<String> = []
@@ -9,6 +10,7 @@ struct HomeScreen: View {
     @State private var playerName = ""
     @State private var showAchievements = false
     @State private var showOnboarding = false
+    @State private var showPartyPaywall = false
     @AppStorage("hasSeenRegiereOnboarding") private var hasSeenOnboarding = false
     @AppStorage("regiereChancellorName") private var storedName = ""
     @AppStorage("regiereDifficulty") private var difficultyRaw = Difficulty.normal.rawValue
@@ -41,6 +43,7 @@ struct HomeScreen: View {
                     foundPartyButton
                     difficultyPicker
                     actions
+                    ProStatusCard()
                     footer
                     howItWorksButton
                     if !runResults.isEmpty { recentRuns }
@@ -64,6 +67,7 @@ struct HomeScreen: View {
                 showOnboarding = false
             }
         }
+        .proPaywallSheet(isPresented: $showPartyPaywall)
     }
 
     private func reload() {
@@ -143,27 +147,50 @@ struct HomeScreen: View {
         }
     }
 
+    // Beispiel für Entitlement-Gating: Das Gründen einer eigenen Partei ist ein
+    // Pro-Feature. Nicht-Pro-Nutzer sehen ein „Pro“-Abzeichen und bekommen beim
+    // Tippen die Paywall. Um das Feature freizugeben, einfach wieder durch die
+    // reine `NavigationLink`-Variante ersetzen.
+    @ViewBuilder
     private var foundPartyButton: some View {
-        NavigationLink {
-            PartyFounderView(playerName: effectiveName, difficulty: selectedDifficulty)
-        } label: {
-            HStack(spacing: 8) {
-                Image(systemName: "plus.circle.fill")
-                Text("Oder: eigene Partei gründen")
-                Spacer(minLength: 0)
+        if purchases.isPro {
+            NavigationLink {
+                PartyFounderView(playerName: effectiveName, difficulty: selectedDifficulty)
+            } label: {
+                foundPartyLabel(locked: false)
+            }
+            .buttonStyle(.plain)
+        } else {
+            Button {
+                Haptics.impact(.light)
+                showPartyPaywall = true
+            } label: {
+                foundPartyLabel(locked: true)
+            }
+            .buttonStyle(.plain)
+        }
+    }
+
+    private func foundPartyLabel(locked: Bool) -> some View {
+        HStack(spacing: 8) {
+            Image(systemName: "plus.circle.fill")
+            Text("Oder: eigene Partei gründen")
+            Spacer(minLength: 0)
+            if locked {
+                ProLockBadge()
+            } else {
                 Image(systemName: "chevron.right").font(.caption.weight(.bold))
             }
-            .font(.subheadline.weight(.semibold))
-            .foregroundStyle(GameTheme.teal)
-            .padding(.vertical, 13).padding(.horizontal, 16)
-            .frame(maxWidth: .infinity)
-            .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(GameTheme.surface))
-            .overlay(
-                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                    .stroke(GameTheme.teal.opacity(0.4), lineWidth: 1)
-            )
         }
-        .buttonStyle(.plain)
+        .font(.subheadline.weight(.semibold))
+        .foregroundStyle(GameTheme.teal)
+        .padding(.vertical, 13).padding(.horizontal, 16)
+        .frame(maxWidth: .infinity)
+        .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(GameTheme.surface))
+        .overlay(
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .stroke(GameTheme.teal.opacity(0.4), lineWidth: 1)
+        )
     }
 
     private var difficultyPicker: some View {

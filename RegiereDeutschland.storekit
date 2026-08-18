@@ -1,0 +1,32 @@
+{
+  "identifier" : "A1B2C3D4-0000-0000-0000-000000000001",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "A1B2C3D4-0000-0000-0000-000000000010",
+      "localizations" : [
+        {
+          "description" : "Schalte Regiere Deutschland Pro dauerhaft frei – einmal kaufen, für immer.",
+          "displayName" : "Unlimited",
+          "locale" : "de_DE"
+        }
+      ],
+      "productID" : "regiere_deutschland_one_time",
+      "referenceName" : "Unlimited",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_locale" : "de_DE",
+    "_storefront" : "DEU",
+    "_storeKitErrors" : []
+  },
+  "subscriptionGroups" : [],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

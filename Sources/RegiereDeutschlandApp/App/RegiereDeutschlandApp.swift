@@ -5,6 +5,10 @@ import UIKit
 
 @main
 struct RegiereDeutschlandApp: App {
+    /// Zentrale RevenueCat-Anbindung. Konfiguriert das SDK beim Erzeugen und
+    /// wird als Environment-Objekt an die gesamte View-Hierarchie durchgereicht.
+    @State private var purchaseManager = PurchaseManager()
+
     init() {
         AppAppearance.configure()
     }
@@ -12,6 +16,7 @@ struct RegiereDeutschlandApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
+                .environment(purchaseManager)
         }
     }
 }

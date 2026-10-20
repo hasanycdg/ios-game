@@ -16,6 +16,36 @@
       "productID" : "regiere_deutschland_one_time",
       "referenceName" : "Unlimited",
       "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "6.99",
+      "familyShareable" : false,
+      "internalID" : "A1B2C3D4-0000-0000-0000-000000000011",
+      "localizations" : [
+        {
+          "description" : "Erweitere deine Amtszeit mit Entscheidungen, Wahlen und Langzeitfolgen von 2026 bis 2050.",
+          "displayName" : "Zukunft 2050",
+          "locale" : "de_DE"
+        }
+      ],
+      "productID" : "regiere_deutschland_one_time_two",
+      "referenceName" : "Zukunft 2050",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "9.99",
+      "familyShareable" : false,
+      "internalID" : "A1B2C3D4-0000-0000-0000-000000000012",
+      "localizations" : [
+        {
+          "description" : "Hauptkampagne und Zukunft 2050 dauerhaft.",
+          "displayName" : "Komplettpaket 2005–2050",
+          "locale" : "de_DE"
+        }
+      ],
+      "productID" : "regiere_deutschland_complett_packet_one",
+      "referenceName" : "Komplettpaket 2005–2050",
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {

@@ -4,12 +4,14 @@ import SwiftUI
 import UIKit
 #endif
 
-/// Vollbild-Endbericht – Wahlniederlage oder Ende 2026.
+/// Vollbild-Endbericht – Wahlniederlage oder Ende eines Kampagnenpakets.
 struct GameOverPanel: View {
     let summary: GameOverSummary
     var achievements: [Achievement] = []
     var programResults: [GoalProgress] = []
     var partyName: String = ""
+    var continuationTitle: String? = nil
+    var onContinueCampaign: (() -> Void)? = nil
     let onNewGame: () -> Void
     var onExitToMenu: (() -> Void)? = nil
 
@@ -45,6 +47,13 @@ struct GameOverPanel: View {
                     }
 
                     VStack(spacing: 10) {
+                        if let continuationTitle, let onContinueCampaign {
+                            Button(action: onContinueCampaign) {
+                                Label(continuationTitle, systemImage: "arrow.right.circle.fill")
+                            }
+                            .buttonStyle(PrimaryActionButtonStyle())
+                        }
+
                         Button(action: onNewGame) {
                             Label("Neues Spiel", systemImage: "arrow.clockwise")
                         }
@@ -92,7 +101,7 @@ struct GameOverPanel: View {
             Image(systemName: reachedEnd ? "flag.checkered.2.crossed" : "building.columns")
                 .font(.system(size: 40))
                 .foregroundStyle(accent)
-            Text(reachedEnd ? "DEIN DEUTSCHLAND 2026" : "REGIERUNG BEENDET")
+            Text(reachedEnd ? "DEIN DEUTSCHLAND \(summary.endYear)" : "REGIERUNG BEENDET")
                 .font(.caption.weight(.heavy))
                 .tracking(3)
                 .foregroundStyle(accent)

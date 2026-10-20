@@ -18,6 +18,7 @@ public struct Achievement: Identifiable, Equatable, Sendable {
 public enum AchievementCatalog {
     public static let all: [Achievement] = [
         Achievement(id: "reach-2026", title: "Staatsmann", detail: "Erreiche das Jahr 2026.", icon: "flag.checkered"),
+        Achievement(id: "reach-2050", title: "Zukunftskanzler", detail: "Erreiche das Jahr 2050 im Zukunftspaket.", icon: "sparkles"),
         Achievement(id: "score-800", title: "Hohe Kunst", detail: "Beende ein Spiel mit mindestens 800 Punkten.", icon: "star.fill"),
         Achievement(id: "score-1200", title: "Legende", detail: "Beende ein Spiel mit mindestens 1200 Punkten.", icon: "crown.fill"),
         Achievement(id: "elections-3", title: "Dauerregent", detail: "Gewinne mindestens drei Wahlen in einem Run.", icon: "checkmark.seal.fill"),
@@ -34,7 +35,8 @@ public enum AchievementCatalog {
     /// Ermittelt die durch dieses Spielende erfüllten Erfolgs-IDs.
     public static func satisfiedIDs(summary: GameOverSummary) -> [String] {
         var ids: [String] = []
-        if summary.reason == .reachedFinalYear { ids.append("reach-2026") }
+        if summary.reason == .reachedFinalYear, summary.endYear >= 2026 { ids.append("reach-2026") }
+        if summary.reason == .reachedFinalYear, summary.endYear >= 2050 { ids.append("reach-2050") }
         if summary.score >= 800 { ids.append("score-800") }
         if summary.score >= 1200 { ids.append("score-1200") }
         if summary.wonElectionCount >= 3 { ids.append("elections-3") }

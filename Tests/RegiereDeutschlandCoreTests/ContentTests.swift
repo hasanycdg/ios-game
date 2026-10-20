@@ -40,3 +40,33 @@ import Testing
     #expect(investOption?.flagsToSet.contains("x_digital_push") == true)
     #expect(investOption?.delayedEffects.isEmpty == false)
 }
+
+@Test func futureCampaignHasAPlayableDecisionForEveryYearThrough2050() {
+    let events = LocalJSONEventRepository().loadEvents()
+
+    #expect(events.filter { $0.id.hasPrefix("future-") }.count >= 75)
+
+    for year in 2026...2050 {
+        #expect(events.contains { $0.year == year && $0.id.hasPrefix("future-") }, "Zukunftsjahr \(year) fehlt")
+    }
+
+    let grid = events.first { $0.id == "future-grid-2026" }
+    #expect(grid?.options.contains { $0.flagsToSet.contains("future_grid_fast") } == true)
+
+    let heat = events.first { $0.id == "future-energy-2045" }
+    #expect(heat?.options.contains { option in
+        option.conditionalModifiers.contains { modifier in
+            modifier.conditions.contains { $0.requiredFlags.contains("future_grid_dividend") }
+        }
+    } == true)
+}
+
+@Test func futureEventsNeedTheFutureCampaignLicense() {
+    let event = LocalJSONEventRepository().loadEvents().first { $0.id == "future-grid-2026" }
+    var state = GameStateFactory.initialGermany2000()
+    state.currentYear = 2026
+
+    #expect(event?.isAvailable(in: state) == false)
+    state.historicalFlags.insert("content_future_2050")
+    #expect(event?.isAvailable(in: state) == true)
+}

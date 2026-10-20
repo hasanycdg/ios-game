@@ -44,6 +44,7 @@ final class GameViewModel: ObservableObject {
     @Published private(set) var partyWings: PartyWings = .standard()
     @Published private(set) var hasBundesratMajority: Bool = true
     @Published private(set) var diplomacy: DiplomaticState = .standard(from: GameStateFactory.initialGermany2000().hidden)
+    @Published private(set) var finalYear: Int = 2026
     let maxCapital = 10
 
     var budget: BudgetSummary { engine.budgetSummary() }
@@ -63,20 +64,22 @@ final class GameViewModel: ObservableObject {
         party: PlayerParty = PartyCatalog.default,
         playerName: String = PartyCatalog.defaultChancellorName,
         difficulty: Difficulty = .normal,
+        finalYear: Int = 2026,
         persistence: GamePersistence = GamePersistence(),
         newsRepository: NewsRepository = LocalJSONNewsRepository()
     ) {
+        let gamePersistence = persistence
         self.persistence = persistence
         self.newsRepository = newsRepository
         switch mode {
         case .newGame:
-            self.engine = GameEngine()
+            self.engine = GameEngine(finalYear: finalYear)
             self.engine.startNewGame(party: party, playerName: playerName, difficulty: difficulty, seed: Self.freshSeed())
         case .resume:
-            if let snapshot = persistence.loadSnapshot() {
+            if let snapshot = gamePersistence.loadSnapshot() {
                 self.engine = GameEngine(snapshot: snapshot)
             } else {
-                self.engine = GameEngine()
+                self.engine = GameEngine(finalYear: finalYear)
                 self.engine.startNewGame(party: party, playerName: playerName, difficulty: difficulty, seed: Self.freshSeed())
             }
         }
@@ -102,6 +105,7 @@ final class GameViewModel: ObservableObject {
         self.partyWings = engine.partyWings
         self.hasBundesratMajority = engine.hasBundesratMajority
         self.diplomacy = engine.diplomacy
+        self.finalYear = engine.finalYear
         autosave()
     }
 
@@ -166,6 +170,15 @@ final class GameViewModel: ObservableObject {
         autosave()
     }
 
+    /// Setzt eine abgeschlossene Amtszeit nach dem Kauf des nächsten Pakets
+    /// fort. Dabei bleibt der gesamte politische Zustand erhalten.
+    func extendCampaign(to finalYear: Int) {
+        engine.extendCampaign(to: finalYear)
+        syncFromEngine()
+        phase = Self.phase(for: engine)
+        autosave()
+    }
+
     func saveNow() {
         autosave()
     }
@@ -224,6 +237,7 @@ final class GameViewModel: ObservableObject {
         partyWings = engine.partyWings
         hasBundesratMajority = engine.hasBundesratMajority
         diplomacy = engine.diplomacy
+        finalYear = engine.finalYear
     }
 
     @discardableResult
@@ -279,7 +293,14 @@ final class GameViewModel: ObservableObject {
     private func autosave() {
         if let summary = engine.state.gameOverSummary {
             storeRunResultIfNeeded(summary)
-            try? persistence.deleteSnapshot()
+            // Ein reguläres Kampagnenende bleibt gespeichert: Das nächste DLC
+            // kann genau diesen Zustand später wieder öffnen. Nach einer
+            // Wahlniederlage wird der Spielstand wie bisher abgeschlossen.
+            if summary.reason == .reachedFinalYear {
+                try? persistence.saveSnapshot(engine.snapshot())
+            } else {
+                try? persistence.deleteSnapshot()
+            }
         } else {
             try? persistence.saveSnapshot(engine.snapshot())
         }

@@ -6,10 +6,9 @@ public protocol EventRepository: Sendable {
 }
 
 public struct LocalJSONEventRepository: EventRepository {
-    private let bundle: Bundle
-    private let resourceNames: [String]
+    private let storedEvents: [GameEvent]
 
-    public init(resourceNames: [String] = ["Events2000", "Events2001", "Events2002", "Events2003", "Events2004", "Events2005", "Events2006To2026", "EventsExtra", "EventsEarly", "EventsExtra2"]) {
+    public init(resourceNames: [String] = ["Events2000", "Events2001", "Events2002", "Events2003", "Events2004", "Events2005", "Events2006To2026", "EventsExtra", "EventsEarly", "EventsExtra2", "Future2050Scenarios", "Future2050", "Future2050Extra"]) {
         self.init(bundle: .module, resourceNames: resourceNames)
     }
 
@@ -17,12 +16,9 @@ public struct LocalJSONEventRepository: EventRepository {
         bundle: Bundle,
         resourceNames: [String]
     ) {
-        self.bundle = bundle
-        self.resourceNames = resourceNames
-    }
-
-    public func loadEvents() -> [GameEvent] {
-        resourceNames.flatMap { name -> [GameEvent] in
+        // Die langen Entscheidungsketten fragen den Katalog mehrfach pro Zug
+        // ab. Gebündelte JSON-Dateien dafür nur einmal pro Repository dekodieren.
+        storedEvents = resourceNames.flatMap { name -> [GameEvent] in
             guard let url = bundle.url(forResource: name, withExtension: "json") else {
                 return []
             }
@@ -34,6 +30,10 @@ public struct LocalJSONEventRepository: EventRepository {
                 return []
             }
         }
+    }
+
+    public func loadEvents() -> [GameEvent] {
+        storedEvents
     }
 
     public func events(for year: Int) -> [GameEvent] {

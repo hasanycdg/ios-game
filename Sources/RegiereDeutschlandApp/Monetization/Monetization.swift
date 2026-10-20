@@ -1,4 +1,5 @@
 import Foundation
+import RegiereDeutschlandCore
 
 /// Zentrale Konstanten für die RevenueCat-Anbindung.
 ///
@@ -27,14 +28,53 @@ enum Monetization {
     /// Hinweis: Leerzeichen sind erlaubt, aber ein kurzer, code-freundlicher
     /// Identifier wie `pro` ist robuster. Wenn du im Dashboard `pro` verwendest,
     /// ändere hier nur diesen einen String.
-    static let proEntitlementID = "Regiere Deutschland Pro"
+    static let proEntitlementID = CampaignAccess.mainEntitlementID
+
+    /// Dauerhafte Kampagnenerweiterung für die Jahre 2026–2050.
+    /// Der Identifier muss mit dem RevenueCat-Entitlement übereinstimmen.
+    static let future2050EntitlementID = CampaignAccess.futureEntitlementID
+
+    // Tatsächliche, bereits in App Store Connect angelegte Produkt-IDs.
+    static let campaignProductID = "regiere_deutschland_one_time"
+    static let future2050ProductID = "regiere_deutschland_one_time_two"
+    static let completeProductID = "regiere_deutschland_complett_packet_one"
 
     // MARK: - Offering
 
     /// Offering-Identifier im RevenueCat-Dashboard.
     ///
-    /// Hier explizit `default1`, weil die Paywall an diesem Offering hängt.
-    /// Alternative: `nil` setzen **und** `default1` im Dashboard als *Current*
-    /// markieren – dann kannst du Angebote ohne App-Update umstellen.
-    static let offeringID: String? = "default1"
+    /// Eigener Katalog für Version 1.6: Veröffentlichte 1.5-Apps verwenden
+    /// weiterhin `default1`, während diese Version alle drei Pakete anbietet.
+    static let offeringID: String? = "katalog_1_6"
+
+    /// Nach dem kostenlosen Prolog: Hauptkampagne oder Komplettpaket.
+    static let campaign2005OfferingID = "kampagne_2005"
+
+    /// Nach 2026: Zukunftserweiterung oder Komplettpaket.
+    static let future2050OfferingID = "zukunft_2050"
+}
+
+/// Jeder Einstieg zeigt ausschließlich die für diesen Kaufpunkt vorgesehenen Angebote.
+enum CampaignPaywallPlacement: Identifiable, Equatable {
+    case catalog
+    case afterPrologue
+    case afterMainCampaign
+
+    var id: String { offeringID }
+
+    var offeringID: String {
+        switch self {
+        case .catalog: Monetization.offeringID ?? "katalog_1_6"
+        case .afterPrologue: Monetization.campaign2005OfferingID
+        case .afterMainCampaign: Monetization.future2050OfferingID
+        }
+    }
+
+    var loadingTitle: String {
+        switch self {
+        case .catalog: "Kampagnen & Pakete laden"
+        case .afterPrologue: "Hauptkampagne laden"
+        case .afterMainCampaign: "Zukunft 2050 laden"
+        }
+    }
 }

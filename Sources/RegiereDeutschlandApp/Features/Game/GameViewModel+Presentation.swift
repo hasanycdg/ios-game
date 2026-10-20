@@ -147,7 +147,7 @@ extension GameViewModel {
 
     /// Die Amtszeit in Jahren seit Spielstart (2000).
     var yearsInOffice: Int {
-        max(0, state.currentYear - 2000)
+        return max(0, state.currentYear - 2000)
     }
 
     /// Ob gerade ein bühnenfüllendes Ereignis (Wahlabend/Game Over) läuft.

@@ -7,13 +7,16 @@ struct GameContainerView: View {
     @StateObject private var viewModel: GameViewModel
     @Environment(\.dismiss) private var dismiss
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(PurchaseManager.self) private var purchases
     @State private var selectedTab = 0
+    @State private var campaignPaywall: CampaignPaywallPlacement?
 
     init(mode: GameViewModel.StartMode = .newGame,
          party: PlayerParty = PartyCatalog.default,
          playerName: String = PartyCatalog.defaultChancellorName,
-         difficulty: Difficulty = .normal) {
-        _viewModel = StateObject(wrappedValue: GameViewModel(mode: mode, party: party, playerName: playerName, difficulty: difficulty))
+         difficulty: Difficulty = .normal,
+         finalYear: Int = 2026) {
+        _viewModel = StateObject(wrappedValue: GameViewModel(mode: mode, party: party, playerName: playerName, difficulty: difficulty, finalYear: finalYear))
     }
 
     var body: some View {
@@ -52,6 +55,13 @@ struct GameContainerView: View {
         .toolbar { toolbarContent }
         .onChange(of: scenePhase) { _, newPhase in
             if newPhase != .active { viewModel.saveNow() }
+        }
+        .onAppear(perform: synchronizeCampaignAccess)
+        .onChange(of: purchases.campaignAccess) { _, _ in
+            synchronizeCampaignAccess()
+        }
+        .sheet(item: $campaignPaywall) { placement in
+            CampaignPaywallView(placement: placement)
         }
     }
 
@@ -121,6 +131,8 @@ struct GameContainerView: View {
                 achievements: viewModel.newlyUnlockedAchievements,
                 programResults: viewModel.programResults,
                 partyName: viewModel.playerParty.name,
+                continuationTitle: continuationTitle(for: summary),
+                onContinueCampaign: summary.reason == .reachedFinalYear ? continueCampaign : nil,
                 onNewGame: {
                     withAnimation(.easeInOut) {
                         selectedTab = 0
@@ -134,6 +146,38 @@ struct GameContainerView: View {
         default:
             EmptyView()
         }
+    }
+
+    private func continuationTitle(for summary: GameOverSummary) -> String? {
+        guard summary.reason == .reachedFinalYear else { return nil }
+        switch viewModel.finalYear {
+        case 2004:
+            return purchases.hasCampaign2005 ? "Amtszeit ab 2005 fortsetzen" : "Kampagne 2005–2026 freischalten"
+        case 2026:
+            return purchases.hasFuture2050 ? "Mit Zukunft 2050 fortsetzen" : "Zukunft 2050 freischalten"
+        default:
+            return nil
+        }
+    }
+
+    private func continueCampaign() {
+        if purchases.campaignAccess.continuationFinalYear(after: viewModel.finalYear) != nil {
+            synchronizeCampaignAccess()
+            return
+        }
+        switch viewModel.finalYear {
+        case 2004:
+            campaignPaywall = .afterPrologue
+        case 2026:
+            campaignPaywall = .afterMainCampaign
+        default:
+            break
+        }
+    }
+
+    private func synchronizeCampaignAccess() {
+        guard let finalYear = purchases.campaignAccess.continuationFinalYear(after: viewModel.finalYear) else { return }
+        withAnimation(.easeInOut) { viewModel.extendCampaign(to: finalYear) }
     }
 
     @ToolbarContentBuilder

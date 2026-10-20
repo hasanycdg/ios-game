@@ -1,6 +1,7 @@
 import Foundation
 import Observation
 import RevenueCat
+import RegiereDeutschlandCore
 
 /// Zentrale Schnittstelle zu RevenueCat.
 ///
@@ -31,7 +32,24 @@ final class PurchaseManager {
 
     /// Kernfrage der App: Ist „Regiere Deutschland Pro“ aktiv?
     var isPro: Bool {
-        customerInfo?.entitlements[Monetization.proEntitlementID]?.isActive == true
+        campaignAccess.hasMainCampaign
+    }
+
+    var hasCampaign2005: Bool {
+        campaignAccess.hasMainCampaign
+    }
+
+    var hasFuture2050: Bool {
+        campaignAccess.hasFutureCampaign
+    }
+
+    var campaignAccess: CampaignAccess {
+        CampaignAccess(activeEntitlements: Set(customerInfo?.entitlements.active.keys.map { $0 } ?? []))
+    }
+
+    /// Sofort auf erfolgreiche Käufe/Wiederherstellungen der RevenueCatUI reagieren.
+    func acceptCustomerInfo(_ info: CustomerInfo) {
+        customerInfo = info
     }
 
     /// Das aktuell zu bewerbende Offering (Dashboard-`Current` oder per ID).
@@ -39,6 +57,10 @@ final class PurchaseManager {
         guard let offerings else { return nil }
         if let id = Monetization.offeringID { return offerings.offering(identifier: id) }
         return offerings.current
+    }
+
+    func offering(for placement: CampaignPaywallPlacement) -> Offering? {
+        offerings?.offering(identifier: placement.offeringID)
     }
 
     init() {
@@ -123,7 +145,7 @@ final class PurchaseManager {
             let result = try await Purchases.shared.purchase(package: package)
             if result.userCancelled { return false }
             customerInfo = result.customerInfo
-            return isPro
+            return isPro || hasFuture2050
         } catch {
             lastError = Self.message(for: error)
             return false
@@ -142,7 +164,7 @@ final class PurchaseManager {
 
         do {
             customerInfo = try await Purchases.shared.restorePurchases()
-            return isPro
+            return isPro || hasFuture2050
         } catch {
             lastError = Self.message(for: error)
             return false

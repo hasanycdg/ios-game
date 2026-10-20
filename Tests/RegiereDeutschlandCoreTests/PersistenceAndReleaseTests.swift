@@ -2,6 +2,74 @@ import Foundation
 import Testing
 @testable import RegiereDeutschlandCore
 
+@Test func futureCampaignTargetSurvivesSavingAndResuming() {
+    let engine = GameEngine(eventRepository: LocalJSONEventRepository(), finalYear: 2050)
+    engine.startNewGame()
+
+    let resumed = GameEngine(snapshot: engine.snapshot(), eventRepository: LocalJSONEventRepository())
+    #expect(resumed.finalYear == 2050)
+}
+
+@Test func purchasedCampaignContinuesTheSameCompletedRun() {
+    let repository = LocalJSONEventRepository()
+    var state = GameStateFactory.initialGermany2000()
+    state.currentYear = 2004
+    state.yearProgress = YearProgress(year: 2004, completedEventIDs: Set(repository.events(for: 2004).map(\.id)))
+    state.gameOverSummary = GameOverSummary(
+        reason: .reachedFinalYear,
+        message: "Bis 2004 gespielt.",
+        startYear: 2000,
+        endYear: 2004,
+        keyDecisionTitles: [],
+        finalStats: state.visible,
+        defeatReasons: [],
+        governingStyle: "Test"
+    )
+    let snapshot = GameSessionSnapshot(state: state, currentEventID: nil, lastDecisionResult: nil, finalYear: 2004)
+    let engine = GameEngine(snapshot: snapshot, eventRepository: repository)
+
+    engine.extendCampaign(to: 2026)
+
+    #expect(engine.finalYear == 2026)
+    #expect(engine.state.currentYear == 2005)
+    #expect(engine.state.gameOverSummary == nil)
+    #expect(engine.state.historicalFlags.contains("content_2005_2026"))
+}
+
+@Test(arguments: [2004, 2026])
+func completePurchasePreservesTheRunAndOpensTheNextPlayableEvent(checkpoint: Int) throws {
+    let repository = LocalJSONEventRepository()
+    var state = GameStateFactory.initialGermany2000()
+    state.currentYear = checkpoint
+    state.historicalFlags.insert("existing_campaign_progress")
+    state.yearProgress = YearProgress(year: checkpoint, completedEventIDs: Set(
+        repository.events(for: checkpoint).filter { !$0.id.hasPrefix("future-") }.map(\.id)
+    ))
+    state.gameOverSummary = GameOverSummary(reason: .reachedFinalYear, message: "Kampagnenende",
+        startYear: 2000, endYear: checkpoint, keyDecisionTitles: [], finalStats: state.visible,
+        defeatReasons: [], governingStyle: "Test")
+    let snapshot = GameSessionSnapshot(state: state, currentEventID: nil, lastDecisionResult: nil,
+        playerName: "Bestehende Amtszeit", finalYear: checkpoint)
+    let engine = GameEngine(snapshot: snapshot, eventRepository: repository)
+    let access = CampaignAccess(activeEntitlements: [CampaignAccess.mainEntitlementID, CampaignAccess.futureEntitlementID])
+
+    engine.extendCampaign(to: try #require(access.continuationFinalYear(after: checkpoint)))
+
+    #expect(engine.finalYear == 2050)
+    #expect(engine.state.gameOverSummary == nil)
+    #expect(engine.state.historicalFlags.contains("existing_campaign_progress"))
+    #expect(engine.playerName == "Bestehende Amtszeit")
+    let nextEvent = try #require(engine.currentEvent)
+    #expect(nextEvent.year == (checkpoint == 2004 ? 2005 : 2026))
+    if checkpoint == 2026 {
+        #expect(nextEvent.id.hasPrefix("future-"))
+        #expect(nextEvent.scenarioStep == 0)
+    }
+    let resumed = GameEngine(snapshot: engine.snapshot(), eventRepository: repository)
+    #expect(resumed.finalYear == 2050)
+    #expect(resumed.currentEvent?.id == nextEvent.id)
+}
+
 @Test func persistenceRoundTripsSnapshotAndRunResults() throws {
     let directory = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString, isDirectory: true)
     let persistence = GamePersistence(baseDirectory: directory)

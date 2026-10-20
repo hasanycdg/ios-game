@@ -38,6 +38,32 @@ public struct DecisionResult: Codable, Equatable, Sendable {
 
 #if DEBUG
 public extension GameEngine {
+    /// Lokaler Testeinstieg ohne Kauf. Existiert ausschließlich in Debug-Builds.
+    func debugStartFutureCampaign(
+        party: PlayerParty = PartyCatalog.default,
+        playerName: String = PartyCatalog.defaultChancellorName,
+        difficulty: Difficulty = .normal,
+        seed: UInt64 = 0
+    ) {
+        finalYear = 2050
+        startNewGame(party: party, playerName: playerName, difficulty: difficulty, seed: seed)
+        awaitingInitialBriefing = false
+        awaitingInitialCoalition = false
+        pendingCoalitionOptions = nil
+        pendingCoalitionTalks = nil
+        state.currentYear = 2026
+        state.historicalFlags.insert("debug_future_preview")
+        prepareCurrentYear()
+        // Der Test beginnt mit dem Add-on, ohne erfundene historische
+        // Entscheidungen in den Verlauf des Testspielstands einzutragen.
+        state.yearProgress.completedEventIDs.formUnion(
+            eventRepository.events(for: 2026).filter { !$0.id.hasPrefix("future-") }.map(\.id)
+        )
+        currentEvent = nextQueuedEvent()
+        annualHistory = []
+        recordAnnualSnapshot()
+    }
+
     func debugAdjustVisibleMetric(_ metric: VisibleMetric, by change: Int) {
         state.apply(GameEffect(metric: metric, change: change))
         state.clampAll()
@@ -53,7 +79,7 @@ public extension GameEngine {
     }
 
     func debugJumpToYear(_ year: Int) {
-        let clampedYear = min(2026, max(2000, year))
+        let clampedYear = min(finalYear, max(2000, year))
         state.currentYear = clampedYear
         state.pendingElectionResult = nil
         state.gameOverSummary = nil
@@ -81,8 +107,10 @@ public enum GameEngineError: Error, Equatable {
 }
 
 public final class GameEngine {
+    private static let baseCampaignFlag = "content_2005_2026"
+    private static let futureCampaignFlag = "content_future_2050"
     private let eventRepository: EventRepository
-    private let finalYear: Int
+    public private(set) var finalYear: Int
     private let annualSimulation: AnnualSimulation
     private let approvalEngine: ApprovalEngine
     private let memoryService: DecisionMemoryService
@@ -132,7 +160,7 @@ public final class GameEngine {
     ) {
         self.eventRepository = eventRepository
         self.state = initialState
-        self.finalYear = finalYear
+        self.finalYear = max(2004, min(2050, finalYear))
         self.annualSimulation = annualSimulation
         self.approvalEngine = approvalEngine
         self.memoryService = memoryService
@@ -144,7 +172,7 @@ public final class GameEngine {
     public convenience init(
         snapshot: GameSessionSnapshot,
         eventRepository: EventRepository = LocalJSONEventRepository(),
-        finalYear: Int = 2026,
+        finalYear: Int? = nil,
         annualSimulation: AnnualSimulation = AnnualSimulation(),
         approvalEngine: ApprovalEngine = ApprovalEngine(),
         memoryService: DecisionMemoryService = DecisionMemoryService(),
@@ -153,7 +181,7 @@ public final class GameEngine {
         self.init(
             eventRepository: eventRepository,
             initialState: snapshot.state,
-            finalYear: finalYear,
+            finalYear: snapshot.finalYear ?? finalYear ?? 2026,
             annualSimulation: annualSimulation,
             approvalEngine: approvalEngine,
             memoryService: memoryService,
@@ -215,7 +243,8 @@ public final class GameEngine {
             interestGroups: interestGroups,
             partyWings: partyWings,
             hasBundesratMajority: hasBundesratMajority,
-            diplomacy: diplomacy
+            diplomacy: diplomacy,
+            finalYear: finalYear
         )
     }
 
@@ -265,6 +294,7 @@ public final class GameEngine {
         for effect in persona.hiddenModifiers { initial.apply(effect) }
         initial.clampAll()
         state = initial
+        applyCampaignAccessFlags()
         politicalCapital = max(1, min(maxCapital, persona.startingCapital + difficulty.startingCapitalBonus))
         coalition = persona.makeCoalition()
         pendingCampaign = false
@@ -282,6 +312,38 @@ public final class GameEngine {
         lastDecisionResult = nil
         annualHistory = []
         prepareCurrentYear()
+    }
+
+    /// Erweitert eine abgeschlossene Amtszeit, ohne den Spielstand, die
+    /// Entscheidungen oder deren Langzeitfolgen zurückzusetzen. Die App ruft
+    /// dies erst nach einem erfolgreichen Entitlement-Kauf auf.
+    public func extendCampaign(to newFinalYear: Int) {
+        let clampedYear = max(finalYear, min(2050, newFinalYear))
+        guard clampedYear > finalYear,
+              state.gameOverSummary?.reason == .reachedFinalYear else { return }
+
+        finalYear = clampedYear
+        state.gameOverSummary = nil
+        lastDecisionResult = nil
+        applyCampaignAccessFlags()
+
+        // Beim Zukunftspaket liegen neue 2026-Ereignisse hinter dem Lizenz-Flag.
+        // Beim historischen Paket geht es dagegen direkt in das Jahr 2005 weiter.
+        if let event = nextQueuedEvent() {
+            currentEvent = event
+        } else if state.currentYear < finalYear {
+            enterYear(state.currentYear + 1)
+            currentEvent = nextQueuedEvent()
+        }
+    }
+
+    private func applyCampaignAccessFlags() {
+        if finalYear >= 2026 {
+            state.historicalFlags.insert(Self.baseCampaignFlag)
+        }
+        if finalYear >= 2050 {
+            state.historicalFlags.insert(Self.futureCampaignFlag)
+        }
     }
 
     // MARK: Politisches Kapital & Koalition
@@ -916,25 +978,45 @@ public final class GameEngine {
 
     private func rebuildEventQueue() {
         var pendingIDs = availableEvents().map(\.id)
+        let storyIDs = pendingIDs.filter(FutureScenario.isStoryEvent)
+        pendingIDs.removeAll(where: FutureScenario.isStoryEvent)
+        // Auch bei bereits gekauftem Add-on erst die historische Bilanz 2026
+        // spielen, bevor die fiktive Handlung desselben Jahres beginnt.
+        let historicalIDs = storyIDs.isEmpty ? [] : pendingIDs.filter { !$0.hasPrefix("future-") }
+        pendingIDs.removeAll { historicalIDs.contains($0) }
         // Wiederspielwert: bei gesetztem Seed die Reihenfolge mischen und pro Jahr
         // eine zufällige Teilauswahl zeigen – so fühlt sich jeder Durchlauf anders
         // an. Seed 0 (Tests/Balance) bleibt deterministisch: volle Datei-Reihenfolge.
         if randomSeed != 0, pendingIDs.count > 1 {
             var rng = SeededRandom(seed: randomSeed &+ UInt64(bitPattern: Int64(state.currentYear)))
             pendingIDs.shuffle(using: &rng)
+            // Die acht verpflichtenden Schritte zählen nicht zum Limit der
+            // zusätzlichen Ereignisse; diese dürfen dadurch nicht entfallen.
             let cap = min(pendingIDs.count, 4)
             pendingIDs = Array(pendingIDs.prefix(cap))
         }
-        state.eventQueue = EventQueue(year: state.currentYear, pendingEventIDs: pendingIDs)
+        state.eventQueue = EventQueue(year: state.currentYear, pendingEventIDs: historicalIDs + storyIDs + pendingIDs)
     }
 
     private func nextQueuedEvent() -> GameEvent? {
+        // Der nächste Handlungsschritt kann durch die gerade getroffene
+        // Entscheidung erst verfügbar geworden sein. Deshalb die Handlung vor
+        // jedem Schritt neu prüfen, statt einen Zweig im Jahresanfangs-Queue
+        // festzuschreiben. Alte Spielstände benötigen dafür keine neuen Flags.
+        let available = availableEvents()
+        if let story = available.filter({ FutureScenario.isStoryEvent($0.id) })
+            .min(by: { ($0.scenarioStep ?? 0) < ($1.scenarioStep ?? 0) }),
+           !available.contains(where: { !$0.id.hasPrefix("future-") }) {
+            return story
+        }
+
         if state.eventQueue.year != state.currentYear || state.eventQueue.isEmpty {
             rebuildEventQueue()
         }
 
         while let eventID = state.eventQueue.popNext() {
-            guard let event = event(withID: eventID), event.isAvailable(in: state) else {
+            guard !state.yearProgress.completedEventIDs.contains(eventID),
+                  let event = event(withID: eventID), event.isAvailable(in: state) else {
                 continue
             }
             return event

@@ -1,0 +1,155 @@
+{
+  "data": {
+    "id": "b7d0ad9c-b5f2-4857-a934-03f1946f74fc",
+    "object": "product_store_state_plan",
+    "status": "planned",
+    "has_changes": true,
+    "actions": [
+      "edit",
+      "apply",
+      "discard"
+    ],
+    "summary": {
+      "products_added": 0,
+      "products_modified": 2,
+      "products_unchanged": 0
+    },
+    "desired_states": [
+      {
+        "product_id": "prod2aec02b52e",
+        "store": "app_store",
+        "common": {
+          "availability": null,
+          "duration": null,
+          "localizations": {
+            "de-DE": {
+              "description": "Erweitere deine Kampagne von 2026 bis 2050.",
+              "name": "Zukunft 2050"
+            }
+          },
+          "pricing": null,
+          "title": "Zukunft 2050"
+        },
+        "store_state": {
+          "preserve_current_subscription_price": null,
+          "privacy_policy_url": null,
+          "review_information": {
+            "notes": "Permanent non-consumable future expansion for Regiere Deutschland. Requires the main campaign entitlement granted by regiere_deutschland_one_time or the complete bundle regiere_deutschland_complett_packet_one. The product regiere_deutschland_one_time_two grants only the zukunft_2050 entitlement. After completing the main campaign in 2026, the game offers this expansion and continues the same save through 2050. Includes 200 scenario decisions and 75 additional events per complete run. All future events are fictional. Purchase and restore use Apple's StoreKit through RevenueCat. No account is required. No subscription, trial, or automatic renewal. Available in the existing selected territories; prices and availability are unchanged.",
+            "screenshot": null
+          },
+          "subscription_group_localizations": null,
+          "subscription_group_name": null,
+          "trial_offer": null
+        }
+      },
+      {
+        "product_id": "prod8021c1cdbf",
+        "store": "app_store",
+        "common": {
+          "availability": null,
+          "duration": null,
+          "localizations": {
+            "de-DE": {
+              "description": "Hauptkampagne und Zukunft 2050 dauerhaft.",
+              "name": "Komplettpaket 2005–2050"
+            }
+          },
+          "pricing": null,
+          "title": "Komplettpaket 2005–2050"
+        },
+        "store_state": {
+          "preserve_current_subscription_price": null,
+          "privacy_policy_url": null,
+          "review_information": {
+            "notes": "Permanent non-consumable complete bundle for Regiere Deutschland. The product regiere_deutschland_complett_packet_one grants both RevenueCat entitlements: Regiere Deutschland Pro (main campaign 2005–2026 and existing Pro features) and zukunft_2050 (future expansion 2026–2050). One purchase unlocks both campaigns. The free prologue 2000–2004 remains available without purchase. Campaign progress and decisions continue in the same save. Purchase and restore use Apple's StoreKit through RevenueCat. No account is required. No subscription, trial, or automatic renewal. Available in the existing selected territories; prices and availability are unchanged.",
+            "screenshot": null
+          },
+          "subscription_group_localizations": null,
+          "subscription_group_name": null,
+          "trial_offer": null
+        }
+      }
+    ],
+    "plan_items": [
+      {
+        "product_id": "prod2aec02b52e",
+        "app_id": null,
+        "store_identifier": "regiere_deutschland_one_time_two",
+        "action": "modify",
+        "diff": [
+          {
+            "field": "common.localizations.de-DE.name",
+            "from_value": null,
+            "to_value": "Zukunft 2050"
+          },
+          {
+            "field": "common.localizations.de-DE.description",
+            "from_value": null,
+            "to_value": "Erweitere deine Kampagne von 2026 bis 2050."
+          },
+          {
+            "field": "common.title",
+            "from_value": "one_time_buy_two",
+            "to_value": "Zukunft 2050"
+          },
+          {
+            "field": "store_state.review_information.notes",
+            "from_value": null,
+            "to_value": "Permanent non-consumable future expansion for Regiere Deutschland. Requires the main campaign entitlement granted by regiere_deutschland_one_time or the complete bundle regiere_deutschland_complett_packet_one. The product regiere_deutschland_one_time_two grants only the zukunft_2050 entitlement. After completing the main campaign in 2026, the game offers this expansion and continues the same save through 2050. Includes 200 scenario decisions and 75 additional events per complete run. All future events are fictional. Purchase and restore use Apple's StoreKit through RevenueCat. No account is required. No subscription, trial, or automatic renewal. Available in the existing selected territories; prices and availability are unchanged."
+          }
+        ],
+        "warnings": [
+          {
+            "severity": "warning",
+            "field": "store_state.review_information.screenshot",
+            "message": "Product 'regiere_deutschland_one_time_two': No screenshot review provided. Blank screenshot will be added as fallback."
+          }
+        ],
+        "error_message": null,
+        "apply_status": null,
+        "apply_error_message": null
+      },
+      {
+        "product_id": "prod8021c1cdbf",
+        "app_id": null,
+        "store_identifier": "regiere_deutschland_complett_packet_one",
+        "action": "modify",
+        "diff": [
+          {
+            "field": "common.localizations.de-DE.name",
+            "from_value": null,
+            "to_value": "Komplettpaket 2005–2050"
+          },
+          {
+            "field": "common.localizations.de-DE.description",
+            "from_value": null,
+            "to_value": "Hauptkampagne und Zukunft 2050 dauerhaft."
+          },
+          {
+            "field": "common.title",
+            "from_value": "complett_packet_one",
+            "to_value": "Komplettpaket 2005–2050"
+          },
+          {
+            "field": "store_state.review_information.notes",
+            "from_value": null,
+            "to_value": "Permanent non-consumable complete bundle for Regiere Deutschland. The product regiere_deutschland_complett_packet_one grants both RevenueCat entitlements: Regiere Deutschland Pro (main campaign 2005–2026 and existing Pro features) and zukunft_2050 (future expansion 2026–2050). One purchase unlocks both campaigns. The free prologue 2000–2004 remains available without purchase. Campaign progress and decisions continue in the same save. Purchase and restore use Apple's StoreKit through RevenueCat. No account is required. No subscription, trial, or automatic renewal. Available in the existing selected territories; prices and availability are unchanged."
+          }
+        ],
+        "warnings": [
+          {
+            "severity": "warning",
+            "field": "store_state.review_information.screenshot",
+            "message": "Product 'regiere_deutschland_complett_packet_one': No screenshot review provided. Blank screenshot will be added as fallback."
+          }
+        ],
+        "error_message": null,
+        "apply_status": null,
+        "apply_error_message": null
+      }
+    ],
+    "error_message": null,
+    "warnings": []
+  },
+  "schema_version": 1
+}

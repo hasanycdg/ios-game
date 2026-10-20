@@ -9,6 +9,9 @@ struct SituationTab: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 18) {
                 situationHeader
+                if let scenario = FutureScenario.chapter(in: viewModel.state) {
+                    futureScenarioCard(scenario)
+                }
                 quickStatStrip
                 // Der Entscheidungs-Loop steht bewusst weit oben – er ist die
                 // Hauptaktion des Tabs, nicht das Ende einer langen Karten-Liste.
@@ -29,6 +32,39 @@ struct SituationTab: View {
     }
 
     // MARK: Kopfbereich
+
+    private func futureScenarioCard(_ scenario: FutureScenario) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text("ZUKUNFT 2050 · \(String(scenario.years.lowerBound))–\(String(scenario.years.upperBound))")
+                .font(.caption2.weight(.bold))
+                .foregroundStyle(GameTheme.gold)
+            Text(scenario.title)
+                .font(.headline)
+                .foregroundStyle(GameTheme.primaryText)
+            Text(scenario.summary)
+                .font(.caption)
+                .foregroundStyle(GameTheme.secondaryText)
+                .fixedSize(horizontal: false, vertical: true)
+            let completed = FutureScenario.completedDecisions(in: viewModel.state)
+            ProgressView(value: Double(completed), total: Double(FutureScenario.decisionsPerYear))
+                .tint(GameTheme.gold)
+                .accessibilityLabel("Szenariofortschritt")
+                .accessibilityValue("\(completed) von \(FutureScenario.decisionsPerYear) Entscheidungen")
+            Text("\(completed) von \(FutureScenario.decisionsPerYear) Szenarioentscheidungen in diesem Jahr abgeschlossen")
+                .font(.caption2)
+                .foregroundStyle(GameTheme.secondaryText)
+            if viewModel.state.historicalFlags.contains("scenario_world_war") {
+                Text("Dein Verlauf: Weltkrieg und seine Folgen")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(GameTheme.red)
+            } else if viewModel.state.historicalFlags.contains("scenario_war_avoided") {
+                Text("Dein Verlauf: Der Weltkrieg wurde verhindert")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(GameTheme.green)
+            }
+        }
+        .gameCard(tint: GameTheme.gold)
+    }
 
     private var situationHeader: some View {
         VStack(alignment: .leading, spacing: 14) {
@@ -62,7 +98,7 @@ struct SituationTab: View {
                             .font(.system(size: 46, weight: .bold, design: .rounded))
                             .foregroundStyle(GameTheme.primaryText)
                             .monospacedDigit()
-                        Text("/ 2026")
+                        Text("/ \(viewModel.finalYear)")
                             .font(.subheadline.weight(.medium))
                             .foregroundStyle(GameTheme.tertiaryText)
                     }

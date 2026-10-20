@@ -5,6 +5,7 @@ import UIKit
 
 @main
 struct RegiereDeutschlandApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     /// Zentrale RevenueCat-Anbindung. Konfiguriert das SDK beim Erzeugen und
     /// wird als Environment-Objekt an die gesamte View-Hierarchie durchgereicht.
     @State private var purchaseManager = PurchaseManager()
@@ -17,6 +18,7 @@ struct RegiereDeutschlandApp: App {
         WindowGroup {
             RootView()
                 .environment(purchaseManager)
+                .environment(UpdateReminder.shared)
         }
     }
 }

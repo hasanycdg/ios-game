@@ -259,6 +259,8 @@ public struct GameEvent: Codable, Equatable, Identifiable, Sendable {
     public let memoryReactivationTags: [String]
     public let historicalReality: String?
     public let historicalOptionID: String?
+    /// Reihenfolge der zusammenhängenden Zukunftsentscheidungen innerhalb eines Jahres.
+    public let scenarioStep: Int?
 
     public init(
         id: String,
@@ -273,7 +275,8 @@ public struct GameEvent: Codable, Equatable, Identifiable, Sendable {
         followUpEvents: [String] = [],
         memoryReactivationTags: [String] = [],
         historicalReality: String? = nil,
-        historicalOptionID: String? = nil
+        historicalOptionID: String? = nil,
+        scenarioStep: Int? = nil
     ) {
         self.id = id
         self.year = year
@@ -288,10 +291,12 @@ public struct GameEvent: Codable, Equatable, Identifiable, Sendable {
         self.memoryReactivationTags = memoryReactivationTags
         self.historicalReality = historicalReality
         self.historicalOptionID = historicalOptionID
+        self.scenarioStep = scenarioStep
     }
 
     public func isAvailable(in state: GameState) -> Bool {
-        year == state.currentYear && conditions.allSatisfy { $0.isSatisfied(by: state) }
+        let hasFutureLicense = !id.hasPrefix("future-") || state.historicalFlags.contains("content_future_2050")
+        return year == state.currentYear && hasFutureLicense && conditions.allSatisfy { $0.isSatisfied(by: state) }
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -308,6 +313,7 @@ public struct GameEvent: Codable, Equatable, Identifiable, Sendable {
         case memoryReactivationTags
         case historicalReality
         case historicalOptionID
+        case scenarioStep
     }
 
     public init(from decoder: Decoder) throws {
@@ -325,5 +331,6 @@ public struct GameEvent: Codable, Equatable, Identifiable, Sendable {
         memoryReactivationTags = try container.decodeIfPresent([String].self, forKey: .memoryReactivationTags) ?? []
         historicalReality = try container.decodeIfPresent(String.self, forKey: .historicalReality)
         historicalOptionID = try container.decodeIfPresent(String.self, forKey: .historicalOptionID)
+        scenarioStep = try container.decodeIfPresent(Int.self, forKey: .scenarioStep)
     }
 }

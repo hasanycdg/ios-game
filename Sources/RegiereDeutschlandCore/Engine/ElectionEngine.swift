@@ -18,7 +18,7 @@ public struct ElectionProjection: Equatable, Sendable {
 public struct ElectionEngine: Sendable {
     public let electionYears: Set<Int>
 
-    public init(electionYears: Set<Int> = [2005, 2009, 2013, 2017, 2021, 2025]) {
+    public init(electionYears: Set<Int> = [2005, 2009, 2013, 2017, 2021, 2025, 2029, 2033, 2037, 2041, 2045, 2049]) {
         self.electionYears = electionYears
     }
 
@@ -108,7 +108,7 @@ public struct ElectionEngine: Sendable {
     public func endSummary(for state: GameState, reason: GameOverReason, messageOverride: String? = nil) -> GameOverSummary {
         GameOverSummary(
             reason: reason,
-            message: messageOverride ?? (reason == .reachedFinalYear ? "Dein Deutschland 2026 ist erreicht." : "Deine Regierung wurde abgewählt."),
+            message: messageOverride ?? (reason == .reachedFinalYear ? "Dein Deutschland \(state.currentYear) ist erreicht." : "Deine Regierung wurde abgewählt."),
             startYear: 2000,
             endYear: state.currentYear,
             keyDecisionTitles: state.decisions.suffix(5).map(\.optionTitle),

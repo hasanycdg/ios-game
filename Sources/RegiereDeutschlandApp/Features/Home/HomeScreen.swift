@@ -3,6 +3,7 @@ import RegiereDeutschlandCore
 
 struct HomeScreen: View {
     @Environment(PurchaseManager.self) private var purchases
+    @Environment(UpdateReminder.self) private var reminder
     @State private var hasSaveGame = false
     @State private var runResults: [RunResult] = []
     @State private var unlockedAchievements: Set<String> = []
@@ -43,8 +44,9 @@ struct HomeScreen: View {
                     foundPartyButton
                     difficultyPicker
                     actions
-                    ProStatusCard()
+                    CampaignStoreCard()
                     footer
+                    if reminder.canOfferReminder && hasSeenOnboarding { updateReminderCard }
                     howItWorksButton
                     if !runResults.isEmpty { recentRuns }
                     Spacer(minLength: 20)
@@ -58,6 +60,12 @@ struct HomeScreen: View {
         .inlineNavigationTitle()
         .hiddenNavigationBar()
         .onAppear(perform: reload)
+        .task {
+            if hasSeenOnboarding { await reminder.prepare() }
+        }
+        .onChange(of: hasSeenOnboarding) { _, hasSeen in
+            if hasSeen { Task { await reminder.prepare() } }
+        }
         .sheet(isPresented: $showAchievements) {
             AchievementsSheet(unlocked: unlockedAchievements)
         }
@@ -84,6 +92,31 @@ struct HomeScreen: View {
 
     // MARK: Hero
 
+    private var updateReminderCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Label("Zukunft 2050 ist da", systemImage: "bell.badge")
+                .font(.headline)
+                .foregroundStyle(GameTheme.teal)
+            Text("Bereit für neue Entscheidungen? Lass dich einmalig an die Erweiterung erinnern. Du kannst Mitteilungen in den iPhone-Einstellungen jederzeit ausschalten.")
+                .font(.footnote)
+                .foregroundStyle(GameTheme.secondaryText)
+            if let error = reminder.errorMessage {
+                Text(error).font(.footnote).foregroundStyle(GameTheme.red)
+            }
+            Button("Einmal erinnern lassen") {
+                Task { await reminder.enable() }
+            }
+            .buttonStyle(PrimaryActionButtonStyle())
+            .disabled(reminder.isBusy)
+            Button("Nicht jetzt") { reminder.skip() }
+                .font(.footnote)
+                .foregroundStyle(GameTheme.secondaryText)
+                .frame(maxWidth: .infinity)
+                .disabled(reminder.isBusy)
+        }
+        .gameCard(tint: GameTheme.teal)
+    }
+
     private var hero: some View {
         VStack(spacing: 14) {
             ZStack {
@@ -101,7 +134,7 @@ struct HomeScreen: View {
                     .font(.system(size: 36, weight: .heavy, design: .rounded))
                     .foregroundStyle(GameTheme.primaryText)
                 FlagRibbon(height: 5).frame(width: 150).padding(.top, 2)
-                Text("2000 – 2026")
+                Text("2000 – 2050")
                     .font(.headline.weight(.semibold))
                     .foregroundStyle(GameTheme.gold).padding(.top, 6)
             }
@@ -258,16 +291,20 @@ struct HomeScreen: View {
                 .buttonStyle(PrimaryActionButtonStyle())
 
                 NavigationLink {
-                    GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName, difficulty: selectedDifficulty)
+                    GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName, difficulty: selectedDifficulty, finalYear: accessibleFinalYear)
                 } label: { Label("Neues Spiel", systemImage: "flag.fill") }
                 .buttonStyle(SecondaryActionButtonStyle())
             } else {
                 NavigationLink {
-                    GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName, difficulty: selectedDifficulty)
-                } label: { Label("Neues Spiel", systemImage: "flag.fill") }
+                    GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName, difficulty: selectedDifficulty, finalYear: accessibleFinalYear)
+                } label: { Label(purchases.hasCampaign2005 ? "Neues Spiel" : "Prolog 2000–2004 starten", systemImage: "flag.fill") }
                 .buttonStyle(PrimaryActionButtonStyle())
             }
         }
+    }
+
+    private var accessibleFinalYear: Int {
+        purchases.campaignAccess.finalYear
     }
 
     private var footer: some View {

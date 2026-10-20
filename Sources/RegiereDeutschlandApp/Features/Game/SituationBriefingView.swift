@@ -158,7 +158,7 @@ struct SituationBriefingView: View {
                         .foregroundStyle(GameTheme.secondaryText)
                         .fixedSize(horizontal: false, vertical: true)
                 } else {
-                    Text("Regiere bis 2026")
+                    Text("Regiere langfristig")
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(GameTheme.primaryText)
                 }

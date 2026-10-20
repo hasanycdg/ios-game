@@ -28,6 +28,9 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
     public let partyWings: PartyWings?
     public let hasBundesratMajority: Bool?
     public let diplomacy: DiplomaticState?
+    /// Das Kampagnenziel wird mitgespeichert, damit ein Zukunfts-Spielstand
+    /// beim Fortsetzen nicht versehentlich wieder 2026 endet.
+    public let finalYear: Int?
 
     public init(
         schemaVersion: Int = 1,
@@ -56,7 +59,8 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         interestGroups: [InterestGroup]? = nil,
         partyWings: PartyWings? = nil,
         hasBundesratMajority: Bool? = nil,
-        diplomacy: DiplomaticState? = nil
+        diplomacy: DiplomaticState? = nil,
+        finalYear: Int? = nil
     ) {
         self.schemaVersion = schemaVersion
         self.state = state
@@ -85,6 +89,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         self.partyWings = partyWings
         self.hasBundesratMajority = hasBundesratMajority
         self.diplomacy = diplomacy
+        self.finalYear = finalYear
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -115,6 +120,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         case partyWings
         case hasBundesratMajority
         case diplomacy
+        case finalYear
     }
 
     public init(from decoder: Decoder) throws {
@@ -146,6 +152,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         partyWings = try container.decodeIfPresent(PartyWings.self, forKey: .partyWings)
         hasBundesratMajority = try container.decodeIfPresent(Bool.self, forKey: .hasBundesratMajority)
         diplomacy = try container.decodeIfPresent(DiplomaticState.self, forKey: .diplomacy)
+        finalYear = try container.decodeIfPresent(Int.self, forKey: .finalYear)
     }
 }
 

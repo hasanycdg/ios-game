@@ -1,0 +1,40 @@
+{
+  "desired_states": [
+    {
+      "product_id": "prod2aec02b52e",
+      "store": "app_store",
+      "common": {
+        "title": "Zukunft 2050",
+        "localizations": {
+          "de-DE": {
+            "name": "Zukunft 2050",
+            "description": "Erweitere deine Kampagne von 2026 bis 2050."
+          }
+        }
+      },
+      "store_state": {
+        "review_information": {
+          "notes": "Permanent non-consumable future expansion for Regiere Deutschland. Requires the main campaign entitlement granted by regiere_deutschland_one_time or the complete bundle regiere_deutschland_complett_packet_one. The product regiere_deutschland_one_time_two grants only the zukunft_2050 entitlement. After completing the main campaign in 2026, the game offers this expansion and continues the same save through 2050. Includes 200 scenario decisions and 75 additional events per complete run. All future events are fictional. Purchase and restore use Apple's StoreKit through RevenueCat. No account is required. No subscription, trial, or automatic renewal. Available in the existing selected territories; prices and availability are unchanged."
+        }
+      }
+    },
+    {
+      "product_id": "prod8021c1cdbf",
+      "store": "app_store",
+      "common": {
+        "title": "Komplettpaket 2005–2050",
+        "localizations": {
+          "de-DE": {
+            "name": "Komplettpaket 2005–2050",
+            "description": "Hauptkampagne und Zukunft 2050 dauerhaft."
+          }
+        }
+      },
+      "store_state": {
+        "review_information": {
+          "notes": "Permanent non-consumable complete bundle for Regiere Deutschland. The product regiere_deutschland_complett_packet_one grants both RevenueCat entitlements: Regiere Deutschland Pro (main campaign 2005–2026 and existing Pro features) and zukunft_2050 (future expansion 2026–2050). One purchase unlocks both campaigns. The free prologue 2000–2004 remains available without purchase. Campaign progress and decisions continue in the same save. Purchase and restore use Apple's StoreKit through RevenueCat. No account is required. No subscription, trial, or automatic renewal. Available in the existing selected territories; prices and availability are unchanged."
+        }
+      }
+    }
+  ]
+}

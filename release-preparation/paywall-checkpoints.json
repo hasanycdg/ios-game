@@ -1,0 +1,51 @@
+[
+  {
+    "paywall_id": "pw7ebcfec35507450e",
+    "offering_id": "ofrngdab52df28c",
+    "packages": [
+      "$rc_lifetime",
+      "lifetime2",
+      "lifetime3"
+    ],
+    "default_package": "lifetime3",
+    "restore": true,
+    "close": true,
+    "default_locale": "de_DE",
+    "offering_lookup_key": "katalog_1_6",
+    "published": true,
+    "revision": 1,
+    "verified_on": "2026-10-20"
+  },
+  {
+    "paywall_id": "pw4489ba3e84f64892",
+    "offering_id": "ofrng8a538b5200",
+    "packages": [
+      "$rc_lifetime",
+      "lifetime3"
+    ],
+    "default_package": "lifetime3",
+    "restore": true,
+    "close": true,
+    "default_locale": "en_US",
+    "offering_lookup_key": "kampagne_2005",
+    "published": true,
+    "revision": 3,
+    "verified_on": "2026-10-20"
+  },
+  {
+    "paywall_id": "pwe75b9ecb204b4fe0",
+    "offering_id": "ofrng23b490478a",
+    "packages": [
+      "lifetime3",
+      "zukunft_2050"
+    ],
+    "default_package": "zukunft_2050",
+    "restore": true,
+    "close": true,
+    "default_locale": "en_US",
+    "offering_lookup_key": "zukunft_2050",
+    "published": true,
+    "revision": 6,
+    "verified_on": "2026-10-20"
+  }
+]

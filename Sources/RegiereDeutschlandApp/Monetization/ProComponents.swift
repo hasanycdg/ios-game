@@ -1,89 +1,143 @@
 import SwiftUI
 import RevenueCat
 import RevenueCatUI
+import RegiereDeutschlandCore
 
 // MARK: - Paywall-Container
 
-/// Rendert die Paywall des konfigurierten Offerings (`Monetization.offeringID`,
-/// hier `default1`). Sobald die Offerings geladen sind, wird das Offering
-/// explizit übergeben – so wird auch dann die richtige Paywall gezeigt, wenn
-/// `default1` im Dashboard nicht als *Current* markiert ist.
-struct ProPaywallView: View {
+/// Die drei Offerings werden ausdrücklich nach ihrem Einstiegspunkt geladen.
+struct CampaignPaywallView: View {
+    let placement: CampaignPaywallPlacement
     @Environment(PurchaseManager.self) private var purchases
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         Group {
-            if let offering = purchases.currentOffering {
+            if let offering = purchases.offering(for: placement), offering.hasPaywall {
                 PaywallView(offering: offering, displayCloseButton: true)
+                    .customPaywallVariables(bundleVariables)
+                    .onPurchaseCompleted { info in
+                        purchases.acceptCustomerInfo(info)
+                        dismiss()
+                    }
+                    .onRestoreCompleted { info in
+                        purchases.acceptCustomerInfo(info)
+                        let restored: Bool = switch placement {
+                        case .catalog:
+                            info.entitlements.active[Monetization.proEntitlementID] != nil ||
+                            info.entitlements.active[Monetization.future2050EntitlementID] != nil
+                        case .afterPrologue: purchases.hasCampaign2005
+                        case .afterMainCampaign: purchases.hasFuture2050
+                        }
+                        if restored { dismiss() }
+                    }
             } else {
-                // Fallback, solange die Offerings noch laden.
-                PaywallView(displayCloseButton: true)
+                PurchaseUnavailableView(title: placement.loadingTitle)
             }
         }
         .preferredColorScheme(.dark)
+        .task {
+            if purchases.offering(for: placement)?.hasPaywall != true { await purchases.loadOfferings() }
+        }
+    }
+
+    private var bundleVariables: [String: CustomVariableValue] {
+        // Preisvergleich immer aus dem vollständigen Katalog, auch bei zwei Kaufoptionen.
+        let products = purchases.currentOffering?.availablePackages.map(\.storeProduct) ?? []
+        var variables: [String: CustomVariableValue] = [
+            "bundle_saving": .string(""), "show_bundle_saving": .bool(false)
+        ]
+        // Am Ende der Hauptkampagne ist diese bereits gekauft: kein irreführender Paket-Rabatt.
+        guard placement != .afterMainCampaign,
+              !purchases.hasCampaign2005,
+              let main = products.first(where: { $0.productIdentifier == Monetization.campaignProductID }),
+              let future = products.first(where: { $0.productIdentifier == Monetization.future2050ProductID }),
+              let bundle = products.first(where: { $0.productIdentifier == Monetization.completeProductID }),
+              let saving = CampaignBundleSaving.amount(main: main.price, future: future.price, bundle: bundle.price,
+                  mainCurrency: main.currencyCode, futureCurrency: future.currencyCode, bundleCurrency: bundle.currencyCode),
+              let formatted = bundle.priceFormatter?.string(from: NSDecimalNumber(decimal: saving)) else {
+            return variables
+        }
+        variables["bundle_saving"] = .string(formatted)
+        variables["show_bundle_saving"] = .bool(true)
+        return variables
     }
 }
 
-// MARK: - Upsell-/Status-Karte für den Home-Screen
+private struct PurchaseUnavailableView: View {
+    let title: String
+    @Environment(PurchaseManager.self) private var purchases
+    @Environment(\.dismiss) private var dismiss
 
-/// Zeigt auf dem Startbildschirm entweder ein Upsell für „Regiere Deutschland Pro“
-/// oder – wenn bereits gekauft – den aktiven Status samt „Abo verwalten“.
-struct ProStatusCard: View {
+    var body: some View {
+        VStack(spacing: 18) {
+            Image(systemName: "clock.arrow.circlepath")
+                .font(.system(size: 40))
+                .foregroundStyle(GameTheme.goldGradient)
+            Text(title)
+                .font(.title3.weight(.heavy))
+                .foregroundStyle(GameTheme.primaryText)
+            Text("Das Angebot ist gerade nicht verfügbar. Bitte prüfe deine Internetverbindung und versuche es erneut.")
+                .font(.subheadline)
+                .foregroundStyle(GameTheme.secondaryText)
+                .multilineTextAlignment(.center)
+            Button("Erneut laden") {
+                Task { await purchases.loadOfferings() }
+            }
+                .buttonStyle(PrimaryActionButtonStyle())
+            Button("Schließen") { dismiss() }
+                .buttonStyle(SecondaryActionButtonStyle())
+        }
+        .padding(28)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(GameTheme.background.ignoresSafeArea())
+    }
+}
+
+// MARK: - Zentraler Kaufzugang auf der Startseite
+
+struct CampaignStoreCard: View {
     @Environment(PurchaseManager.self) private var purchases
     @State private var showPaywall = false
     @State private var showCustomerCenter = false
 
-    var body: some View {
-        Group {
-            if purchases.isPro {
-                activeCard
-            } else {
-                upsellCard
-            }
-        }
-        // Explizites Upsell: vom Dashboard konfigurierte Paywall als Sheet.
-        .sheet(isPresented: $showPaywall) {
-            ProPaywallView()
-        }
-        // Customer Center: Käufe wiederherstellen, Kaufhistorie, Support …
-        .presentCustomerCenter(isPresented: $showCustomerCenter) {
-            showCustomerCenter = false
-        }
+    private var status: String {
+        if purchases.hasFuture2050 { return "Beide Kampagnen bis 2050 sind freigeschaltet." }
+        if purchases.hasCampaign2005 { return "Hauptkampagne aktiv. Entdecke die Zukunft bis 2050." }
+        return "Spiele den Prolog kostenlos und wähle danach deine Kampagne."
     }
 
-    // MARK: Upsell (nicht Pro)
-
-    private var upsellCard: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack(spacing: 10) {
-                Image(systemName: "crown.fill")
+    var body: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            HStack(spacing: 12) {
+                Image(systemName: "building.columns.fill")
                     .font(.headline)
                     .foregroundStyle(GameTheme.goldGradient)
-                    .frame(width: 36, height: 36)
+                    .frame(width: 38, height: 38)
                     .background(Circle().fill(GameTheme.gold.opacity(0.16)))
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Regiere Deutschland Pro")
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Kampagnen & Pakete")
                         .font(.subheadline.weight(.heavy))
                         .foregroundStyle(GameTheme.primaryText)
-                    Text("Einmal kaufen, für immer freigeschaltet")
+                    Text(status)
                         .font(.caption)
                         .foregroundStyle(GameTheme.secondaryText)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
-                Spacer(minLength: 0)
             }
 
             Button {
                 Haptics.impact(.light)
                 showPaywall = true
             } label: {
-                Label("Freischalten", systemImage: "sparkles")
+                Label("Alle Angebote ansehen", systemImage: "sparkles")
             }
             .buttonStyle(PrimaryActionButtonStyle())
 
             Button {
                 showCustomerCenter = true
             } label: {
-                Text("Käufe wiederherstellen")
+                Text("Käufe verwalten & wiederherstellen")
                     .font(.footnote.weight(.medium))
                     .foregroundStyle(GameTheme.secondaryText)
                     .frame(maxWidth: .infinity)
@@ -91,36 +145,12 @@ struct ProStatusCard: View {
             .buttonStyle(.plain)
         }
         .gameCard(tint: GameTheme.gold)
-    }
-
-    // MARK: Aktiv (Pro)
-
-    private var activeCard: some View {
-        HStack(spacing: 12) {
-            Image(systemName: "crown.fill")
-                .font(.headline)
-                .foregroundStyle(GameTheme.goldGradient)
-                .frame(width: 36, height: 36)
-                .background(Circle().fill(GameTheme.gold.opacity(0.16)))
-            VStack(alignment: .leading, spacing: 2) {
-                Text("Pro ist aktiv")
-                    .font(.subheadline.weight(.heavy))
-                    .foregroundStyle(GameTheme.primaryText)
-                Text("Danke für deine Unterstützung!")
-                    .font(.caption)
-                    .foregroundStyle(GameTheme.secondaryText)
-            }
-            Spacer(minLength: 0)
-            Button {
-                showCustomerCenter = true
-            } label: {
-                Text("Verwalten")
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(GameTheme.gold)
-            }
-            .buttonStyle(.plain)
+        .sheet(isPresented: $showPaywall) {
+            CampaignPaywallView(placement: .catalog)
         }
-        .gameCard(tint: GameTheme.gold)
+        .presentCustomerCenter(isPresented: $showCustomerCenter, onDismiss: {
+            showCustomerCenter = false
+        })
     }
 }
 
@@ -147,11 +177,11 @@ struct ProLockBadge: View {
 ///
 /// Nutzung: siehe `HomeScreen` (Gründung einer eigenen Partei).
 extension View {
-    /// Zeigt die RevenueCat-Paywall (`default1`) als Sheet, solange
+    /// Zeigt Hauptkampagne und Bundle für ein Pro-Feature als Sheet, solange
     /// `isPresented` `true` ist.
     func proPaywallSheet(isPresented: Binding<Bool>) -> some View {
         sheet(isPresented: isPresented) {
-            ProPaywallView()
+            CampaignPaywallView(placement: .afterPrologue)
         }
     }
 }

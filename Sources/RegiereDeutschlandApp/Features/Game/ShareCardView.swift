@@ -2,7 +2,8 @@ import RegiereDeutschlandCore
 import SwiftUI
 
 /// Kompakte, teilbare Ergebnis-Karte. Wird per ImageRenderer zu einem Bild.
-struct ShareCardView: View {
+struct ShareCardView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let summary: GameOverSummary
 
     var body: some View {
@@ -10,30 +11,30 @@ struct ShareCardView: View {
             HStack {
                 FlagRibbon(height: 5).frame(width: 64)
                 Spacer(minLength: 0)
-                Text("REGIERE DEUTSCHLAND")
+                Text(L("REGIERE DEUTSCHLAND"))
                     .font(.system(size: 10, weight: .bold)).tracking(1.4)
                     .foregroundStyle(GameTheme.secondaryText)
             }
 
             VStack(spacing: 4) {
-                Text("MEIN DEUTSCHLAND")
+                Text(L("MEIN DEUTSCHLAND"))
                     .font(.caption.weight(.bold)).tracking(2)
                     .foregroundStyle(GameTheme.gold)
-                Text(verbatim: "\(summary.startYear)–\(summary.endYear)")
+                Text(verbatim: L("\(L(summary.startYear))–\(L(summary.endYear))"))
                     .font(.system(size: 34, weight: .heavy, design: .rounded))
                     .foregroundStyle(GameTheme.primaryText)
             }
 
             VStack(spacing: 2) {
-                Text("\(summary.score)")
+                Text(L("\(L(summary.score))"))
                     .font(.system(size: 46, weight: .heavy, design: .rounded))
                     .foregroundStyle(GameTheme.gold).monospacedDigit()
-                Text("PUNKTE")
+                Text(L("PUNKTE"))
                     .font(.caption2.weight(.bold)).tracking(2.5)
                     .foregroundStyle(GameTheme.secondaryText)
             }
 
-            Text(summary.governingStyle)
+            Text(L(summary.governingStyle))
                 .font(.caption.weight(.bold))
                 .foregroundStyle(Color(red: 0.12, green: 0.10, blue: 0.05))
                 .padding(.horizontal, 12).padding(.vertical, 5)
@@ -47,17 +48,17 @@ struct ShareCardView: View {
                     HStack(spacing: 8) {
                         Image(systemName: style.icon).font(.caption2)
                             .foregroundStyle(GameTheme.secondaryText).frame(width: 16)
-                        Text(style.label).font(.caption2).foregroundStyle(GameTheme.primaryText)
+                        Text(L(style.label)).font(.caption2).foregroundStyle(GameTheme.primaryText)
                             .frame(width: 92, alignment: .leading)
                         ValueBar(value: value, height: 6)
-                        Text("\(value)").font(.caption2.weight(.bold))
+                        Text(L("\(L(value))")).font(.caption2.weight(.bold))
                             .foregroundStyle(GameTheme.statusColor(for: value)).monospacedDigit()
                             .frame(width: 22, alignment: .trailing)
                     }
                 }
             }
 
-            Text("Deutschland 2000–2026, aber diesmal entscheidest DU.")
+            Text(L("Deutschland 2000–2026, aber diesmal entscheidest DU."))
                 .font(.system(size: 10))
                 .foregroundStyle(GameTheme.tertiaryText)
         }

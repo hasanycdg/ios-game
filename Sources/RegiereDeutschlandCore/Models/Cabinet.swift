@@ -26,6 +26,18 @@ public enum Ministry: String, Codable, CaseIterable, Sendable {
         }
     }
 
+    public func departmentTitle(in country: GameCountry, year: Int = 2000) -> String {
+        guard country == .unitedStates else { return "Ministerium für \(title)" }
+        switch self {
+        case .economy: return "Department of Commerce"
+        case .budget: return "Department of the Treasury"
+        case .security: return year >= 2003 ? "Department of Homeland Security" : "Department of Justice"
+        case .foreign: return "Department of State"
+        case .social: return "Department of Health and Human Services"
+        case .energy: return "Department of Energy"
+        }
+    }
+
     /// Der Kennwert, auf den ein starkes/schwaches Ressort einzahlt.
     public var metric: VisibleMetric {
         switch self {
@@ -70,10 +82,10 @@ public struct Cabinet: Codable, Equatable, Sendable {
         ministers[ministry.rawValue] ?? Minister(name: "N. N.", competence: 50)
     }
 
-    public static func standard() -> Cabinet {
+    public static func standard(country: GameCountry = .germany) -> Cabinet {
         var ministers: [String: Minister] = [:]
         for (index, ministry) in Ministry.allCases.enumerated() {
-            ministers[ministry.rawValue] = MinisterPool.make(seed: 100 + index * 7)
+            ministers[ministry.rawValue] = MinisterPool.make(seed: 100 + index * 7, country: country)
         }
         return Cabinet(ministers: ministers)
     }
@@ -86,8 +98,9 @@ public enum MinisterPool {
         "Frau Klein", "Herr Wolf", "Dr. Neumann", "Frau Braun", "Herr Krüger", "Dr. Hartmann"
     ]
 
-    public static func make(seed: Int) -> Minister {
-        let name = names[abs(seed) % names.count]
+    public static func make(seed: Int, country: GameCountry = .germany) -> Minister {
+        let pool = country == .germany ? names : ["Jordan Williams", "Dr. Taylor Brooks", "Casey Johnson", "Dr. Avery Davis", "Morgan Reed", "Jamie Thompson", "Dr. Riley Chen", "Sam Rodriguez", "Alex Carter", "Dr. Cameron Patel", "Drew Jackson", "Quinn Mitchell", "Dr. Reese Anderson", "Parker Lewis", "Dakota Wilson", "Dr. Sidney Clark"]
+        let name = pool[abs(seed) % pool.count]
         let competence = 45 + (abs(seed &* 31 &+ 7) % 41)
         return Minister(name: name, competence: competence)
     }

@@ -3,25 +3,30 @@ import Foundation
 public final class GamePersistence {
     public enum PersistenceError: Error {
         case unableToCreateDirectory
+        case countryMismatch
     }
 
     private let fileManager: FileManager
     private let saveURL: URL
     private let runResultsURL: URL
     private let achievementsURL: URL
+    private let country: GameCountry
 
     public init(
         fileManager: FileManager = .default,
-        baseDirectory: URL? = nil
+        baseDirectory: URL? = nil,
+        country: GameCountry = .germany
     ) {
         self.fileManager = fileManager
+        self.country = country
         let directory = baseDirectory ?? fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask)
             .first?
             .appendingPathComponent("RegiereDeutschland", isDirectory: true)
             ?? fileManager.temporaryDirectory.appendingPathComponent("RegiereDeutschland", isDirectory: true)
-        self.saveURL = directory.appendingPathComponent("savegame.json")
-        self.runResultsURL = directory.appendingPathComponent("run-results.json")
-        self.achievementsURL = directory.appendingPathComponent("achievements.json")
+        let campaignDirectory = country == .germany ? directory : directory.appendingPathComponent("UnitedStates", isDirectory: true)
+        self.saveURL = campaignDirectory.appendingPathComponent("savegame.json")
+        self.runResultsURL = campaignDirectory.appendingPathComponent("run-results.json")
+        self.achievementsURL = campaignDirectory.appendingPathComponent("achievements.json")
     }
 
     public var hasSaveGame: Bool {
@@ -30,10 +35,13 @@ public final class GamePersistence {
 
     public func loadSnapshot() -> GameSessionSnapshot? {
         guard let data = try? Data(contentsOf: saveURL) else { return nil }
-        return try? JSONDecoder.gameDecoder.decode(GameSessionSnapshot.self, from: data)
+        guard let snapshot = try? JSONDecoder.gameDecoder.decode(GameSessionSnapshot.self, from: data),
+              snapshot.country == country else { return nil }
+        return snapshot
     }
 
     public func saveSnapshot(_ snapshot: GameSessionSnapshot) throws {
+        guard snapshot.country == country else { throw PersistenceError.countryMismatch }
         try ensureDirectoryExists()
         let data = try JSONEncoder.prettyGameEncoder.encode(snapshot)
         try data.write(to: saveURL, options: [.atomic])

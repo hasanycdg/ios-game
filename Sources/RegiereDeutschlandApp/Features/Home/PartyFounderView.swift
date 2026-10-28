@@ -3,7 +3,8 @@ import RegiereDeutschlandCore
 
 /// Eigene Partei gründen: Name, Ideologie und Ziele wählen – daraus wird eine
 /// spielbare Partei, mit der man ins Spiel startet.
-struct PartyFounderView: View {
+struct PartyFounderView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let playerName: String
     var difficulty: Difficulty = .normal
 
@@ -51,7 +52,7 @@ struct PartyFounderView: View {
             }
         }
         .foregroundStyle(GameTheme.primaryText)
-        .navigationTitle("Partei gründen")
+        .navigationTitle(L("Partei gründen"))
         .inlineNavigationTitle()
         .scrollDismissesKeyboard(.interactively)
     }
@@ -66,10 +67,10 @@ struct PartyFounderView: View {
                     .font(.system(size: 30))
                     .foregroundStyle(GameTheme.teal)
             }
-            Text("Gründe deine eigene Partei")
+            Text(L("Gründe deine eigene Partei"))
                 .font(.system(size: 22, weight: .heavy, design: .rounded))
                 .multilineTextAlignment(.center)
-            Text("Wähle Namen, Ideologie und Ziele – und setze im Spiel dein eigenes Programm durch.")
+            Text(L("Wähle Namen, Ideologie und Ziele – und setze im Spiel dein eigenes Programm durch."))
                 .font(.callout)
                 .foregroundStyle(GameTheme.secondaryText)
                 .multilineTextAlignment(.center)
@@ -82,10 +83,10 @@ struct PartyFounderView: View {
 
     private var nameSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionHeader(title: "Name deiner Partei", systemImage: "signature")
-            textField("z. B. Zukunftspartei", text: $partyName, field: .name)
+            SectionHeader(title: L("Name deiner Partei"), systemImage: "signature")
+            textField(L("z. B. Zukunftspartei"), text: $partyName, field: .name)
             HStack(spacing: 12) {
-                Text("Kürzel")
+                Text(L("Kürzel"))
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(GameTheme.secondaryText)
                 textField(autoShort, text: $shortName, field: .short)
@@ -96,12 +97,12 @@ struct PartyFounderView: View {
 
     private var autoShort: String {
         let initials = partyName.split(separator: " ").compactMap { $0.first }.map(String.init).joined()
-        return initials.isEmpty ? "z. B. ZP" : String(initials.prefix(4)).uppercased()
+        return initials.isEmpty ? L("z. B. ZP") : String(initials.prefix(4)).uppercased()
     }
 
     private func textField(_ placeholder: String, text: Binding<String>, field: Field) -> some View {
         HStack {
-            TextField("", text: text, prompt: Text(placeholder).foregroundColor(GameTheme.tertiaryText))
+            TextField(L(""), text: text, prompt: Text(L(placeholder)).foregroundColor(GameTheme.tertiaryText))
                 .textInputAutocapitalization(field == .short ? .characters : .words)
                 .autocorrectionDisabled()
                 .focused($focus, equals: field)
@@ -120,7 +121,7 @@ struct PartyFounderView: View {
 
     private var ideologySection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionHeader(title: "Ideologie", systemImage: "arrow.left.and.right.circle")
+            SectionHeader(title: L("Ideologie"), systemImage: "arrow.left.and.right.circle")
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
                     ForEach(IdeologyCatalog.all) { ideology in
@@ -141,9 +142,9 @@ struct PartyFounderView: View {
 
     private var goalsSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionHeader(title: "Deine Ziele", systemImage: "target",
-                          accessory: "\(selectedGoals.count)/\(maxGoals)")
-            Text("Wähle bis zu \(maxGoals) Vorhaben. Sie werden dein Programm – und geben dir schon zum Start Rückenwind.")
+            SectionHeader(title: L("Deine Ziele"), systemImage: "target",
+                          accessory: "\(L(selectedGoals.count))/\(L(maxGoals))")
+            Text(L("Wähle bis zu \(L(maxGoals)) Vorhaben. Sie werden dein Programm – und geben dir schon zum Start Rückenwind."))
                 .font(.caption)
                 .foregroundStyle(GameTheme.tertiaryText)
                 .fixedSize(horizontal: false, vertical: true)
@@ -168,7 +169,7 @@ struct PartyFounderView: View {
             HStack(spacing: 5) {
                 Image(systemName: isOn ? "checkmark.circle.fill" : "plus.circle")
                     .font(.caption2)
-                Text(goal.title).font(.caption.weight(.semibold))
+                Text(L(goal.title)).font(.caption.weight(.semibold))
             }
             .foregroundStyle(isOn ? Color.black.opacity(0.85) : (atLimit ? GameTheme.tertiaryText : GameTheme.primaryText))
             .padding(.horizontal, 12).padding(.vertical, 8)
@@ -187,16 +188,16 @@ struct PartyFounderView: View {
     private var startButton: some View {
         VStack(spacing: 8) {
             NavigationLink {
-                GameContainerView(mode: .newGame, party: builtParty, playerName: playerName, difficulty: difficulty)
+                GameContainerView(mode: .newGame, party: builtParty, playerName: playerName, difficulty: difficulty, country: gamePresentation.country)
             } label: {
-                Label("Partei gründen & regieren", systemImage: "flag.fill")
+                Label(L("Partei gründen & regieren"), systemImage: "flag.fill")
             }
             .buttonStyle(PrimaryActionButtonStyle())
             .disabled(selectedGoals.isEmpty)
             .opacity(selectedGoals.isEmpty ? 0.5 : 1)
 
             if selectedGoals.isEmpty {
-                Text("Wähle mindestens ein Ziel.")
+                Text(L("Wähle mindestens ein Ziel."))
                     .font(.caption).foregroundStyle(GameTheme.tertiaryText)
             }
         }
@@ -206,7 +207,8 @@ struct PartyFounderView: View {
 
 // MARK: - Ideologie-Karte
 
-private struct IdeologyCard: View {
+private struct IdeologyCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let ideology: PartyIdeology
     let isSelected: Bool
     let action: () -> Void
@@ -225,10 +227,10 @@ private struct IdeologyCard: View {
                         Image(systemName: "checkmark.circle.fill").foregroundStyle(GameTheme.teal)
                     }
                 }
-                Text(ideology.title)
+                Text(L(ideology.title))
                     .font(.subheadline.weight(.bold))
                     .foregroundStyle(GameTheme.primaryText)
-                Text(ideology.tagline)
+                Text(L(ideology.tagline))
                     .font(.caption2)
                     .foregroundStyle(GameTheme.secondaryText)
                     .fixedSize(horizontal: false, vertical: true)

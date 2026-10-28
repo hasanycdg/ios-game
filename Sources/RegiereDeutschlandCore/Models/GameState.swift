@@ -29,6 +29,7 @@ public struct ElectionResult: Codable, Equatable, Identifiable, Sendable {
     public let oppositionShare: Double
     public let didWin: Bool
     public let reasons: [String]
+    public let electoralVotes: Int?
 
     public init(
         id: UUID = UUID(),
@@ -36,7 +37,8 @@ public struct ElectionResult: Codable, Equatable, Identifiable, Sendable {
         governingPartyShare: Double,
         oppositionShare: Double,
         didWin: Bool,
-        reasons: [String] = []
+        reasons: [String] = [],
+        electoralVotes: Int? = nil
     ) {
         self.id = id
         self.year = year
@@ -44,6 +46,7 @@ public struct ElectionResult: Codable, Equatable, Identifiable, Sendable {
         self.oppositionShare = oppositionShare
         self.didWin = didWin
         self.reasons = reasons
+        self.electoralVotes = electoralVotes
     }
 }
 

@@ -20,7 +20,9 @@ let package = Package(
             name: "RegiereDeutschlandCore",
             resources: [
                 .process("Data/Events"),
-                .process("Data/News")
+                .process("Data/News"),
+                .process("Data/UnitedStates"),
+                .process("Data/Localization")
             ]
         ),
         .testTarget(

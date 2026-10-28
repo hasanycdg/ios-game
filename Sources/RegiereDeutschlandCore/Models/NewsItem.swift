@@ -3,6 +3,7 @@ import Foundation
 /// Herkunft einer Nachricht.
 public enum NewsScope: String, Codable, Sendable {
     case world      // Weltgeschehen
+    case unitedStates
     case germany    // Deutschland
     case domestic   // Reaktion auf die eigene Politik (dynamisch erzeugt)
 }

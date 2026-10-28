@@ -2,12 +2,13 @@ import RegiereDeutschlandCore
 import SwiftUI
 
 /// Vollbild-Begegnung: Interview oder vertrauliches Lobby-Angebot.
-struct EncounterView: View {
+struct EncounterView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let encounter: PoliticalEncounter
     let onSelect: (String) -> Void
 
     private var accent: Color { encounter.kind == .lobby ? GameTheme.red : GameTheme.gold }
-    private var eyebrow: String { encounter.kind == .lobby ? "VERTRAULICHES ANGEBOT" : "LIVE-INTERVIEW" }
+    private var eyebrow: String { encounter.kind == .lobby ? L("VERTRAULICHES ANGEBOT") : L("LIVE-INTERVIEW") }
     private var icon: String { encounter.kind == .lobby ? "banknote.fill" : "mic.fill" }
 
     var body: some View {
@@ -17,7 +18,7 @@ struct EncounterView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     header
-                    Text(encounter.prompt)
+                    Text(L(encounter.prompt))
                         .font(.callout)
                         .foregroundStyle(GameTheme.secondaryText)
                         .multilineTextAlignment(.center)
@@ -41,10 +42,10 @@ struct EncounterView: View {
                 Circle().fill(accent.opacity(0.15)).frame(width: 66, height: 66)
                 Image(systemName: icon).font(.title).foregroundStyle(accent)
             }
-            Text(eyebrow)
+            Text(L(eyebrow))
                 .font(.caption.weight(.heavy)).tracking(3)
                 .foregroundStyle(accent)
-            Text(encounter.source)
+            Text(L(encounter.source))
                 .font(.system(size: 22, weight: .bold, design: .rounded))
                 .foregroundStyle(GameTheme.primaryText)
                 .multilineTextAlignment(.center)
@@ -59,11 +60,11 @@ struct EncounterView: View {
         } label: {
             HStack(spacing: 12) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(option.title)
+                    Text(L(option.title))
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(GameTheme.primaryText)
                         .multilineTextAlignment(.leading)
-                    Text(option.detail)
+                    Text(L(option.detail))
                         .font(.caption)
                         .foregroundStyle(GameTheme.secondaryText)
                         .multilineTextAlignment(.leading)

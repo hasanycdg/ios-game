@@ -6,14 +6,17 @@ import RegiereDeutschlandCore
 // MARK: - Paywall-Container
 
 /// Die drei Offerings werden ausdrücklich nach ihrem Einstiegspunkt geladen.
-struct CampaignPaywallView: View {
+struct CampaignPaywallView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let placement: CampaignPaywallPlacement
     @Environment(PurchaseManager.self) private var purchases
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         Group {
-            if let offering = purchases.offering(for: placement), offering.hasPaywall {
+            if gamePresentation.country == .unitedStates && purchases.hasFuture2050 {
+                USCampaignPaywallView(placement: placement)
+            } else if let offering = purchases.offering(for: placement, country: gamePresentation.country), offering.hasPaywall {
                 PaywallView(offering: offering, displayCloseButton: true)
                     .customPaywallVariables(bundleVariables)
                     .onPurchaseCompleted { info in
@@ -31,13 +34,18 @@ struct CampaignPaywallView: View {
                         }
                         if restored { dismiss() }
                     }
+            } else if gamePresentation.country == .unitedStates {
+                // Unpublished or unavailable US paywalls keep an English purchase UI.
+                USCampaignPaywallView(placement: placement)
             } else {
                 PurchaseUnavailableView(title: placement.loadingTitle)
             }
         }
         .preferredColorScheme(.dark)
         .task {
-            if purchases.offering(for: placement)?.hasPaywall != true { await purchases.loadOfferings() }
+            if purchases.offering(for: placement, country: gamePresentation.country)?.hasPaywall != true {
+                await purchases.loadOfferings()
+            }
         }
     }
 
@@ -47,6 +55,9 @@ struct CampaignPaywallView: View {
         var variables: [String: CustomVariableValue] = [
             "bundle_saving": .string(""), "show_bundle_saving": .bool(false)
         ]
+        if gamePresentation.country == .unitedStates {
+            variables["has_main_campaign"] = .bool(purchases.hasCampaign2005)
+        }
         // Am Ende der Hauptkampagne ist diese bereits gekauft: kein irreführender Paket-Rabatt.
         guard placement != .afterMainCampaign,
               !purchases.hasCampaign2005,
@@ -64,7 +75,8 @@ struct CampaignPaywallView: View {
     }
 }
 
-private struct PurchaseUnavailableView: View {
+private struct PurchaseUnavailableView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let title: String
     @Environment(PurchaseManager.self) private var purchases
     @Environment(\.dismiss) private var dismiss
@@ -74,18 +86,18 @@ private struct PurchaseUnavailableView: View {
             Image(systemName: "clock.arrow.circlepath")
                 .font(.system(size: 40))
                 .foregroundStyle(GameTheme.goldGradient)
-            Text(title)
+            Text(L(title))
                 .font(.title3.weight(.heavy))
                 .foregroundStyle(GameTheme.primaryText)
-            Text("Das Angebot ist gerade nicht verfügbar. Bitte prüfe deine Internetverbindung und versuche es erneut.")
+            Text(L("Das Angebot ist gerade nicht verfügbar. Bitte prüfe deine Internetverbindung und versuche es erneut."))
                 .font(.subheadline)
                 .foregroundStyle(GameTheme.secondaryText)
                 .multilineTextAlignment(.center)
-            Button("Erneut laden") {
+            Button(L("Erneut laden")) {
                 Task { await purchases.loadOfferings() }
             }
                 .buttonStyle(PrimaryActionButtonStyle())
-            Button("Schließen") { dismiss() }
+            Button(L("Schließen")) { dismiss() }
                 .buttonStyle(SecondaryActionButtonStyle())
         }
         .padding(28)
@@ -96,15 +108,16 @@ private struct PurchaseUnavailableView: View {
 
 // MARK: - Zentraler Kaufzugang auf der Startseite
 
-struct CampaignStoreCard: View {
+struct CampaignStoreCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     @Environment(PurchaseManager.self) private var purchases
     @State private var showPaywall = false
     @State private var showCustomerCenter = false
 
     private var status: String {
-        if purchases.hasFuture2050 { return "Beide Kampagnen bis 2050 sind freigeschaltet." }
-        if purchases.hasCampaign2005 { return "Hauptkampagne aktiv. Entdecke die Zukunft bis 2050." }
-        return "Spiele den Prolog kostenlos und wähle danach deine Kampagne."
+        if purchases.hasFuture2050 { return L("Beide Kampagnen bis 2050 sind freigeschaltet.") }
+        if purchases.hasCampaign2005 { return L("Hauptkampagne aktiv. Entdecke die Zukunft bis 2050.") }
+        return L("Spiele den Prolog kostenlos und wähle danach deine Kampagne.")
     }
 
     var body: some View {
@@ -116,10 +129,10 @@ struct CampaignStoreCard: View {
                     .frame(width: 38, height: 38)
                     .background(Circle().fill(GameTheme.gold.opacity(0.16)))
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Kampagnen & Pakete")
+                    Text(L("Kampagnen & Pakete"))
                         .font(.subheadline.weight(.heavy))
                         .foregroundStyle(GameTheme.primaryText)
-                    Text(status)
+                    Text(L(status))
                         .font(.caption)
                         .foregroundStyle(GameTheme.secondaryText)
                         .fixedSize(horizontal: false, vertical: true)
@@ -130,14 +143,14 @@ struct CampaignStoreCard: View {
                 Haptics.impact(.light)
                 showPaywall = true
             } label: {
-                Label("Alle Angebote ansehen", systemImage: "sparkles")
+                Label(L("Alle Angebote ansehen"), systemImage: "sparkles")
             }
             .buttonStyle(PrimaryActionButtonStyle())
 
             Button {
                 showCustomerCenter = true
             } label: {
-                Text("Käufe verwalten & wiederherstellen")
+                Text(L("Käufe verwalten & wiederherstellen"))
                     .font(.footnote.weight(.medium))
                     .foregroundStyle(GameTheme.secondaryText)
                     .frame(maxWidth: .infinity)
@@ -148,7 +161,16 @@ struct CampaignStoreCard: View {
         .sheet(isPresented: $showPaywall) {
             CampaignPaywallView(placement: .catalog)
         }
-        .presentCustomerCenter(isPresented: $showCustomerCenter, onDismiss: {
+        .sheet(isPresented: Binding(
+            get: { showCustomerCenter && gamePresentation.country == .unitedStates },
+            set: { showCustomerCenter = $0 }
+        )) {
+            USCampaignPaywallView(placement: .catalog)
+        }
+        .presentCustomerCenter(isPresented: Binding(
+            get: { showCustomerCenter && gamePresentation.country == .germany },
+            set: { showCustomerCenter = $0 }
+        ), onDismiss: {
             showCustomerCenter = false
         })
     }
@@ -157,11 +179,12 @@ struct CampaignStoreCard: View {
 // MARK: - Pro-Gate für einzelne Features
 
 /// Kleines Schloss-Abzeichen, das an Pro-Features angezeigt werden kann.
-struct ProLockBadge: View {
+struct ProLockBadge: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     var body: some View {
         HStack(spacing: 4) {
             Image(systemName: "crown.fill")
-            Text("Pro")
+            Text(L("Pro"))
         }
         .font(.system(size: 10, weight: .bold))
         .foregroundStyle(Color(red: 0.12, green: 0.10, blue: 0.05))

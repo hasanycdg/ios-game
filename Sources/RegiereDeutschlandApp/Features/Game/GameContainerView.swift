@@ -3,7 +3,8 @@ import SwiftUI
 
 /// Container des laufenden Spiels: TabView mit geteiltem ViewModel plus
 /// Vollbild-Overlays für Wahlabend und Game Over.
-struct GameContainerView: View {
+struct GameContainerView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     @StateObject private var viewModel: GameViewModel
     @Environment(\.dismiss) private var dismiss
     @Environment(\.scenePhase) private var scenePhase
@@ -12,11 +13,12 @@ struct GameContainerView: View {
     @State private var campaignPaywall: CampaignPaywallPlacement?
 
     init(mode: GameViewModel.StartMode = .newGame,
-         party: PlayerParty = PartyCatalog.default,
-         playerName: String = PartyCatalog.defaultChancellorName,
+         party: PlayerParty? = nil,
+         playerName: String? = nil,
          difficulty: Difficulty = .normal,
-         finalYear: Int = 2026) {
-        _viewModel = StateObject(wrappedValue: GameViewModel(mode: mode, party: party, playerName: playerName, difficulty: difficulty, finalYear: finalYear))
+         finalYear: Int = 2026,
+         country: GameCountry = .germany) {
+        _viewModel = StateObject(wrappedValue: GameViewModel(mode: mode, party: party ?? country.defaultParty, playerName: playerName ?? country.defaultLeaderName, difficulty: difficulty, finalYear: finalYear, country: country))
     }
 
     var body: some View {
@@ -26,23 +28,23 @@ struct GameContainerView: View {
             TabView(selection: $selectedTab) {
                 SituationTab(viewModel: viewModel)
                     .tag(0)
-                    .tabItem { Label("Lage", systemImage: "flag.fill") }
+                    .tabItem { Label(L("Lage"), systemImage: "flag.fill") }
 
                 PresseTab(viewModel: viewModel)
                     .tag(1)
-                    .tabItem { Label("Presse", systemImage: "newspaper.fill") }
+                    .tabItem { Label(L("Presse"), systemImage: "newspaper.fill") }
 
                 DepartmentsTab(viewModel: viewModel)
                     .tag(2)
-                    .tabItem { Label("Ressorts", systemImage: "chart.bar.fill") }
+                    .tabItem { Label(L("Ressorts"), systemImage: "chart.bar.fill") }
 
                 PolitikTab(viewModel: viewModel)
                     .tag(3)
-                    .tabItem { Label("Politik", systemImage: "building.columns.fill") }
+                    .tabItem { Label(L("Politik"), systemImage: "building.columns.fill") }
 
                 DiplomacyTab(viewModel: viewModel)
                     .tag(4)
-                    .tabItem { Label("Welt", systemImage: "globe.europe.africa.fill") }
+                    .tabItem { Label(L("Welt"), systemImage: "globe.europe.africa.fill") }
             }
             .tint(GameTheme.gold)
 
@@ -50,13 +52,19 @@ struct GameContainerView: View {
         }
         .background(GameTheme.background.ignoresSafeArea())
         .foregroundStyle(GameTheme.primaryText)
-        .navigationTitle("Regieren")
+        .navigationTitle(L("Regieren"))
         .inlineNavigationTitle()
         .toolbar { toolbarContent }
         .onChange(of: scenePhase) { _, newPhase in
             if newPhase != .active { viewModel.saveNow() }
         }
-        .onAppear(perform: synchronizeCampaignAccess)
+        .onAppear {
+            viewModel.language = gamePresentation.language
+            synchronizeCampaignAccess()
+        }
+        .onChange(of: gamePresentation.language) { _, language in
+            viewModel.language = language
+        }
         .onChange(of: purchases.campaignAccess) { _, _ in
             synchronizeCampaignAccess()
         }
@@ -120,19 +128,26 @@ struct GameContainerView: View {
                 .zIndex(1)
             }
         case .election(let election):
-            ElectionResultPanel(election: election, parties: viewModel.partyLandscape.parties) {
+            ElectionResultPanel(election: election, parties: viewModel.electionLandscape(election).parties) {
                 withAnimation(.easeInOut) { viewModel.continueAfterElection() }
             }
             .transition(.opacity)
             .zIndex(1)
         case .gameOver(let summary):
+            gameOverOverlay(summary)
+        default:
+            EmptyView()
+        }
+    }
+
+    private func gameOverOverlay(_ summary: GameOverSummary) -> some View {
             GameOverPanel(
                 summary: summary,
                 achievements: viewModel.newlyUnlockedAchievements,
                 programResults: viewModel.programResults,
                 partyName: viewModel.playerParty.name,
                 continuationTitle: continuationTitle(for: summary),
-                onContinueCampaign: summary.reason == .reachedFinalYear ? continueCampaign : nil,
+                onContinueCampaign: summary.reason == .reachedFinalYear ? { continueCampaign() } : nil,
                 onNewGame: {
                     withAnimation(.easeInOut) {
                         selectedTab = 0
@@ -143,18 +158,15 @@ struct GameContainerView: View {
             )
             .transition(.opacity)
             .zIndex(1)
-        default:
-            EmptyView()
-        }
     }
 
     private func continuationTitle(for summary: GameOverSummary) -> String? {
         guard summary.reason == .reachedFinalYear else { return nil }
         switch viewModel.finalYear {
         case 2004:
-            return purchases.hasCampaign2005 ? "Amtszeit ab 2005 fortsetzen" : "Kampagne 2005–2026 freischalten"
+            return purchases.hasCampaign2005 ? L("Amtszeit ab 2005 fortsetzen") : L("Kampagne 2005–2026 freischalten")
         case 2026:
-            return purchases.hasFuture2050 ? "Mit Zukunft 2050 fortsetzen" : "Zukunft 2050 freischalten"
+            return purchases.hasFuture2050 ? L("Mit Zukunft 2050 fortsetzen") : L("Zukunft 2050 freischalten")
         default:
             return nil
         }
@@ -187,7 +199,7 @@ struct GameContainerView: View {
                 Button {
                     dismiss()
                 } label: {
-                    Label("Hauptmenü", systemImage: "house")
+                    Label(L("Hauptmenü"), systemImage: "house")
                 }
                 #if DEBUG
                 Divider()
@@ -202,16 +214,17 @@ struct GameContainerView: View {
 }
 
 #if DEBUG
-private struct DebugMenu: View {
+private struct DebugMenu: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     @ObservedObject var viewModel: GameViewModel
 
     var body: some View {
-        Section("Debug") {
-            Button("Jahr +1") { viewModel.debugJumpForwardOneYear() }
-            Button("Wirtschaft +5") { viewModel.debugBoostEconomy() }
-            Button("Vertrauen -5") { viewModel.debugReduceTrust() }
-            Button("Erstes Event triggern") { viewModel.debugTriggerCurrentYearFirstEvent() }
-            Button("Balancing-Simulation") { viewModel.debugRunBalanceSimulation() }
+        Section(L("Debug")) {
+            Button(L("Jahr +1")) { viewModel.debugJumpForwardOneYear() }
+            Button(L("Wirtschaft +5")) { viewModel.debugBoostEconomy() }
+            Button(L("Vertrauen -5")) { viewModel.debugReduceTrust() }
+            Button(L("Erstes Event triggern")) { viewModel.debugTriggerCurrentYearFirstEvent() }
+            Button(L("Balancing-Simulation")) { viewModel.debugRunBalanceSimulation() }
         }
     }
 }

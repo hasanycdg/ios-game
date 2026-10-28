@@ -3,7 +3,8 @@ import SwiftUI
 
 // MARK: - Haushalt
 
-struct BudgetCard: View {
+struct BudgetCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let budget: BudgetSummary
 
     private var balanced: Bool { budget.deficit <= 0 }
@@ -11,20 +12,20 @@ struct BudgetCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Haushalt", systemImage: "building.columns.fill",
-                          accessory: "Schulden \(budget.debt)")
+            SectionHeader(title: L("Haushalt"), systemImage: "building.columns.fill",
+                          accessory: L("Schulden \(L(budget.debt))"))
 
-            flowRow(label: "Einnahmen", value: budget.income, color: GameTheme.green)
-            flowRow(label: "Ausgaben", value: budget.spending, color: GameTheme.amber)
+            flowRow(label: L("Einnahmen"), value: budget.income, color: GameTheme.green)
+            flowRow(label: L("Ausgaben"), value: budget.spending, color: GameTheme.amber)
 
             Divider().overlay(GameTheme.hairline)
 
             HStack {
-                Text(balanced ? "Überschuss" : "Defizit")
+                Text(L(balanced ? L("Überschuss") : L("Defizit")))
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(GameTheme.secondaryText)
                 Spacer()
-                Text("\(balanced ? "+" : "")\(-budget.deficit)")
+                Text(L("\(L(balanced ? "+" : ""))\(L(-budget.deficit))"))
                     .font(.system(size: 20, weight: .bold, design: .rounded))
                     .foregroundStyle(balanced ? GameTheme.green : GameTheme.red)
                     .monospacedDigit()
@@ -36,9 +37,9 @@ struct BudgetCard: View {
     private func flowRow(label: String, value: Int, color: Color) -> some View {
         VStack(alignment: .leading, spacing: 5) {
             HStack {
-                Text(label).font(.caption).foregroundStyle(GameTheme.secondaryText)
+                Text(L(label)).font(.caption).foregroundStyle(GameTheme.secondaryText)
                 Spacer()
-                Text("\(value)").font(.caption.weight(.bold)).foregroundStyle(GameTheme.primaryText).monospacedDigit()
+                Text(L("\(L(value))")).font(.caption.weight(.bold)).foregroundStyle(GameTheme.primaryText).monospacedDigit()
             }
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
@@ -53,7 +54,8 @@ struct BudgetCard: View {
 
 // MARK: - Gesetze (Politikfelder)
 
-struct PolicySection: View {
+struct PolicySection: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let policies: PolicyState
     let capital: Int
     let onChange: (PolicyID, Int) -> PolicyVoteResult
@@ -62,8 +64,8 @@ struct PolicySection: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Gesetze", systemImage: "doc.text.fill", accessory: "Parlament")
-            Text("Politikfelder wirken Jahr für Jahr. Jede Änderung kostet Kapital und braucht eine Mehrheit deiner Koalition.")
+            SectionHeader(title: L("Gesetze"), systemImage: "doc.text.fill", accessory: L("Parlament"))
+            Text(L("Politikfelder wirken Jahr für Jahr. Jede Änderung kostet Kapital und braucht eine Mehrheit deiner Koalition."))
                 .font(.caption)
                 .foregroundStyle(GameTheme.tertiaryText)
                 .fixedSize(horizontal: false, vertical: true)
@@ -71,7 +73,7 @@ struct PolicySection: View {
             if let message {
                 HStack(spacing: 8) {
                     Image(systemName: "building.columns").font(.caption2)
-                    Text(message.text).font(.caption.weight(.semibold))
+                    Text(L(message.text)).font(.caption.weight(.semibold))
                 }
                 .foregroundStyle(message.color)
                 .padding(10)
@@ -96,18 +98,19 @@ struct PolicySection: View {
     private func apply(_ policy: PolicyID, _ level: Int) {
         switch onChange(policy, level) {
         case .passed:
-            message = ("\(policy.title) im Parlament beschlossen.", GameTheme.green)
+            message = (L("\(L(policy.title)) im Parlament beschlossen."), GameTheme.green)
         case .rejected:
-            message = ("\(policy.title): im Parlament gescheitert – der Koalitionspartner blockiert.", GameTheme.red)
+            message = (L("\(L(policy.title)): im Parlament gescheitert – der Koalitionspartner blockiert."), GameTheme.red)
         case .noCapital:
-            message = ("Nicht genug politisches Kapital.", GameTheme.amber)
+            message = (L("Nicht genug politisches Kapital."), GameTheme.amber)
         case .unchanged:
             break
         }
     }
 }
 
-private struct PolicyRow: View {
+private struct PolicyRow: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let policy: PolicyID
     let level: Int
     let capital: Int
@@ -123,10 +126,10 @@ private struct PolicyRow: View {
                     .frame(width: 24, height: 24)
                     .background(Circle().fill(GameTheme.gold.opacity(0.15)))
                 VStack(alignment: .leading, spacing: 1) {
-                    Text(policy.title)
+                    Text(L(policy.title))
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(GameTheme.primaryText)
-                    Text(PolicyEngine.label(policy, level: level))
+                    Text(L(PolicyEngine.label(policy, level: level)))
                         .font(.caption)
                         .foregroundStyle(GameTheme.secondaryText)
                 }

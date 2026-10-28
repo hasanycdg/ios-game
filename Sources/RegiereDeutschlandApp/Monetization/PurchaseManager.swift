@@ -59,8 +59,8 @@ final class PurchaseManager {
         return offerings.current
     }
 
-    func offering(for placement: CampaignPaywallPlacement) -> Offering? {
-        offerings?.offering(identifier: placement.offeringID)
+    func offering(for placement: CampaignPaywallPlacement, country: GameCountry = .germany) -> Offering? {
+        offerings?.offering(identifier: placement.offeringID(for: country, hasMainCampaign: hasCampaign2005))
     }
 
     init() {
@@ -135,7 +135,7 @@ final class PurchaseManager {
     /// die RevenueCat-Paywall wickelt Käufe selbst ab.
     /// - Returns: `true`, wenn der Kauf erfolgreich abgeschlossen wurde.
     @discardableResult
-    func purchase(_ package: Package) async -> Bool {
+    func purchase(_ package: Package, country: GameCountry = .germany) async -> Bool {
         guard !isPurchasing else { return false }
         isPurchasing = true
         defer { isPurchasing = false }
@@ -147,7 +147,12 @@ final class PurchaseManager {
             customerInfo = result.customerInfo
             return isPro || hasFuture2050
         } catch {
-            lastError = Self.message(for: error)
+            if country == .unitedStates {
+                if (error as NSError).code == ErrorCode.purchaseCancelledError.rawValue { return false }
+                lastError = "The purchase could not be completed. Check your connection or payment method and try again."
+            } else {
+                lastError = Self.message(for: error)
+            }
             return false
         }
     }
@@ -156,7 +161,7 @@ final class PurchaseManager {
     /// v. a. bei einem Lifetime-Kauf ohne Abo).
     /// - Returns: `true`, wenn danach ein aktives Pro-Entitlement vorliegt.
     @discardableResult
-    func restorePurchases() async -> Bool {
+    func restorePurchases(country: GameCountry = .germany) async -> Bool {
         guard !isPurchasing else { return false }
         isPurchasing = true
         defer { isPurchasing = false }
@@ -166,7 +171,9 @@ final class PurchaseManager {
             customerInfo = try await Purchases.shared.restorePurchases()
             return isPro || hasFuture2050
         } catch {
-            lastError = Self.message(for: error)
+            lastError = country == .unitedStates
+                ? "Purchases could not be restored. Check your connection and App Store account, then try again."
+                : Self.message(for: error)
             return false
         }
     }

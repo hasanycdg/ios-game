@@ -45,6 +45,8 @@ final class GameViewModel: ObservableObject {
     @Published private(set) var hasBundesratMajority: Bool = true
     @Published private(set) var diplomacy: DiplomaticState = .standard(from: GameStateFactory.initialGermany2000().hidden)
     @Published private(set) var finalYear: Int = 2026
+    let country: GameCountry
+    @Published var language: GameLanguage
     let maxCapital = 10
 
     var budget: BudgetSummary { engine.budgetSummary() }
@@ -54,32 +56,37 @@ final class GameViewModel: ObservableObject {
 
     private let engine: GameEngine
     private let persistence: GamePersistence
-    private let electionEngine = ElectionEngine()
+    private var electionEngine: ElectionEngine { ElectionEngine(country: country, partyLeaning: playerParty.leaning) }
     private let newsRepository: NewsRepository
     private lazy var cachedNews: [NewsItem] = newsRepository.loadNews()
     private var didStoreRunResult = false
 
     init(
         mode: StartMode = .newGame,
-        party: PlayerParty = PartyCatalog.default,
-        playerName: String = PartyCatalog.defaultChancellorName,
+        party: PlayerParty? = nil,
+        playerName: String? = nil,
         difficulty: Difficulty = .normal,
         finalYear: Int = 2026,
-        persistence: GamePersistence = GamePersistence(),
-        newsRepository: NewsRepository = LocalJSONNewsRepository()
+        country: GameCountry = .germany,
+        persistence: GamePersistence? = nil,
+        newsRepository: NewsRepository? = nil
     ) {
-        let gamePersistence = persistence
-        self.persistence = persistence
-        self.newsRepository = newsRepository
+        let party = party ?? country.defaultParty
+        let playerName = playerName ?? country.defaultLeaderName
+        self.country = country
+        self.language = country == .germany ? .german : .english
+        let gamePersistence = persistence ?? GamePersistence(country: country)
+        self.persistence = gamePersistence
+        self.newsRepository = newsRepository ?? (country == .germany ? LocalJSONNewsRepository() : USNewsRepository())
         switch mode {
         case .newGame:
-            self.engine = GameEngine(finalYear: finalYear)
+            self.engine = GameEngine(country: country, finalYear: finalYear)
             self.engine.startNewGame(party: party, playerName: playerName, difficulty: difficulty, seed: Self.freshSeed())
         case .resume:
-            if let snapshot = gamePersistence.loadSnapshot() {
+            if let snapshot = gamePersistence.loadSnapshot(), snapshot.country == country {
                 self.engine = GameEngine(snapshot: snapshot)
             } else {
-                self.engine = GameEngine(finalYear: finalYear)
+                self.engine = GameEngine(country: country, finalYear: finalYear)
                 self.engine.startNewGame(party: party, playerName: playerName, difficulty: difficulty, seed: Self.freshSeed())
             }
         }
@@ -108,6 +115,9 @@ final class GameViewModel: ObservableObject {
         self.finalYear = engine.finalYear
         autosave()
     }
+
+    func L(_ source: String) -> String { GameTextLocalization.translate(source, country: country, language: language) }
+    func L<Value>(_ value: Value) -> Value { value }
 
     /// Kapitalkosten einer Option (inkl. Persona-Rabatt).
     func cost(of option: DecisionOption) -> Int {
@@ -192,7 +202,7 @@ final class GameViewModel: ObservableObject {
 
     /// Historische Welt-/Deutschland-Schlagzeilen des aktuellen Jahres.
     var worldNews: [NewsItem] {
-        cachedNews.filter { $0.year == state.currentYear }
+        cachedNews.filter { $0.year == state.currentYear && (!$0.id.contains("USFuture") || state.historicalFlags.contains("content_future_2050")) }
     }
 
     /// Reaktive Schlagzeilen zur Politik des Spielers.
@@ -202,13 +212,13 @@ final class GameViewModel: ObservableObject {
             let leader = PartyPresentation.leader(for: opponent.id)
             items.insert(
                 NewsItem(
-                    id: "opp-attack-\(state.currentYear)-\(state.governmentApproval)",
+                    id: "opp-attack-\(L(state.currentYear))-\(L(state.governmentApproval))",
                     year: state.currentYear,
                     scope: .domestic,
                     category: .society,
-                    headline: "Oppositionsführer \(leader) attackiert die Regierung",
-                    summary: "\(opponent.name) wirft der Regierung Versagen vor und fordert einen Kurswechsel.",
-                    source: "Bundestag"
+                    headline: L("Oppositionsführer \(L(leader)) attackiert die Regierung"),
+                    summary: L("\(L(opponent.name)) wirft der Regierung Versagen vor und fordert einen Kurswechsel."),
+                    source: L("Bundestag")
                 ),
                 at: 0
             )
@@ -400,7 +410,7 @@ extension GameViewModel {
         let summary = GameBalanceSimulator().runAllStrategies()
         balanceSummaryText = summary.runs
             .map { report in
-                "\(report.strategy.rawValue): Jahr \(report.reachedYear), Score \(report.score), Approval \(report.finalApproval)"
+                L("\(L(report.strategy.rawValue)): Jahr \(L(report.reachedYear)), Score \(L(report.score)), Approval \(L(report.finalApproval))")
             }
             .joined(separator: "\n")
     }

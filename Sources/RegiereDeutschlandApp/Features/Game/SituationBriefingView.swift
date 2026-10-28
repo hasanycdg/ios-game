@@ -3,7 +3,8 @@ import SwiftUI
 
 /// Kurzes Lage-Briefing zu Spielbeginn: Jahr, Wahlsieg, nationale Lage und die
 /// nächste Wahl – bevor die Regierung gebildet wird.
-struct SituationBriefingView: View {
+struct SituationBriefingView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let year: Int
     let playerName: String
     let party: PlayerParty
@@ -49,10 +50,10 @@ struct SituationBriefingView: View {
     private var header: some View {
         VStack(spacing: 8) {
             FlagRibbon(height: 5).frame(width: 90)
-            Text("DEIN AMTSANTRITT")
+            Text(L("DEIN AMTSANTRITT"))
                 .font(.caption.weight(.heavy)).tracking(3)
                 .foregroundStyle(GameTheme.gold)
-            Text(verbatim: "\(year)")
+            Text(verbatim: L("\(L(year))"))
                 .font(.system(size: 52, weight: .heavy, design: .rounded))
                 .foregroundStyle(GameTheme.primaryText)
                 .monospacedDigit()
@@ -68,16 +69,16 @@ struct SituationBriefingView: View {
                 Circle().fill(partyColor.opacity(0.2)).frame(width: 40, height: 40)
                     .overlay(Image(systemName: "checkmark.seal.fill").foregroundStyle(partyColor))
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Du hast die Wahl gewonnen!")
+                    Text(L("Du hast die Wahl gewonnen!"))
                         .font(.headline)
                         .foregroundStyle(GameTheme.primaryText)
-                    Text("\(playerName) · \(party.name)")
+                    Text("\(playerName) · \(L(party.name))")
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(partyColor)
                 }
                 Spacer(minLength: 0)
             }
-            Text("Das Land hat dir das Vertrauen geschenkt. Von jetzt an führst du Deutschland durch die kommenden Jahre – Entscheidung für Entscheidung.")
+            Text(L("Das Land hat dir das Vertrauen geschenkt. Von jetzt an führst du Deutschland durch die kommenden Jahre – Entscheidung für Entscheidung."))
                 .font(.callout)
                 .foregroundStyle(GameTheme.secondaryText)
                 .fixedSize(horizontal: false, vertical: true)
@@ -91,9 +92,9 @@ struct SituationBriefingView: View {
     private var nationCard: some View {
         VStack(alignment: .leading, spacing: 14) {
             HStack {
-                SectionHeader(title: "Die Lage der Nation", systemImage: "gauge.medium")
+                SectionHeader(title: L("Die Lage der Nation"), systemImage: "gauge.medium")
                 Spacer(minLength: 0)
-                Text(nationMood.word)
+                Text(L(nationMood.word))
                     .font(.caption.weight(.bold))
                     .foregroundStyle(nationMood.color)
                     .padding(.horizontal, 8).padding(.vertical, 3)
@@ -108,7 +109,7 @@ struct SituationBriefingView: View {
 
             HStack(spacing: 6) {
                 Image(systemName: "info.circle").font(.caption2)
-                Text("Regierungsindex \(governanceIndex) von 100 – so steht das Land, bevor du loslegst.")
+                Text(L("Regierungsindex \(L(governanceIndex)) von 100 – so steht das Land, bevor du loslegst."))
                     .font(.caption)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -125,12 +126,12 @@ struct SituationBriefingView: View {
                 .font(.footnote.weight(.bold))
                 .foregroundStyle(GameTheme.statusColor(for: value))
                 .frame(width: 22)
-            Text(style.label)
+            Text(L(style.label))
                 .font(.caption)
                 .foregroundStyle(GameTheme.secondaryText)
                 .lineLimit(1)
             Spacer(minLength: 0)
-            Text("\(value)")
+            Text(L("\(L(value))"))
                 .font(.system(size: 16, weight: .bold, design: .rounded))
                 .foregroundStyle(GameTheme.primaryText)
                 .monospacedDigit()
@@ -150,15 +151,15 @@ struct SituationBriefingView: View {
                 .background(Circle().fill(GameTheme.gold.opacity(0.15)))
             VStack(alignment: .leading, spacing: 2) {
                 if let next = nextElectionYear, let years = yearsToElection {
-                    Text("Nächste Bundestagswahl: \(String(next))")
+                    Text(L("Nächste Bundestagswahl: \(L(String(next)))"))
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(GameTheme.primaryText)
-                    Text(years == 1 ? "in einem Jahr wirst du gewählt oder abgewählt." : "in \(years) Jahren wirst du gewählt oder abgewählt.")
+                    Text(L(years == 1 ? L("in einem Jahr wirst du gewählt oder abgewählt.") : L("in \(L(years)) Jahren wirst du gewählt oder abgewählt.")))
                         .font(.caption)
                         .foregroundStyle(GameTheme.secondaryText)
                         .fixedSize(horizontal: false, vertical: true)
                 } else {
-                    Text("Regiere langfristig")
+                    Text(L("Regiere langfristig"))
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(GameTheme.primaryText)
                 }
@@ -173,18 +174,18 @@ struct SituationBriefingView: View {
 
     private var programCard: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionHeader(title: "Dein Programm", systemImage: "target")
+            SectionHeader(title: L("Dein Programm"), systemImage: "target")
             ForEach(party.agenda) { goal in
                 HStack(alignment: .top, spacing: 8) {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.caption2).foregroundStyle(partyColor).padding(.top, 1)
-                    Text(goal.title)
+                    Text(L(goal.title))
                         .font(.footnote.weight(.semibold))
                         .foregroundStyle(GameTheme.primaryText)
                     Spacer(minLength: 0)
                 }
             }
-            Text("Setze diese Ziele über deine Amtszeit durch.")
+            Text(L("Setze diese Ziele über deine Amtszeit durch."))
                 .font(.caption).foregroundStyle(GameTheme.tertiaryText)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -193,7 +194,7 @@ struct SituationBriefingView: View {
 
     private var continueButton: some View {
         Button(action: onContinue) {
-            Label("Regierung bilden", systemImage: "arrow.right")
+            Label(L("Regierung bilden"), systemImage: "arrow.right")
         }
         .buttonStyle(PrimaryActionButtonStyle())
         .padding(.top, 2)

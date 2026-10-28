@@ -1,0 +1,53 @@
+{
+  "note": "Prepared only. No store writes or review submission. Existing products, prices and availability remain unchanged. Future and bundle currently lack US availability.",
+  "desired_states": [
+    {
+      "product_id": "prod9e008a2ef6",
+      "store": "app_store",
+      "common": {
+        "localizations": {
+          "de-DE": {
+            "name": "Regiere Deutschland",
+            "description": "Regiere Deutschland von 2000 bis 2026"
+          },
+          "en-US": {
+            "name": "Main campaign 2005–2026",
+            "description": "Unlock 2005–2026 and all Pro features."
+          }
+        }
+      }
+    },
+    {
+      "product_id": "prod2aec02b52e",
+      "store": "app_store",
+      "common": {
+        "localizations": {
+          "de-DE": {
+            "name": "Zukunft 2050",
+            "description": "Erweitere deine Kampagne von 2026 bis 2050."
+          },
+          "en-US": {
+            "name": "Future 2050",
+            "description": "Continue to 2050. Main campaign required."
+          }
+        }
+      }
+    },
+    {
+      "product_id": "prod8021c1cdbf",
+      "store": "app_store",
+      "common": {
+        "localizations": {
+          "de-DE": {
+            "name": "Komplettpaket 2005–2050",
+            "description": "Hauptkampagne und Zukunft 2050 dauerhaft."
+          },
+          "en-US": {
+            "name": "Complete bundle 2005–2050",
+            "description": "Main campaign and Future 2050, permanently."
+          }
+        }
+      }
+    }
+  ]
+}

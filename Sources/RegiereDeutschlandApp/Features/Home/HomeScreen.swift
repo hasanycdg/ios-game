@@ -1,30 +1,45 @@
 import SwiftUI
 import RegiereDeutschlandCore
 
-struct HomeScreen: View {
+struct HomeScreen: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     @Environment(PurchaseManager.self) private var purchases
-    @Environment(UpdateReminder.self) private var reminder
     @State private var hasSaveGame = false
     @State private var runResults: [RunResult] = []
     @State private var unlockedAchievements: Set<String> = []
-    @State private var selectedPartyID = PartyCatalog.default.id
+    @State private var selectedPartyID: String
     @State private var playerName = ""
     @State private var showAchievements = false
     @State private var showOnboarding = false
     @State private var showPartyPaywall = false
-    @AppStorage("hasSeenRegiereOnboarding") private var hasSeenOnboarding = false
-    @AppStorage("regiereChancellorName") private var storedName = ""
-    @AppStorage("regiereDifficulty") private var difficultyRaw = Difficulty.normal.rawValue
+    @State private var showWelcomePaywall = false
+    @State private var offerAfterOnboarding = false
+    @AppStorage("lastAutomaticCampaignOffer") private var lastAutomaticCampaignOffer = 0.0
+    @AppStorage private var hasSeenOnboarding: Bool
+    @AppStorage private var storedName: String
+    @AppStorage private var difficultyRaw: String
     @FocusState private var nameFocused: Bool
-    private let persistence = GamePersistence()
+    @Environment(\.chooseCountry) private var chooseCountry
+    private let country: GameCountry
+    private let persistence: GamePersistence
+
+    init(country: GameCountry = .germany) {
+        self.country = country
+        self.persistence = GamePersistence(country: country)
+        _selectedPartyID = State(initialValue: country.defaultParty.id)
+        let suffix = country == .germany ? "" : ".us"
+        _hasSeenOnboarding = AppStorage(wrappedValue: false, "hasSeenRegiereOnboarding" + suffix)
+        _storedName = AppStorage(wrappedValue: "", "regiereChancellorName" + suffix)
+        _difficultyRaw = AppStorage(wrappedValue: Difficulty.normal.rawValue, "regiereDifficulty" + suffix)
+    }
 
     private var selectedParty: PlayerParty {
-        PartyCatalog.party(id: selectedPartyID)
+        country.party(id: selectedPartyID)
     }
 
     private var effectiveName: String {
         let trimmed = playerName.trimmingCharacters(in: .whitespacesAndNewlines)
-        return trimmed.isEmpty ? PartyCatalog.defaultChancellorName : trimmed
+        return trimmed.isEmpty ? country.defaultLeaderName : trimmed
     }
 
     private var selectedDifficulty: Difficulty {
@@ -37,7 +52,13 @@ struct HomeScreen: View {
 
             ScrollView {
                 VStack(spacing: 24) {
-                    Spacer(minLength: 28)
+                    Button(action: chooseCountry) {
+                        Label(L(country == .germany ? L("Deutschland · Land wechseln") : L("United States · Change country")), systemImage: "globe.americas.fill")
+                            .font(.footnote.weight(.semibold))
+                    }
+                    .foregroundStyle(GameTheme.secondaryText)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    Spacer(minLength: 8)
                     hero
                     nameField
                     partyPicker
@@ -46,7 +67,6 @@ struct HomeScreen: View {
                     actions
                     CampaignStoreCard()
                     footer
-                    if reminder.canOfferReminder && hasSeenOnboarding { updateReminderCard }
                     howItWorksButton
                     if !runResults.isEmpty { recentRuns }
                     Spacer(minLength: 20)
@@ -61,19 +81,30 @@ struct HomeScreen: View {
         .hiddenNavigationBar()
         .onAppear(perform: reload)
         .task {
-            if hasSeenOnboarding { await reminder.prepare() }
-        }
-        .onChange(of: hasSeenOnboarding) { _, hasSeen in
-            if hasSeen { Task { await reminder.prepare() } }
+            guard hasSeenOnboarding else { return }
+            await purchases.refreshCustomerInfo()
+            guard purchases.customerInfo != nil, !showOnboarding else { return }
+            presentAutomaticOffer(force: false)
         }
         .sheet(isPresented: $showAchievements) {
             AchievementsSheet(unlocked: unlockedAchievements)
         }
-        .fullScreenCover(isPresented: $showOnboarding) {
+        .fullScreenCover(isPresented: $showOnboarding, onDismiss: {
+            guard offerAfterOnboarding else { return }
+            offerAfterOnboarding = false
+            Task {
+                await purchases.refreshCustomerInfo()
+                presentAutomaticOffer(force: true)
+            }
+        }) {
             OnboardingView {
+                offerAfterOnboarding = !hasSeenOnboarding
                 hasSeenOnboarding = true
                 showOnboarding = false
             }
+        }
+        .sheet(isPresented: $showWelcomePaywall) {
+            CampaignPaywallView(placement: purchases.hasCampaign2005 ? .afterMainCampaign : .catalog)
         }
         .proPaywallSheet(isPresented: $showPartyPaywall)
     }
@@ -92,29 +123,14 @@ struct HomeScreen: View {
 
     // MARK: Hero
 
-    private var updateReminderCard: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Label("Zukunft 2050 ist da", systemImage: "bell.badge")
-                .font(.headline)
-                .foregroundStyle(GameTheme.teal)
-            Text("Bereit für neue Entscheidungen? Lass dich einmalig an die Erweiterung erinnern. Du kannst Mitteilungen in den iPhone-Einstellungen jederzeit ausschalten.")
-                .font(.footnote)
-                .foregroundStyle(GameTheme.secondaryText)
-            if let error = reminder.errorMessage {
-                Text(error).font(.footnote).foregroundStyle(GameTheme.red)
-            }
-            Button("Einmal erinnern lassen") {
-                Task { await reminder.enable() }
-            }
-            .buttonStyle(PrimaryActionButtonStyle())
-            .disabled(reminder.isBusy)
-            Button("Nicht jetzt") { reminder.skip() }
-                .font(.footnote)
-                .foregroundStyle(GameTheme.secondaryText)
-                .frame(maxWidth: .infinity)
-                .disabled(reminder.isBusy)
-        }
-        .gameCard(tint: GameTheme.teal)
+    private func presentAutomaticOffer(force: Bool) {
+        guard !showWelcomePaywall else { return }
+        let now = Date().timeIntervalSince1970
+        guard CampaignOfferSchedule.shouldPresent(hasFutureCampaign: purchases.hasFuture2050,
+                                                  lastPresented: lastAutomaticCampaignOffer,
+                                                  now: now, afterOnboarding: force) else { return }
+        lastAutomaticCampaignOffer = now
+        showWelcomePaywall = true
     }
 
     private var hero: some View {
@@ -127,14 +143,14 @@ struct HomeScreen: View {
                     .foregroundStyle(GameTheme.goldGradient)
             }
             VStack(spacing: 6) {
-                Text("REGIERE")
+                Text(L("REGIERE"))
                     .font(.subheadline.weight(.bold)).tracking(8)
                     .foregroundStyle(GameTheme.secondaryText)
-                Text("DEUTSCHLAND")
+                Text(L("DEUTSCHLAND"))
                     .font(.system(size: 36, weight: .heavy, design: .rounded))
                     .foregroundStyle(GameTheme.primaryText)
                 FlagRibbon(height: 5).frame(width: 150).padding(.top, 2)
-                Text("2000 – 2050")
+                Text(L("2000 – 2050"))
                     .font(.headline.weight(.semibold))
                     .foregroundStyle(GameTheme.gold).padding(.top, 6)
             }
@@ -145,12 +161,12 @@ struct HomeScreen: View {
 
     private var nameField: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionHeader(title: "Dein Name", systemImage: "signature")
+            SectionHeader(title: L("Dein Name"), systemImage: "signature")
             HStack(spacing: 10) {
                 Image(systemName: "person.fill")
                     .font(.subheadline)
                     .foregroundStyle(GameTheme.gold)
-                TextField("", text: $playerName, prompt: Text("z. B. \(PartyCatalog.defaultChancellorName)")
+                TextField(L(""), text: $playerName, prompt: Text(L("z. B. \(L(country.defaultLeaderName))"))
                     .foregroundColor(GameTheme.tertiaryText))
                     .textInputAutocapitalization(.words)
                     .autocorrectionDisabled()
@@ -207,7 +223,7 @@ struct HomeScreen: View {
     private func foundPartyLabel(locked: Bool) -> some View {
         HStack(spacing: 8) {
             Image(systemName: "plus.circle.fill")
-            Text("Oder: eigene Partei gründen")
+            Text(L("Oder: eigene Partei gründen"))
             Spacer(minLength: 0)
             if locked {
                 ProLockBadge()
@@ -228,7 +244,7 @@ struct HomeScreen: View {
 
     private var difficultyPicker: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionHeader(title: "Schwierigkeit", systemImage: "dial.medium",
+            SectionHeader(title: L("Schwierigkeit"), systemImage: "dial.medium",
                           accessory: selectedDifficulty.subtitle)
             HStack(spacing: 8) {
                 ForEach(Difficulty.allCases, id: \.self) { level in
@@ -241,7 +257,7 @@ struct HomeScreen: View {
                     } label: {
                         HStack(spacing: 6) {
                             Image(systemName: level.icon).font(.caption2.weight(.bold))
-                            Text(level.title).font(.subheadline.weight(.bold))
+                            Text(L(level.title)).font(.subheadline.weight(.bold))
                         }
                         .foregroundStyle(isOn ? Color(red: 0.12, green: 0.10, blue: 0.05) : GameTheme.secondaryText)
                         .frame(maxWidth: .infinity)
@@ -263,10 +279,10 @@ struct HomeScreen: View {
 
     private var partyPicker: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionHeader(title: "Wähle deine Partei", systemImage: "flag.2.crossed.fill")
+            SectionHeader(title: L("Wähle deine Partei"), systemImage: "flag.2.crossed.fill")
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    ForEach(PartyCatalog.playable) { party in
+                    ForEach(country.playableParties) { party in
                         PartyCard(party: party, isSelected: party.id == selectedPartyID) {
                             Haptics.impact(.light)
                             withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
@@ -286,18 +302,18 @@ struct HomeScreen: View {
         VStack(spacing: 12) {
             if hasSaveGame {
                 NavigationLink {
-                    GameContainerView(mode: .resume)
-                } label: { Label("Fortsetzen", systemImage: "play.fill") }
+                    GameContainerView(mode: .resume, country: country)
+                } label: { Label(L("Fortsetzen"), systemImage: "play.fill") }
                 .buttonStyle(PrimaryActionButtonStyle())
 
                 NavigationLink {
-                    GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName, difficulty: selectedDifficulty, finalYear: accessibleFinalYear)
-                } label: { Label("Neues Spiel", systemImage: "flag.fill") }
+                    GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName, difficulty: selectedDifficulty, finalYear: accessibleFinalYear, country: country)
+                } label: { Label(L("Neues Spiel"), systemImage: "flag.fill") }
                 .buttonStyle(SecondaryActionButtonStyle())
             } else {
                 NavigationLink {
-                    GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName, difficulty: selectedDifficulty, finalYear: accessibleFinalYear)
-                } label: { Label(purchases.hasCampaign2005 ? "Neues Spiel" : "Prolog 2000–2004 starten", systemImage: "flag.fill") }
+                    GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName, difficulty: selectedDifficulty, finalYear: accessibleFinalYear, country: country)
+                } label: { Label(L(purchases.hasCampaign2005 ? L("Neues Spiel") : L("Prolog 2000–2004 starten")), systemImage: "flag.fill") }
                 .buttonStyle(PrimaryActionButtonStyle())
             }
         }
@@ -313,8 +329,8 @@ struct HomeScreen: View {
         } label: {
             HStack(spacing: 8) {
                 Image(systemName: "trophy.fill")
-                Text("Erfolge")
-                Text("\(unlockedAchievements.count)/\(AchievementCatalog.all.count)")
+                Text(L("Erfolge"))
+                Text(L("\(L(unlockedAchievements.count))/\(L(AchievementCatalog.all.count))"))
                     .foregroundStyle(GameTheme.gold)
             }
             .font(.subheadline.weight(.semibold))
@@ -333,7 +349,7 @@ struct HomeScreen: View {
         } label: {
             HStack(spacing: 6) {
                 Image(systemName: "questionmark.circle")
-                Text("So funktioniert das Spiel")
+                Text(L("So funktioniert das Spiel"))
             }
             .font(.subheadline.weight(.medium))
             .foregroundStyle(GameTheme.secondaryText)
@@ -347,8 +363,8 @@ struct HomeScreen: View {
 
     private var recentRuns: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Vergangene Amtszeiten", systemImage: "clock.arrow.circlepath",
-                          accessory: "Bestwert \(runResults.map(\.score).max() ?? 0)")
+            SectionHeader(title: L("Vergangene Amtszeiten"), systemImage: "clock.arrow.circlepath",
+                          accessory: L("Bestwert \(L(runResults.map(\.score).max() ?? 0))"))
             VStack(spacing: 8) {
                 ForEach(runResults.prefix(3)) { RunResultRow(run: $0) }
             }
@@ -356,7 +372,8 @@ struct HomeScreen: View {
     }
 }
 
-private struct PartyCard: View {
+private struct PartyCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let party: PlayerParty
     let isSelected: Bool
     let action: () -> Void
@@ -373,10 +390,10 @@ private struct PartyCard: View {
                         .frame(width: 36, height: 36)
                         .background(Circle().fill(accent.opacity(0.18)))
                     VStack(alignment: .leading, spacing: 1) {
-                        Text(party.name)
+                        Text(L(party.name))
                             .font(.subheadline.weight(.heavy))
                             .foregroundStyle(GameTheme.primaryText)
-                        Text(party.fullName)
+                        Text(L(party.fullName))
                             .font(.system(size: 9.5))
                             .foregroundStyle(GameTheme.tertiaryText)
                             .lineLimit(1)
@@ -387,16 +404,16 @@ private struct PartyCard: View {
                             .foregroundStyle(accent)
                     }
                 }
-                Text(party.tagline)
+                Text(L(party.tagline))
                     .font(.caption2)
                     .foregroundStyle(GameTheme.secondaryText)
                     .fixedSize(horizontal: false, vertical: true)
                 Spacer(minLength: 0)
                 HStack(spacing: 5) {
                     Image(systemName: "person.2.fill").font(.system(size: 8))
-                    Text("Partner: " + party.naturalPartnerIDs.prefix(2).compactMap {
-                        PartyCatalog.reference(id: $0)?.name
-                    }.joined(separator: ", "))
+                    Text(L(gamePresentation.country == .unitedStates ? "Congressional caucus agreements" : L("Partner: ") + party.naturalPartnerIDs.prefix(2).compactMap { id in
+                        gamePresentation.country.partyLandscape.first { $0.id == id }?.name
+                    }.joined(separator: ", ")))
                         .font(.system(size: 9, weight: .semibold))
                         .lineLimit(1)
                 }
@@ -414,7 +431,8 @@ private struct PartyCard: View {
     }
 }
 
-private struct RunResultRow: View {
+private struct RunResultRow: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let run: RunResult
     private var won: Bool { run.endReason == .reachedFinalYear }
 
@@ -426,24 +444,25 @@ private struct RunResultRow: View {
                 .frame(width: 30, height: 30)
                 .background(Circle().fill((won ? GameTheme.green : GameTheme.red).opacity(0.15)))
             VStack(alignment: .leading, spacing: 2) {
-                Text(verbatim: "\(run.startYear)–\(run.endYear)")
+                Text(verbatim: L("\(L(run.startYear))–\(L(run.endYear))"))
                     .font(.subheadline.weight(.bold)).foregroundStyle(GameTheme.primaryText)
-                Text(run.governingStyle)
+                Text(L(run.governingStyle))
                     .font(.caption).foregroundStyle(GameTheme.secondaryText).lineLimit(1)
             }
             Spacer(minLength: 0)
             VStack(alignment: .trailing, spacing: 2) {
-                Text("\(run.score)")
+                Text(L("\(L(run.score))"))
                     .font(.system(size: 18, weight: .bold, design: .rounded))
                     .foregroundStyle(GameTheme.gold).monospacedDigit()
-                Text("Punkte").font(.caption2).foregroundStyle(GameTheme.tertiaryText)
+                Text(L("Punkte")).font(.caption2).foregroundStyle(GameTheme.tertiaryText)
             }
         }
         .gameCard(padding: 12)
     }
 }
 
-private struct AchievementsSheet: View {
+private struct AchievementsSheet: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let unlocked: Set<String>
 
     var body: some View {
@@ -451,7 +470,7 @@ private struct AchievementsSheet: View {
             GameTheme.background.ignoresSafeArea()
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
-                    Text("Erfolge")
+                    Text(L("Erfolge"))
                         .font(.system(size: 28, weight: .heavy, design: .rounded))
                         .foregroundStyle(GameTheme.primaryText)
                         .padding(.top, 8)
@@ -464,10 +483,10 @@ private struct AchievementsSheet: View {
                                 .frame(width: 40, height: 40)
                                 .background(Circle().fill((isUnlocked ? GameTheme.gold : GameTheme.tertiaryText).opacity(0.15)))
                             VStack(alignment: .leading, spacing: 3) {
-                                Text(achievement.title)
+                                Text(L(achievement.title))
                                     .font(.subheadline.weight(.bold))
                                     .foregroundStyle(isUnlocked ? GameTheme.primaryText : GameTheme.secondaryText)
-                                Text(achievement.detail)
+                                Text(L(achievement.detail))
                                     .font(.caption)
                                     .foregroundStyle(GameTheme.tertiaryText)
                                     .fixedSize(horizontal: false, vertical: true)

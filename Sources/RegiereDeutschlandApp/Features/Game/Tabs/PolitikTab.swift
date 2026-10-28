@@ -2,7 +2,8 @@ import RegiereDeutschlandCore
 import SwiftUI
 
 /// Politik-Tab: Parteienlandschaft (Umfrage, Spektrum, Lager) und Wählerschaft.
-struct PolitikTab: View {
+struct PolitikTab: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     @ObservedObject var viewModel: GameViewModel
 
     private var landscape: PartyLandscape { viewModel.partyLandscape }
@@ -30,17 +31,17 @@ struct PolitikTab: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 10) {
                 FlagRibbon(height: 4).frame(width: 40)
-                Text("PARTEIEN & WÄHLER")
+                Text(L("PARTEIEN & WÄHLER"))
                     .font(.caption2.weight(.bold)).tracking(1.6)
                     .foregroundStyle(GameTheme.secondaryText)
                 Spacer(minLength: 0)
             }
             HStack(alignment: .firstTextBaseline) {
-                Text("Politik")
+                Text(L("Politik"))
                     .font(.system(size: 30, weight: .heavy, design: .serif))
                     .foregroundStyle(GameTheme.primaryText)
                 Spacer(minLength: 0)
-                Text(verbatim: "\(viewModel.state.currentYear)")
+                Text(verbatim: L("\(L(viewModel.state.currentYear))"))
                     .font(.system(size: 22, weight: .bold, design: .rounded))
                     .foregroundStyle(GameTheme.gold).monospacedDigit()
             }
@@ -53,21 +54,21 @@ struct PolitikTab: View {
     private var blocSummary: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 12) {
-                blocTile(title: "Regierungslager", value: landscape.governingBloc, color: GameTheme.gold)
-                blocTile(title: "Opposition", value: landscape.oppositionBloc, color: GameTheme.blue)
+                blocTile(title: L("Regierungslager"), value: landscape.governingBloc, color: GameTheme.gold)
+                blocTile(title: L("Opposition"), value: landscape.oppositionBloc, color: GameTheme.blue)
             }
             if let opp = landscape.strongestOpposition {
                 HStack(spacing: 8) {
                     Image(systemName: "person.bust.fill")
                         .font(.footnote).foregroundStyle(PartyPresentation.color(for: opp.id))
                     VStack(alignment: .leading, spacing: 1) {
-                        Text("Oppositionsführer:in")
+                        Text(L("Oppositionsführer:in"))
                             .font(.caption2).foregroundStyle(GameTheme.tertiaryText)
-                        Text("\(PartyPresentation.leader(for: opp.id)) · \(opp.name)")
+                        Text(L("\(L(PartyPresentation.leader(for: opp.id))) · \(L(opp.name))"))
                             .font(.caption.weight(.bold)).foregroundStyle(GameTheme.primaryText)
                     }
                     Spacer(minLength: 0)
-                    Text(String(format: "%.1f %%", opp.support))
+                    Text(L(String(format: L("%.1f %%"), opp.support)))
                         .font(.caption.weight(.bold)).foregroundStyle(GameTheme.primaryText).monospacedDigit()
                 }
                 .padding(12)
@@ -80,10 +81,10 @@ struct PolitikTab: View {
 
     private func blocTile(title: String, value: Double, color: Color) -> some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text(title)
+            Text(L(title))
                 .font(.caption2.weight(.bold)).tracking(0.4)
                 .foregroundStyle(GameTheme.tertiaryText)
-            Text(String(format: "%.0f %%", value))
+            Text(L(String(format: L("%.0f %%"), value)))
                 .font(.system(size: 26, weight: .bold, design: .rounded))
                 .foregroundStyle(color).monospacedDigit()
         }
@@ -96,8 +97,8 @@ struct PolitikTab: View {
     private var pollSection: some View {
         let maxSupport = landscape.parties.map(\.support).max() ?? 1
         return VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Sonntagsfrage", systemImage: "chart.bar.xaxis",
-                          accessory: "630 Sitze")
+            SectionHeader(title: L("Sonntagsfrage"), systemImage: "chart.bar.xaxis",
+                          accessory: L("630 Sitze"))
             VStack(spacing: 10) {
                 ForEach(landscape.parties) { party in
                     pollRow(party, maxSupport: maxSupport)
@@ -111,18 +112,18 @@ struct PolitikTab: View {
         return VStack(spacing: 8) {
             HStack(spacing: 10) {
                 Circle().fill(color).frame(width: 10, height: 10)
-                Text(party.name)
+                Text(L(party.name))
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(GameTheme.primaryText)
                 if party.role != .opposition {
-                    Text(party.role == .governing ? "Regierung" : "Koalition")
+                    Text(L(party.role == .governing ? L("Regierung") : L("Koalition")))
                         .font(.system(size: 9.5, weight: .heavy))
                         .foregroundStyle(GameTheme.gold)
                         .padding(.horizontal, 6).padding(.vertical, 2)
                         .background(Capsule().fill(GameTheme.gold.opacity(0.15)))
                 }
                 Spacer(minLength: 0)
-                Text(String(format: "%.1f %%", party.support))
+                Text(L(String(format: L("%.1f %%"), party.support)))
                     .font(.subheadline.weight(.bold))
                     .foregroundStyle(GameTheme.primaryText).monospacedDigit()
             }
@@ -135,7 +136,7 @@ struct PolitikTab: View {
                     }
                 }
                 .frame(height: 7)
-                Text("\(party.seats)")
+                Text(viewModel.country == .germany ? "\(party.seats)" : "")
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(GameTheme.tertiaryText).monospacedDigit()
                     .frame(width: 34, alignment: .trailing)
@@ -148,7 +149,7 @@ struct PolitikTab: View {
 
     private var spectrumSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Politisches Spektrum", systemImage: "arrow.left.and.right")
+            SectionHeader(title: L("Politisches Spektrum"), systemImage: "arrow.left.and.right")
             VStack(spacing: 8) {
                 GeometryReader { geo in
                     let width = geo.size.width
@@ -170,11 +171,11 @@ struct PolitikTab: View {
                 .frame(height: 68)
 
                 HStack {
-                    Text("LINKS").font(.caption2.weight(.bold)).foregroundStyle(GameTheme.tertiaryText)
+                    Text(L("LINKS")).font(.caption2.weight(.bold)).foregroundStyle(GameTheme.tertiaryText)
                     Spacer()
-                    Text("MITTE").font(.caption2.weight(.bold)).foregroundStyle(GameTheme.tertiaryText)
+                    Text(L("MITTE")).font(.caption2.weight(.bold)).foregroundStyle(GameTheme.tertiaryText)
                     Spacer()
-                    Text("RECHTS").font(.caption2.weight(.bold)).foregroundStyle(GameTheme.tertiaryText)
+                    Text(L("RECHTS")).font(.caption2.weight(.bold)).foregroundStyle(GameTheme.tertiaryText)
                 }
             }
             .gameCard(padding: 16)
@@ -197,7 +198,7 @@ struct PolitikTab: View {
         }
         let progressByID = Dictionary(uniqueKeysWithValues: viewModel.programResults.map { ($0.goal.id, $0) })
         return VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Was die Parteien wollen", systemImage: "list.bullet.rectangle")
+            SectionHeader(title: L("Was die Parteien wollen"), systemImage: "list.bullet.rectangle")
             VStack(spacing: 10) {
                 ForEach(pairs, id: \.party.id) { pair in
                     let isPlayer = pair.party.id == playerParty.id
@@ -214,22 +215,22 @@ struct PolitikTab: View {
     private var electorateSection: some View {
         let weighted = viewModel.weightedPopulationApproval
         return VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Wählerschaft", systemImage: "person.3.fill",
-                          accessory: "Stimmung \(weighted)")
+            SectionHeader(title: L("Wählerschaft"), systemImage: "person.3.fill",
+                          accessory: L("Stimmung \(L(weighted))"))
 
             HStack(spacing: 16) {
-                ApprovalRing(value: weighted, size: 84, caption: "Volk")
+                ApprovalRing(value: weighted, size: 84, caption: L("Volk"))
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("Die Bevölkerung ist im Schnitt \(NationMood.moodWord(forApproval: weighted)).")
+                    Text(L("Die Bevölkerung ist im Schnitt \(L(NationMood.moodWord(forApproval: weighted)))."))
                         .font(.caption)
                         .foregroundStyle(GameTheme.secondaryText)
                         .fixedSize(horizontal: false, vertical: true)
                     if let happiest = viewModel.happiestGroup {
-                        Text("Stärkster Rückhalt: \(happiest.name)")
+                        Text(L("Stärkster Rückhalt: \(L(happiest.name))"))
                             .font(.caption2).foregroundStyle(GameTheme.green)
                     }
                     if let unhappiest = viewModel.unhappiestGroup {
-                        Text("Größter Unmut: \(unhappiest.name)")
+                        Text(L("Größter Unmut: \(L(unhappiest.name))"))
                             .font(.caption2).foregroundStyle(GameTheme.red)
                     }
                 }
@@ -247,7 +248,8 @@ struct PolitikTab: View {
 }
 
 /// Aufklappbare Karte mit der Agenda (Vorhaben) einer Partei.
-private struct PartyAgendaCard: View {
+private struct PartyAgendaCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let party: Party
     let agenda: [AgendaItem]
     var isPlayer: Bool = false
@@ -263,18 +265,18 @@ private struct PartyAgendaCard: View {
             } label: {
                 HStack(spacing: 10) {
                     Circle().fill(color).frame(width: 10, height: 10)
-                    Text(party.name)
+                    Text(L(party.name))
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(GameTheme.primaryText)
                     if isPlayer {
-                        Text("DEIN PROGRAMM")
+                        Text(L("DEIN PROGRAMM"))
                             .font(.system(size: 8.5, weight: .heavy)).tracking(0.5)
                             .foregroundStyle(GameTheme.gold)
                             .padding(.horizontal, 6).padding(.vertical, 2)
                             .background(Capsule().fill(GameTheme.gold.opacity(0.15)))
                     }
                     Spacer(minLength: 0)
-                    Text("\(agenda.count) Vorhaben")
+                    Text(L("\(L(agenda.count)) Vorhaben"))
                         .font(.caption2.weight(.semibold))
                         .foregroundStyle(GameTheme.tertiaryText)
                     Image(systemName: expanded ? "chevron.up" : "chevron.down")
@@ -296,17 +298,17 @@ private struct PartyAgendaCard: View {
                                 .padding(.top, 1)
                             VStack(alignment: .leading, spacing: 1) {
                                 HStack(spacing: 6) {
-                                    Text(item.title)
+                                    Text(L(item.title))
                                         .font(.caption.weight(.bold))
                                         .foregroundStyle(GameTheme.primaryText)
                                     Spacer(minLength: 0)
                                     if let prog {
-                                        Text("\(prog.status.label) · \(prog.percent)%")
+                                        Text(L("\(L(prog.status.label)) · \(L(prog.percent))%"))
                                             .font(.system(size: 9.5, weight: .bold))
                                             .foregroundStyle(statusColor(prog))
                                     }
                                 }
-                                Text(item.summary)
+                                Text(L(item.summary))
                                     .font(.caption2)
                                     .foregroundStyle(GameTheme.secondaryText)
                                     .fixedSize(horizontal: false, vertical: true)
@@ -338,7 +340,8 @@ private struct PartyAgendaCard: View {
 }
 
 /// Zeile für eine Bevölkerungsgruppe.
-private struct GroupRow: View {
+private struct GroupRow: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let group: PopulationGroup
 
     var body: some View {
@@ -348,14 +351,14 @@ private struct GroupRow: View {
                     .font(.footnote.weight(.bold))
                     .foregroundStyle(GameTheme.statusColor(for: group.approval))
                     .frame(width: 24)
-                Text(group.name)
+                Text(L(group.name))
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(GameTheme.primaryText)
                 Spacer(minLength: 0)
-                Text("\(Int((group.populationShare * 100).rounded())) %")
+                Text(L("\(L(Int((group.populationShare * 100).rounded()))) %"))
                     .font(.caption.weight(.medium))
                     .foregroundStyle(GameTheme.tertiaryText)
-                Text("\(group.approval)")
+                Text(L("\(L(group.approval))"))
                     .font(.system(size: 17, weight: .bold, design: .rounded))
                     .foregroundStyle(GameTheme.statusColor(for: group.approval))
                     .monospacedDigit()

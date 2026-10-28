@@ -16,10 +16,14 @@ public struct ElectionProjection: Equatable, Sendable {
 }
 
 public struct ElectionEngine: Sendable {
+    public let country: GameCountry
+    public var partyLeaning: PoliticalLeaning
     public let electionYears: Set<Int>
 
-    public init(electionYears: Set<Int> = [2005, 2009, 2013, 2017, 2021, 2025, 2029, 2033, 2037, 2041, 2045, 2049]) {
-        self.electionYears = electionYears
+    public init(electionYears: Set<Int>? = nil, country: GameCountry = .germany, partyLeaning: PoliticalLeaning = .left) {
+        self.country = country
+        self.partyLeaning = partyLeaning
+        self.electionYears = electionYears ?? (country == .germany ? [2005, 2009, 2013, 2017, 2021, 2025, 2029, 2033, 2037, 2041, 2045, 2049] : Set(stride(from: 2004, through: 2048, by: 4)))
     }
 
     public func shouldHoldElection(in state: GameState) -> Bool {
@@ -39,7 +43,7 @@ public struct ElectionEngine: Sendable {
         return ElectionProjection(
             governingShare: roundedShare(shares.governing),
             oppositionShare: roundedShare(shares.opposition),
-            wouldWin: didWin(governing: shares.governing, opposition: shares.opposition),
+            wouldWin: didWin(governing: shares.governing, opposition: shares.opposition, year: nextElectionYear(onOrAfter: state.currentYear) ?? state.currentYear),
             nextElectionYear: nextElectionYear(onOrAfter: state.currentYear)
         )
     }
@@ -50,8 +54,9 @@ public struct ElectionEngine: Sendable {
             year: state.currentYear,
             governingPartyShare: roundedShare(shares.governing),
             oppositionShare: roundedShare(shares.opposition),
-            didWin: didWin(governing: shares.governing, opposition: shares.opposition),
-            reasons: reasons(for: state, governingShare: shares.governing)
+            didWin: didWin(governing: shares.governing, opposition: shares.opposition, year: state.currentYear),
+            reasons: reasons(for: state, governingShare: shares.governing),
+            electoralVotes: country == .unitedStates ? USElectoralCollege.votes(popularShare: shares.governing, oppositionShare: shares.opposition, year: state.currentYear, leaning: partyLeaning) : nil
         )
     }
 
@@ -77,13 +82,20 @@ public struct ElectionEngine: Sendable {
             memoryPenalty +
             deterministicNoise +
             campaignBonus
+        if country == .unitedStates {
+            let share = min(72, max(24, 48 + (Double(state.governmentApproval) - 50) * 0.25 + (fundamentals - 50) * 0.13 + Double(state.shortTermMomentum) * 0.08 + memoryPenalty + deterministicNoise + campaignBonus))
+            return (share, 96 - share)
+        }
         let governingShare = min(52.0, max(24.0, rawShare))
         let oppositionShare = min(55.0, max(25.0, 61.0 - governingShare + max(0.0, 50.0 - Double(state.trustAdjustedApproval())) * 0.04))
         return (governingShare, oppositionShare)
     }
 
-    private func didWin(governing: Double, opposition: Double) -> Bool {
-        governing >= 35.0 && governing >= opposition - 1.0
+    private func didWin(governing: Double, opposition: Double, year: Int) -> Bool {
+        if country == .unitedStates {
+            return USElectoralCollege.votes(popularShare: governing, oppositionShare: opposition, year: year, leaning: partyLeaning) >= 270
+        }
+        return governing >= 35.0 && governing >= opposition - 1.0
     }
 
     public func makeGameOverSummary(for state: GameState, electionResult: ElectionResult) -> GameOverSummary {
@@ -108,7 +120,7 @@ public struct ElectionEngine: Sendable {
     public func endSummary(for state: GameState, reason: GameOverReason, messageOverride: String? = nil) -> GameOverSummary {
         GameOverSummary(
             reason: reason,
-            message: messageOverride ?? (reason == .reachedFinalYear ? "Dein Deutschland \(state.currentYear) ist erreicht." : "Deine Regierung wurde abgewählt."),
+            message: messageOverride ?? (reason == .reachedFinalYear ? (country == .germany ? "Dein Deutschland \(state.currentYear) ist erreicht." : "Your America in \(state.currentYear): your campaign is complete.") : "Deine Regierung wurde abgewählt."),
             startYear: 2000,
             endYear: state.currentYear,
             keyDecisionTitles: state.decisions.suffix(5).map(\.optionTitle),

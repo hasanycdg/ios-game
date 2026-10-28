@@ -1,0 +1,1730 @@
+[
+  {
+    "id": "us-2000-the-dot-com-bubble-bursts",
+    "year": 2000,
+    "category": "digitalization",
+    "title": "The dot-com bubble bursts",
+    "context": "Technology shares fall sharply. Silicon Valley layoffs threaten a wider slowdown.",
+    "reality": "The Nasdaq crash began in 2000 after a speculative technology boom.",
+    "choices": [
+      "Fund broadband and worker retraining",
+      "Target temporary help at displaced workers",
+      "Leave the technology correction to markets"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2000-california-s-electricity-crisis",
+    "year": 2000,
+    "category": "energy",
+    "title": "California's electricity crisis",
+    "context": "Power shortages and volatile wholesale prices expose weaknesses in the western grid.",
+    "reality": "California experienced an electricity crisis in 2000 and 2001.",
+    "choices": [
+      "Finance grid upgrades and federal oversight",
+      "Broker emergency supply agreements",
+      "Leave emergency management to California"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2000-what-should-happen-to-the-surplus",
+    "year": 2000,
+    "category": "budget",
+    "title": "What should happen to the surplus?",
+    "context": "The federal budget is in surplus, while Congress debates taxes, debt reduction, and Social Security.",
+    "reality": "The US federal government recorded a budget surplus in fiscal year 2000.",
+    "choices": [
+      "Invest in schools and Social Security reserves",
+      "Split the surplus between debt reduction and relief",
+      "Return most of the surplus through tax cuts"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2000-a-disputed-election-and-public-trust",
+    "year": 2000,
+    "category": "society",
+    "title": "A disputed election and public trust",
+    "context": "A close election puts ballot design, recount procedures, and trust in institutions under scrutiny.",
+    "reality": "The disputed Florida count and Bush v. Gore shaped the 2000 election.",
+    "choices": [
+      "Fund national election-administration standards",
+      "Support bipartisan state-level reforms",
+      "Leave election administration entirely to states"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2001-september-11",
+    "year": 2001,
+    "category": "security",
+    "title": "September 11",
+    "context": "Terrorist attacks strike New York and the Pentagon. Rescue operations and national security dominate the agenda.",
+    "reality": "The September 11 attacks killed nearly 3,000 people in 2001.",
+    "choices": [
+      "Fund rescue, intelligence coordination, and prevention",
+      "Prioritize targeted intelligence with judicial oversight",
+      "Keep federal expansion limited after the emergency"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2001-the-afghanistan-decision",
+    "year": 2001,
+    "category": "foreignPolicy",
+    "title": "The Afghanistan decision",
+    "context": "Congress and allies debate how to respond to al-Qaeda and the Taliban after the attacks.",
+    "reality": "US military operations in Afghanistan began in October 2001.",
+    "choices": [
+      "Commit a major military and reconstruction mission",
+      "Pursue a limited mission with allied support",
+      "Restrict the response to intelligence operations"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2001-recession-reaches-main-street",
+    "year": 2001,
+    "category": "economy",
+    "title": "Recession reaches Main Street",
+    "context": "The technology downturn spreads to employment and consumer confidence.",
+    "reality": "The United States experienced a recession in 2001.",
+    "choices": [
+      "Launch a broad federal jobs and investment package",
+      "Offer temporary, targeted household relief",
+      "Rely on private investment to restore growth"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2001-enron-and-corporate-accountability",
+    "year": 2001,
+    "category": "digitalization",
+    "title": "Enron and corporate accountability",
+    "context": "A corporate collapse exposes accounting abuses and threatens workers' retirement savings.",
+    "reality": "Enron filed for bankruptcy in December 2001.",
+    "choices": [
+      "Create stronger federal auditing and pension protections",
+      "Negotiate focused corporate-disclosure rules",
+      "Leave most enforcement to existing agencies"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2002-a-new-homeland-security-structure",
+    "year": 2002,
+    "category": "security",
+    "title": "A new homeland-security structure",
+    "context": "Federal agencies must share information without losing accountability or civil-liberties safeguards.",
+    "reality": "The Homeland Security Act was enacted in 2002.",
+    "choices": [
+      "Build a well-funded homeland-security department",
+      "Create a smaller coordination office with oversight",
+      "Keep the existing agency structure"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2002-schools-and-federal-accountability",
+    "year": 2002,
+    "category": "society",
+    "title": "Schools and federal accountability",
+    "context": "Washington considers national accountability rules while states warn about testing burdens.",
+    "reality": "The No Child Left Behind Act was signed in January 2002.",
+    "choices": [
+      "Fund national standards and support struggling schools",
+      "Pair limited testing with state flexibility",
+      "Leave accountability primarily to school districts"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2002-cleaning-up-wall-street",
+    "year": 2002,
+    "category": "economy",
+    "title": "Cleaning up Wall Street",
+    "context": "Corporate scandals weaken confidence in American business and financial reporting.",
+    "reality": "The Sarbanes-Oxley Act was enacted in 2002.",
+    "choices": [
+      "Strengthen audit independence and enforcement",
+      "Phase in rules with small-business exemptions",
+      "Favor voluntary corporate-governance codes"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2002-the-iraq-debate-begins",
+    "year": 2002,
+    "category": "foreignPolicy",
+    "title": "The Iraq debate begins",
+    "context": "Claims about Iraqi weapons and the possibility of war divide Congress and international partners.",
+    "reality": "Congress authorized the use of force against Iraq in October 2002.",
+    "choices": [
+      "Build inspection capacity and a sustained diplomatic coalition",
+      "Make military authority conditional on further inspections",
+      "Limit new US commitments in the region"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2003-war-in-iraq",
+    "year": 2003,
+    "category": "foreignPolicy",
+    "title": "War in Iraq",
+    "context": "The administration faces decisions about military action, reconstruction, and international legitimacy.",
+    "reality": "The US-led invasion of Iraq began in March 2003; no active WMD stockpiles were found.",
+    "choices": [
+      "Commit extensive resources to stabilization and civilian protection",
+      "Seek a narrower multinational mission under clear benchmarks",
+      "Reduce the US role and prioritize regional diplomacy"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2003-prescription-drugs-for-seniors",
+    "year": 2003,
+    "category": "welfare",
+    "title": "Prescription drugs for seniors",
+    "context": "Older Americans struggle with prescription costs. Congress debates Medicare coverage and the federal bill.",
+    "reality": "The Medicare Modernization Act was enacted in December 2003.",
+    "choices": [
+      "Expand coverage with federal price negotiation",
+      "Create a subsidized benefit with negotiated safeguards",
+      "Rely mainly on private drug-discount plans"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2003-the-northeast-blackout",
+    "year": 2003,
+    "category": "energy",
+    "title": "The Northeast blackout",
+    "context": "A massive power outage exposes weaknesses in grid reliability across the United States and Canada.",
+    "reality": "The August 2003 blackout affected large parts of the northeastern US and Ontario.",
+    "choices": [
+      "Fund national grid modernization and binding reliability rules",
+      "Agree on regional reliability standards with Canada",
+      "Let utilities finance upgrades independently"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2003-taxes-jobs-and-the-deficit",
+    "year": 2003,
+    "category": "budget",
+    "title": "Taxes, jobs, and the deficit",
+    "context": "Lawmakers dispute whether further tax reductions will create jobs or deepen the deficit.",
+    "reality": "A major federal tax-cut law was enacted in 2003.",
+    "choices": [
+      "Finance an investment-led recovery",
+      "Negotiate temporary middle-income tax relief",
+      "Prioritize broad permanent tax reductions"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2004-intelligence-reform-after-9-11",
+    "year": 2004,
+    "category": "security",
+    "title": "Intelligence reform after 9/11",
+    "context": "Investigations identify failures to connect information across the intelligence community.",
+    "reality": "The 9/11 Commission reported in 2004; intelligence-reform legislation followed.",
+    "choices": [
+      "Fund an integrated intelligence system with independent oversight",
+      "Create a coordination director with limited new spending",
+      "Keep agencies separate and improve voluntary cooperation"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2004-marriage-equality-reaches-the-national-stage",
+    "year": 2004,
+    "category": "society",
+    "title": "Marriage equality reaches the national stage",
+    "context": "State court decisions and proposed bans turn marriage rights into a national political conflict.",
+    "reality": "Massachusetts began issuing marriage licenses to same-sex couples in 2004.",
+    "choices": [
+      "Support federal civil-rights protections and equal benefits",
+      "Protect state recognition and open a bipartisan dialogue",
+      "Leave marriage policy to each state"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2004-trade-and-american-manufacturing",
+    "year": 2004,
+    "category": "foreignPolicy",
+    "title": "Trade and American manufacturing",
+    "context": "Factories face import competition as businesses pursue new markets abroad.",
+    "reality": "Manufacturing employment and trade policy were major political issues in the early 2000s.",
+    "choices": [
+      "Fund industrial modernization and worker adjustment",
+      "Pair market access with enforceable labor provisions",
+      "Leave industry adjustment largely to businesses"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2004-election-security-and-voter-access",
+    "year": 2004,
+    "category": "society",
+    "title": "Election security and voter access",
+    "context": "A polarized election renews arguments over voting equipment, registration, and access.",
+    "reality": "States implemented election-administration changes after the Help America Vote Act of 2002.",
+    "choices": [
+      "Fund secure paper records and accessible voting",
+      "Offer grants for audited state improvements",
+      "Avoid additional federal election requirements"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2005-hurricane-katrina",
+    "year": 2005,
+    "category": "security",
+    "title": "Hurricane Katrina",
+    "context": "Flooding devastates the Gulf Coast. Failures of evacuation and relief demand an urgent federal response.",
+    "reality": "Hurricane Katrina struck the Gulf Coast in August 2005.",
+    "choices": [
+      "Fund rescue, housing, and a major levee-rebuilding program",
+      "Prioritize emergency relief with state reconstruction plans",
+      "Limit the federal role after immediate rescue"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2005-the-housing-boom-accelerates",
+    "year": 2005,
+    "category": "economy",
+    "title": "The housing boom accelerates",
+    "context": "Mortgage credit expands rapidly. Regulators disagree about risks to borrowers and banks.",
+    "reality": "House prices and risky mortgage lending grew before the financial crisis.",
+    "choices": [
+      "Strengthen mortgage supervision and consumer protection",
+      "Require clearer lending disclosures and targeted checks",
+      "Allow lenders to continue expanding credit"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2005-energy-security-after-the-storms",
+    "year": 2005,
+    "category": "energy",
+    "title": "Energy security after the storms",
+    "context": "Storm damage to Gulf infrastructure highlights dependence on vulnerable oil and gas networks.",
+    "reality": "The Energy Policy Act was enacted in 2005.",
+    "choices": [
+      "Invest in efficiency, renewables, and resilient grids",
+      "Support a mixed energy and efficiency package",
+      "Prioritize private fossil-fuel production"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2005-immigration-and-the-border",
+    "year": 2005,
+    "category": "society",
+    "title": "Immigration and the border",
+    "context": "Communities debate border enforcement, undocumented residents, and the needs of employers.",
+    "reality": "Immigration reform became a major congressional issue in 2005 and 2006.",
+    "choices": [
+      "Fund legal pathways, integration, and accountable enforcement",
+      "Negotiate targeted border and visa reforms",
+      "Leave most integration costs to states and employers"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2006-iraq-and-the-cost-of-a-prolonged-war",
+    "year": 2006,
+    "category": "foreignPolicy",
+    "title": "Iraq and the cost of a prolonged war",
+    "context": "Violence and mounting costs intensify debate over troop levels and the mission's objectives.",
+    "reality": "Iraq policy was a central issue in the 2006 midterm elections.",
+    "choices": [
+      "Fund a civilian-led stabilization strategy with benchmarks",
+      "Set a phased transition tied to local capacity",
+      "Scale back the mission rapidly"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2006-making-medicare-drug-coverage-work",
+    "year": 2006,
+    "category": "welfare",
+    "title": "Making Medicare drug coverage work",
+    "context": "Seniors navigate a new prescription-drug benefit, while coverage gaps and costs attract scrutiny.",
+    "reality": "Medicare Part D coverage began in 2006.",
+    "choices": [
+      "Close coverage gaps and negotiate lower prices",
+      "Simplify enrollment and target low-income assistance",
+      "Leave benefit design mainly to private insurers"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2006-climate-science-enters-the-political-mainstream",
+    "year": 2006,
+    "category": "energy",
+    "title": "Climate science enters the political mainstream",
+    "context": "Businesses and states ask Washington for a clear response to growing climate risks.",
+    "reality": "Climate change gained prominence in US public debate during 2006.",
+    "choices": [
+      "Launch a federal clean-energy and adaptation program",
+      "Negotiate incentives and state pilot programs",
+      "Avoid a new national climate commitment"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2006-mortgage-warnings",
+    "year": 2006,
+    "category": "economy",
+    "title": "Mortgage warnings",
+    "context": "Delinquencies rise in parts of the subprime market while national confidence remains high.",
+    "reality": "Subprime mortgage distress intensified before the 2007 financial disruption.",
+    "choices": [
+      "Expand supervision and early homeowner assistance",
+      "Tighten the riskiest lending practices",
+      "Wait for lenders and borrowers to renegotiate privately"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2007-the-subprime-crisis-emerges",
+    "year": 2007,
+    "category": "economy",
+    "title": "The subprime crisis emerges",
+    "context": "Mortgage losses destabilize lenders and threaten credit markets.",
+    "reality": "Financial-market stress linked to subprime mortgages increased in 2007.",
+    "choices": [
+      "Fund mortgage restructuring and stronger supervision",
+      "Arrange targeted liquidity and borrower support",
+      "Let failing mortgage firms exit without federal support"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2007-comprehensive-immigration-reform-stalls",
+    "year": 2007,
+    "category": "society",
+    "title": "Comprehensive immigration reform stalls",
+    "context": "A broad deal faces criticism from advocates, enforcement groups, and both parties.",
+    "reality": "A major immigration-reform effort failed in the Senate in 2007.",
+    "choices": [
+      "Renew a comprehensive legalization and enforcement package",
+      "Seek a smaller bipartisan visa and border agreement",
+      "Defer comprehensive reform to the states"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2007-fuel-economy-and-energy-independence",
+    "year": 2007,
+    "category": "energy",
+    "title": "Fuel economy and energy independence",
+    "context": "Oil-price concerns strengthen the case for efficiency and alternative fuels.",
+    "reality": "The Energy Independence and Security Act was enacted in 2007.",
+    "choices": [
+      "Fund efficiency, transit, and cleaner power together",
+      "Raise vehicle standards through a phased compromise",
+      "Keep federal changes limited to voluntary incentives"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2007-bridges-and-public-infrastructure",
+    "year": 2007,
+    "category": "digitalization",
+    "title": "Bridges and public infrastructure",
+    "context": "A bridge collapse raises questions about aging infrastructure and inspection budgets.",
+    "reality": "The I-35W bridge in Minneapolis collapsed in August 2007.",
+    "choices": [
+      "Launch a national bridge inspection and repair program",
+      "Target emergency funds at the highest-risk bridges",
+      "Keep maintenance primarily a state responsibility"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2008-lehman-and-the-financial-panic",
+    "year": 2008,
+    "category": "economy",
+    "title": "Lehman and the financial panic",
+    "context": "A financial panic threatens banks, credit, jobs, and household savings.",
+    "reality": "Lehman Brothers failed in September 2008; Congress later authorized TARP.",
+    "choices": [
+      "Stabilize banks with strict conditions and homeowner relief",
+      "Provide temporary capital with oversight and exit rules",
+      "Allow broad private restructuring without a rescue fund"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2008-foreclosures-sweep-through-communities",
+    "year": 2008,
+    "category": "welfare",
+    "title": "Foreclosures sweep through communities",
+    "context": "Families lose homes as falling property prices weaken neighborhoods and local revenue.",
+    "reality": "Foreclosures surged during the financial crisis and Great Recession.",
+    "choices": [
+      "Fund mortgage modification and neighborhood stabilization",
+      "Offer targeted refinancing for distressed borrowers",
+      "Leave foreclosure negotiations to lenders"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2008-emergency-stimulus-or-deficit-restraint",
+    "year": 2008,
+    "category": "budget",
+    "title": "Emergency stimulus or deficit restraint?",
+    "context": "A deepening downturn forces Congress to weigh short-term support against federal borrowing.",
+    "reality": "A federal economic-stimulus law was enacted in February 2008.",
+    "choices": [
+      "Launch a large jobs and infrastructure response",
+      "Negotiate temporary rebates and unemployment support",
+      "Prioritize immediate federal spending restraint"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2008-oil-prices-and-household-costs",
+    "year": 2008,
+    "category": "energy",
+    "title": "Oil prices and household costs",
+    "context": "Large swings in oil prices expose households and businesses to energy volatility.",
+    "reality": "Oil prices rose sharply and then fell during 2008.",
+    "choices": [
+      "Invest in efficiency and diversified American energy",
+      "Offer temporary targeted energy assistance",
+      "Rely on market prices to drive adjustment"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2009-the-recovery-package",
+    "year": 2009,
+    "category": "economy",
+    "title": "The recovery package",
+    "context": "Unemployment rises as a new administration weighs the scale and design of a recovery plan.",
+    "reality": "The American Recovery and Reinvestment Act was enacted in February 2009.",
+    "choices": [
+      "Fund infrastructure, state budgets, and direct job support",
+      "Negotiate a smaller package of relief and investment",
+      "Focus on private-sector recovery and deficit restraint"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2009-the-auto-industry-rescue",
+    "year": 2009,
+    "category": "economy",
+    "title": "The auto-industry rescue",
+    "context": "The collapse of major automakers threatens manufacturing jobs and suppliers.",
+    "reality": "General Motors and Chrysler underwent government-backed restructurings in 2009.",
+    "choices": [
+      "Support restructuring with worker and investment guarantees",
+      "Provide temporary loans tied to a strict recovery plan",
+      "Let automakers restructure without federal financing"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2009-the-healthcare-reform-debate",
+    "year": 2009,
+    "category": "welfare",
+    "title": "The healthcare-reform debate",
+    "context": "Congress considers how to extend health coverage while controlling premiums and federal costs.",
+    "reality": "Congress debated comprehensive healthcare reform throughout 2009.",
+    "choices": [
+      "Pursue broad coverage expansion and stronger consumer protections",
+      "Seek a narrower bipartisan insurance reform",
+      "Retain the existing insurance framework"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2009-afghanistan-strategy-review",
+    "year": 2009,
+    "category": "foreignPolicy",
+    "title": "Afghanistan strategy review",
+    "context": "The administration must balance security objectives, military costs, and civilian reconstruction.",
+    "reality": "The US reviewed and expanded its Afghanistan strategy in 2009.",
+    "choices": [
+      "Fund civilian development with clear security benchmarks",
+      "Define a limited mission and transition timetable",
+      "Reduce the long-term American military role"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2010-implementing-healthcare-reform",
+    "year": 2010,
+    "category": "welfare",
+    "title": "Implementing healthcare reform",
+    "context": "New insurance protections raise disputes over costs, federal authority, and access.",
+    "reality": "The Affordable Care Act was signed into law in March 2010.",
+    "choices": [
+      "Fund coverage expansion and implementation assistance",
+      "Phase in reforms with additional state flexibility",
+      "Limit new federal implementation spending"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2010-deepwater-horizon",
+    "year": 2010,
+    "category": "energy",
+    "title": "Deepwater Horizon",
+    "context": "An offshore drilling disaster threatens Gulf communities, fisheries, and the coastline.",
+    "reality": "The Deepwater Horizon explosion and oil spill occurred in 2010.",
+    "choices": [
+      "Fund cleanup, compensation, and independent safety enforcement",
+      "Negotiate targeted safeguards while restoring safe operations",
+      "Return most oversight responsibility to industry"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2010-financial-reform-after-the-crash",
+    "year": 2010,
+    "category": "economy",
+    "title": "Financial reform after the crash",
+    "context": "Congress debates how to prevent another financial crisis and protect consumers.",
+    "reality": "The Dodd-Frank Act was enacted in July 2010.",
+    "choices": [
+      "Strengthen financial oversight and consumer protection",
+      "Focus reforms on the largest systemic institutions",
+      "Favor lighter regulation and industry standards"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2010-military-service-and-equal-treatment",
+    "year": 2010,
+    "category": "society",
+    "title": "Military service and equal treatment",
+    "context": "Lawmakers debate the treatment of gay and lesbian service members.",
+    "reality": "Congress enacted the repeal of Don't Ask, Don't Tell in 2010.",
+    "choices": [
+      "Fund a full equal-service transition and training",
+      "Implement repeal with phased military guidance",
+      "Avoid additional federal equal-service initiatives"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2011-the-debt-ceiling-confrontation",
+    "year": 2011,
+    "category": "budget",
+    "title": "The debt-ceiling confrontation",
+    "context": "A standoff over borrowing authority raises the risk of missed federal payments.",
+    "reality": "A major debt-ceiling crisis occurred in 2011.",
+    "choices": [
+      "Secure borrowing authority and a long-term budget agreement",
+      "Negotiate temporary authority with limited spending caps",
+      "Insist on deep immediate cuts before an agreement"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2011-occupy-and-economic-inequality",
+    "year": 2011,
+    "category": "society",
+    "title": "Occupy and economic inequality",
+    "context": "Protests demand action on inequality and the influence of finance.",
+    "reality": "Occupy Wall Street began in 2011 and spread to other cities.",
+    "choices": [
+      "Fund workforce opportunity and stronger financial accountability",
+      "Offer targeted student and job assistance",
+      "Leave inequality mainly to market-led growth"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2011-disaster-readiness-after-a-costly-year",
+    "year": 2011,
+    "category": "security",
+    "title": "Disaster readiness after a costly year",
+    "context": "Tornadoes, floods, and other disasters test emergency systems across the country.",
+    "reality": "The United States experienced multiple major weather disasters in 2011.",
+    "choices": [
+      "Expand FEMA preparedness and community resilience",
+      "Target grants at the most exposed regions",
+      "Keep readiness funding at existing levels"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2011-the-arab-spring-and-us-diplomacy",
+    "year": 2011,
+    "category": "foreignPolicy",
+    "title": "The Arab Spring and US diplomacy",
+    "context": "Political upheaval presents difficult choices about democratic aspirations, security, and intervention.",
+    "reality": "The Arab Spring reshaped politics across the Middle East and North Africa in 2011.",
+    "choices": [
+      "Fund civilian diplomacy and humanitarian support",
+      "Coordinate limited assistance with allies",
+      "Limit new regional commitments"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2012-hurricane-sandy",
+    "year": 2012,
+    "category": "security",
+    "title": "Hurricane Sandy",
+    "context": "A destructive storm disrupts the East Coast and exposes coastal infrastructure risks.",
+    "reality": "Hurricane Sandy struck the northeastern US in October 2012.",
+    "choices": [
+      "Fund resilient rebuilding and coastal protection",
+      "Provide relief with targeted infrastructure upgrades",
+      "Limit federal aid to immediate emergency needs"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2012-daca-and-young-immigrants",
+    "year": 2012,
+    "category": "society",
+    "title": "DACA and young immigrants",
+    "context": "Young undocumented residents face uncertainty over work, education, and deportation.",
+    "reality": "The DACA policy was announced in June 2012.",
+    "choices": [
+      "Fund lawful pathways and comprehensive congressional reform",
+      "Protect eligible young people through a narrower agreement",
+      "Defer new protections to later legislation"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2012-gun-violence-and-school-safety",
+    "year": 2012,
+    "category": "security",
+    "title": "Gun violence and school safety",
+    "context": "The country confronts school safety, gun access, mental health, and constitutional rights.",
+    "reality": "The Sandy Hook school shooting occurred in December 2012.",
+    "choices": [
+      "Fund prevention, mental health, and comprehensive background checks",
+      "Seek a targeted bipartisan safety package",
+      "Leave additional gun policy primarily to states"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2012-recovery-reaches-families-unevenly",
+    "year": 2012,
+    "category": "economy",
+    "title": "Recovery reaches families unevenly",
+    "context": "Output improves, but unemployment and household losses leave many communities behind.",
+    "reality": "The recovery after the Great Recession was uneven and gradual.",
+    "choices": [
+      "Invest in job training, housing, and local infrastructure",
+      "Target assistance at long-term unemployment",
+      "Reduce recovery spending as private activity improves"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2013-a-federal-government-shutdown",
+    "year": 2013,
+    "category": "budget",
+    "title": "A federal government shutdown",
+    "context": "A budget standoff interrupts federal operations and threatens confidence.",
+    "reality": "A federal government shutdown lasted 16 days in October 2013.",
+    "choices": [
+      "Negotiate a funded budget and measures to prevent shutdowns",
+      "Reopen government through a temporary compromise",
+      "Demand major spending cuts before a lasting deal"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2013-surveillance-and-privacy",
+    "year": 2013,
+    "category": "digitalization",
+    "title": "Surveillance and privacy",
+    "context": "Disclosures about government surveillance prompt questions about security and individual rights.",
+    "reality": "Edward Snowden's disclosures triggered a surveillance debate in 2013.",
+    "choices": [
+      "Fund independent oversight and stronger privacy protections",
+      "Reform selected programs while retaining core capabilities",
+      "Preserve existing programs with internal oversight"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2013-the-health-insurance-marketplace-launch",
+    "year": 2013,
+    "category": "welfare",
+    "title": "The health-insurance marketplace launch",
+    "context": "Technical failures complicate enrollment and undermine confidence in healthcare reform.",
+    "reality": "The federal health-insurance marketplace launched with serious technical problems in 2013.",
+    "choices": [
+      "Fund a technical rescue and strong enrollment support",
+      "Prioritize critical fixes and a phased enrollment extension",
+      "Limit further federal marketplace investment"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2013-voting-rights-after-shelby-county",
+    "year": 2013,
+    "category": "society",
+    "title": "Voting rights after Shelby County",
+    "context": "A Supreme Court ruling changes federal review of state election rules.",
+    "reality": "Shelby County v. Holder was decided in June 2013.",
+    "choices": [
+      "Seek updated voting-rights legislation and enforcement funding",
+      "Negotiate narrower federal transparency and access rules",
+      "Leave new voting requirements to states"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2014-ebola-preparedness",
+    "year": 2014,
+    "category": "welfare",
+    "title": "Ebola preparedness",
+    "context": "An overseas outbreak tests public-health coordination and hospital readiness.",
+    "reality": "The West African Ebola outbreak became a global emergency in 2014.",
+    "choices": [
+      "Fund international containment and US hospital preparedness",
+      "Target aid and training at the greatest risks",
+      "Limit the response to domestic screening"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2014-russia-annexes-crimea",
+    "year": 2014,
+    "category": "foreignPolicy",
+    "title": "Russia annexes Crimea",
+    "context": "Washington must respond to a challenge to European security without provoking uncontrolled escalation.",
+    "reality": "Russia annexed Crimea in 2014.",
+    "choices": [
+      "Coordinate sanctions, diplomacy, and allied security support",
+      "Seek a limited sanctions and negotiation package",
+      "Avoid new US commitments in Europe"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2014-ferguson-and-police-accountability",
+    "year": 2014,
+    "category": "society",
+    "title": "Ferguson and police accountability",
+    "context": "Protests intensify debate over policing, civil rights, and community trust.",
+    "reality": "The police killing of Michael Brown in Ferguson sparked protests in 2014.",
+    "choices": [
+      "Fund civil-rights enforcement and accountable policing reforms",
+      "Support local reform agreements and independent reviews",
+      "Leave police policy primarily to local authorities"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2014-the-campaign-against-isis",
+    "year": 2014,
+    "category": "security",
+    "title": "The campaign against ISIS",
+    "context": "A violent extremist organization expands control in Iraq and Syria.",
+    "reality": "A US-led coalition began major operations against ISIS in 2014.",
+    "choices": [
+      "Fund a coalition strategy with civilian protection and reconstruction",
+      "Limit the mission to targeted operations and partner support",
+      "Avoid a substantial new military commitment"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2015-the-paris-climate-agreement",
+    "year": 2015,
+    "category": "energy",
+    "title": "The Paris climate agreement",
+    "context": "International partners seek commitments on emissions while domestic opponents challenge costs and authority.",
+    "reality": "The Paris Agreement was adopted in December 2015.",
+    "choices": [
+      "Commit to ambitious emissions cuts and domestic clean investment",
+      "Support phased commitments with economic safeguards",
+      "Avoid binding new national climate commitments"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2015-marriage-equality-nationwide",
+    "year": 2015,
+    "category": "society",
+    "title": "Marriage equality nationwide",
+    "context": "A Supreme Court decision changes marriage recognition across the country.",
+    "reality": "Obergefell v. Hodges established a constitutional right to same-sex marriage in 2015.",
+    "choices": [
+      "Fund equal access, civil-rights enforcement, and implementation",
+      "Issue federal guidance and support state compliance",
+      "Keep new federal implementation programs minimal"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2015-the-iran-nuclear-agreement",
+    "year": 2015,
+    "category": "foreignPolicy",
+    "title": "The Iran nuclear agreement",
+    "context": "A negotiated nuclear framework raises disputes about verification, sanctions, and regional security.",
+    "reality": "The Iran nuclear agreement, the JCPOA, was reached in July 2015.",
+    "choices": [
+      "Fund verification and sustained multilateral diplomacy",
+      "Support the agreement with additional oversight conditions",
+      "Withhold new diplomatic commitments"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2015-flint-s-water-crisis",
+    "year": 2015,
+    "category": "welfare",
+    "title": "Flint's water crisis",
+    "context": "Unsafe drinking water exposes failures of infrastructure, oversight, and public-health protection.",
+    "reality": "The Flint water crisis brought lead contamination and governance failures to national attention.",
+    "choices": [
+      "Fund pipe replacement, healthcare, and independent testing",
+      "Target emergency aid and enforce a local repair plan",
+      "Keep reconstruction mainly a state responsibility"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2016-trade-factories-and-the-election",
+    "year": 2016,
+    "category": "economy",
+    "title": "Trade, factories, and the election",
+    "context": "Industrial communities demand a response to lost jobs, automation, and trade competition.",
+    "reality": "Trade and manufacturing were central issues in the 2016 campaign.",
+    "choices": [
+      "Fund industrial renewal and worker transition programs",
+      "Renegotiate selected trade rules with allied cooperation",
+      "Rely on private investment and broad deregulation"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2016-election-interference-and-cybersecurity",
+    "year": 2016,
+    "category": "security",
+    "title": "Election interference and cybersecurity",
+    "context": "Foreign interference and online disinformation raise concern about democratic resilience.",
+    "reality": "US authorities identified Russian interference in the 2016 election.",
+    "choices": [
+      "Fund election security, counterintelligence, and transparency",
+      "Coordinate audited state cybersecurity improvements",
+      "Limit the federal role in election technology"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2016-the-opioid-epidemic",
+    "year": 2016,
+    "category": "welfare",
+    "title": "The opioid epidemic",
+    "context": "Addiction and overdose deaths strain families, hospitals, and local budgets.",
+    "reality": "Congress enacted the Comprehensive Addiction and Recovery Act in 2016.",
+    "choices": [
+      "Expand treatment, prevention, and accountable prescribing",
+      "Target grants at the hardest-hit counties",
+      "Leave most treatment expansion to states and insurers"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2016-pipelines-and-tribal-consultation",
+    "year": 2016,
+    "category": "society",
+    "title": "Pipelines and tribal consultation",
+    "context": "An infrastructure dispute brings water protection, tribal rights, and energy policy into conflict.",
+    "reality": "Standing Rock protests over the Dakota Access Pipeline drew national attention in 2016.",
+    "choices": [
+      "Fund alternative routes and binding tribal consultation",
+      "Negotiate environmental safeguards and independent monitoring",
+      "Defer the decision to existing permit holders"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2017-tax-reform-and-federal-revenue",
+    "year": 2017,
+    "category": "budget",
+    "title": "Tax reform and federal revenue",
+    "context": "Congress debates corporate taxes, household relief, and the effect of reform on borrowing.",
+    "reality": "The Tax Cuts and Jobs Act was enacted in December 2017.",
+    "choices": [
+      "Pursue tax reform paired with public investment and revenue safeguards",
+      "Negotiate targeted relief with limits on deficit growth",
+      "Prioritize broad tax cuts and private-led expansion"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2017-the-fight-over-health-coverage",
+    "year": 2017,
+    "category": "welfare",
+    "title": "The fight over health coverage",
+    "context": "Proposed changes to healthcare law create uncertainty for patients, states, and insurers.",
+    "reality": "Efforts to repeal major parts of the ACA failed in Congress in 2017.",
+    "choices": [
+      "Stabilize coverage and fund lower out-of-pocket costs",
+      "Negotiate targeted market and state-flexibility reforms",
+      "Reduce the federal role in insurance markets"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2017-hurricanes-harvey-irma-and-maria",
+    "year": 2017,
+    "category": "security",
+    "title": "Hurricanes Harvey, Irma, and Maria",
+    "context": "Multiple disasters overwhelm response systems, including in Puerto Rico.",
+    "reality": "Harvey, Irma, and Maria caused major destruction in 2017.",
+    "choices": [
+      "Fund equitable relief, resilient rebuilding, and grid restoration",
+      "Target recovery funds under a joint oversight agreement",
+      "Keep aid focused on immediate emergency response"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2017-climate-diplomacy-at-a-crossroads",
+    "year": 2017,
+    "category": "foreignPolicy",
+    "title": "Climate diplomacy at a crossroads",
+    "context": "The administration must choose how closely to cooperate with the international climate framework.",
+    "reality": "The US announced its intended withdrawal from the Paris Agreement in 2017.",
+    "choices": [
+      "Recommit to climate diplomacy and fund domestic implementation",
+      "Seek a revised participation framework with industry input",
+      "Limit federal international climate commitments"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2018-the-us-china-trade-war",
+    "year": 2018,
+    "category": "foreignPolicy",
+    "title": "The US-China trade war",
+    "context": "Tariffs and retaliation threaten exporters, supply chains, and consumers.",
+    "reality": "The US and China imposed major rounds of tariffs in 2018.",
+    "choices": [
+      "Invest in domestic supply chains while negotiating coordinated trade rules",
+      "Seek a limited tariff truce and targeted protections",
+      "Let firms absorb the dispute with minimal federal aid"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2018-family-separation-at-the-border",
+    "year": 2018,
+    "category": "society",
+    "title": "Family separation at the border",
+    "context": "Border enforcement practices provoke a national debate over child welfare and due process.",
+    "reality": "Family separation under the zero-tolerance policy drew major controversy in 2018.",
+    "choices": [
+      "Fund family reunification, lawful processing, and independent oversight",
+      "Negotiate targeted border-processing and child-protection rules",
+      "Leave additional services to existing border agencies"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2018-wildfires-and-resilience",
+    "year": 2018,
+    "category": "security",
+    "title": "Wildfires and resilience",
+    "context": "Severe wildfires threaten western communities and reveal gaps in preparation and housing protection.",
+    "reality": "The Camp Fire devastated Paradise, California, in 2018.",
+    "choices": [
+      "Fund resilient housing, forest management, and evacuation systems",
+      "Target grants at high-risk communities",
+      "Leave most resilience investment to local governments"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2018-criminal-justice-reform",
+    "year": 2018,
+    "category": "society",
+    "title": "Criminal-justice reform",
+    "context": "A bipartisan opening emerges on sentencing, prisons, and reentry.",
+    "reality": "The First Step Act was enacted in December 2018.",
+    "choices": [
+      "Fund broad sentencing and reentry reforms",
+      "Implement a narrower bipartisan prison-reform package",
+      "Keep federal criminal-justice policy largely unchanged"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2019-north-american-trade-rules",
+    "year": 2019,
+    "category": "foreignPolicy",
+    "title": "North American trade rules",
+    "context": "Congress weighs a revised trade framework for the United States, Mexico, and Canada.",
+    "reality": "The USMCA moved toward ratification in 2019 and entered into force in 2020.",
+    "choices": [
+      "Pair trade integration with strong labor and adjustment investment",
+      "Ratify a targeted agreement with enforceable safeguards",
+      "Leave adjustment mainly to businesses and states"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2019-big-tech-and-market-power",
+    "year": 2019,
+    "category": "digitalization",
+    "title": "Big Tech and market power",
+    "context": "Lawmakers examine competition, privacy, and the influence of large technology platforms.",
+    "reality": "Federal and congressional scrutiny of major technology firms intensified in 2019.",
+    "choices": [
+      "Fund competition enforcement and national privacy protections",
+      "Negotiate focused transparency and data-portability rules",
+      "Favor industry-led privacy and competition standards"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2019-impeachment-and-institutional-trust",
+    "year": 2019,
+    "category": "society",
+    "title": "Impeachment and institutional trust",
+    "context": "A confrontation between Congress and the White House tests oversight and public trust.",
+    "reality": "The House impeached President Trump in December 2019.",
+    "choices": [
+      "Fund transparent oversight and full document cooperation",
+      "Seek a procedural agreement with congressional investigators",
+      "Limit cooperation to existing legal obligations"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2019-floods-and-rural-recovery",
+    "year": 2019,
+    "category": "energy",
+    "title": "Floods and rural recovery",
+    "context": "Flooding damages farms, towns, and transportation across the central United States.",
+    "reality": "Major flooding affected the Midwest and Great Plains in 2019.",
+    "choices": [
+      "Fund floodplain resilience and agricultural recovery",
+      "Target aid at critical infrastructure and family farms",
+      "Leave long-term adaptation primarily to local owners"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2020-covid-19",
+    "year": 2020,
+    "category": "welfare",
+    "title": "COVID-19",
+    "context": "A pandemic threatens lives, hospital capacity, jobs, and everyday life.",
+    "reality": "COVID-19 caused a major US public-health emergency and economic disruption in 2020.",
+    "choices": [
+      "Fund testing, healthcare capacity, vaccines, and household support",
+      "Coordinate targeted health measures and temporary relief",
+      "Keep federal health and relief commitments limited"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2020-an-economy-in-lockdown",
+    "year": 2020,
+    "category": "economy",
+    "title": "An economy in lockdown",
+    "context": "Businesses close and unemployment surges. Congress must prevent a deeper collapse.",
+    "reality": "The CARES Act was enacted in March 2020.",
+    "choices": [
+      "Fund broad income support and accountable small-business relief",
+      "Negotiate temporary targeted support with an expiry date",
+      "Rely mostly on private adjustment and state programs"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2020-protests-after-george-floyd-s-murder",
+    "year": 2020,
+    "category": "society",
+    "title": "Protests after George Floyd's murder",
+    "context": "Large demonstrations demand police accountability and equal treatment.",
+    "reality": "George Floyd was murdered by a Minneapolis police officer in May 2020.",
+    "choices": [
+      "Fund accountable policing, civil-rights enforcement, and community services",
+      "Negotiate focused use-of-force and reporting standards",
+      "Leave additional police reforms to local governments"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2020-voting-during-a-pandemic",
+    "year": 2020,
+    "category": "society",
+    "title": "Voting during a pandemic",
+    "context": "Election officials must protect access, secure counting, and public confidence during a health emergency.",
+    "reality": "The 2020 election saw expanded mail voting and high turnout.",
+    "choices": [
+      "Fund secure mail voting, audits, and accessible polling",
+      "Provide targeted state grants and bipartisan observation",
+      "Leave pandemic election costs to states"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2021-january-6-and-democratic-institutions",
+    "year": 2021,
+    "category": "society",
+    "title": "January 6 and democratic institutions",
+    "context": "An attack on Congress puts peaceful transfer of power and election legitimacy at the center of national politics.",
+    "reality": "A mob attacked the US Capitol on January 6, 2021.",
+    "choices": [
+      "Fund institutional security, independent accountability, and civic resilience",
+      "Negotiate focused security and election-certification reforms",
+      "Limit the response to existing criminal investigations"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2021-rebuilding-american-infrastructure",
+    "year": 2021,
+    "category": "digitalization",
+    "title": "Rebuilding American infrastructure",
+    "context": "Aging bridges, broadband gaps, and water systems create a rare opening for a major federal deal.",
+    "reality": "The Infrastructure Investment and Jobs Act was signed in November 2021.",
+    "choices": [
+      "Fund a broad infrastructure and broadband program",
+      "Negotiate a targeted bipartisan repair package",
+      "Keep new infrastructure investment primarily private and local"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2021-withdrawal-from-afghanistan",
+    "year": 2021,
+    "category": "foreignPolicy",
+    "title": "Withdrawal from Afghanistan",
+    "context": "Ending a long military mission creates urgent questions about evacuation, allies, and humanitarian support.",
+    "reality": "The US military withdrawal from Afghanistan concluded in August 2021.",
+    "choices": [
+      "Fund evacuation, refugee resettlement, and sustained civilian assistance",
+      "Negotiate a limited humanitarian and regional-support mission",
+      "End most continuing American commitments"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2021-vaccination-and-reopening",
+    "year": 2021,
+    "category": "welfare",
+    "title": "Vaccination and reopening",
+    "context": "Vaccines offer protection, but uneven access and mistrust complicate reopening.",
+    "reality": "COVID-19 vaccination expanded widely in the United States in 2021.",
+    "choices": [
+      "Fund community vaccination, paid leave, and public-health capacity",
+      "Target outreach and voluntary vaccination incentives",
+      "Leave further rollout primarily to states and providers"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2022-russia-s-full-scale-invasion-of-ukraine",
+    "year": 2022,
+    "category": "foreignPolicy",
+    "title": "Russia's full-scale invasion of Ukraine",
+    "context": "The invasion forces decisions about allied unity, military assistance, sanctions, and escalation risks.",
+    "reality": "Russia launched its full-scale invasion of Ukraine in February 2022.",
+    "choices": [
+      "Fund coordinated military and humanitarian support with oversight",
+      "Negotiate a limited allied assistance and diplomacy package",
+      "Avoid substantial new US assistance commitments"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2022-inflation-squeezes-households",
+    "year": 2022,
+    "category": "economy",
+    "title": "Inflation squeezes households",
+    "context": "Rapid price increases hit food, housing, and fuel. The administration cannot directly set Federal Reserve interest rates.",
+    "reality": "US inflation rose sharply in 2021 and 2022, and the Federal Reserve raised rates.",
+    "choices": [
+      "Invest in supply capacity and targeted household relief",
+      "Negotiate limited relief while respecting Federal Reserve independence",
+      "Prioritize immediate federal spending restraint"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2022-abortion-policy-after-dobbs",
+    "year": 2022,
+    "category": "society",
+    "title": "Abortion policy after Dobbs",
+    "context": "A Supreme Court ruling shifts abortion regulation and triggers conflicts over rights and healthcare access.",
+    "reality": "Dobbs v. Jackson Women's Health Organization overturned Roe v. Wade in June 2022.",
+    "choices": [
+      "Seek federal access protections and fund reproductive healthcare",
+      "Negotiate narrower emergency-care and interstate-access safeguards",
+      "Leave new abortion regulation to individual states"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2022-climate-and-semiconductor-investment",
+    "year": 2022,
+    "category": "energy",
+    "title": "Climate and semiconductor investment",
+    "context": "Congress weighs industrial incentives, clean technology, and domestic manufacturing.",
+    "reality": "The CHIPS and Science Act and Inflation Reduction Act were enacted in 2022.",
+    "choices": [
+      "Fund domestic chips, clean energy, and workforce development",
+      "Offer targeted incentives with strict performance requirements",
+      "Rely mainly on private financing for industrial expansion"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2023-another-debt-ceiling-deadline",
+    "year": 2023,
+    "category": "budget",
+    "title": "Another debt-ceiling deadline",
+    "context": "A borrowing standoff again threatens federal payments and financial stability.",
+    "reality": "The Fiscal Responsibility Act resolved the 2023 debt-limit confrontation.",
+    "choices": [
+      "Negotiate durable borrowing authority and a funded budget",
+      "Agree on temporary authority and limited spending caps",
+      "Demand deep immediate cuts before broader authority"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2023-regional-banks-under-pressure",
+    "year": 2023,
+    "category": "economy",
+    "title": "Regional banks under pressure",
+    "context": "Bank failures raise concerns about deposits, supervision, and risks from rapid interest-rate changes.",
+    "reality": "Silicon Valley Bank and Signature Bank failed in March 2023.",
+    "choices": [
+      "Strengthen supervision and fund a tightly conditioned stabilization response",
+      "Protect deposit access while reviewing the riskiest institutions",
+      "Minimize additional federal guarantees"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2023-generative-ai-arrives",
+    "year": 2023,
+    "category": "digitalization",
+    "title": "Generative AI arrives",
+    "context": "Rapidly spreading AI tools promise productivity while creating risks around jobs, privacy, and deception.",
+    "reality": "Generative AI became a major public-policy issue in 2023.",
+    "choices": [
+      "Fund public-interest research, safety evaluation, and worker transition",
+      "Create targeted reporting and procurement standards",
+      "Favor voluntary industry commitments"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2023-student-debt-and-college-costs",
+    "year": 2023,
+    "category": "society",
+    "title": "Student debt and college costs",
+    "context": "Court decisions and rising tuition complicate efforts to reduce borrowers' burdens.",
+    "reality": "The Supreme Court rejected a broad student-loan cancellation plan in June 2023.",
+    "choices": [
+      "Seek congressionally authorized relief and college-cost reform",
+      "Expand targeted repayment assistance under clear legal authority",
+      "Limit new federal borrower assistance"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2024-securing-a-polarized-election",
+    "year": 2024,
+    "category": "society",
+    "title": "Securing a polarized election",
+    "context": "Election workers confront threats, disinformation, and demands for trustworthy results.",
+    "reality": "The United States held presidential and congressional elections in November 2024.",
+    "choices": [
+      "Fund election-worker protection, access, and transparent audits",
+      "Negotiate targeted bipartisan certification safeguards",
+      "Leave additional election funding to states"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2024-border-policy-and-congressional-deadlock",
+    "year": 2024,
+    "category": "society",
+    "title": "Border policy and congressional deadlock",
+    "context": "Pressure at the southern border collides with disputes over asylum, legal pathways, and enforcement.",
+    "reality": "Immigration and border policy remained major US political issues in 2024.",
+    "choices": [
+      "Fund lawful processing, border capacity, and immigration reform",
+      "Seek a narrower bipartisan processing and enforcement deal",
+      "Limit new federal processing and integration spending"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2024-housing-affordability",
+    "year": 2024,
+    "category": "welfare",
+    "title": "Housing affordability",
+    "context": "High rents and home prices prevent many families from building financial security.",
+    "reality": "Housing affordability was a major concern during the 2024 election cycle.",
+    "choices": [
+      "Fund housing supply, infrastructure, and targeted rental assistance",
+      "Offer state incentives for permitting and first-time buyers",
+      "Leave most housing adjustment to local markets"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2024-hurricane-recovery-in-the-southeast",
+    "year": 2024,
+    "category": "security",
+    "title": "Hurricane recovery in the Southeast",
+    "context": "Major storms require relief across multiple states and renew questions about resilient rebuilding.",
+    "reality": "Hurricanes Helene and Milton caused major damage in 2024.",
+    "choices": [
+      "Fund resilient rebuilding and transparent federal disaster assistance",
+      "Target emergency funds at critical services and displaced households",
+      "Limit federal commitments after immediate relief"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2025-industrial-resilience-a-policy-scenario",
+    "year": 2025,
+    "category": "economy",
+    "title": "Industrial resilience: a policy scenario",
+    "context": "Your alternate-history administration faces a choice about domestic manufacturing and import dependence.",
+    "reality": "This is a fictional policy dilemma for 2025, not a claim about enacted law.",
+    "choices": [
+      "Fund domestic capacity and worker training",
+      "Negotiate targeted supply-chain incentives",
+      "Leave industrial expansion to private investors"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2025-a-fiscal-crossroads-a-policy-scenario",
+    "year": 2025,
+    "category": "budget",
+    "title": "A fiscal crossroads: a policy scenario",
+    "context": "In this campaign, healthcare costs, debt service, and defense demands compete for limited resources.",
+    "reality": "This is a fictional policy dilemma for 2025, not a report of actual budget negotiations.",
+    "choices": [
+      "Negotiate a revenue-and-investment package",
+      "Phase in targeted savings and protected services",
+      "Prioritize broad immediate spending restraint"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2025-ai-accountability-a-policy-scenario",
+    "year": 2025,
+    "category": "digitalization",
+    "title": "AI accountability: a policy scenario",
+    "context": "Your administration must set rules for automated decisions in public services.",
+    "reality": "This is a fictional 2025 scenario; policy outcomes depend on the player's decisions.",
+    "choices": [
+      "Fund independent audits and human review",
+      "Pilot transparent standards in high-risk agencies",
+      "Leave most standards to technology suppliers"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2025-resilient-power-a-policy-scenario",
+    "year": 2025,
+    "category": "energy",
+    "title": "Resilient power: a policy scenario",
+    "context": "An invented regional grid emergency tests the energy system built during your campaign.",
+    "reality": "This is a fictional 2025 scenario, not a report of a particular real outage.",
+    "choices": [
+      "Invest in interconnections, storage, and backup capacity",
+      "Negotiate regional reliability upgrades",
+      "Leave new capacity primarily to utility investment"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2026-america-at-250-a-campaign-scenario",
+    "year": 2026,
+    "category": "society",
+    "title": "America at 250: a campaign scenario",
+    "context": "The country's 250th anniversary invites a debate about civic trust and your administration's legacy.",
+    "reality": "The Declaration of Independence was adopted in 1776. This anniversary policy dilemma is fictional.",
+    "choices": [
+      "Fund civic institutions, public service, and local participation",
+      "Support a bipartisan civic-education initiative",
+      "Leave anniversary programs to states and communities"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2026-the-next-american-economy-a-campaign-scenario",
+    "year": 2026,
+    "category": "economy",
+    "title": "The next American economy: a campaign scenario",
+    "context": "Your industrial, trade, and technology decisions now shape the jobs available to the next generation.",
+    "reality": "This is a fictional 2026 campaign assessment, not a prediction of real economic conditions.",
+    "choices": [
+      "Fund a national skills and industrial-renewal initiative",
+      "Target investment at communities left behind",
+      "Rely on private investment for the next growth cycle"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2026-the-cost-of-care-a-campaign-scenario",
+    "year": 2026,
+    "category": "welfare",
+    "title": "The cost of care: a campaign scenario",
+    "context": "In your alternate timeline, families demand a lasting answer to healthcare and elder-care costs.",
+    "reality": "This is a fictional 2026 policy scenario.",
+    "choices": [
+      "Fund coverage, prevention, and long-term-care capacity",
+      "Negotiate targeted cost controls and state partnerships",
+      "Limit new federal care commitments"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  },
+  {
+    "id": "us-2026-america-s-place-in-the-world-a-campaign-scenario",
+    "year": 2026,
+    "category": "foreignPolicy",
+    "title": "America's place in the world: a campaign scenario",
+    "context": "Allies and competitors judge the country your decisions have created since 2000.",
+    "reality": "This is a fictional 2026 assessment of the player's alternate history.",
+    "choices": [
+      "Invest in alliances, diplomacy, and international resilience",
+      "Prioritize a narrower set of shared commitments",
+      "Reduce overseas obligations and focus resources at home"
+    ],
+    "source": null,
+    "historicalChoice": null,
+    "step": null
+  }
+]

@@ -3,14 +3,21 @@ import SwiftUI
 // MARK: - Schwarz-Rot-Gold-Band
 
 /// Dünner Deutschland-Akzent.
-struct FlagRibbon: View {
+struct FlagRibbon: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     var height: CGFloat = 4
 
     var body: some View {
         HStack(spacing: 0) {
-            GameTheme.flagBlack
-            GameTheme.flagRed
-            GameTheme.flagGold
+            if gamePresentation.country == .unitedStates {
+                GameTheme.blue
+                Color.white
+                GameTheme.flagRed
+            } else {
+                GameTheme.flagBlack
+                GameTheme.flagRed
+                GameTheme.flagGold
+            }
         }
         .frame(height: height)
         .clipShape(Capsule())
@@ -19,7 +26,8 @@ struct FlagRibbon: View {
 
 // MARK: - Abschnittsüberschrift
 
-struct SectionHeader: View {
+struct SectionHeader: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let title: String
     var systemImage: String? = nil
     var accessory: String? = nil
@@ -31,13 +39,13 @@ struct SectionHeader: View {
                     .font(.footnote.weight(.bold))
                     .foregroundStyle(GameTheme.gold)
             }
-            Text(title.uppercased())
+            Text(L(title).uppercased())
                 .font(.caption.weight(.bold))
                 .tracking(1.4)
                 .foregroundStyle(GameTheme.secondaryText)
             Spacer(minLength: 0)
             if let accessory {
-                Text(accessory)
+                Text(L(accessory))
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(GameTheme.tertiaryText)
             }
@@ -47,7 +55,8 @@ struct SectionHeader: View {
 
 // MARK: - Chips & Pills
 
-struct CategoryChip: View {
+struct CategoryChip: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let label: String
     let icon: String
     let color: Color
@@ -56,7 +65,7 @@ struct CategoryChip: View {
         HStack(spacing: 5) {
             Image(systemName: icon)
                 .font(.caption2.weight(.bold))
-            Text(label.uppercased())
+            Text(L(label).uppercased())
                 .font(.caption2.weight(.bold))
                 .tracking(0.6)
         }
@@ -68,11 +77,12 @@ struct CategoryChip: View {
     }
 }
 
-struct StatusPill: View {
+struct StatusPill: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let value: Int
 
     var body: some View {
-        Text(GameTheme.statusLabel(for: value).uppercased())
+        Text(L(GameTheme.statusLabel(for: value).uppercased()))
             .font(.system(size: 10, weight: .heavy))
             .tracking(0.5)
             .lineLimit(1)
@@ -85,7 +95,8 @@ struct StatusPill: View {
 }
 
 /// Rot pulsierendes "EILMELDUNG"-Tag.
-struct BreakingTag: View {
+struct BreakingTag: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     @State private var pulse = false
 
     var body: some View {
@@ -94,7 +105,7 @@ struct BreakingTag: View {
                 .fill(Color.white)
                 .frame(width: 6, height: 6)
                 .opacity(pulse ? 0.35 : 1)
-            Text("EILMELDUNG")
+            Text(L("EILMELDUNG"))
                 .font(.caption2.weight(.heavy))
                 .tracking(1.2)
         }
@@ -112,7 +123,8 @@ struct BreakingTag: View {
 
 // MARK: - Balken-Gauge
 
-struct ValueBar: View {
+struct ValueBar: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let value: Int
     var total: Int = 100
     var height: CGFloat = 8
@@ -140,7 +152,8 @@ struct ValueBar: View {
 
 // MARK: - Zustimmungs-Ring
 
-struct ApprovalRing: View {
+struct ApprovalRing: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let value: Int
     var size: CGFloat = 108
     var caption: String = "Zustimmung"
@@ -161,11 +174,11 @@ struct ApprovalRing: View {
                 .rotationEffect(.degrees(-90))
                 .animation(.easeInOut(duration: 0.6), value: value)
             VStack(spacing: 1) {
-                Text("\(value)")
+                Text(L("\(L(value))"))
                     .font(.system(size: size * 0.30, weight: .bold, design: .rounded))
                     .foregroundStyle(GameTheme.primaryText)
                     .monospacedDigit()
-                Text(caption.uppercased())
+                Text(L(caption).uppercased())
                     .font(.system(size: size * 0.085, weight: .bold))
                     .tracking(1)
                     .foregroundStyle(GameTheme.secondaryText)
@@ -177,7 +190,8 @@ struct ApprovalRing: View {
 
 // MARK: - Momentum-Indikator
 
-struct MomentumBadge: View {
+struct MomentumBadge: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let momentum: Int
 
     private var icon: String {
@@ -193,15 +207,15 @@ struct MomentumBadge: View {
     }
 
     private var label: String {
-        if momentum > 3 { return "Rückenwind" }
-        if momentum < -3 { return "Gegenwind" }
-        return "Ruhige Lage"
+        if momentum > 3 { return L("Rückenwind") }
+        if momentum < -3 { return L("Gegenwind") }
+        return L("Ruhige Lage")
     }
 
     var body: some View {
         HStack(spacing: 5) {
             Image(systemName: icon).font(.caption.weight(.bold))
-            Text(label).font(.caption.weight(.semibold))
+            Text(L(label)).font(.caption.weight(.semibold))
         }
         .foregroundStyle(color)
         .padding(.horizontal, 10)
@@ -212,7 +226,8 @@ struct MomentumBadge: View {
 
 // MARK: - Wert-Karte (Ressorts)
 
-struct MetricCard: View {
+struct MetricCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let title: String
     let icon: String
     let value: Int
@@ -226,7 +241,7 @@ struct MetricCard: View {
                     .foregroundStyle(GameTheme.statusColor(for: value))
                     .frame(width: 22, height: 22)
                     .background(Circle().fill(GameTheme.statusColor(for: value).opacity(0.15)))
-                Text(title)
+                Text(L(title))
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(GameTheme.primaryText)
                     .lineLimit(1)
@@ -235,7 +250,7 @@ struct MetricCard: View {
             }
 
             HStack(alignment: .firstTextBaseline, spacing: 4) {
-                Text("\(value)")
+                Text(L("\(L(value))"))
                     .font(.system(size: 28, weight: .bold, design: .rounded))
                     .foregroundStyle(GameTheme.primaryText)
                     .monospacedDigit()
@@ -248,7 +263,7 @@ struct MetricCard: View {
             ValueBar(value: value)
 
             if let blurb {
-                Text(blurb)
+                Text(L(blurb))
                     .font(.caption)
                     .foregroundStyle(GameTheme.tertiaryText)
                     .fixedSize(horizontal: false, vertical: true)
@@ -256,13 +271,14 @@ struct MetricCard: View {
         }
         .gameCard()
         .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(title): \(value) von 100, \(GameTheme.statusLabel(for: value))")
+        .accessibilityLabel(L("\(L(title)): \(L(value)) von 100, \(L(GameTheme.statusLabel(for: value)))"))
     }
 }
 
 // MARK: - Effekt-Delta-Zeile (Ergebnis-Screen)
 
-struct DeltaRow: View {
+struct DeltaRow: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let label: String
     let icon: String
     let change: Int
@@ -275,14 +291,14 @@ struct DeltaRow: View {
                 .font(.footnote)
                 .foregroundStyle(GameTheme.secondaryText)
                 .frame(width: 20)
-            Text(label)
+            Text(L(label))
                 .font(.subheadline)
                 .foregroundStyle(GameTheme.primaryText)
             Spacer(minLength: 0)
             HStack(spacing: 4) {
                 Image(systemName: change >= 0 ? "arrow.up" : "arrow.down")
                     .font(.caption2.weight(.bold))
-                Text(signedString(change))
+                Text(L(signedString(change)))
                     .font(.subheadline.weight(.bold))
                     .monospacedDigit()
             }
@@ -303,7 +319,8 @@ struct ChartSeries: Identifiable {
     let values: [Double]
 }
 
-struct LineTrendChart: View {
+struct LineTrendChart: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let years: [Int]
     let series: [ChartSeries]
     var height: CGFloat = 150
@@ -314,11 +331,11 @@ struct LineTrendChart: View {
                 ForEach(series) { s in
                     HStack(spacing: 6) {
                         Circle().fill(s.color).frame(width: 8, height: 8)
-                        Text(s.name)
+                        Text(L(s.name))
                             .font(.caption)
                             .foregroundStyle(GameTheme.secondaryText)
                         if let last = s.values.last {
-                            Text("\(Int(last.rounded()))")
+                            Text(L("\(L(Int(last.rounded())))"))
                                 .font(.caption.weight(.bold))
                                 .foregroundStyle(s.color)
                                 .monospacedDigit()
@@ -355,10 +372,10 @@ struct LineTrendChart: View {
             .frame(height: height)
 
             HStack {
-                Text(String(years.first ?? 2000))
+                Text(L(String(years.first ?? 2000)))
                     .font(.caption2).foregroundStyle(GameTheme.tertiaryText).monospacedDigit()
                 Spacer()
-                Text(String(years.last ?? 2000))
+                Text(L(String(years.last ?? 2000)))
                     .font(.caption2).foregroundStyle(GameTheme.tertiaryText).monospacedDigit()
             }
         }
@@ -383,7 +400,8 @@ struct LineTrendChart: View {
 
 // MARK: - Leerer Zustand
 
-struct EmptyStateView: View {
+struct EmptyStateView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let icon: String
     let title: String
     let message: String
@@ -393,10 +411,10 @@ struct EmptyStateView: View {
             Image(systemName: icon)
                 .font(.system(size: 40, weight: .light))
                 .foregroundStyle(GameTheme.tertiaryText)
-            Text(title)
+            Text(L(title))
                 .font(.headline)
                 .foregroundStyle(GameTheme.primaryText)
-            Text(message)
+            Text(L(message))
                 .font(.subheadline)
                 .foregroundStyle(GameTheme.secondaryText)
                 .multilineTextAlignment(.center)

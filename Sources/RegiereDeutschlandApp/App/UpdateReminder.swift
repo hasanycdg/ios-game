@@ -1,4 +1,5 @@
 import Observation
+import RegiereDeutschlandCore
 import UIKit
 import UserNotifications
 
@@ -21,14 +22,14 @@ final class UpdateReminder: NSObject, UNUserNotificationCenterDelegate {
         center.delegate = self
     }
 
-    func prepare() async {
+    func prepare(country: GameCountry = .germany) async {
         guard !isBusy, !defaults.bool(forKey: completedKey) else { return }
         isBusy = true
         defer { isBusy = false }
         let settings = await center.notificationSettings()
         switch settings.authorizationStatus {
         case .authorized, .provisional, .ephemeral:
-            await schedule()
+            await schedule(country: country)
         case .notDetermined:
             canOfferReminder = true
         case .denied:
@@ -38,14 +39,14 @@ final class UpdateReminder: NSObject, UNUserNotificationCenterDelegate {
         }
     }
 
-    func enable() async {
+    func enable(country: GameCountry = .germany) async {
         guard !isBusy, !defaults.bool(forKey: completedKey) else { return }
         isBusy = true
         errorMessage = nil
         defer { isBusy = false }
         do {
             if try await center.requestAuthorization(options: [.alert, .sound]) {
-                await schedule()
+                await schedule(country: country)
             } else {
                 finish()
             }
@@ -59,10 +60,12 @@ final class UpdateReminder: NSObject, UNUserNotificationCenterDelegate {
         finish()
     }
 
-    private func schedule() async {
+    private func schedule(country: GameCountry) async {
         let content = UNMutableNotificationContent()
-        content.title = "Bereit für die Zukunft?"
-        content.body = "Neue fiktive Weltkrisen, Wiederaufbau und Weltordnung: Entdecke Zukunft 2050 in Regiere Deutschland."
+        content.title = country == .germany ? "Bereit für die Zukunft?" : "Ready for the future?"
+        content.body = country == .germany
+            ? "Neue fiktive Weltkrisen, Wiederaufbau und Weltordnung: Entdecke Zukunft 2050 in Regiere Deutschland."
+            : "New fictional crises, reconstruction, and a new world order: discover Future 2050 in Lead America."
         content.sound = .default
         let request = UNNotificationRequest(identifier: Self.identifier, content: content,
             trigger: UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false))

@@ -2,7 +2,8 @@ import RegiereDeutschlandCore
 import SwiftUI
 
 /// Vollbild-Wahlkampf: der Spieler wählt einen Schwerpunkt, bevor die Wahl läuft.
-struct CampaignView: View {
+struct CampaignView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let year: Int
     let state: GameState
     let onSelect: (CampaignFocus) -> Void
@@ -14,7 +15,7 @@ struct CampaignView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     header
-                    Text("Womit ziehst du in den Wahlkampf? Ein Thema, das zu einer Stärke passt, bringt Stimmen – ein Thema an deiner Schwachstelle kostet welche.")
+                    Text(L("Womit ziehst du in den Wahlkampf? Ein Thema, das zu einer Stärke passt, bringt Stimmen – ein Thema an deiner Schwachstelle kostet welche."))
                         .font(.callout)
                         .foregroundStyle(GameTheme.secondaryText)
                         .multilineTextAlignment(.center)
@@ -38,10 +39,10 @@ struct CampaignView: View {
     private var header: some View {
         VStack(spacing: 8) {
             FlagRibbon(height: 5).frame(width: 90)
-            Text("WAHLKAMPF")
+            Text(L("WAHLKAMPF"))
                 .font(.caption.weight(.heavy)).tracking(4)
                 .foregroundStyle(GameTheme.gold)
-            Text("Bundestagswahl \(String(year))")
+            Text(L("Bundestagswahl \(L(String(year)))"))
                 .font(.system(size: 26, weight: .bold, design: .rounded))
                 .foregroundStyle(GameTheme.primaryText)
         }
@@ -49,16 +50,17 @@ struct CampaignView: View {
     }
 }
 
-private struct FocusCard: View {
+private struct FocusCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let focus: CampaignFocus
     let alignment: CampaignAlignment
     let action: () -> Void
 
     private var badge: (text: String, color: Color) {
         switch alignment {
-        case .strong: ("Starkes Thema", GameTheme.green)
-        case .solid:  ("Solides Thema", GameTheme.gold)
-        case .risky:  ("Riskant", GameTheme.red)
+        case .strong: (L("Starkes Thema"), GameTheme.green)
+        case .solid:  (L("Solides Thema"), GameTheme.gold)
+        case .risky:  (L("Riskant"), GameTheme.red)
         }
     }
 
@@ -71,14 +73,14 @@ private struct FocusCard: View {
                     .frame(width: 44, height: 44)
                     .background(Circle().fill(GameTheme.gold.opacity(0.15)))
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(focus.title)
+                    Text(L(focus.title))
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(GameTheme.primaryText)
-                    Text(focus.detail)
+                    Text(L(focus.detail))
                         .font(.caption)
                         .foregroundStyle(GameTheme.secondaryText)
                         .fixedSize(horizontal: false, vertical: true)
-                    Text(badge.text)
+                    Text(L(badge.text))
                         .font(.caption2.weight(.heavy))
                         .foregroundStyle(badge.color)
                         .padding(.horizontal, 8).padding(.vertical, 3)

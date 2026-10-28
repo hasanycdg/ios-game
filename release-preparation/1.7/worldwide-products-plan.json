@@ -1,0 +1,2499 @@
+{
+  "actions": [
+    "edit",
+    "apply",
+    "discard"
+  ],
+  "desired_states": [
+    {
+      "common": {
+        "availability": {
+          "available_in_new_territories": true,
+          "territories": {
+            "AE": true,
+            "AF": true,
+            "AG": true,
+            "AI": true,
+            "AL": true,
+            "AM": true,
+            "AO": true,
+            "AR": true,
+            "AT": true,
+            "AU": true,
+            "AZ": true,
+            "BA": true,
+            "BB": true,
+            "BE": true,
+            "BF": true,
+            "BG": true,
+            "BH": true,
+            "BJ": true,
+            "BM": true,
+            "BN": true,
+            "BO": true,
+            "BR": true,
+            "BS": true,
+            "BT": true,
+            "BW": true,
+            "BY": true,
+            "BZ": true,
+            "CA": true,
+            "CD": true,
+            "CG": true,
+            "CH": true,
+            "CI": true,
+            "CL": true,
+            "CM": true,
+            "CN": true,
+            "CO": true,
+            "CR": true,
+            "CV": true,
+            "CY": true,
+            "CZ": true,
+            "DE": true,
+            "DK": true,
+            "DM": true,
+            "DO": true,
+            "DZ": true,
+            "EC": true,
+            "EE": true,
+            "EG": true,
+            "ES": true,
+            "FI": true,
+            "FJ": true,
+            "FM": true,
+            "FR": true,
+            "GA": true,
+            "GB": true,
+            "GD": true,
+            "GE": true,
+            "GH": true,
+            "GM": true,
+            "GR": true,
+            "GT": true,
+            "GW": true,
+            "GY": true,
+            "HK": true,
+            "HN": true,
+            "HR": true,
+            "HU": true,
+            "ID": true,
+            "IE": true,
+            "IL": true,
+            "IN": true,
+            "IQ": true,
+            "IS": true,
+            "IT": true,
+            "JM": true,
+            "JO": true,
+            "JP": true,
+            "KE": true,
+            "KG": true,
+            "KH": true,
+            "KN": true,
+            "KR": true,
+            "KW": true,
+            "KY": true,
+            "KZ": true,
+            "LA": true,
+            "LB": true,
+            "LC": true,
+            "LK": true,
+            "LR": true,
+            "LT": true,
+            "LU": true,
+            "LV": true,
+            "LY": true,
+            "MA": true,
+            "MD": true,
+            "ME": true,
+            "MG": true,
+            "MK": true,
+            "ML": true,
+            "MM": true,
+            "MN": true,
+            "MO": true,
+            "MR": true,
+            "MS": true,
+            "MT": true,
+            "MU": true,
+            "MV": true,
+            "MW": true,
+            "MX": true,
+            "MY": true,
+            "MZ": true,
+            "NA": true,
+            "NE": true,
+            "NG": true,
+            "NI": true,
+            "NL": true,
+            "NO": true,
+            "NP": true,
+            "NR": true,
+            "NZ": true,
+            "OM": true,
+            "PA": true,
+            "PE": true,
+            "PG": true,
+            "PH": true,
+            "PK": true,
+            "PL": true,
+            "PT": true,
+            "PW": true,
+            "PY": true,
+            "QA": true,
+            "RO": true,
+            "RS": true,
+            "RU": true,
+            "RW": true,
+            "SA": true,
+            "SB": true,
+            "SC": true,
+            "SE": true,
+            "SG": true,
+            "SI": true,
+            "SK": true,
+            "SL": true,
+            "SN": true,
+            "SR": true,
+            "ST": true,
+            "SV": true,
+            "SZ": true,
+            "TC": true,
+            "TD": true,
+            "TH": true,
+            "TJ": true,
+            "TM": true,
+            "TN": true,
+            "TO": true,
+            "TR": true,
+            "TT": true,
+            "TW": true,
+            "TZ": true,
+            "UA": true,
+            "UG": true,
+            "US": true,
+            "UY": true,
+            "UZ": true,
+            "VC": true,
+            "VE": true,
+            "VG": true,
+            "VN": true,
+            "VU": true,
+            "XK": true,
+            "YE": true,
+            "ZA": true,
+            "ZM": true,
+            "ZW": true
+          }
+        },
+        "duration": null,
+        "localizations": {
+          "de-DE": {
+            "description": "Regiere Deutschland von 2000 bis 2026",
+            "name": "Regiere Deutschland"
+          },
+          "en-US": {
+            "description": "Unlock 2005–2026 and all Pro features.",
+            "name": "Main campaign 2005–2026"
+          }
+        },
+        "pricing": null,
+        "title": null
+      },
+      "create_revenuecat_product": null,
+      "product_id": "prod9e008a2ef6",
+      "project_id": "proj4cc080a0",
+      "store": "app_store",
+      "store_state": null
+    },
+    {
+      "common": {
+        "availability": {
+          "available_in_new_territories": true,
+          "territories": {
+            "AE": true,
+            "AF": true,
+            "AG": true,
+            "AI": true,
+            "AL": true,
+            "AM": true,
+            "AO": true,
+            "AR": true,
+            "AT": true,
+            "AU": true,
+            "AZ": true,
+            "BA": true,
+            "BB": true,
+            "BE": true,
+            "BF": true,
+            "BG": true,
+            "BH": true,
+            "BJ": true,
+            "BM": true,
+            "BN": true,
+            "BO": true,
+            "BR": true,
+            "BS": true,
+            "BT": true,
+            "BW": true,
+            "BY": true,
+            "BZ": true,
+            "CA": true,
+            "CD": true,
+            "CG": true,
+            "CH": true,
+            "CI": true,
+            "CL": true,
+            "CM": true,
+            "CN": true,
+            "CO": true,
+            "CR": true,
+            "CV": true,
+            "CY": true,
+            "CZ": true,
+            "DE": true,
+            "DK": true,
+            "DM": true,
+            "DO": true,
+            "DZ": true,
+            "EC": true,
+            "EE": true,
+            "EG": true,
+            "ES": true,
+            "FI": true,
+            "FJ": true,
+            "FM": true,
+            "FR": true,
+            "GA": true,
+            "GB": true,
+            "GD": true,
+            "GE": true,
+            "GH": true,
+            "GM": true,
+            "GR": true,
+            "GT": true,
+            "GW": true,
+            "GY": true,
+            "HK": true,
+            "HN": true,
+            "HR": true,
+            "HU": true,
+            "ID": true,
+            "IE": true,
+            "IL": true,
+            "IN": true,
+            "IQ": true,
+            "IS": true,
+            "IT": true,
+            "JM": true,
+            "JO": true,
+            "JP": true,
+            "KE": true,
+            "KG": true,
+            "KH": true,
+            "KN": true,
+            "KR": true,
+            "KW": true,
+            "KY": true,
+            "KZ": true,
+            "LA": true,
+            "LB": true,
+            "LC": true,
+            "LK": true,
+            "LR": true,
+            "LT": true,
+            "LU": true,
+            "LV": true,
+            "LY": true,
+            "MA": true,
+            "MD": true,
+            "ME": true,
+            "MG": true,
+            "MK": true,
+            "ML": true,
+            "MM": true,
+            "MN": true,
+            "MO": true,
+            "MR": true,
+            "MS": true,
+            "MT": true,
+            "MU": true,
+            "MV": true,
+            "MW": true,
+            "MX": true,
+            "MY": true,
+            "MZ": true,
+            "NA": true,
+            "NE": true,
+            "NG": true,
+            "NI": true,
+            "NL": true,
+            "NO": true,
+            "NP": true,
+            "NR": true,
+            "NZ": true,
+            "OM": true,
+            "PA": true,
+            "PE": true,
+            "PG": true,
+            "PH": true,
+            "PK": true,
+            "PL": true,
+            "PT": true,
+            "PW": true,
+            "PY": true,
+            "QA": true,
+            "RO": true,
+            "RS": true,
+            "RU": true,
+            "RW": true,
+            "SA": true,
+            "SB": true,
+            "SC": true,
+            "SE": true,
+            "SG": true,
+            "SI": true,
+            "SK": true,
+            "SL": true,
+            "SN": true,
+            "SR": true,
+            "ST": true,
+            "SV": true,
+            "SZ": true,
+            "TC": true,
+            "TD": true,
+            "TH": true,
+            "TJ": true,
+            "TM": true,
+            "TN": true,
+            "TO": true,
+            "TR": true,
+            "TT": true,
+            "TW": true,
+            "TZ": true,
+            "UA": true,
+            "UG": true,
+            "US": true,
+            "UY": true,
+            "UZ": true,
+            "VC": true,
+            "VE": true,
+            "VG": true,
+            "VN": true,
+            "VU": true,
+            "XK": true,
+            "YE": true,
+            "ZA": true,
+            "ZM": true,
+            "ZW": true
+          }
+        },
+        "duration": null,
+        "localizations": {
+          "de-DE": {
+            "description": "Erweitere deine Kampagne von 2026 bis 2050.",
+            "name": "Zukunft 2050"
+          },
+          "en-US": {
+            "description": "Continue to 2050. Main campaign required.",
+            "name": "Future 2050"
+          }
+        },
+        "pricing": {
+          "territory_prices": {
+            "AT": {
+              "amount_micros": 6990000,
+              "currency": "EUR",
+              "start_date": null,
+              "subscription_price_point_id": null
+            },
+            "CH": {
+              "amount_micros": 5000000,
+              "currency": "CHF",
+              "start_date": null,
+              "subscription_price_point_id": null
+            },
+            "DE": {
+              "amount_micros": 6990000,
+              "currency": "EUR",
+              "start_date": null,
+              "subscription_price_point_id": null
+            }
+          }
+        },
+        "title": null
+      },
+      "create_revenuecat_product": null,
+      "product_id": "prod2aec02b52e",
+      "project_id": "proj4cc080a0",
+      "store": "app_store",
+      "store_state": null
+    },
+    {
+      "common": {
+        "availability": {
+          "available_in_new_territories": true,
+          "territories": {
+            "AE": true,
+            "AF": true,
+            "AG": true,
+            "AI": true,
+            "AL": true,
+            "AM": true,
+            "AO": true,
+            "AR": true,
+            "AT": true,
+            "AU": true,
+            "AZ": true,
+            "BA": true,
+            "BB": true,
+            "BE": true,
+            "BF": true,
+            "BG": true,
+            "BH": true,
+            "BJ": true,
+            "BM": true,
+            "BN": true,
+            "BO": true,
+            "BR": true,
+            "BS": true,
+            "BT": true,
+            "BW": true,
+            "BY": true,
+            "BZ": true,
+            "CA": true,
+            "CD": true,
+            "CG": true,
+            "CH": true,
+            "CI": true,
+            "CL": true,
+            "CM": true,
+            "CN": true,
+            "CO": true,
+            "CR": true,
+            "CV": true,
+            "CY": true,
+            "CZ": true,
+            "DE": true,
+            "DK": true,
+            "DM": true,
+            "DO": true,
+            "DZ": true,
+            "EC": true,
+            "EE": true,
+            "EG": true,
+            "ES": true,
+            "FI": true,
+            "FJ": true,
+            "FM": true,
+            "FR": true,
+            "GA": true,
+            "GB": true,
+            "GD": true,
+            "GE": true,
+            "GH": true,
+            "GM": true,
+            "GR": true,
+            "GT": true,
+            "GW": true,
+            "GY": true,
+            "HK": true,
+            "HN": true,
+            "HR": true,
+            "HU": true,
+            "ID": true,
+            "IE": true,
+            "IL": true,
+            "IN": true,
+            "IQ": true,
+            "IS": true,
+            "IT": true,
+            "JM": true,
+            "JO": true,
+            "JP": true,
+            "KE": true,
+            "KG": true,
+            "KH": true,
+            "KN": true,
+            "KR": true,
+            "KW": true,
+            "KY": true,
+            "KZ": true,
+            "LA": true,
+            "LB": true,
+            "LC": true,
+            "LK": true,
+            "LR": true,
+            "LT": true,
+            "LU": true,
+            "LV": true,
+            "LY": true,
+            "MA": true,
+            "MD": true,
+            "ME": true,
+            "MG": true,
+            "MK": true,
+            "ML": true,
+            "MM": true,
+            "MN": true,
+            "MO": true,
+            "MR": true,
+            "MS": true,
+            "MT": true,
+            "MU": true,
+            "MV": true,
+            "MW": true,
+            "MX": true,
+            "MY": true,
+            "MZ": true,
+            "NA": true,
+            "NE": true,
+            "NG": true,
+            "NI": true,
+            "NL": true,
+            "NO": true,
+            "NP": true,
+            "NR": true,
+            "NZ": true,
+            "OM": true,
+            "PA": true,
+            "PE": true,
+            "PG": true,
+            "PH": true,
+            "PK": true,
+            "PL": true,
+            "PT": true,
+            "PW": true,
+            "PY": true,
+            "QA": true,
+            "RO": true,
+            "RS": true,
+            "RU": true,
+            "RW": true,
+            "SA": true,
+            "SB": true,
+            "SC": true,
+            "SE": true,
+            "SG": true,
+            "SI": true,
+            "SK": true,
+            "SL": true,
+            "SN": true,
+            "SR": true,
+            "ST": true,
+            "SV": true,
+            "SZ": true,
+            "TC": true,
+            "TD": true,
+            "TH": true,
+            "TJ": true,
+            "TM": true,
+            "TN": true,
+            "TO": true,
+            "TR": true,
+            "TT": true,
+            "TW": true,
+            "TZ": true,
+            "UA": true,
+            "UG": true,
+            "US": true,
+            "UY": true,
+            "UZ": true,
+            "VC": true,
+            "VE": true,
+            "VG": true,
+            "VN": true,
+            "VU": true,
+            "XK": true,
+            "YE": true,
+            "ZA": true,
+            "ZM": true,
+            "ZW": true
+          }
+        },
+        "duration": null,
+        "localizations": {
+          "de-DE": {
+            "description": "Hauptkampagne und Zukunft 2050 dauerhaft.",
+            "name": "Komplettpaket 2005–2050"
+          },
+          "en-US": {
+            "description": "Main campaign and Future 2050, permanently.",
+            "name": "Complete bundle 2005–2050"
+          }
+        },
+        "pricing": {
+          "territory_prices": {
+            "AT": {
+              "amount_micros": 9990000,
+              "currency": "EUR",
+              "start_date": null,
+              "subscription_price_point_id": null
+            },
+            "CH": {
+              "amount_micros": 8000000,
+              "currency": "CHF",
+              "start_date": null,
+              "subscription_price_point_id": null
+            },
+            "DE": {
+              "amount_micros": 9990000,
+              "currency": "EUR",
+              "start_date": null,
+              "subscription_price_point_id": null
+            }
+          }
+        },
+        "title": null
+      },
+      "create_revenuecat_product": null,
+      "product_id": "prod8021c1cdbf",
+      "project_id": "proj4cc080a0",
+      "store": "app_store",
+      "store_state": null
+    }
+  ],
+  "error_message": null,
+  "has_changes": true,
+  "id": "20db03e0-7113-4474-9a13-b51407c50cff",
+  "object": "product_store_state_plan",
+  "plan_items": [
+    {
+      "action": "modify",
+      "app_id": null,
+      "apply_error_message": null,
+      "apply_status": null,
+      "diff": [
+        {
+          "field": "common.localizations.en-US.name",
+          "from_value": null,
+          "to_value": "Main campaign 2005–2026"
+        },
+        {
+          "field": "common.localizations.en-US.description",
+          "from_value": null,
+          "to_value": "Unlock 2005–2026 and all Pro features."
+        }
+      ],
+      "error_message": null,
+      "product_id": "prod9e008a2ef6",
+      "store_identifier": "regiere_deutschland_one_time",
+      "warnings": [
+        {
+          "field": "store_status",
+          "message": "Product 'regiere_deutschland_one_time': This product is approved in App Store Connect.",
+          "severity": "info"
+        }
+      ]
+    },
+    {
+      "action": "modify",
+      "app_id": null,
+      "apply_error_message": null,
+      "apply_status": null,
+      "diff": [
+        {
+          "field": "common.availability.territories.AE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AF",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AI",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AL",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AU",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BB",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BF",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BH",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BJ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BS",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BT",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CD",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CI",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CL",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CV",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.DK",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.DM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.DO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.DZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.EC",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.EE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.EG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ES",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.FI",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.FJ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.FM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.FR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GB",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GD",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GH",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GT",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.HK",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.HN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.HR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.HU",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ID",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.IE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.IL",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.IN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.IQ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.IS",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.IT",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.JM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.JO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.JP",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KH",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LB",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LC",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LK",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LT",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LU",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LV",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MD",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ME",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MK",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ML",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MS",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MT",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MU",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MV",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MX",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NI",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NL",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NP",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.OM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PH",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PK",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PL",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PT",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.QA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.RO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.RS",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.RU",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.RW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SB",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SC",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SI",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SK",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SL",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ST",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SV",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TC",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TD",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TH",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TJ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TT",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.UA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.UG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.US",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.UY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.UZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.VC",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.VE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.VG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.VN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.VU",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.XK",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.YE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ZA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ZM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ZW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.available_in_new_territories",
+          "from_value": false,
+          "to_value": true
+        },
+        {
+          "field": "common.localizations.en-US.name",
+          "from_value": null,
+          "to_value": "Future 2050"
+        },
+        {
+          "field": "common.localizations.en-US.description",
+          "from_value": null,
+          "to_value": "Continue to 2050. Main campaign required."
+        }
+      ],
+      "error_message": null,
+      "product_id": "prod2aec02b52e",
+      "store_identifier": "regiere_deutschland_one_time_two",
+      "warnings": [
+        {
+          "field": "store_status",
+          "message": "Product 'regiere_deutschland_one_time_two': This product is approved in App Store Connect.",
+          "severity": "info"
+        }
+      ]
+    },
+    {
+      "action": "modify",
+      "app_id": null,
+      "apply_error_message": null,
+      "apply_status": null,
+      "diff": [
+        {
+          "field": "common.availability.territories.AE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AF",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AI",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AL",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AU",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.AZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BB",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BF",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BH",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BJ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BS",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BT",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.BZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CD",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CI",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CL",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CV",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.CZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.DK",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.DM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.DO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.DZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.EC",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.EE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.EG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ES",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.FI",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.FJ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.FM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.FR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GB",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GD",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GH",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GT",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.GY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.HK",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.HN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.HR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.HU",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ID",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.IE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.IL",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.IN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.IQ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.IS",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.IT",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.JM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.JO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.JP",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KH",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.KZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LB",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LC",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LK",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LT",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LU",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LV",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.LY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MD",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ME",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MK",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ML",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MS",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MT",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MU",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MV",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MX",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.MZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NI",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NL",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NP",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.NZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.OM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PH",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PK",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PL",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PT",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.PY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.QA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.RO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.RS",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.RU",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.RW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SB",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SC",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SI",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SK",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SL",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ST",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SV",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.SZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TC",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TD",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TH",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TJ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TO",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TR",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TT",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.TZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.UA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.UG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.US",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.UY",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.UZ",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.VC",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.VE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.VG",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.VN",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.VU",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.XK",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.YE",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ZA",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ZM",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.territories.ZW",
+          "from_value": null,
+          "to_value": true
+        },
+        {
+          "field": "common.availability.available_in_new_territories",
+          "from_value": false,
+          "to_value": true
+        },
+        {
+          "field": "common.localizations.en-US.name",
+          "from_value": null,
+          "to_value": "Complete bundle 2005–2050"
+        },
+        {
+          "field": "common.localizations.en-US.description",
+          "from_value": null,
+          "to_value": "Main campaign and Future 2050, permanently."
+        }
+      ],
+      "error_message": null,
+      "product_id": "prod8021c1cdbf",
+      "store_identifier": "regiere_deutschland_complett_packet_one",
+      "warnings": [
+        {
+          "field": "store_status",
+          "message": "Product 'regiere_deutschland_complett_packet_one': This product is approved in App Store Connect.",
+          "severity": "info"
+        }
+      ]
+    }
+  ],
+  "status": "planned",
+  "summary": {
+    "products_added": 0,
+    "products_modified": 3,
+    "products_unchanged": 0
+  },
+  "timestamps": {
+    "applied_at": null,
+    "cancelled_at": null,
+    "created_at": 1793036156977,
+    "discarded_at": null,
+    "expired_at": null,
+    "planned_at": 1793036166862,
+    "planning_at": 1793036162674
+  },
+  "warnings": [
+    {
+      "field": "plan_items",
+      "message": "This App Store plan has 3 items. Applying many items at once can hit Apple's rate limits. Apply may take longer and some items may need to be retried.",
+      "severity": "warning"
+    }
+  ]
+}

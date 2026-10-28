@@ -2,14 +2,15 @@ import RegiereDeutschlandCore
 import SwiftUI
 
 /// Welt-Tab: aktive Außenpolitik gegenüber den wichtigsten Partnern.
-struct DiplomacyTab: View {
+struct DiplomacyTab: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     @ObservedObject var viewModel: GameViewModel
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 masthead
-                ForEach(DiplomaticPartner.allCases, id: \.self) { partner in
+                ForEach(viewModel.country.diplomaticPartners, id: \.self) { partner in
                     PartnerCard(
                         partner: partner,
                         relation: viewModel.diplomacy.relation(partner),
@@ -29,17 +30,17 @@ struct DiplomacyTab: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 10) {
                 FlagRibbon(height: 4).frame(width: 40)
-                Text("DEUTSCHLAND IN DER WELT")
+                Text(L("DEUTSCHLAND IN DER WELT"))
                     .font(.caption2.weight(.bold)).tracking(1.6)
                     .foregroundStyle(GameTheme.secondaryText)
                 Spacer(minLength: 0)
             }
             HStack(alignment: .firstTextBaseline) {
-                Text("Außenpolitik")
+                Text(L("Außenpolitik"))
                     .font(.system(size: 30, weight: .heavy, design: .serif))
                     .foregroundStyle(GameTheme.primaryText)
                 Spacer(minLength: 0)
-                Text(verbatim: "\(viewModel.state.currentYear)")
+                Text(verbatim: L("\(L(viewModel.state.currentYear))"))
                     .font(.system(size: 22, weight: .bold, design: .rounded))
                     .foregroundStyle(GameTheme.gold).monospacedDigit()
             }
@@ -48,7 +49,8 @@ struct DiplomacyTab: View {
     }
 }
 
-private struct PartnerCard: View {
+private struct PartnerCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let partner: DiplomaticPartner
     let relation: Int
     let capital: Int
@@ -65,14 +67,14 @@ private struct PartnerCard: View {
                     .frame(width: 40, height: 40)
                     .background(Circle().fill(color.opacity(0.15)))
                 VStack(alignment: .leading, spacing: 1) {
-                    Text(partner.title)
+                    Text(L(partner.title))
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(GameTheme.primaryText)
-                    Text(DiplomaticState.label(for: relation))
+                    Text(L(DiplomaticState.label(for: relation)))
                         .font(.caption2).foregroundStyle(GameTheme.tertiaryText)
                 }
                 Spacer(minLength: 0)
-                Text("\(relation)")
+                Text(L("\(L(relation))"))
                     .font(.system(size: 22, weight: .bold, design: .rounded))
                     .foregroundStyle(color).monospacedDigit()
             }
@@ -80,7 +82,7 @@ private struct PartnerCard: View {
             ValueBar(value: relation, height: 7)
 
             VStack(spacing: 8) {
-                ForEach(DiplomaticActionCatalog.actions(for: partner)) { action in
+                ForEach(DiplomaticActionCatalog.actions(for: partner, country: gamePresentation.country)) { action in
                     actionButton(action)
                 }
             }
@@ -95,17 +97,17 @@ private struct PartnerCard: View {
         } label: {
             HStack(spacing: 10) {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(action.title)
+                    Text(L(action.title))
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(GameTheme.primaryText)
-                    Text(action.detail)
+                    Text(L(action.detail))
                         .font(.caption2)
                         .foregroundStyle(GameTheme.secondaryText)
                         .fixedSize(horizontal: false, vertical: true)
                         .multilineTextAlignment(.leading)
                 }
                 Spacer(minLength: 4)
-                Text("\(action.cost)")
+                Text(L("\(L(action.cost))"))
                     .font(.caption.weight(.bold))
                     .foregroundStyle(GameTheme.gold)
                     .monospacedDigit()

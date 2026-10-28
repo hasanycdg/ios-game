@@ -2,7 +2,8 @@ import RegiereDeutschlandCore
 import SwiftUI
 
 /// Vollbild-"Wahlabend" – dramatischer Moment über allen Tabs.
-struct ElectionResultPanel: View {
+struct ElectionResultPanel: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let election: ElectionResult
     var parties: [Party] = []
     let onContinue: () -> Void
@@ -21,25 +22,29 @@ struct ElectionResultPanel: View {
                 VStack(spacing: 22) {
                     VStack(spacing: 8) {
                         FlagRibbon(height: 5).frame(width: 90)
-                        Text("WAHLABEND")
+                        Text(L("WAHLABEND"))
                             .font(.caption.weight(.heavy))
                             .tracking(4)
                             .foregroundStyle(GameTheme.gold)
-                        Text(verbatim: "Bundestagswahl \(election.year)")
+                        Text(verbatim: L("Bundestagswahl \(L(election.year))"))
                             .font(.system(size: 26, weight: .bold, design: .rounded))
                             .foregroundStyle(GameTheme.primaryText)
                     }
                     .padding(.top, 40)
 
                     VStack(spacing: 16) {
-                        resultBar(title: "Deine Partei", value: election.governingPartyShare,
+                        resultBar(title: L("Deine Partei"), value: election.governingPartyShare,
                                   color: GameTheme.gold, leading: true)
-                        resultBar(title: "Stärkste Opposition", value: election.oppositionShare,
+                        resultBar(title: L("Stärkste Opposition"), value: election.oppositionShare,
                                   color: GameTheme.secondaryText, leading: false)
                     }
                     .gameCard(padding: 18)
 
-                    SeatDistributionBar(election: election)
+                    if let votes = election.electoralVotes {
+                        ElectoralCollegeCard(votes: votes)
+                    } else {
+                        SeatDistributionBar(election: election)
+                    }
 
                     if !parties.isEmpty {
                         partyBreakdown
@@ -49,13 +54,13 @@ struct ElectionResultPanel: View {
 
                     if !election.reasons.isEmpty {
                         VStack(alignment: .leading, spacing: 10) {
-                            SectionHeader(title: "Ausschlaggebend", systemImage: "text.magnifyingglass")
+                            SectionHeader(title: L("Ausschlaggebend"), systemImage: "text.magnifyingglass")
                             ForEach(election.reasons, id: \.self) { reason in
                                 HStack(alignment: .top, spacing: 8) {
                                     Image(systemName: "chevron.right.circle.fill")
                                         .font(.caption)
                                         .foregroundStyle(GameTheme.gold)
-                                    Text(reason)
+                                    Text(L(reason))
                                         .font(.footnote)
                                         .foregroundStyle(GameTheme.secondaryText)
                                         .fixedSize(horizontal: false, vertical: true)
@@ -67,7 +72,7 @@ struct ElectionResultPanel: View {
                     }
 
                     Button(action: onContinue) {
-                        Label(election.didWin ? "Weiterregieren" : "Auswertung ansehen",
+                        Label(L(election.didWin ? L("Weiterregieren") : L("Auswertung ansehen")),
                               systemImage: election.didWin ? "flag.checkered" : "doc.text.magnifyingglass")
                     }
                     .buttonStyle(PrimaryActionButtonStyle())
@@ -86,17 +91,17 @@ struct ElectionResultPanel: View {
     private var partyBreakdown: some View {
         let maxSupport = parties.map(\.support).max() ?? 1
         return VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Ergebnis nach Parteien", systemImage: "chart.bar.xaxis")
+            SectionHeader(title: L("Ergebnis nach Parteien"), systemImage: "chart.bar.xaxis")
             VStack(spacing: 10) {
                 ForEach(parties) { party in
                     let color = PartyPresentation.color(for: party.id)
                     HStack(spacing: 10) {
                         Circle().fill(color).frame(width: 9, height: 9)
-                        Text(party.name)
+                        Text(L(party.name))
                             .font(.footnote.weight(.semibold))
                             .foregroundStyle(GameTheme.primaryText)
                         if party.role != .opposition {
-                            Text(party.role == .governing ? "Regierung" : "Koalition")
+                            Text(L(party.role == .governing ? L("Regierung") : L("Koalition")))
                                 .font(.system(size: 8.5, weight: .heavy))
                                 .foregroundStyle(GameTheme.gold)
                                 .padding(.horizontal, 5).padding(.vertical, 1.5)
@@ -112,7 +117,7 @@ struct ElectionResultPanel: View {
                         }
                         .frame(width: 90, height: 7)
                         .animation(.easeOut(duration: 0.9), value: revealed)
-                        Text(String(format: "%.1f", party.support))
+                        Text(L(String(format: "%.1f", party.support)))
                             .font(.caption.weight(.bold)).monospacedDigit()
                             .foregroundStyle(GameTheme.primaryText)
                             .frame(width: 38, alignment: .trailing)
@@ -131,10 +136,10 @@ struct ElectionResultPanel: View {
                 .font(.title)
                 .foregroundStyle(win ? GameTheme.green : GameTheme.red)
             VStack(alignment: .leading, spacing: 2) {
-                Text(win ? "Wiedergewählt" : "Abgewählt")
+                Text(L(win ? L("Wiedergewählt") : L("Abgewählt")))
                     .font(.title3.weight(.bold))
                     .foregroundStyle(win ? GameTheme.green : GameTheme.red)
-                Text(win ? "Deine Regierung bleibt im Amt." : "Deine Regierung muss abtreten.")
+                Text(L(win ? L("Deine Regierung bleibt im Amt.") : L("Deine Regierung muss abtreten.")))
                     .font(.subheadline)
                     .foregroundStyle(GameTheme.secondaryText)
             }
@@ -147,11 +152,11 @@ struct ElectionResultPanel: View {
     private func resultBar(title: String, value: Double, color: Color, leading: Bool) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Text(title)
+                Text(L(title))
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(GameTheme.primaryText)
                 Spacer()
-                Text(String(format: "%.1f %%", value))
+                Text(L(String(format: L("%.1f %%"), value)))
                     .font(.system(size: 22, weight: .bold, design: .rounded))
                     .foregroundStyle(color == GameTheme.secondaryText ? GameTheme.primaryText : color)
                     .monospacedDigit()

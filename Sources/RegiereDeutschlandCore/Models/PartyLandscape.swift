@@ -59,8 +59,19 @@ public enum PartyLandscapeFactory {
         state: GameState,
         governingShare: Double,
         coalition: CoalitionState,
-        playerParty: PlayerParty = PartyCatalog.default
+        playerParty: PlayerParty = PartyCatalog.default,
+        country: GameCountry = .germany
     ) -> PartyLandscape {
+        if country == .unitedStates {
+            let player = min(75, max(20, governingShare))
+            let others = country.partyLandscape.filter { $0.id != playerParty.id }
+            let opponentID = playerParty.spectrum >= 0.5 ? "democratic" : "republican"
+            let minorCount = max(1, others.filter { $0.id != opponentID }.count)
+            let parties = [Party(id: playerParty.id, name: playerParty.name, shortName: playerParty.shortName, spectrum: playerParty.spectrum, support: round1(player), role: .governing)] + others.map { ref in
+                Party(id: ref.id, name: ref.name, shortName: ref.shortName, spectrum: ref.spectrum, support: round1(ref.id == opponentID ? 96 - player : 4 / Double(minorCount)), role: .opposition)
+            }
+            return PartyLandscape(parties: parties.sorted { $0.support > $1.support })
+        }
         let player = min(52.0, max(18.0, governingShare))
 
         // Koalitionspartner (falls keine Minderheitsregierung) an eine echte Partei koppeln.

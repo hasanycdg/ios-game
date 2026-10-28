@@ -52,6 +52,11 @@ enum Monetization {
 
     /// Nach 2026: Zukunftserweiterung oder Komplettpaket.
     static let future2050OfferingID = "zukunft_2050"
+
+    /// US presentations reuse the same StoreKit products and entitlements.
+    static let usCatalogOfferingID = "catalog_us"
+    static let usCampaignOfferingID = "campaign_us"
+    static let usFutureOfferingID = "future_us"
 }
 
 /// Jeder Einstieg zeigt ausschließlich die für diesen Kaufpunkt vorgesehenen Angebote.
@@ -67,6 +72,18 @@ enum CampaignPaywallPlacement: Identifiable, Equatable {
         case .catalog: Monetization.offeringID ?? "katalog_1_6"
         case .afterPrologue: Monetization.campaign2005OfferingID
         case .afterMainCampaign: Monetization.future2050OfferingID
+        }
+    }
+
+    func offeringID(for country: GameCountry, hasMainCampaign: Bool = false) -> String {
+        guard country == .unitedStates else { return offeringID }
+        switch self {
+        case .catalog:
+            // Owners see the expansion with its own default-selected package,
+            // rather than a hidden bundle remaining selected in the catalog.
+            return hasMainCampaign ? Monetization.usFutureOfferingID : Monetization.usCatalogOfferingID
+        case .afterPrologue: return Monetization.usCampaignOfferingID
+        case .afterMainCampaign: return Monetization.usFutureOfferingID
         }
     }
 

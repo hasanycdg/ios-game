@@ -3,7 +3,8 @@ import SwiftUI
 
 /// Koalitionsgespräche: Der Partner legt seine Forderungen auf den Tisch,
 /// der Kanzler sagt sie zu oder lehnt sie ab.
-struct CoalitionNegotiationView: View {
+struct CoalitionNegotiationView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let negotiation: CoalitionNegotiation
     let onConclude: (Set<String>) -> Void
 
@@ -46,21 +47,21 @@ struct CoalitionNegotiationView: View {
     private var header: some View {
         VStack(spacing: 8) {
             FlagRibbon(height: 5).frame(width: 90)
-            Text("KOALITIONSGESPRÄCHE")
+            Text(L("KOALITIONSGESPRÄCHE"))
                 .font(.caption.weight(.heavy)).tracking(2.5)
                 .foregroundStyle(GameTheme.gold)
             HStack(spacing: 10) {
                 Circle().fill(accent.opacity(0.2)).frame(width: 30, height: 30)
                     .overlay(Image(systemName: "person.2.fill").font(.caption).foregroundStyle(accent))
-                Text("Verhandlung mit \(negotiation.partnerName)")
+                Text(L("Verhandlung mit \(L(negotiation.partnerName))"))
                     .font(.system(size: 22, weight: .bold, design: .rounded))
                     .foregroundStyle(GameTheme.primaryText)
                     .multilineTextAlignment(.center)
             }
             HStack(spacing: 6) {
-                Text(String(format: "%.0f %%", negotiation.combinedShare))
+                Text(L(String(format: L("%.0f %%"), negotiation.combinedShare)))
                     .font(.caption.weight(.bold)).monospacedDigit()
-                Text(negotiation.formsMajority ? "gemeinsame Mehrheit" : "knappe Basis")
+                Text(L(negotiation.formsMajority ? L("gemeinsame Mehrheit") : L("knappe Basis")))
                     .font(.caption2.weight(.heavy))
                     .foregroundStyle(negotiation.formsMajority ? GameTheme.green : GameTheme.amber)
                     .padding(.horizontal, 7).padding(.vertical, 2)
@@ -72,7 +73,7 @@ struct CoalitionNegotiationView: View {
     }
 
     private var intro: some View {
-        Text("\(negotiation.partnerName) legt die Bedingungen für das Bündnis auf den Tisch. Jede Zusage stimmt den Partner milder – kostet dich aber an anderer Stelle.")
+        Text(L("\(L(negotiation.partnerName)) legt die Bedingungen für das Bündnis auf den Tisch. Jede Zusage stimmt den Partner milder – kostet dich aber an anderer Stelle."))
             .font(.callout)
             .foregroundStyle(GameTheme.secondaryText)
             .multilineTextAlignment(.center)
@@ -88,21 +89,21 @@ struct CoalitionNegotiationView: View {
                 Image(systemName: "quote.opening")
                     .font(.caption)
                     .foregroundStyle(accent)
-                Text(demand.title)
+                Text(L(demand.title))
                     .font(.subheadline.weight(.bold))
                     .foregroundStyle(GameTheme.primaryText)
                 Spacer(minLength: 0)
             }
-            Text("„\(demand.demand)“")
+            Text(L("„\(L(demand.demand))“"))
                 .font(.footnote)
                 .foregroundStyle(GameTheme.secondaryText)
                 .fixedSize(horizontal: false, vertical: true)
 
             HStack(spacing: 10) {
-                choiceButton(title: "Zusagen", systemImage: "checkmark", isOn: isAccepted, color: GameTheme.green) {
+                choiceButton(title: L("Zusagen"), systemImage: "checkmark", isOn: isAccepted, color: GameTheme.green) {
                     accepted.insert(demand.id)
                 }
-                choiceButton(title: "Ablehnen", systemImage: "xmark", isOn: !isAccepted, color: GameTheme.red) {
+                choiceButton(title: L("Ablehnen"), systemImage: "xmark", isOn: !isAccepted, color: GameTheme.red) {
                     accepted.remove(demand.id)
                 }
             }
@@ -123,7 +124,7 @@ struct CoalitionNegotiationView: View {
         } label: {
             HStack(spacing: 6) {
                 Image(systemName: systemImage).font(.caption2.weight(.bold))
-                Text(title).font(.caption.weight(.bold))
+                Text(L(title)).font(.caption.weight(.bold))
             }
             .foregroundStyle(isOn ? Color.black.opacity(0.85) : GameTheme.secondaryText)
             .frame(maxWidth: .infinity)
@@ -142,13 +143,13 @@ struct CoalitionNegotiationView: View {
         let count = accepted.count
         let total = negotiation.demands.count
         let (text, color): (String, Color) = {
-            if count == total { return ("\(negotiation.partnerName) ist rundum zufrieden – ein stabiles Bündnis.", GameTheme.green) }
-            if count == 0 { return ("\(negotiation.partnerName) fühlt sich übergangen – das Bündnis startet zerrüttet.", GameTheme.red) }
-            return ("\(negotiation.partnerName) macht Abstriche – die Koalition steht, aber es knirscht.", GameTheme.amber)
+            if count == total { return (L("\(L(negotiation.partnerName)) ist rundum zufrieden – ein stabiles Bündnis."), GameTheme.green) }
+            if count == 0 { return (L("\(L(negotiation.partnerName)) fühlt sich übergangen – das Bündnis startet zerrüttet."), GameTheme.red) }
+            return (L("\(L(negotiation.partnerName)) macht Abstriche – die Koalition steht, aber es knirscht."), GameTheme.amber)
         }()
         return HStack(spacing: 8) {
             Image(systemName: "heart.text.square.fill").font(.footnote)
-            Text(text).font(.caption).fixedSize(horizontal: false, vertical: true)
+            Text(L(text)).font(.caption).fixedSize(horizontal: false, vertical: true)
             Spacer(minLength: 0)
         }
         .foregroundStyle(color)
@@ -161,7 +162,7 @@ struct CoalitionNegotiationView: View {
         Button {
             onConclude(accepted)
         } label: {
-            Label("Koalitionsvertrag besiegeln", systemImage: "signature")
+            Label(L("Koalitionsvertrag besiegeln"), systemImage: "signature")
         }
         .buttonStyle(PrimaryActionButtonStyle())
     }

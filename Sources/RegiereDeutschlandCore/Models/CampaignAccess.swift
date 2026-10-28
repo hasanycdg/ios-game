@@ -34,3 +34,14 @@ public enum CampaignBundleSaving {
         return saving > 0 ? saving : nil
     }
 }
+
+/// Limits unsolicited offers while always allowing the first onboarding offer.
+public enum CampaignOfferSchedule {
+    public static let interval: TimeInterval = 3 * 24 * 60 * 60
+
+    public static func shouldPresent(hasFutureCampaign: Bool, lastPresented: TimeInterval,
+                                     now: TimeInterval, afterOnboarding: Bool) -> Bool {
+        guard !hasFutureCampaign else { return false }
+        return afterOnboarding || lastPresented <= 0 || now - lastPresented >= interval
+    }
+}

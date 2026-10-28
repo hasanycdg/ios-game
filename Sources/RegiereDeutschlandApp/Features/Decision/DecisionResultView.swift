@@ -1,7 +1,8 @@
 import RegiereDeutschlandCore
 import SwiftUI
 
-struct DecisionResultView: View {
+struct DecisionResultView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let result: DecisionResult
     let onContinue: () -> Void
 
@@ -14,16 +15,16 @@ struct DecisionResultView: View {
                     .font(.title2)
                     .foregroundStyle(GameTheme.green)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Entscheidung umgesetzt")
+                    Text(L("Entscheidung umgesetzt"))
                         .font(.headline)
                         .foregroundStyle(GameTheme.primaryText)
-                    Text(result.optionTitle)
+                    Text(L(result.optionTitle))
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(GameTheme.gold)
                 }
             }
 
-            Text(result.resultText)
+            Text(L(result.resultText))
                 .font(.callout)
                 .foregroundStyle(GameTheme.secondaryText)
                 .fixedSize(horizontal: false, vertical: true)
@@ -31,14 +32,14 @@ struct DecisionResultView: View {
             // Auswirkungen
             if !result.visibleEffects.isEmpty || result.approvalEffect != 0 {
                 VStack(alignment: .leading, spacing: 10) {
-                    SectionHeader(title: "Direkte Auswirkungen", systemImage: "chart.bar.fill")
+                    SectionHeader(title: L("Direkte Auswirkungen"), systemImage: "chart.bar.fill")
                     VStack(spacing: 8) {
                         ForEach(result.visibleEffects, id: \.metric) { effect in
                             let style = MetricPresentation.style(for: effect.metric)
                             DeltaRow(label: style.label, icon: style.icon, change: effect.change)
                         }
                         if result.approvalEffect != 0 {
-                            DeltaRow(label: "Zustimmung", icon: "person.2.fill", change: result.approvalEffect)
+                            DeltaRow(label: L("Zustimmung"), icon: "person.2.fill", change: result.approvalEffect)
                         }
                     }
                 }
@@ -56,7 +57,7 @@ struct DecisionResultView: View {
             }
 
             Button(action: onContinue) {
-                Label("Fortfahren", systemImage: "arrow.right")
+                Label(L("Fortfahren"), systemImage: "arrow.right")
             }
             .buttonStyle(PrimaryActionButtonStyle())
         }
@@ -69,12 +70,12 @@ struct DecisionResultView: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 6) {
                 Image(systemName: "clock.badge.checkmark").font(.caption)
-                Text("Dein Weg & die Geschichte")
+                Text(L("Dein Weg & die Geschichte"))
                     .font(.caption.weight(.bold))
                     .tracking(0.4)
                 Spacer(minLength: 0)
                 if result.didChooseHistoricalPath {
-                    Text("historisch")
+                    Text(L("historisch"))
                         .font(.caption2.weight(.bold))
                         .foregroundStyle(GameTheme.gold)
                         .padding(.horizontal, 8).padding(.vertical, 3)
@@ -87,7 +88,7 @@ struct DecisionResultView: View {
             comparisonRow(
                 marker: "person.fill",
                 markerColor: GameTheme.gold,
-                title: "Deine Entscheidung",
+                title: L("Deine Entscheidung"),
                 text: result.optionTitle
             )
 
@@ -96,7 +97,7 @@ struct DecisionResultView: View {
                 comparisonRow(
                     marker: "building.columns.fill",
                     markerColor: GameTheme.secondaryText,
-                    title: "In Wirklichkeit",
+                    title: L("In Wirklichkeit"),
                     text: historicalReality
                 )
             }
@@ -110,7 +111,7 @@ struct DecisionResultView: View {
                 } label: {
                     HStack(spacing: 6) {
                         Image(systemName: "book.closed.fill").font(.caption2)
-                        Text(showBackground ? "Hintergrund ausblenden" : "Historischer Hintergrund")
+                        Text(L(showBackground ? L("Hintergrund ausblenden") : L("Historischer Hintergrund")))
                             .font(.caption.weight(.semibold))
                         Image(systemName: showBackground ? "chevron.up" : "chevron.down")
                             .font(.caption2.weight(.bold))
@@ -120,7 +121,7 @@ struct DecisionResultView: View {
                 .buttonStyle(.plain)
 
                 if showBackground {
-                    Text(background)
+                    Text(L(background))
                         .font(.footnote)
                         .foregroundStyle(GameTheme.secondaryText)
                         .fixedSize(horizontal: false, vertical: true)
@@ -154,11 +155,11 @@ struct DecisionResultView: View {
                 .frame(width: 26, height: 26)
                 .background(Circle().fill(markerColor.opacity(0.15)))
             VStack(alignment: .leading, spacing: 2) {
-                Text(title.uppercased())
+                Text(L(title).uppercased())
                     .font(.system(size: 10, weight: .bold))
                     .tracking(0.8)
                     .foregroundStyle(GameTheme.tertiaryText)
-                Text(text)
+                Text(L(text))
                     .font(.footnote)
                     .foregroundStyle(GameTheme.primaryText)
                     .fixedSize(horizontal: false, vertical: true)

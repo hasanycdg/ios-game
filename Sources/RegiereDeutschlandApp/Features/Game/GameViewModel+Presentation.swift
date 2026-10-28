@@ -65,8 +65,15 @@ extension GameViewModel {
             state: state,
             governingShare: electionProjection.governingShare,
             coalition: coalition,
-            playerParty: playerParty
+            playerParty: playerParty,
+            country: country
         )
+    }
+
+    func electionLandscape(_ election: ElectionResult) -> PartyLandscape {
+        guard country == .unitedStates else { return partyLandscape }
+        return PartyLandscapeFactory.make(state: state, governingShare: election.governingPartyShare,
+            coalition: coalition, playerParty: playerParty, country: country)
     }
 
     var nationMood: (word: String, color: Color) {
@@ -93,11 +100,11 @@ extension GameViewModel {
         for decision in state.decisions {
             items.append(
                 TimelineItem(
-                    id: "decision-\(decision.id.uuidString)",
+                    id: "decision-\(L(decision.id.uuidString))",
                     year: decision.year,
                     kind: .decision,
                     title: decision.optionTitle,
-                    detail: "Entscheidung getroffen"
+                    detail: L("Entscheidung getroffen")
                 )
             )
         }
@@ -105,10 +112,10 @@ extension GameViewModel {
         for echo in state.triggeredHistoricalEchoes {
             items.append(
                 TimelineItem(
-                    id: "echo-\(echo.id.uuidString)",
+                    id: "echo-\(L(echo.id.uuidString))",
                     year: echo.year,
                     kind: .echo,
-                    title: "Echo der Geschichte",
+                    title: L("Echo der Geschichte"),
                     detail: echo.note
                 )
             )
@@ -117,11 +124,11 @@ extension GameViewModel {
         for election in state.electionResults {
             items.append(
                 TimelineItem(
-                    id: "election-\(election.id.uuidString)",
+                    id: "election-\(L(election.id.uuidString))",
                     year: election.year,
                     kind: .election(won: election.didWin),
-                    title: election.didWin ? "Wahl gewonnen" : "Wahl verloren",
-                    detail: String(format: "%.1f %% zu %.1f %%", election.governingPartyShare, election.oppositionShare)
+                    title: election.didWin ? L("Wahl gewonnen") : L("Wahl verloren"),
+                    detail: String(format: L("%.1f %% zu %.1f %%"), election.governingPartyShare, election.oppositionShare)
                 )
             )
         }

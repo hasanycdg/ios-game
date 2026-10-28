@@ -132,6 +132,10 @@ struct NewsScopeStyle {
 enum PartyPresentation {
     static func leader(for id: String) -> String {
         switch id {
+        case "democratic": "Jordan Reed"
+        case "republican": "Taylor Brooks"
+        case "libertarian": "Casey Morgan"
+        case "green_us": "Riley Green"
         case "cdu":    "Dr. Berger"
         case "spd":    "Frau Vogt"
         case "gruene": "Frau Sommer"
@@ -144,6 +148,10 @@ enum PartyPresentation {
 
     static func color(for id: String) -> Color {
         switch id {
+        case "democratic": GameTheme.blue
+        case "republican": GameTheme.red
+        case "libertarian": GameTheme.amber
+        case "green_us": GameTheme.green
         case "spd":    GameTheme.red
         case "cdu":    Color(red: 0.78, green: 0.80, blue: 0.85) // Schwarz/Neutral, auf Dunkel hell
         case "gruene": GameTheme.green
@@ -160,6 +168,7 @@ enum NewsPresentation {
     static func style(for scope: NewsScope) -> NewsScopeStyle {
         switch scope {
         case .world:    NewsScopeStyle(label: "WELT", color: GameTheme.blue)
+        case .unitedStates: NewsScopeStyle(label: "UNITED STATES", color: GameTheme.gold)
         case .germany:  NewsScopeStyle(label: "DEUTSCHLAND", color: GameTheme.gold)
         case .domestic: NewsScopeStyle(label: "DEINE POLITIK", color: GameTheme.red)
         }

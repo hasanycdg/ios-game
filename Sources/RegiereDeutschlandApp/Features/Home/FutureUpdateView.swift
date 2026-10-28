@@ -2,57 +2,58 @@ import RegiereDeutschlandCore
 import SwiftUI
 
 /// Notification landing page: describes the expansion without bypassing campaign access.
-struct FutureUpdateView: View {
+struct FutureUpdateView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     @Environment(PurchaseManager.self) private var purchases
     @Environment(\.dismiss) private var dismiss
     @State private var paywall: CampaignPaywallPlacement?
-    private let persistence = GamePersistence()
+    private var persistence: GamePersistence { GamePersistence(country: gamePresentation.country) }
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 22) {
-                    Label("DAS NEUE KAPITEL", systemImage: "globe.europe.africa.fill")
+                    Label(L("DAS NEUE KAPITEL"), systemImage: "globe.europe.africa.fill")
                         .font(.caption.weight(.bold))
                         .foregroundStyle(GameTheme.teal)
-                    Text("Zukunft 2050")
+                    Text(L("Zukunft 2050"))
                         .font(.system(size: 36, weight: .heavy, design: .rounded))
                         .foregroundStyle(GameTheme.gold)
-                    Text("Wie entscheidest du, wenn die Welt am Wendepunkt steht?")
+                    Text(L("Wie entscheidest du, wenn die Welt am Wendepunkt steht?"))
                         .font(.title3.weight(.bold))
-                    Text("Führe deine Kampagne von 2026 bis 2050 weiter: Eskalation oder Diplomatie, Wiederaufbau und eine neue Weltordnung. 200 Szenario-Entscheidungen und 75 zusätzliche Ereignisse warten auf dich.")
+                    Text(L("Führe deine Kampagne von 2026 bis 2050 weiter: Eskalation oder Diplomatie, Wiederaufbau und eine neue Weltordnung. 200 Szenario-Entscheidungen und 75 zusätzliche Ereignisse warten auf dich."))
                         .foregroundStyle(GameTheme.secondaryText)
-                    Text("Alle Zukunftsszenarien sind fiktiv. Deine Entscheidungen können einen Weltkrieg verhindern.")
+                    Text(L("Alle Zukunftsszenarien sind fiktiv. Deine Entscheidungen können einen Weltkrieg verhindern."))
                         .font(.footnote)
                         .foregroundStyle(GameTheme.tertiaryText)
 
                     if purchases.hasFuture2050 {
                         if persistence.hasSaveGame {
                             NavigationLink {
-                                GameContainerView(mode: .resume)
+                                GameContainerView(mode: .resume, country: gamePresentation.country)
                             } label: {
-                                Label("Kampagne fortsetzen", systemImage: "play.fill")
+                                Label(L("Kampagne fortsetzen"), systemImage: "play.fill")
                             }
                             .buttonStyle(PrimaryActionButtonStyle())
                         } else {
-                            Text("Die Erweiterung beginnt nach dem Finale der Hauptkampagne im Jahr 2026.")
+                            Text(L("Die Erweiterung beginnt nach dem Finale der Hauptkampagne im Jahr 2026."))
                                 .font(.footnote)
                                 .foregroundStyle(GameTheme.secondaryText)
                             NavigationLink {
-                                GameContainerView(mode: .newGame, finalYear: purchases.campaignAccess.finalYear)
+                                GameContainerView(mode: .newGame, finalYear: purchases.campaignAccess.finalYear, country: gamePresentation.country)
                             } label: {
-                                Label("Neue Kampagne starten", systemImage: "flag.fill")
+                                Label(L("Neue Kampagne starten"), systemImage: "flag.fill")
                             }
                             .buttonStyle(PrimaryActionButtonStyle())
                         }
                     } else {
-                        Text("Zukunft 2050 ist eine kostenpflichtige Erweiterung und benötigt die Hauptkampagne. Das Komplettpaket enthält beide Kampagnen.")
+                        Text(L("Zukunft 2050 ist eine kostenpflichtige Erweiterung und benötigt die Hauptkampagne. Das Komplettpaket enthält beide Kampagnen."))
                             .font(.footnote)
                             .foregroundStyle(GameTheme.secondaryText)
                         Button {
                             paywall = purchases.hasCampaign2005 ? .afterMainCampaign : .catalog
                         } label: {
-                            Label("Erweiterung & Pakete ansehen", systemImage: "sparkles")
+                            Label(L("Erweiterung & Pakete ansehen"), systemImage: "sparkles")
                         }
                         .buttonStyle(PrimaryActionButtonStyle())
                     }
@@ -65,7 +66,7 @@ struct FutureUpdateView: View {
             .foregroundStyle(GameTheme.primaryText)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Schließen") { dismiss() }
+                    Button(L("Schließen")) { dismiss() }
                 }
             }
             .sheet(item: $paywall) { CampaignPaywallView(placement: $0) }

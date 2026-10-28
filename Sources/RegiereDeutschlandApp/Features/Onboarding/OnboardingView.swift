@@ -22,91 +22,53 @@ struct OnboardingPage: Identifiable {
 enum OnboardingContent {
     static let pages: [OnboardingPage] = [
         OnboardingPage(
-            icon: "building.columns.fill",
-            accent: GameTheme.gold,
-            kicker: "2000 – 2026",
-            title: "Du regierst Deutschland",
-            message: "26 Jahre, ein Land, deine Entscheidungen. Vom Millennium bis heute führst du die Bundesrepublik durch Krisen, Wahlen und Wandel.",
-            bullets: []
-        ),
-        OnboardingPage(
-            icon: "flag.2.crossed.fill",
-            accent: GameTheme.teal,
-            kicker: "Dein Start",
-            title: "Wähle oder gründe deine Partei",
-            message: "Tritt für eine echte Partei an – oder gründe deine eigene und gib ihr Namen, Ideologie und Ziele.",
+            icon: "building.columns.fill", accent: GameTheme.gold,
+            kicker: "Deine Geschichte beginnt 2000",
+            title: "Führe dein Land",
+            message: "Wähle deine Partei und führe dein Land durch Wahlen, Krisen und historischen Wandel. Jede Entscheidung zählt.",
             bullets: [
-                .init(icon: "building.columns.fill", text: "Bestehende Parteien: SPD, CDU/CSU, Grüne oder FDP – je mit eigenem Profil."),
-                .init(icon: "plus.circle.fill", text: "Eigene Partei: Ideologie und Ziele bestimmen deinen Kurs und dein Programm.")
+                .init(icon: "flag.2.crossed.fill", text: "Wähle eine bestehende Partei oder gründe deine eigene."),
+                .init(icon: "person.2.fill", text: "Sichere dir politische Unterstützung und halte deine Regierung handlungsfähig.")
             ]
         ),
         OnboardingPage(
-            icon: "signature",
-            accent: GameTheme.gold,
-            kicker: "Regierungsbildung",
-            title: "Bilde deine Regierung",
-            message: "Du hast die Wahl gewonnen. Jetzt schmiedest du eine Koalition – oder regierst als Minderheit.",
+            icon: "hand.tap.fill", accent: GameTheme.teal,
+            kicker: "Du entscheidest",
+            title: "Geschichte liegt in deiner Hand",
+            message: "Reagiere auf Ereignisse, wäge deine Möglichkeiten ab und erlebe die Folgen – manchmal erst Jahre später.",
             bullets: [
-                .init(icon: "person.2.fill", text: "Wähle einen Partner, der zu dir passt und eine Mehrheit trägt."),
-                .init(icon: "quote.opening", text: "In den Koalitionsgesprächen stellt der Partner Forderungen – sag zu oder lehne ab.")
+                .init(icon: "chart.line.uptrend.xyaxis", text: "Wirtschaft, Sicherheit und Vertrauen verändern sich mit deinem Kurs."),
+                .init(icon: "book.closed.fill", text: "Der historische Hintergrund erklärt, was tatsächlich geschah.")
             ]
         ),
         OnboardingPage(
-            icon: "bubble.left.and.bubble.right.fill",
-            accent: GameTheme.teal,
-            kicker: "Jedes Jahr",
-            title: "Reagiere auf Ereignisse",
-            message: "Politik kommt als Ereignis: Krisen, Reformen, Skandale. Du wählst A, B oder C – und trägst die Folgen.",
+            icon: "checkmark.seal.fill", accent: GameTheme.blue,
+            kicker: "Dein politischer Kurs",
+            title: "Bleib an der Macht",
+            message: "Behalte die Lage im Blick, gewinne Wahlen und finde Mehrheiten für deine Vorhaben.",
             bullets: [
-                .init(icon: "hand.tap.fill", text: "Keine Wirkungs-Hinweise: Du entscheidest wie ein echter Kanzler, ohne Spickzettel."),
-                .init(icon: "book.closed.fill", text: "Tippe auf „Historischer Hintergrund“, um die reale Lage zu verstehen.")
+                .init(icon: "megaphone.fill", text: "Deine Bilanz und dein Wahlkampf entscheiden über deine Zukunft."),
+                .init(icon: "globe.europe.africa.fill", text: "Pflege Bündnisse und gestalte die Außenpolitik.")
             ]
         ),
         OnboardingPage(
-            icon: "gauge.with.dots.needle.67percent",
-            accent: GameTheme.blue,
-            kicker: "Dein Cockpit",
-            title: "Behalte die Lage im Blick",
-            message: "Acht Kennwerte zeigen den Zustand des Landes – von Wirtschaft und Haushalt bis Vertrauen. Dazu deine Zustimmung im Volk.",
+            icon: "globe.europe.africa.fill", accent: GameTheme.purple,
+            kicker: "Zukunft 2050",
+            title: "Eine Zukunft am Scheideweg",
+            message: "Nach 2026 beginnt ein fiktives Szenario: Internationale Krisen können eskalieren und bis zu einem dritten Weltkrieg führen.",
             bullets: [
-                .init(icon: "arrow.up.arrow.down", text: "Jede Entscheidung verschiebt mehrere Werte gleichzeitig."),
-                .init(icon: "exclamationmark.triangle.fill", text: "Sacken Werte und Zustimmung zu tief, verlierst du die Macht.")
+                .init(icon: "bubble.left.and.bubble.right.fill", text: "Setze auf Diplomatie und versuche, einen Krieg zu verhindern."),
+                .init(icon: "hammer.fill", text: "Bewältige die Folgen deiner Entscheidungen und gestalte den Wiederaufbau.")
             ]
         ),
         OnboardingPage(
-            icon: "clock.arrow.circlepath",
-            accent: GameTheme.purple,
-            kicker: "Alles wirkt nach",
-            title: "Denke langfristig",
-            message: "Viele Folgen zeigen sich erst Jahre später. Was du 2008 beschließt, kann dich 2024 einholen.",
+            icon: "sparkles", accent: GameTheme.gold,
+            kicker: "Dein Einstieg",
+            title: "Dein Weg bis 2050",
+            message: "Spiele den Prolog von 2000 bis 2004 kostenlos. Danach warten die Hauptkampagne und die fiktive Erweiterung Zukunft 2050 auf dich.",
             bullets: [
-                .init(icon: "link", text: "Entscheidungen bilden Ketten über mehrere Jahre."),
-                .init(icon: "eye.slash.fill", text: "Versteckte Effekte formen die Zukunft, ohne dass du sie sofort siehst.")
-            ]
-        ),
-        OnboardingPage(
-            icon: "checkmark.seal.fill",
-            accent: GameTheme.gold,
-            kicker: "Alle 4 Jahre",
-            title: "Gewinne Wahlen alle 4 Jahre",
-            message: "Zur Bundestagswahl zählt deine Bilanz. Führe Wahlkampf und verhandle neue Koalitionen – oder das Spiel ist vorbei.",
-            bullets: [
-                .init(icon: "megaphone.fill", text: "Im Wahlkampf setzt du einen Schwerpunkt, der Stimmen bringt."),
-                .init(icon: "person.3.fill", text: "Verlierst du die Wahl, endet deine Amtszeit.")
-            ]
-        ),
-        OnboardingPage(
-            icon: "square.grid.2x2.fill",
-            accent: GameTheme.green,
-            kicker: "Deine Werkzeuge",
-            title: "Fünf Tabs zum Regieren",
-            message: "Unten wechselst du zwischen deinen Regierungs-Ansichten.",
-            bullets: [
-                .init(icon: "flag.fill", text: "Lage – das aktuelle Ereignis und deine Entscheidung."),
-                .init(icon: "newspaper.fill", text: "Presse – Schlagzeilen und Chronik deiner Amtszeit."),
-                .init(icon: "chart.bar.fill", text: "Ressorts – Haushalt, Politikfelder und Kabinett."),
-                .init(icon: "building.columns.fill", text: "Politik – Parteien, Kräfte und Bundesrat."),
-                .init(icon: "globe.europe.africa.fill", text: "Welt – Diplomatie und Außenpolitik.")
+                .init(icon: "gift.fill", text: "Der Prolog ist kostenlos spielbar."),
+                .init(icon: "tag.fill", text: "Die Angebote und aktuellen Preise siehst du im nächsten Schritt. Du kannst sie jederzeit schließen.")
             ]
         )
     ]
@@ -115,7 +77,8 @@ enum OnboardingContent {
 // MARK: - Onboarding-Ansicht
 
 /// Wischbare Einführung, die neuen Spielern die Kernmechanik erklärt.
-struct OnboardingView: View {
+struct OnboardingView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     var onFinish: () -> Void
 
     @State private var index = 0
@@ -126,6 +89,8 @@ struct OnboardingView: View {
     var body: some View {
         ZStack {
             GameTheme.background.ignoresSafeArea()
+            RadialGradient(colors: [pages[index].accent.opacity(0.16), .clear], center: .top, startRadius: 20, endRadius: 520)
+                .ignoresSafeArea()
 
             VStack(spacing: 0) {
                 topBar
@@ -155,9 +120,13 @@ struct OnboardingView: View {
     private var topBar: some View {
         HStack {
             FlagRibbon(height: 5).frame(width: 64)
+            Text("\(index + 1) / \(pages.count)")
+                .font(.caption.monospacedDigit().weight(.semibold))
+                .foregroundStyle(GameTheme.tertiaryText)
+                .padding(.leading, 8)
             Spacer()
             if !isLastPage {
-                Button("Überspringen") { onFinish() }
+                Button(L("Überspringen")) { onFinish() }
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(GameTheme.secondaryText)
             }
@@ -194,7 +163,7 @@ struct OnboardingView: View {
                     }
                 }
             } label: {
-                Label(isLastPage ? "Los geht’s" : "Weiter",
+                Label(L(isLastPage ? L("Los geht’s") : L("Weiter")),
                       systemImage: isLastPage ? "flag.checkered" : "arrow.right")
             }
             .buttonStyle(PrimaryActionButtonStyle())
@@ -204,7 +173,7 @@ struct OnboardingView: View {
                     index = max(0, index - 1)
                 }
             } label: {
-                Text("Zurück")
+                Text(L("Zurück"))
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(index == 0 ? GameTheme.tertiaryText : GameTheme.secondaryText)
                     .frame(maxWidth: .infinity)
@@ -221,7 +190,8 @@ struct OnboardingView: View {
 
 // MARK: - Einzelseite
 
-private struct OnboardingPageView: View {
+private struct OnboardingPageView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let page: OnboardingPage
 
     var body: some View {
@@ -230,23 +200,25 @@ private struct OnboardingPageView: View {
                 Spacer(minLength: 6)
 
                 ZStack {
-                    Circle().fill(page.accent.opacity(0.14)).frame(width: 90, height: 90)
-                    Circle().stroke(page.accent.opacity(0.4), lineWidth: 1).frame(width: 90, height: 90)
+                    Circle().fill(page.accent.opacity(0.06)).frame(width: 148, height: 148)
+                    Circle().stroke(page.accent.opacity(0.14), lineWidth: 1).frame(width: 148, height: 148)
+                    Circle().fill(page.accent.opacity(0.16)).frame(width: 108, height: 108)
+                    Circle().stroke(page.accent.opacity(0.4), lineWidth: 1).frame(width: 108, height: 108)
                     Image(systemName: page.icon)
-                        .font(.system(size: 38))
+                        .font(.system(size: 43, weight: .semibold))
                         .foregroundStyle(page.accent)
                 }
 
                 VStack(spacing: 10) {
-                    Text(page.kicker.uppercased())
+                    Text(L(page.kicker).uppercased())
                         .font(.caption.weight(.bold))
                         .tracking(2)
                         .foregroundStyle(page.accent)
-                    Text(page.title)
-                        .font(.system(size: 28, weight: .heavy, design: .rounded))
+                    Text(L(page.title))
+                        .font(.system(size: 30, weight: .heavy, design: .rounded))
                         .foregroundStyle(GameTheme.primaryText)
                         .multilineTextAlignment(.center)
-                    Text(page.message)
+                    Text(L(page.message))
                         .font(.callout)
                         .foregroundStyle(GameTheme.secondaryText)
                         .multilineTextAlignment(.center)
@@ -270,7 +242,8 @@ private struct OnboardingPageView: View {
     }
 }
 
-private struct OnboardingBulletRow: View {
+private struct OnboardingBulletRow: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let bullet: OnboardingPage.Bullet
     let accent: Color
 
@@ -281,7 +254,7 @@ private struct OnboardingBulletRow: View {
                 .foregroundStyle(accent)
                 .frame(width: 34, height: 34)
                 .background(Circle().fill(accent.opacity(0.15)))
-            Text(bullet.text)
+            Text(L(bullet.text))
                 .font(.subheadline)
                 .foregroundStyle(GameTheme.primaryText)
                 .fixedSize(horizontal: false, vertical: true)

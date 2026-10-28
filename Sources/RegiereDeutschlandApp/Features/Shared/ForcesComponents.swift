@@ -3,12 +3,13 @@ import SwiftUI
 
 // MARK: - Interessengruppen
 
-struct InterestGroupsSection: View {
+struct InterestGroupsSection: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let groups: [InterestGroup]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Interessengruppen", systemImage: "megaphone.fill", accessory: "Macht · Stimmung")
+            SectionHeader(title: L("Interessengruppen"), systemImage: "megaphone.fill", accessory: L("Macht · Stimmung"))
             VStack(spacing: 10) {
                 ForEach(groups) { group in
                     InterestGroupRow(group: group)
@@ -18,7 +19,8 @@ struct InterestGroupsSection: View {
     }
 }
 
-private struct InterestGroupRow: View {
+private struct InterestGroupRow: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let group: InterestGroup
     private var color: Color { GameTheme.statusColor(for: group.satisfaction) }
 
@@ -30,9 +32,9 @@ private struct InterestGroupRow: View {
                     .frame(width: 24, height: 24)
                     .background(Circle().fill(color.opacity(0.15)))
                 VStack(alignment: .leading, spacing: 1) {
-                    Text(group.id.title)
+                    Text(L(group.id.title))
                         .font(.subheadline.weight(.semibold)).foregroundStyle(GameTheme.primaryText)
-                    Text(group.moodLabel)
+                    Text(L(group.moodLabel))
                         .font(.caption2).foregroundStyle(GameTheme.tertiaryText)
                 }
                 Spacer(minLength: 0)
@@ -43,7 +45,7 @@ private struct InterestGroupRow: View {
                             .frame(width: 5, height: 5)
                     }
                 }
-                Text("\(group.satisfaction)")
+                Text(L("\(L(group.satisfaction))"))
                     .font(.system(size: 16, weight: .bold, design: .rounded))
                     .foregroundStyle(color).monospacedDigit()
                     .frame(width: 28, alignment: .trailing)
@@ -56,7 +58,8 @@ private struct InterestGroupRow: View {
 
 // MARK: - Partei-Flügel
 
-struct PartyWingsCard: View {
+struct PartyWingsCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let wings: PartyWings
 
     private var backingColor: Color { GameTheme.statusColor(for: wings.leadershipBacking) }
@@ -67,25 +70,25 @@ struct PartyWingsCard: View {
             HStack(spacing: 8) {
                 Image(systemName: "person.2.wave.2.fill")
                     .font(.footnote.weight(.bold)).foregroundStyle(GameTheme.gold)
-                Text("DEINE PARTEI")
+                Text(L("DEINE PARTEI"))
                     .font(.caption.weight(.bold)).tracking(1.2).foregroundStyle(GameTheme.secondaryText)
                 Spacer(minLength: 0)
-                Text(wings.backingLabel)
+                Text(L(wings.backingLabel))
                     .font(.caption2.weight(.heavy)).foregroundStyle(backingColor)
                     .padding(.horizontal, 8).padding(.vertical, 3)
                     .background(Capsule().fill(backingColor.opacity(0.16)))
             }
 
-            wingRow(label: "Reformflügel", value: wings.progressive)
-            wingRow(label: "Traditionsflügel", value: wings.traditional)
+            wingRow(label: L("Reformflügel"), value: wings.progressive)
+            wingRow(label: L("Traditionsflügel"), value: wings.traditional)
 
             Divider().overlay(GameTheme.hairline)
 
             HStack {
-                Text("Rückhalt für die Führung")
+                Text(L("Rückhalt für die Führung"))
                     .font(.caption.weight(.semibold)).foregroundStyle(GameTheme.primaryText)
                 Spacer()
-                Text("\(wings.leadershipBacking)")
+                Text(L("\(L(wings.leadershipBacking))"))
                     .font(.system(size: 17, weight: .bold, design: .rounded))
                     .foregroundStyle(backingColor).monospacedDigit()
             }
@@ -94,7 +97,7 @@ struct PartyWingsCard: View {
             if atRisk {
                 HStack(spacing: 6) {
                     Image(systemName: "exclamationmark.triangle.fill").font(.caption2)
-                    Text("Die eigene Partei murrt – ohne Rückhalt droht der Sturz durch die Fraktion.")
+                    Text(L("Die eigene Partei murrt – ohne Rückhalt droht der Sturz durch die Fraktion."))
                         .font(.caption2.weight(.semibold)).fixedSize(horizontal: false, vertical: true)
                 }
                 .foregroundStyle(GameTheme.red)
@@ -105,11 +108,11 @@ struct PartyWingsCard: View {
 
     private func wingRow(label: String, value: Int) -> some View {
         HStack(spacing: 10) {
-            Text(label)
+            Text(L(label))
                 .font(.caption).foregroundStyle(GameTheme.secondaryText)
                 .frame(width: 118, alignment: .leading)
             ValueBar(value: value, height: 6)
-            Text("\(value)")
+            Text(L("\(L(value))"))
                 .font(.caption.weight(.bold)).foregroundStyle(GameTheme.statusColor(for: value))
                 .monospacedDigit().frame(width: 26, alignment: .trailing)
         }
@@ -118,7 +121,8 @@ struct PartyWingsCard: View {
 
 // MARK: - Bundesrat
 
-struct BundesratCard: View {
+struct BundesratCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let hasMajority: Bool
 
     private var color: Color { hasMajority ? GameTheme.green : GameTheme.red }
@@ -130,14 +134,14 @@ struct BundesratCard: View {
                 .frame(width: 28, height: 28)
                 .background(Circle().fill(color.opacity(0.15)))
             VStack(alignment: .leading, spacing: 1) {
-                Text("Bundesrat")
+                Text(L("Bundesrat"))
                     .font(.subheadline.weight(.bold)).foregroundStyle(GameTheme.primaryText)
-                Text(hasMajority ? "Mehrheit gesichert – Gesetze gehen leichter durch." : "Keine Mehrheit – Gesetze brauchen mehr Überzeugung.")
+                Text(L(hasMajority ? L("Mehrheit gesichert – Gesetze gehen leichter durch.") : L("Keine Mehrheit – Gesetze brauchen mehr Überzeugung.")))
                     .font(.caption2).foregroundStyle(GameTheme.tertiaryText)
                     .fixedSize(horizontal: false, vertical: true)
             }
             Spacer(minLength: 0)
-            Text(hasMajority ? "Mehrheit" : "Blockade")
+            Text(L(hasMajority ? L("Mehrheit") : L("Blockade")))
                 .font(.caption2.weight(.heavy)).foregroundStyle(color)
                 .padding(.horizontal, 8).padding(.vertical, 3)
                 .background(Capsule().fill(color.opacity(0.16)))

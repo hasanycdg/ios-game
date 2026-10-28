@@ -1,0 +1,59 @@
+{
+  "project_id": "proj4cc080a0",
+  "product_id": "prod8021c1cdbf",
+  "store": "app_store",
+  "store_status": {
+    "status": "ok",
+    "raw_store_status": "APPROVED",
+    "read_error_reason": null
+  },
+  "common": {
+    "pricing": {
+      "territory_prices": {
+        "AT": {
+          "amount_micros": 9990000,
+          "currency": "EUR"
+        },
+        "CH": {
+          "amount_micros": 8000000,
+          "currency": "CHF"
+        },
+        "DE": {
+          "amount_micros": 9990000,
+          "currency": "EUR"
+        }
+      }
+    },
+    "availability": {
+      "territories": {
+        "AT": true,
+        "CH": true,
+        "DE": true
+      },
+      "available_in_new_territories": false
+    },
+    "localizations": {
+      "de-DE": {
+        "name": "Komplettpaket 2005–2050",
+        "description": "Hauptkampagne und Zukunft 2050 dauerhaft."
+      }
+    },
+    "title": "complett_packet_one",
+    "product_type": "non_consumable"
+  },
+  "store_state": {
+    "trial_offer": null,
+    "offer_codes": {},
+    "privacy_policy_url": null,
+    "review_information": {
+      "screenshot": {
+        "screenshot_id": "144d6d54-38bc-4880-ac74-d8422005b781",
+        "filename": "SOURCE",
+        "file_size": 498889,
+        "source_file_checksum": "4e99d34b1c7dce7044e7210d9ce873c5"
+      },
+      "notes": "Permanent non-consumable complete bundle for Regiere Deutschland. The product regiere_deutschland_complett_packet_one grants both RevenueCat entitlements: Regiere Deutschland Pro (main campaign 2005–2026 and existing Pro features) and zukunft_2050 (future expansion 2026–2050). One purchase unlocks both campaigns. The free prologue 2000–2004 remains available without purchase. Campaign progress and decisions continue in the same save. Purchase and restore use Apple's StoreKit through RevenueCat. No account is required. No subscription, trial, or automatic renewal. Available in the existing selected territories; prices and availability are unchanged."
+    }
+  },
+  "store_fetched_at": "2026-10-26T17:27:07Z"
+}

@@ -3,7 +3,8 @@ import SwiftUI
 
 // MARK: - Nachrichten-Karte
 
-struct NewsCard: View {
+struct NewsCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let item: NewsItem
 
     var body: some View {
@@ -12,7 +13,7 @@ struct NewsCard: View {
 
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 8) {
-                Text(scope.label)
+                Text(L(scope.label))
                     .font(.system(size: 9.5, weight: .heavy))
                     .tracking(0.6)
                     .foregroundStyle(scope.color)
@@ -24,19 +25,19 @@ struct NewsCard: View {
                     .foregroundStyle(category.color)
                 Spacer(minLength: 0)
                 if let source = item.source {
-                    Text(source)
+                    Text(L(source))
                         .font(.caption2)
                         .foregroundStyle(GameTheme.tertiaryText)
                 }
             }
 
-            Text(item.headline)
+            Text(L(item.headline))
                 .font(.system(size: 16, weight: .bold))
                 .foregroundStyle(GameTheme.primaryText)
                 .fixedSize(horizontal: false, vertical: true)
 
             if !item.summary.isEmpty {
-                Text(item.summary)
+                Text(L(item.summary))
                     .font(.footnote)
                     .foregroundStyle(GameTheme.secondaryText)
                     .fixedSize(horizontal: false, vertical: true)
@@ -63,7 +64,8 @@ struct NewsCard: View {
 
 // MARK: - Politisches Kapital
 
-struct CapitalBadge: View {
+struct CapitalBadge: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let value: Int
     let maximum: Int
 
@@ -72,12 +74,12 @@ struct CapitalBadge: View {
             Image(systemName: "hexagon.fill")
                 .font(.caption2)
                 .foregroundStyle(GameTheme.gold)
-            Text("Kapital")
+            Text(L("Kapital"))
                 .font(.caption.weight(.semibold))
                 .foregroundStyle(GameTheme.secondaryText)
                 .lineLimit(1)
                 .fixedSize()
-            Text("\(value)/\(maximum)")
+            Text(L("\(L(value))/\(L(maximum))"))
                 .font(.caption.weight(.bold))
                 .foregroundStyle(GameTheme.gold)
                 .monospacedDigit()
@@ -87,13 +89,14 @@ struct CapitalBadge: View {
         .padding(.horizontal, 10)
         .padding(.vertical, 6)
         .background(Capsule().fill(GameTheme.gold.opacity(0.14)))
-        .accessibilityLabel("Politisches Kapital: \(value) von \(maximum)")
+        .accessibilityLabel(L("Politisches Kapital: \(L(value)) von \(L(maximum))"))
     }
 }
 
 // MARK: - Koalition
 
-struct CoalitionCard: View {
+struct CoalitionCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let coalition: CoalitionState
 
     private var color: Color { GameTheme.statusColor(for: coalition.satisfaction) }
@@ -104,11 +107,11 @@ struct CoalitionCard: View {
                 Image(systemName: "person.2.fill")
                     .font(.footnote.weight(.bold))
                     .foregroundStyle(GameTheme.gold)
-                Text("KOALITION")
+                Text(L("KOALITION"))
                     .font(.caption.weight(.bold)).tracking(1.2)
                     .foregroundStyle(GameTheme.secondaryText)
                 Spacer(minLength: 0)
-                Text(coalition.moodLabel)
+                Text(L(coalition.moodLabel))
                     .font(.caption2.weight(.heavy))
                     .foregroundStyle(color)
                     .padding(.horizontal, 8).padding(.vertical, 3)
@@ -116,14 +119,14 @@ struct CoalitionCard: View {
             }
 
             HStack(spacing: 6) {
-                Text(coalition.partnerName)
+                Text(L(coalition.partnerName))
                     .font(.subheadline.weight(.bold))
                     .foregroundStyle(GameTheme.primaryText)
-                Text("· \(coalition.leaning.displayName)")
+                Text(L("· \(L(coalition.leaning.displayName))"))
                     .font(.caption)
                     .foregroundStyle(GameTheme.tertiaryText)
                 Spacer(minLength: 0)
-                Text("\(coalition.satisfaction)")
+                Text(L("\(L(coalition.satisfaction))"))
                     .font(.system(size: 17, weight: .bold, design: .rounded))
                     .foregroundStyle(color)
                     .monospacedDigit()
@@ -134,7 +137,7 @@ struct CoalitionCard: View {
             if coalition.satisfaction < 30 {
                 HStack(spacing: 6) {
                     Image(systemName: "exclamationmark.triangle.fill").font(.caption2)
-                    Text("Der Partner droht mit dem Koalitionsbruch – dann kommt es zur Neuwahl.")
+                    Text(L("Der Partner droht mit dem Koalitionsbruch – dann kommt es zur Neuwahl."))
                         .font(.caption2.weight(.semibold))
                         .fixedSize(horizontal: false, vertical: true)
                 }
@@ -147,7 +150,8 @@ struct CoalitionCard: View {
 
 // MARK: - Sitzverteilung im Bundestag
 
-struct SeatDistributionBar: View {
+struct SeatDistributionBar: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let election: ElectionResult
 
     private let totalSeats = 630
@@ -159,8 +163,8 @@ struct SeatDistributionBar: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Sitzverteilung im Bundestag", systemImage: "building.columns.fill",
-                          accessory: "\(totalSeats) Sitze")
+            SectionHeader(title: L("Sitzverteilung im Bundestag"), systemImage: "building.columns.fill",
+                          accessory: L("\(L(totalSeats)) Sitze"))
 
             GeometryReader { geo in
                 HStack(spacing: 2) {
@@ -173,9 +177,9 @@ struct SeatDistributionBar: View {
             .clipShape(Capsule())
 
             VStack(spacing: 8) {
-                legendRow(name: "Deine Koalition", share: gov, color: GameTheme.gold)
-                legendRow(name: "Opposition", share: opp, color: GameTheme.blue)
-                legendRow(name: "Weitere Parteien", share: rest, color: GameTheme.tertiaryText)
+                legendRow(name: L("Deine Koalition"), share: gov, color: GameTheme.gold)
+                legendRow(name: L("Opposition"), share: opp, color: GameTheme.blue)
+                legendRow(name: L("Weitere Parteien"), share: rest, color: GameTheme.tertiaryText)
             }
         }
         .gameCard(padding: 16)
@@ -188,11 +192,11 @@ struct SeatDistributionBar: View {
     private func legendRow(name: String, share: Double, color: Color) -> some View {
         HStack(spacing: 8) {
             Circle().fill(color).frame(width: 9, height: 9)
-            Text(name).font(.caption).foregroundStyle(GameTheme.secondaryText)
+            Text(L(name)).font(.caption).foregroundStyle(GameTheme.secondaryText)
             Spacer(minLength: 0)
-            Text("\(seats(share)) Sitze")
+            Text(L("\(L(seats(share))) Sitze"))
                 .font(.caption.weight(.semibold)).foregroundStyle(GameTheme.primaryText).monospacedDigit()
-            Text(String(format: "%.1f %%", share))
+            Text(L(String(format: L("%.1f %%"), share)))
                 .font(.caption2).foregroundStyle(GameTheme.tertiaryText).monospacedDigit()
                 .frame(width: 48, alignment: .trailing)
         }
@@ -201,14 +205,15 @@ struct SeatDistributionBar: View {
 
 // MARK: - Schattenkonto (Korruption)
 
-struct ShadowFundsCard: View {
+struct ShadowFundsCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let corruption: Int
 
     private var risk: (label: String, color: Color) {
         switch corruption {
-        case 45...:   ("hoch", GameTheme.red)
-        case 25..<45: ("erhöht", GameTheme.amber)
-        default:      ("gering", GameTheme.gold)
+        case 45...:   (L("hoch"), GameTheme.red)
+        case 25..<45: (L("erhöht"), GameTheme.amber)
+        default:      (L("gering"), GameTheme.gold)
         }
     }
 
@@ -217,21 +222,21 @@ struct ShadowFundsCard: View {
             HStack(spacing: 8) {
                 Image(systemName: "eye.slash.fill")
                     .font(.footnote.weight(.bold)).foregroundStyle(GameTheme.red)
-                Text("SCHATTENKONTO")
+                Text(L("SCHATTENKONTO"))
                     .font(.caption.weight(.bold)).tracking(1.2)
                     .foregroundStyle(GameTheme.secondaryText)
                 Spacer(minLength: 0)
                 HStack(spacing: 4) {
-                    Text("Skandalrisiko")
+                    Text(L("Skandalrisiko"))
                         .font(.caption2).foregroundStyle(GameTheme.tertiaryText)
-                    Text(risk.label)
+                    Text(L(risk.label))
                         .font(.caption2.weight(.heavy)).foregroundStyle(risk.color)
                 }
                 .padding(.horizontal, 8).padding(.vertical, 3)
                 .background(Capsule().fill(risk.color.opacity(0.16)))
             }
             ValueBar(value: corruption, height: 7, color: GameTheme.red)
-            Text("Verdeckte Zuwendungen verschaffen dir Spielraum – doch je größer das Schattenkonto, desto eher fliegt der Skandal auf.")
+            Text(L("Verdeckte Zuwendungen verschaffen dir Spielraum – doch je größer das Schattenkonto, desto eher fliegt der Skandal auf."))
                 .font(.caption2)
                 .foregroundStyle(GameTheme.tertiaryText)
                 .fixedSize(horizontal: false, vertical: true)
@@ -242,7 +247,8 @@ struct ShadowFundsCard: View {
 
 // MARK: - Wahlbarometer ("Sonntagsfrage")
 
-struct ElectionBarometer: View {
+struct ElectionBarometer: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let projection: ElectionProjection
     let currentYear: Int
 
@@ -254,7 +260,7 @@ struct ElectionBarometer: View {
                 Image(systemName: "chart.bar.xaxis")
                     .font(.footnote.weight(.bold))
                     .foregroundStyle(GameTheme.gold)
-                Text("SONNTAGSFRAGE")
+                Text(L("SONNTAGSFRAGE"))
                     .font(.caption.weight(.bold))
                     .tracking(1.2)
                     .foregroundStyle(GameTheme.secondaryText)
@@ -262,7 +268,7 @@ struct ElectionBarometer: View {
                 HStack(spacing: 4) {
                     Image(systemName: projection.wouldWin ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
                         .font(.caption2.weight(.bold))
-                    Text(projection.wouldWin ? "Vorn" : "Hinten")
+                    Text(L(projection.wouldWin ? L("Vorn") : L("Hinten")))
                         .font(.caption2.weight(.heavy))
                 }
                 .foregroundStyle(accent)
@@ -271,14 +277,14 @@ struct ElectionBarometer: View {
                 .background(Capsule().fill(accent.opacity(0.16)))
             }
 
-            Text(projection.wouldWin ? "Bei einer Wahl heute bliebe deine Regierung im Amt." : "Bei einer Wahl heute würdest du abgewählt.")
+            Text(L(projection.wouldWin ? L("Bei einer Wahl heute bliebe deine Regierung im Amt.") : L("Bei einer Wahl heute würdest du abgewählt.")))
                 .font(.subheadline.weight(.medium))
                 .foregroundStyle(GameTheme.primaryText)
                 .fixedSize(horizontal: false, vertical: true)
 
             VStack(spacing: 10) {
-                shareRow(title: "Deine Partei", value: projection.governingShare, color: GameTheme.gold, emphasised: true)
-                shareRow(title: "Stärkste Opposition", value: projection.oppositionShare, color: GameTheme.secondaryText, emphasised: false)
+                shareRow(title: L("Deine Partei"), value: projection.governingShare, color: GameTheme.gold, emphasised: true)
+                shareRow(title: L("Stärkste Opposition"), value: projection.oppositionShare, color: GameTheme.secondaryText, emphasised: false)
             }
 
             Divider().overlay(GameTheme.hairline)
@@ -287,7 +293,7 @@ struct ElectionBarometer: View {
                 Image(systemName: "calendar")
                     .font(.caption2)
                     .foregroundStyle(GameTheme.tertiaryText)
-                Text(nextElectionText)
+                Text(L(nextElectionText))
                     .font(.caption)
                     .foregroundStyle(GameTheme.secondaryText)
             }
@@ -297,23 +303,23 @@ struct ElectionBarometer: View {
 
     private var nextElectionText: String {
         guard let next = projection.nextElectionYear else {
-            return "Keine weitere Bundestagswahl vorgesehen."
+            return L("Keine weitere Bundestagswahl vorgesehen.")
         }
         if next == currentYear {
-            return "Wahljahr – die Bundestagswahl steht an!"
+            return L("Wahljahr – die Bundestagswahl steht an!")
         }
         let years = next - currentYear
-        return "Nächste Bundestagswahl: \(String(next)) (in \(years) \(years == 1 ? "Jahr" : "Jahren"))."
+        return L("Nächste Bundestagswahl: \(L(String(next))) (in \(L(years)) \(L(years == 1 ? L("Jahr") : L("Jahren")))).")
     }
 
     private func shareRow(title: String, value: Double, color: Color, emphasised: Bool) -> some View {
         VStack(alignment: .leading, spacing: 5) {
             HStack {
-                Text(title)
+                Text(L(title))
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(GameTheme.secondaryText)
                 Spacer()
-                Text(String(format: "%.1f %%", value))
+                Text(L(String(format: L("%.1f %%"), value)))
                     .font(.system(size: 16, weight: .bold, design: .rounded))
                     .foregroundStyle(emphasised ? GameTheme.primaryText : GameTheme.secondaryText)
                     .monospacedDigit()

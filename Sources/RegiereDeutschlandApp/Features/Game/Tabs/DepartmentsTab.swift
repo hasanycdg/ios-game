@@ -2,7 +2,8 @@ import RegiereDeutschlandCore
 import SwiftUI
 
 /// Ressort-Übersicht: alle acht sichtbaren Kennwerte im Detail.
-struct DepartmentsTab: View {
+struct DepartmentsTab: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     @ObservedObject var viewModel: GameViewModel
 
     private let columns = [
@@ -47,9 +48,9 @@ struct DepartmentsTab: View {
 
     private var cabinetSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Kabinett", systemImage: "person.crop.rectangle.stack.fill",
-                          accessory: "Neubesetzung: 2 Kapital")
-            Text("Starke Ressortchefs verbessern ihren Bereich Jahr für Jahr, überforderte schaden ihm.")
+            SectionHeader(title: L("Kabinett"), systemImage: "person.crop.rectangle.stack.fill",
+                          accessory: L("Neubesetzung: 2 Kapital"))
+            Text(L("Starke Ressortchefs verbessern ihren Bereich Jahr für Jahr, überforderte schaden ihm."))
                 .font(.caption)
                 .foregroundStyle(GameTheme.tertiaryText)
                 .fixedSize(horizontal: false, vertical: true)
@@ -58,6 +59,7 @@ struct DepartmentsTab: View {
                     CabinetRow(
                         ministry: ministry,
                         minister: viewModel.cabinet.minister(ministry),
+                        year: viewModel.state.currentYear,
                         canAfford: viewModel.politicalCapital >= 2
                     ) {
                         Haptics.impact(.light)
@@ -71,20 +73,20 @@ struct DepartmentsTab: View {
     @ViewBuilder
     private var trendCard: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Verlauf seit Amtsbeginn", systemImage: "chart.xyaxis.line")
+            SectionHeader(title: L("Verlauf seit Amtsbeginn"), systemImage: "chart.xyaxis.line")
             if viewModel.annualHistory.count >= 2 {
                 LineTrendChart(
                     years: viewModel.annualHistory.map(\.year),
                     series: [
-                        ChartSeries(name: "Index", color: GameTheme.gold,
+                        ChartSeries(name: L("Index"), color: GameTheme.gold,
                                     values: viewModel.annualHistory.map { Double($0.governanceIndex) }),
-                        ChartSeries(name: "Zustimmung", color: GameTheme.teal,
+                        ChartSeries(name: L("Zustimmung"), color: GameTheme.teal,
                                     values: viewModel.annualHistory.map { Double($0.approval) })
                     ]
                 )
                 .gameCard(padding: 16)
             } else {
-                Text("Der Verlauf erscheint nach dem ersten Jahreswechsel.")
+                Text(L("Der Verlauf erscheint nach dem ersten Jahreswechsel."))
                     .font(.caption)
                     .foregroundStyle(GameTheme.tertiaryText)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -95,12 +97,12 @@ struct DepartmentsTab: View {
 
     private var indexHeader: some View {
         HStack(spacing: 16) {
-            ApprovalRing(value: viewModel.governanceIndex, size: 96, caption: "Index")
+            ApprovalRing(value: viewModel.governanceIndex, size: 96, caption: L("Index"))
             VStack(alignment: .leading, spacing: 8) {
-                Text("Regierungsindex")
+                Text(L("Regierungsindex"))
                     .font(.headline)
                     .foregroundStyle(GameTheme.primaryText)
-                Text("Durchschnitt aller Ressorts. Ein Wert für die Gesamtverfassung Deutschlands unter deiner Führung.")
+                Text(L("Durchschnitt aller Ressorts. Ein Wert für die Gesamtverfassung Deutschlands unter deiner Führung."))
                     .font(.caption)
                     .foregroundStyle(GameTheme.secondaryText)
                     .fixedSize(horizontal: false, vertical: true)
@@ -112,9 +114,11 @@ struct DepartmentsTab: View {
     }
 }
 
-private struct CabinetRow: View {
+private struct CabinetRow: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let ministry: Ministry
     let minister: Minister
+    let year: Int
     let canAfford: Bool
     let onReshuffle: () -> Void
 
@@ -129,7 +133,7 @@ private struct CabinetRow: View {
                     .frame(width: 26, height: 26)
                     .background(Circle().fill(color.opacity(0.15)))
                 VStack(alignment: .leading, spacing: 1) {
-                    Text("Ministerium für \(ministry.title)")
+                    Text(ministry.departmentTitle(in: gamePresentation.country, year: year))
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(GameTheme.primaryText)
                     Text(minister.name)
@@ -138,16 +142,16 @@ private struct CabinetRow: View {
                 }
                 Spacer(minLength: 0)
                 VStack(alignment: .trailing, spacing: 1) {
-                    Text("\(minister.competence)")
+                    Text(L("\(L(minister.competence))"))
                         .font(.system(size: 17, weight: .bold, design: .rounded))
                         .foregroundStyle(color).monospacedDigit()
-                    Text(minister.ratingLabel)
+                    Text(L(minister.ratingLabel))
                         .font(.caption2).foregroundStyle(GameTheme.tertiaryText)
                 }
             }
             ValueBar(value: minister.competence, height: 6)
             Button(action: onReshuffle) {
-                Label("Neu besetzen · 2 Kapital", systemImage: "arrow.triangle.2.circlepath")
+                Label(L("Neu besetzen · 2 Kapital"), systemImage: "arrow.triangle.2.circlepath")
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(canAfford ? GameTheme.primaryText : GameTheme.tertiaryText)
                     .frame(maxWidth: .infinity)

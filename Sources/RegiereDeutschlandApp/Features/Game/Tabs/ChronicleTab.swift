@@ -2,20 +2,21 @@ import RegiereDeutschlandCore
 import SwiftUI
 
 /// Chronik als wiederverwendbare Sektion (in der Presse eingebettet).
-struct ChronicleSection: View {
+struct ChronicleSection: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     @ObservedObject var viewModel: GameViewModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            SectionHeader(title: "Deine Chronik", systemImage: "clock.fill")
+            SectionHeader(title: L("Deine Chronik"), systemImage: "clock.fill")
             summaryHeader
 
             let items = viewModel.timeline
             if items.isEmpty {
                 EmptyStateView(
                     icon: "book.pages",
-                    title: "Deine Amtszeit beginnt",
-                    message: "Noch keine Entscheidungen getroffen. Deine Geschichte wird hier festgehalten."
+                    title: L("Deine Amtszeit beginnt"),
+                    message: L("Noch keine Entscheidungen getroffen. Deine Geschichte wird hier festgehalten.")
                 )
                 .gameCard()
             } else {
@@ -30,9 +31,9 @@ struct ChronicleSection: View {
 
     private var summaryHeader: some View {
         HStack(spacing: 12) {
-            summaryTile(value: "\(viewModel.state.decisions.count)", label: "Entscheidungen", icon: "checkmark.circle.fill", color: GameTheme.gold)
-            summaryTile(value: "\(viewModel.wonElectionsCount)", label: "Wahlsiege", icon: "checkmark.seal.fill", color: GameTheme.green)
-            summaryTile(value: "\(viewModel.state.triggeredHistoricalEchoes.count)", label: "Echos", icon: "clock.arrow.circlepath", color: GameTheme.purple)
+            summaryTile(value: "\(L(viewModel.state.decisions.count))", label: L("Entscheidungen"), icon: "checkmark.circle.fill", color: GameTheme.gold)
+            summaryTile(value: "\(L(viewModel.wonElectionsCount))", label: L("Wahlsiege"), icon: "checkmark.seal.fill", color: GameTheme.green)
+            summaryTile(value: "\(L(viewModel.state.triggeredHistoricalEchoes.count))", label: L("Echos"), icon: "clock.arrow.circlepath", color: GameTheme.purple)
         }
     }
 
@@ -41,11 +42,11 @@ struct ChronicleSection: View {
             Image(systemName: icon)
                 .font(.footnote.weight(.bold))
                 .foregroundStyle(color)
-            Text(value)
+            Text(L(value))
                 .font(.system(size: 22, weight: .bold, design: .rounded))
                 .foregroundStyle(GameTheme.primaryText)
                 .monospacedDigit()
-            Text(label)
+            Text(L(label))
                 .font(.caption2)
                 .foregroundStyle(GameTheme.tertiaryText)
         }
@@ -55,7 +56,8 @@ struct ChronicleSection: View {
 }
 
 /// Eine Zeile der Timeline mit vertikaler Schiene.
-private struct TimelineRow: View {
+private struct TimelineRow: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let item: TimelineItem
     let isLast: Bool
 
@@ -81,17 +83,17 @@ private struct TimelineRow: View {
 
             VStack(alignment: .leading, spacing: 4) {
                 HStack(alignment: .firstTextBaseline, spacing: 8) {
-                    Text(item.title)
+                    Text(L(item.title))
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(GameTheme.primaryText)
                         .fixedSize(horizontal: false, vertical: true)
                     Spacer(minLength: 8)
-                    Text(String(item.year))
+                    Text(L(String(item.year)))
                         .font(.caption.weight(.bold))
                         .foregroundStyle(item.color)
                         .monospacedDigit()
                 }
-                Text(item.detail)
+                Text(L(item.detail))
                     .font(.caption)
                     .foregroundStyle(GameTheme.secondaryText)
                     .fixedSize(horizontal: false, vertical: true)

@@ -2,7 +2,8 @@ import RegiereDeutschlandCore
 import SwiftUI
 
 /// Ereignis als "Breaking News"-Karte samt Entscheidungsoptionen.
-struct EventCard: View {
+struct EventCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let event: GameEvent
     let cost: (DecisionOption) -> Int
     let canAfford: (DecisionOption) -> Bool
@@ -23,23 +24,23 @@ struct EventCard: View {
 
             // Schlagzeile
             VStack(alignment: .leading, spacing: 8) {
-                Text(event.headline)
+                Text(L(event.headline))
                     .font(.system(size: 22, weight: .bold, design: .rounded))
                     .foregroundStyle(GameTheme.primaryText)
                     .fixedSize(horizontal: false, vertical: true)
-                Text(event.title)
+                Text(L(event.title))
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(category.color)
             }
 
-            Text(event.description)
+            Text(L(event.description))
                 .font(.callout)
                 .foregroundStyle(GameTheme.secondaryText)
                 .fixedSize(horizontal: false, vertical: true)
 
             Divider().overlay(GameTheme.hairline)
 
-            SectionHeader(title: "Deine Entscheidung", systemImage: "hand.tap.fill")
+            SectionHeader(title: L("Deine Entscheidung"), systemImage: "hand.tap.fill")
 
             VStack(spacing: 10) {
                 ForEach(Array(event.options.enumerated()), id: \.element.id) { index, option in
@@ -60,7 +61,8 @@ struct EventCard: View {
 }
 
 /// Einzelne Entscheidungsoption.
-private struct OptionCard: View {
+private struct OptionCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let option: DecisionOption
     let index: Int
     let accent: Color
@@ -74,18 +76,18 @@ private struct OptionCard: View {
         Button(action: action) {
             VStack(alignment: .leading, spacing: 10) {
                 HStack(spacing: 12) {
-                    Text(letters[safe: index] ?? "•")
+                    Text(L(letters[safe: index] ?? "•"))
                         .font(.headline.weight(.bold))
                         .foregroundStyle(accent)
                         .frame(width: 34, height: 34)
                         .background(Circle().fill(accent.opacity(0.15)))
 
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(option.title)
+                        Text(L(option.title))
                             .font(.subheadline.weight(.bold))
                             .foregroundStyle(GameTheme.primaryText)
                             .multilineTextAlignment(.leading)
-                        Text(option.advisoryNote)
+                        Text(L(option.advisoryNote))
                             .font(.caption)
                             .foregroundStyle(GameTheme.secondaryText)
                             .multilineTextAlignment(.leading)
@@ -103,7 +105,7 @@ private struct OptionCard: View {
                 }
 
                 if !affordable {
-                    Text("Zu teuer – nicht genug politisches Kapital.")
+                    Text(L("Zu teuer – nicht genug politisches Kapital."))
                         .font(.caption2.weight(.semibold))
                         .foregroundStyle(GameTheme.red)
                         .padding(.leading, 46)
@@ -116,12 +118,13 @@ private struct OptionCard: View {
         }
         .buttonStyle(OptionCardButtonStyle(accent: accent))
         .disabled(!affordable)
-        .accessibilityHint(affordable ? option.advisoryNote : "Nicht genug politisches Kapital")
+        .accessibilityHint(L(affordable ? option.advisoryNote : L("Nicht genug politisches Kapital")))
     }
 }
 
 /// Kapitalkosten als Punkte (gefüllt = Kosten).
-private struct CostDots: View {
+private struct CostDots: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let cost: Int
     let accent: Color
 
@@ -133,7 +136,7 @@ private struct CostDots: View {
                     .frame(width: 6, height: 6)
             }
         }
-        .accessibilityLabel("Kosten: \(cost) von \(DecisionCost.maximum)")
+        .accessibilityLabel(L("Kosten: \(L(cost)) von \(L(DecisionCost.maximum))"))
     }
 }
 

@@ -2,7 +2,8 @@ import RegiereDeutschlandCore
 import SwiftUI
 
 /// Haupt-Tab: Nationaler Lagebericht + der Entscheidungs-Loop.
-struct SituationTab: View {
+struct SituationTab: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     @ObservedObject var viewModel: GameViewModel
 
     var body: some View {
@@ -35,30 +36,30 @@ struct SituationTab: View {
 
     private func futureScenarioCard(_ scenario: FutureScenario) -> some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("ZUKUNFT 2050 · \(String(scenario.years.lowerBound))–\(String(scenario.years.upperBound))")
+            Text(L("ZUKUNFT 2050 · \(L(String(scenario.years.lowerBound)))–\(L(String(scenario.years.upperBound)))"))
                 .font(.caption2.weight(.bold))
                 .foregroundStyle(GameTheme.gold)
-            Text(scenario.title)
+            Text(L(scenario.title))
                 .font(.headline)
                 .foregroundStyle(GameTheme.primaryText)
-            Text(scenario.summary)
+            Text(L(scenario.summary))
                 .font(.caption)
                 .foregroundStyle(GameTheme.secondaryText)
                 .fixedSize(horizontal: false, vertical: true)
             let completed = FutureScenario.completedDecisions(in: viewModel.state)
             ProgressView(value: Double(completed), total: Double(FutureScenario.decisionsPerYear))
                 .tint(GameTheme.gold)
-                .accessibilityLabel("Szenariofortschritt")
-                .accessibilityValue("\(completed) von \(FutureScenario.decisionsPerYear) Entscheidungen")
-            Text("\(completed) von \(FutureScenario.decisionsPerYear) Szenarioentscheidungen in diesem Jahr abgeschlossen")
+                .accessibilityLabel(L("Szenariofortschritt"))
+                .accessibilityValue(L("\(L(completed)) von \(L(FutureScenario.decisionsPerYear)) Entscheidungen"))
+            Text(L("\(L(completed)) von \(L(FutureScenario.decisionsPerYear)) Szenarioentscheidungen in diesem Jahr abgeschlossen"))
                 .font(.caption2)
                 .foregroundStyle(GameTheme.secondaryText)
             if viewModel.state.historicalFlags.contains("scenario_world_war") {
-                Text("Dein Verlauf: Weltkrieg und seine Folgen")
+                Text(L("Dein Verlauf: Weltkrieg und seine Folgen"))
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(GameTheme.red)
             } else if viewModel.state.historicalFlags.contains("scenario_war_avoided") {
-                Text("Dein Verlauf: Der Weltkrieg wurde verhindert")
+                Text(L("Dein Verlauf: Der Weltkrieg wurde verhindert"))
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(GameTheme.green)
             }
@@ -73,7 +74,7 @@ struct SituationTab: View {
                     .fill(PartyPresentation.color(for: viewModel.playerParty.id).opacity(0.18))
                     .frame(width: 34, height: 34)
                     .overlay(
-                        Text(viewModel.playerParty.shortName.prefix(3))
+                        Text(L(viewModel.playerParty.shortName.prefix(3)))
                             .font(.system(size: 10, weight: .heavy))
                             .foregroundStyle(PartyPresentation.color(for: viewModel.playerParty.id))
                     )
@@ -82,7 +83,7 @@ struct SituationTab: View {
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(GameTheme.primaryText)
                         .lineLimit(1)
-                    Text("\(viewModel.playerParty.name) · \(viewModel.yearsInOffice + 1). Amtsjahr")
+                    Text(L("\(L(viewModel.playerParty.name)) · \(L(viewModel.yearsInOffice + 1)). Amtsjahr"))
                         .font(.caption2.weight(.semibold))
                         .foregroundStyle(GameTheme.secondaryText)
                         .lineLimit(1)
@@ -94,20 +95,20 @@ struct SituationTab: View {
             HStack(alignment: .center, spacing: 16) {
                 VStack(alignment: .leading, spacing: 6) {
                     HStack(alignment: .firstTextBaseline, spacing: 6) {
-                        Text(verbatim: "\(viewModel.state.currentYear)")
+                        Text(verbatim: L("\(L(viewModel.state.currentYear))"))
                             .font(.system(size: 46, weight: .bold, design: .rounded))
                             .foregroundStyle(GameTheme.primaryText)
                             .monospacedDigit()
-                        Text("/ \(viewModel.finalYear)")
+                        Text(L("/ \(L(viewModel.finalYear))"))
                             .font(.subheadline.weight(.medium))
                             .foregroundStyle(GameTheme.tertiaryText)
                     }
 
                     HStack(spacing: 6) {
-                        Text("Lage:")
+                        Text(L("Lage:"))
                             .font(.subheadline)
                             .foregroundStyle(GameTheme.secondaryText)
-                        Text(viewModel.nationMood.word)
+                        Text(L(viewModel.nationMood.word))
                             .font(.subheadline.weight(.bold))
                             .foregroundStyle(viewModel.nationMood.color)
                             .padding(.horizontal, 8)
@@ -130,8 +131,8 @@ struct SituationTab: View {
 
     private var quickStatStrip: some View {
         VStack(alignment: .leading, spacing: 8) {
-            SectionHeader(title: "Nationale Lage", systemImage: "gauge.medium",
-                          accessory: "Index \(viewModel.governanceIndex)")
+            SectionHeader(title: L("Nationale Lage"), systemImage: "gauge.medium",
+                          accessory: L("Index \(L(viewModel.governanceIndex))"))
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
                     ForEach(VisibleMetric.allCases, id: \.self) { metric in
@@ -141,11 +142,11 @@ struct SituationTab: View {
                             Image(systemName: style.icon)
                                 .font(.footnote.weight(.bold))
                                 .foregroundStyle(GameTheme.statusColor(for: value))
-                            Text("\(value)")
+                            Text(L("\(L(value))"))
                                 .font(.system(size: 18, weight: .bold, design: .rounded))
                                 .foregroundStyle(GameTheme.primaryText)
                                 .monospacedDigit()
-                            Text(style.label)
+                            Text(L(style.label))
                                 .font(.system(size: 9, weight: .semibold))
                                 .foregroundStyle(GameTheme.tertiaryText)
                                 .lineLimit(1)
@@ -209,15 +210,16 @@ struct SituationTab: View {
     private var waitingCard: some View {
         EmptyStateView(
             icon: "hourglass",
-            title: "Einen Moment …",
-            message: "Der nächste Vorgang wird vorbereitet."
+            title: L("Einen Moment …"),
+            message: L("Der nächste Vorgang wird vorbereitet.")
         )
         .gameCard()
     }
 }
 
 /// "Ruhiges Jahr" – kein Event hinterlegt.
-private struct NoEventCard: View {
+private struct NoEventCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let year: Int
     let onContinue: () -> Void
 
@@ -227,16 +229,16 @@ private struct NoEventCard: View {
                 Image(systemName: "calendar")
                     .font(.title2)
                     .foregroundStyle(GameTheme.gold)
-                Text("Ein ruhiges Jahr")
+                Text(L("Ein ruhiges Jahr"))
                     .font(.headline)
                     .foregroundStyle(GameTheme.primaryText)
             }
-            Text("\(String(year)) verläuft ohne große Entscheidungen. Die Verwaltung arbeitet im Regelbetrieb – nutze die Ruhe.")
+            Text(L("\(L(String(year))) verläuft ohne große Entscheidungen. Die Verwaltung arbeitet im Regelbetrieb – nutze die Ruhe."))
                 .font(.callout)
                 .foregroundStyle(GameTheme.secondaryText)
                 .fixedSize(horizontal: false, vertical: true)
             Button(action: onContinue) {
-                Label("Jahr abschließen", systemImage: "arrow.right")
+                Label(L("Jahr abschließen"), systemImage: "arrow.right")
             }
             .buttonStyle(PrimaryActionButtonStyle())
         }

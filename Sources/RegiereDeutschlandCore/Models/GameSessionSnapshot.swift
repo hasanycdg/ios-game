@@ -1,6 +1,7 @@
 import Foundation
 
 public struct GameSessionSnapshot: Codable, Equatable, Sendable {
+    public let country: GameCountry
     public let schemaVersion: Int
     public let state: GameState
     public let currentEventID: String?
@@ -34,6 +35,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
 
     public init(
         schemaVersion: Int = 1,
+        country: GameCountry = .germany,
         state: GameState,
         currentEventID: String?,
         lastDecisionResult: DecisionResult?,
@@ -62,6 +64,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
         diplomacy: DiplomaticState? = nil,
         finalYear: Int? = nil
     ) {
+        self.country = country
         self.schemaVersion = schemaVersion
         self.state = state
         self.currentEventID = currentEventID
@@ -93,6 +96,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
     }
 
     private enum CodingKeys: String, CodingKey {
+        case country
         case schemaVersion
         case state
         case currentEventID
@@ -125,6 +129,7 @@ public struct GameSessionSnapshot: Codable, Equatable, Sendable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        country = try container.decodeIfPresent(GameCountry.self, forKey: .country) ?? .germany
         schemaVersion = try container.decodeIfPresent(Int.self, forKey: .schemaVersion) ?? 1
         state = try container.decode(GameState.self, forKey: .state)
         currentEventID = try container.decodeIfPresent(String.self, forKey: .currentEventID)

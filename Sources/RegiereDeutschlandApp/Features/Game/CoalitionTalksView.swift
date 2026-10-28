@@ -2,7 +2,8 @@ import RegiereDeutschlandCore
 import SwiftUI
 
 /// Vollbild-Koalitionsverhandlungen – nach einer Wahl oder beim Amtsantritt.
-struct CoalitionTalksView: View {
+struct CoalitionTalksView: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let year: Int
     let options: [CoalitionOption]
     var isInitial: Bool = false
@@ -16,9 +17,9 @@ struct CoalitionTalksView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     header
-                    Text(isInitial
-                         ? "Deine Partei hat die Wahl gewonnen. Bilde jetzt deine Regierung – mit wem willst du regieren?"
-                         : "Du hast die Wahl gewonnen. Mit wem willst du regieren?")
+                    Text(L(isInitial
+                         ? L("Deine Partei hat die Wahl gewonnen. Bilde jetzt deine Regierung – mit wem willst du regieren?")
+                         : L("Du hast die Wahl gewonnen. Mit wem willst du regieren?")))
                         .font(.callout)
                         .foregroundStyle(GameTheme.secondaryText)
                         .multilineTextAlignment(.center)
@@ -39,12 +40,12 @@ struct CoalitionTalksView: View {
     private var header: some View {
         VStack(spacing: 8) {
             FlagRibbon(height: 5).frame(width: 90)
-            Text(isInitial ? "REGIERUNGSBILDUNG" : "KOALITIONSVERHANDLUNGEN")
+            Text(L(isInitial ? L("REGIERUNGSBILDUNG") : L("KOALITIONSVERHANDLUNGEN")))
                 .font(.caption.weight(.heavy)).tracking(2.5)
                 .foregroundStyle(GameTheme.gold)
-            Text(isInitial
-                 ? "\(playerPartyName) · Amtsantritt \(String(year))"
-                 : "Bundestagswahl \(String(year))")
+            Text(L(isInitial
+                 ? L("\(L(playerPartyName)) · Amtsantritt \(L(String(year)))")
+                 : L("Bundestagswahl \(L(String(year)))")))
                 .font(.system(size: 24, weight: .bold, design: .rounded))
                 .foregroundStyle(GameTheme.primaryText)
         }
@@ -63,18 +64,18 @@ struct CoalitionTalksView: View {
                     .frame(width: 44, height: 44)
                     .background(Circle().fill(GameTheme.gold.opacity(0.15)))
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(option.isMinority ? "Minderheitsregierung" : "Koalition mit \(option.partyName)")
+                    Text(L(option.isMinority ? L("Minderheitsregierung") : L("Koalition mit \(L(option.partyName))")))
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(GameTheme.primaryText)
                         .fixedSize(horizontal: false, vertical: true)
-                    Text(subtitle(for: option))
+                    Text(L(subtitle(for: option)))
                         .font(.caption)
                         .foregroundStyle(GameTheme.secondaryText)
                         .fixedSize(horizontal: false, vertical: true)
                     HStack(spacing: 6) {
-                        Text(String(format: "%.0f %%", option.combinedShare))
+                        Text(L(String(format: L("%.0f %%"), option.combinedShare)))
                             .font(.caption.weight(.bold)).foregroundStyle(GameTheme.primaryText).monospacedDigit()
-                        Text(option.formsMajority ? "Mehrheit" : (option.isMinority ? "ohne Mehrheit" : "knapp"))
+                        Text(L(option.formsMajority ? L("Mehrheit") : (option.isMinority ? L("ohne Mehrheit") : L("knapp"))))
                             .font(.caption2.weight(.heavy))
                             .foregroundStyle(accent)
                             .padding(.horizontal, 7).padding(.vertical, 2)
@@ -94,8 +95,8 @@ struct CoalitionTalksView: View {
 
     private func subtitle(for option: CoalitionOption) -> String {
         if option.isMinority {
-            return "Regiere ohne festen Partner – niemand bremst dich, aber das Regieren ist zäher."
+            return L("Regiere ohne festen Partner – niemand bremst dich, aber das Regieren ist zäher.")
         }
-        return "Ein \(option.leaning.displayName)er Partner. Gemeinsam kommt ihr auf einen Stimmenanteil, der die Regierung trägt."
+        return L("Ein \(L(option.leaning.displayName))er Partner. Gemeinsam kommt ihr auf einen Stimmenanteil, der die Regierung trägt.")
     }
 }

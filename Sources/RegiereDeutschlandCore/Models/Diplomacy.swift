@@ -1,10 +1,11 @@
 import Foundation
 
 public enum DiplomaticPartner: String, Codable, CaseIterable, Sendable {
-    case eu, usa, russia, china
+    case eu, usa, russia, china, canada
 
     public var title: String {
         switch self {
+        case .canada: "Canada"
         case .eu: "Europäische Union"
         case .usa: "USA"
         case .russia: "Russland"
@@ -14,6 +15,7 @@ public enum DiplomaticPartner: String, Codable, CaseIterable, Sendable {
 
     public var icon: String {
         switch self {
+        case .canada: "leaf.fill"
         case .eu: "eurosign.circle.fill"
         case .usa: "flag.fill"
         case .russia: "snowflake"
@@ -32,13 +34,18 @@ public struct DiplomaticState: Codable, Equatable, Sendable {
         min(100, max(0, relations[partner.rawValue] ?? 50))
     }
 
-    public static func standard(from hidden: HiddenMetrics) -> DiplomaticState {
-        DiplomaticState(relations: [
+    public static func standard(from hidden: HiddenMetrics, country: GameCountry = .germany) -> DiplomaticState {
+        var relations = [
             DiplomaticPartner.eu.rawValue: hidden.euRelations,
             DiplomaticPartner.usa.rawValue: hidden.usRelations,
             DiplomaticPartner.russia.rawValue: hidden.russiaRelations,
             DiplomaticPartner.china.rawValue: 55
-        ])
+        ]
+        if country == .unitedStates {
+            relations.removeValue(forKey: DiplomaticPartner.usa.rawValue)
+            relations[DiplomaticPartner.canada.rawValue] = hidden.usRelations
+        }
+        return DiplomaticState(relations: relations)
     }
 
     public static func label(for relation: Int) -> String {
@@ -74,8 +81,10 @@ public struct DiplomaticAction: Identifiable, Sendable {
 }
 
 public enum DiplomaticActionCatalog {
-    public static func actions(for partner: DiplomaticPartner) -> [DiplomaticAction] {
+    public static func actions(for partner: DiplomaticPartner, country: GameCountry = .germany) -> [DiplomaticAction] {
+        if country == .unitedStates { return USDiplomacy.actions(for: partner) }
         switch partner {
+        case .canada: return USDiplomacy.actions(for: .canada)
         case .eu:
             return [
                 DiplomaticAction(id: "eu-summit", title: "EU-Gipfel", detail: "Enger Schulterschluss in Brüssel.",

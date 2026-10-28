@@ -5,7 +5,8 @@ import UIKit
 #endif
 
 /// Vollbild-Endbericht – Wahlniederlage oder Ende eines Kampagnenpakets.
-struct GameOverPanel: View {
+struct GameOverPanel: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
     let summary: GameOverSummary
     var achievements: [Achievement] = []
     var programResults: [GoalProgress] = []
@@ -33,12 +34,12 @@ struct GameOverPanel: View {
                     finalStatsCard
 
                     if !summary.defeatReasons.isEmpty {
-                        listCard(title: "Hauptgründe", icon: "exclamationmark.triangle.fill",
+                        listCard(title: L("Hauptgründe"), icon: "exclamationmark.triangle.fill",
                                  tint: GameTheme.red, items: summary.defeatReasons)
                     }
 
                     if !summary.keyDecisionTitles.isEmpty {
-                        listCard(title: "Prägende Entscheidungen", icon: "star.fill",
+                        listCard(title: L("Prägende Entscheidungen"), icon: "star.fill",
                                  tint: GameTheme.gold, items: summary.keyDecisionTitles)
                     }
 
@@ -49,29 +50,29 @@ struct GameOverPanel: View {
                     VStack(spacing: 10) {
                         if let continuationTitle, let onContinueCampaign {
                             Button(action: onContinueCampaign) {
-                                Label(continuationTitle, systemImage: "arrow.right.circle.fill")
+                                Label(L(continuationTitle), systemImage: "arrow.right.circle.fill")
                             }
                             .buttonStyle(PrimaryActionButtonStyle())
                         }
 
                         Button(action: onNewGame) {
-                            Label("Neues Spiel", systemImage: "arrow.clockwise")
+                            Label(L("Neues Spiel"), systemImage: "arrow.clockwise")
                         }
                         .buttonStyle(PrimaryActionButtonStyle())
 
                         if let shareImage {
                             ShareLink(
                                 item: shareImage,
-                                preview: SharePreview("Mein Deutschland \(String(summary.startYear))–\(String(summary.endYear))", image: shareImage)
+                                preview: SharePreview(L("Mein Deutschland \(L(String(summary.startYear)))–\(L(String(summary.endYear)))"), image: shareImage)
                             ) {
-                                Label("Ergebnis teilen", systemImage: "square.and.arrow.up")
+                                Label(L("Ergebnis teilen"), systemImage: "square.and.arrow.up")
                             }
                             .buttonStyle(SecondaryActionButtonStyle())
                         }
 
                         if let onExitToMenu {
                             Button(action: onExitToMenu) {
-                                Label("Hauptmenü", systemImage: "house")
+                                Label(L("Hauptmenü"), systemImage: "house")
                             }
                             .buttonStyle(SecondaryActionButtonStyle())
                         }
@@ -87,7 +88,7 @@ struct GameOverPanel: View {
 
     private func renderShareImage() {
         #if canImport(UIKit)
-        let renderer = ImageRenderer(content: ShareCardView(summary: summary))
+        let renderer = ImageRenderer(content: ShareCardView(summary: summary).environment(gamePresentation))
         renderer.scale = 3
         if let uiImage = renderer.uiImage {
             shareImage = Image(uiImage: uiImage)
@@ -101,11 +102,11 @@ struct GameOverPanel: View {
             Image(systemName: reachedEnd ? "flag.checkered.2.crossed" : "building.columns")
                 .font(.system(size: 40))
                 .foregroundStyle(accent)
-            Text(reachedEnd ? "DEIN DEUTSCHLAND \(summary.endYear)" : "REGIERUNG BEENDET")
+            Text(L(reachedEnd ? L("DEIN DEUTSCHLAND \(L(summary.endYear))") : L("REGIERUNG BEENDET")))
                 .font(.caption.weight(.heavy))
                 .tracking(3)
                 .foregroundStyle(accent)
-            Text(summary.message)
+            Text(L(summary.message))
                 .font(.system(size: 24, weight: .bold, design: .rounded))
                 .foregroundStyle(GameTheme.primaryText)
                 .multilineTextAlignment(.center)
@@ -117,28 +118,28 @@ struct GameOverPanel: View {
     private var scoreHero: some View {
         VStack(spacing: 14) {
             VStack(spacing: 2) {
-                Text("\(summary.score)")
+                Text(L("\(L(summary.score))"))
                     .font(.system(size: 56, weight: .heavy, design: .rounded))
                     .foregroundStyle(GameTheme.gold)
                     .monospacedDigit()
-                Text("PUNKTE")
+                Text(L("PUNKTE"))
                     .font(.caption.weight(.bold))
                     .tracking(3)
                     .foregroundStyle(GameTheme.secondaryText)
             }
 
             HStack(spacing: 0) {
-                heroStat(value: "\(summary.startYear)–\(summary.endYear)", label: "Amtszeit")
+                heroStat(value: "\(L(summary.startYear))–\(L(summary.endYear))", label: L("Amtszeit"))
                 divider
-                heroStat(value: "\(summary.wonElectionCount)", label: "Wahlsiege")
+                heroStat(value: "\(L(summary.wonElectionCount))", label: L("Wahlsiege"))
                 divider
-                heroStat(value: "\(max(0, summary.endYear - summary.startYear))", label: "Jahre")
+                heroStat(value: "\(L(max(0, summary.endYear - summary.startYear)))", label: L("Jahre"))
             }
         }
         .frame(maxWidth: .infinity)
         .gameCard(padding: 20, tint: GameTheme.gold)
         .overlay(alignment: .top) {
-            Text(summary.governingStyle)
+            Text(L(summary.governingStyle))
                 .font(.caption.weight(.bold))
                 .foregroundStyle(Color(red: 0.12, green: 0.10, blue: 0.05))
                 .padding(.horizontal, 12)
@@ -154,10 +155,10 @@ struct GameOverPanel: View {
 
     private func heroStat(value: String, label: String) -> some View {
         VStack(spacing: 3) {
-            Text(value)
+            Text(L(value))
                 .font(.headline.weight(.bold))
                 .foregroundStyle(GameTheme.primaryText)
-            Text(label)
+            Text(L(label))
                 .font(.caption2)
                 .foregroundStyle(GameTheme.tertiaryText)
         }
@@ -166,12 +167,12 @@ struct GameOverPanel: View {
 
     private var endReport: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Endbericht", systemImage: "doc.text.magnifyingglass")
+            SectionHeader(title: L("Endbericht"), systemImage: "doc.text.magnifyingglass")
             LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)], spacing: 12) {
-                reportTile(icon: "trophy.fill", tint: GameTheme.green, title: "Größter Erfolg", text: summary.biggestSuccess)
-                reportTile(icon: "exclamationmark.triangle.fill", tint: GameTheme.red, title: "Größte Schwäche", text: summary.biggestMistake)
-                reportTile(icon: "arrow.triangle.branch", tint: GameTheme.purple, title: "Butterfly-Effekt", text: summary.biggestButterflyEffect)
-                reportTile(icon: "clock.arrow.2.circlepath", tint: GameTheme.blue, title: "Abweichung", text: summary.strongestHistoricalDeviation)
+                reportTile(icon: "trophy.fill", tint: GameTheme.green, title: L("Größter Erfolg"), text: summary.biggestSuccess)
+                reportTile(icon: "exclamationmark.triangle.fill", tint: GameTheme.red, title: L("Größte Schwäche"), text: summary.biggestMistake)
+                reportTile(icon: "arrow.triangle.branch", tint: GameTheme.purple, title: L("Butterfly-Effekt"), text: summary.biggestButterflyEffect)
+                reportTile(icon: "clock.arrow.2.circlepath", tint: GameTheme.blue, title: L("Abweichung"), text: summary.strongestHistoricalDeviation)
             }
         }
     }
@@ -181,11 +182,11 @@ struct GameOverPanel: View {
             Image(systemName: icon)
                 .font(.footnote.weight(.bold))
                 .foregroundStyle(tint)
-            Text(title)
+            Text(L(title))
                 .font(.caption2.weight(.bold))
                 .tracking(0.4)
                 .foregroundStyle(GameTheme.tertiaryText)
-            Text(text)
+            Text(L(text))
                 .font(.caption)
                 .foregroundStyle(GameTheme.primaryText)
                 .fixedSize(horizontal: false, vertical: true)
@@ -198,9 +199,9 @@ struct GameOverPanel: View {
 
     private var programCard: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: partyName.isEmpty ? "Programm-Bilanz" : "Programm: \(partyName)",
+            SectionHeader(title: partyName.isEmpty ? L("Programm-Bilanz") : L("Programm: \(L(partyName))"),
                           systemImage: "target",
-                          accessory: "\(fulfilledCount)/\(programResults.count) erreicht")
+                          accessory: L("\(L(fulfilledCount))/\(L(programResults.count)) erreicht"))
             VStack(spacing: 9) {
                 ForEach(programResults) { r in
                     HStack(spacing: 11) {
@@ -210,11 +211,11 @@ struct GameOverPanel: View {
                             .frame(width: 22)
                         VStack(alignment: .leading, spacing: 3) {
                             HStack {
-                                Text(r.goal.title)
+                                Text(L(r.goal.title))
                                     .font(.caption.weight(.bold))
                                     .foregroundStyle(GameTheme.primaryText)
                                 Spacer(minLength: 6)
-                                Text("\(r.metricLabel) \(r.metricValue)")
+                                Text(L("\(L(r.metricLabel)) \(L(r.metricValue))"))
                                     .font(.caption2)
                                     .foregroundStyle(GameTheme.tertiaryText)
                             }
@@ -245,7 +246,7 @@ struct GameOverPanel: View {
 
     private var finalStatsCard: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Bilanz der Nation", systemImage: "chart.bar.doc.horizontal")
+            SectionHeader(title: L("Bilanz der Nation"), systemImage: "chart.bar.doc.horizontal")
             VStack(spacing: 9) {
                 ForEach(VisibleMetric.allCases, id: \.self) { metric in
                     let style = MetricPresentation.style(for: metric)
@@ -255,12 +256,12 @@ struct GameOverPanel: View {
                             .font(.caption)
                             .foregroundStyle(GameTheme.secondaryText)
                             .frame(width: 20)
-                        Text(style.label)
+                        Text(L(style.label))
                             .font(.caption.weight(.medium))
                             .foregroundStyle(GameTheme.primaryText)
                             .frame(width: 96, alignment: .leading)
                         ValueBar(value: value, height: 7)
-                        Text("\(value)")
+                        Text(L("\(L(value))"))
                             .font(.caption.weight(.bold))
                             .foregroundStyle(GameTheme.statusColor(for: value))
                             .monospacedDigit()
@@ -274,7 +275,7 @@ struct GameOverPanel: View {
 
     private var achievementsCard: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionHeader(title: "Neue Erfolge freigeschaltet", systemImage: "trophy.fill")
+            SectionHeader(title: L("Neue Erfolge freigeschaltet"), systemImage: "trophy.fill")
             VStack(spacing: 8) {
                 ForEach(achievements) { achievement in
                     HStack(spacing: 12) {
@@ -284,10 +285,10 @@ struct GameOverPanel: View {
                             .frame(width: 32, height: 32)
                             .background(Circle().fill(GameTheme.gold.opacity(0.15)))
                         VStack(alignment: .leading, spacing: 2) {
-                            Text(achievement.title)
+                            Text(L(achievement.title))
                                 .font(.subheadline.weight(.bold))
                                 .foregroundStyle(GameTheme.primaryText)
-                            Text(achievement.detail)
+                            Text(L(achievement.detail))
                                 .font(.caption)
                                 .foregroundStyle(GameTheme.secondaryText)
                                 .fixedSize(horizontal: false, vertical: true)
@@ -308,7 +309,7 @@ struct GameOverPanel: View {
                 ForEach(items, id: \.self) { item in
                     HStack(alignment: .top, spacing: 8) {
                         Circle().fill(tint).frame(width: 5, height: 5).padding(.top, 6)
-                        Text(item)
+                        Text(L(item))
                             .font(.footnote)
                             .foregroundStyle(GameTheme.secondaryText)
                             .fixedSize(horizontal: false, vertical: true)

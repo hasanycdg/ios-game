@@ -1,1 +1,1 @@
-president,election,government,congress,democracy,party,campaign,history,chancellor,geopolitics
+president,election,government,congress,democracy,party,campaign,diplomacy,history,geopolitics,policy

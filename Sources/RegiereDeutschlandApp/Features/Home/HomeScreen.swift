@@ -104,7 +104,7 @@ struct HomeScreen: LocalizedGameView {
             }
         }
         .sheet(isPresented: $showWelcomePaywall) {
-            CampaignPaywallView(placement: purchases.hasCampaign2005 ? .afterMainCampaign : .catalog)
+            WelcomeOfferView()
         }
         .proPaywallSheet(isPresented: $showPartyPaywall)
     }

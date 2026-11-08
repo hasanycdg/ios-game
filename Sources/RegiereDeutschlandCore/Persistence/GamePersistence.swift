@@ -23,7 +23,12 @@ public final class GamePersistence {
             .first?
             .appendingPathComponent("RegiereDeutschland", isDirectory: true)
             ?? fileManager.temporaryDirectory.appendingPathComponent("RegiereDeutschland", isDirectory: true)
-        let campaignDirectory = country == .germany ? directory : directory.appendingPathComponent("UnitedStates", isDirectory: true)
+        let campaignDirectory: URL = switch country {
+        case .germany: directory
+        case .unitedStates: directory.appendingPathComponent("UnitedStates", isDirectory: true)
+        case .unitedKingdom: directory.appendingPathComponent("UnitedKingdom", isDirectory: true)
+        case .france: directory.appendingPathComponent("France", isDirectory: true)
+        }
         self.saveURL = campaignDirectory.appendingPathComponent("savegame.json")
         self.runResultsURL = campaignDirectory.appendingPathComponent("run-results.json")
         self.achievementsURL = campaignDirectory.appendingPathComponent("achievements.json")

@@ -64,7 +64,9 @@ struct CoalitionTalksView: LocalizedGameView {
                     .frame(width: 44, height: 44)
                     .background(Circle().fill(GameTheme.gold.opacity(0.15)))
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(L(option.isMinority ? L("Minderheitsregierung") : L("Koalition mit \(L(option.partyName))")))
+                    Text(L(option.isMinority ? L("Minderheitsregierung")
+                        : option.id == GameEngine.singlePartyMajorityID ? L("Alleinregierung mit eigener Mehrheit")
+                        : L("Koalition mit \(L(option.partyName))")))
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(GameTheme.primaryText)
                         .fixedSize(horizontal: false, vertical: true)
@@ -94,6 +96,9 @@ struct CoalitionTalksView: LocalizedGameView {
     }
 
     private func subtitle(for option: CoalitionOption) -> String {
+        if option.id == GameEngine.singlePartyMajorityID {
+            return L("Deine Partei hält allein die Mehrheit der Sitze. Deine Fraktion trägt die Regierung – verlierst du sie, droht eine Neuwahl.")
+        }
         if option.isMinority {
             return L("Regiere ohne festen Partner – niemand bremst dich, aber das Regieren ist zäher.")
         }

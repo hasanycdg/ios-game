@@ -14,7 +14,10 @@ struct CampaignPaywallView: LocalizedGameView {
 
     var body: some View {
         Group {
-            if gamePresentation.country == .unitedStates && purchases.hasFuture2050 {
+            if gamePresentation.country.usesEuropeanModel {
+                // UK and France have no dashboard paywall yet: a native screen offers the main campaign.
+                EuropeanCampaignPaywallView(placement: placement)
+            } else if gamePresentation.country == .unitedStates && purchases.hasFuture2050 {
                 USCampaignPaywallView(placement: placement)
             } else if let offering = purchases.offering(for: placement, country: gamePresentation.country), offering.hasPaywall {
                 PaywallView(offering: offering, displayCloseButton: true)
@@ -43,7 +46,7 @@ struct CampaignPaywallView: LocalizedGameView {
         }
         .preferredColorScheme(.dark)
         .task {
-            if purchases.offering(for: placement, country: gamePresentation.country)?.hasPaywall != true {
+            if gamePresentation.country.usesEuropeanModel || purchases.offering(for: placement, country: gamePresentation.country)?.hasPaywall != true {
                 await purchases.loadOfferings()
             }
         }
@@ -162,10 +165,14 @@ struct CampaignStoreCard: LocalizedGameView {
             CampaignPaywallView(placement: .catalog)
         }
         .sheet(isPresented: Binding(
-            get: { showCustomerCenter && gamePresentation.country == .unitedStates },
+            get: { showCustomerCenter && gamePresentation.country != .germany },
             set: { showCustomerCenter = $0 }
         )) {
-            USCampaignPaywallView(placement: .catalog)
+            if gamePresentation.country.usesEuropeanModel {
+                EuropeanCampaignPaywallView()
+            } else {
+                USCampaignPaywallView(placement: .catalog)
+            }
         }
         .presentCustomerCenter(isPresented: Binding(
             get: { showCustomerCenter && gamePresentation.country == .germany },

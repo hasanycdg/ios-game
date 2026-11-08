@@ -22,6 +22,7 @@ let package = Package(
                 .process("Data/Events"),
                 .process("Data/News"),
                 .process("Data/UnitedStates"),
+                .process("Data/Europe"),
                 .process("Data/Localization")
             ]
         ),

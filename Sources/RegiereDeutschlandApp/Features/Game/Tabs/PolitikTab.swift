@@ -98,7 +98,7 @@ struct PolitikTab: LocalizedGameView {
         let maxSupport = landscape.parties.map(\.support).max() ?? 1
         return VStack(alignment: .leading, spacing: 12) {
             SectionHeader(title: L("Sonntagsfrage"), systemImage: "chart.bar.xaxis",
-                          accessory: L("630 Sitze"))
+                          accessory: L("\(L(viewModel.country.parliamentSeats)) Sitze"))
             VStack(spacing: 10) {
                 ForEach(landscape.parties) { party in
                     pollRow(party, maxSupport: maxSupport)
@@ -136,7 +136,7 @@ struct PolitikTab: LocalizedGameView {
                     }
                 }
                 .frame(height: 7)
-                Text(viewModel.country == .germany ? "\(party.seats)" : "")
+                Text(viewModel.country.usesPresidentialModel ? "" : "\(party.seats)")
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(GameTheme.tertiaryText).monospacedDigit()
                     .frame(width: 34, alignment: .trailing)

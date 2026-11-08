@@ -152,6 +152,14 @@ enum PartyPresentation {
         case "republican": GameTheme.red
         case "libertarian": GameTheme.amber
         case "green_us": GameTheme.green
+        case "uk_labour", "fr_socialist": GameTheme.red
+        case "uk_conservative", "fr_republican": GameTheme.blue
+        case "uk_libdem", "fr_centrist": GameTheme.amber
+        case "uk_green", "fr_green": GameTheme.green
+        case "uk_snp": Color(red: 0.98, green: 0.85, blue: 0.30)
+        case "uk_reform": GameTheme.teal
+        case "fr_radical_left": GameTheme.purple
+        case "fr_patriot": Color(red: 0.36, green: 0.42, blue: 0.62)
         case "spd":    GameTheme.red
         case "cdu":    Color(red: 0.78, green: 0.80, blue: 0.85) // Schwarz/Neutral, auf Dunkel hell
         case "gruene": GameTheme.green
@@ -169,6 +177,8 @@ enum NewsPresentation {
         switch scope {
         case .world:    NewsScopeStyle(label: "WELT", color: GameTheme.blue)
         case .unitedStates: NewsScopeStyle(label: "UNITED STATES", color: GameTheme.gold)
+        case .unitedKingdom: NewsScopeStyle(label: "UNITED KINGDOM", color: GameTheme.gold)
+        case .france: NewsScopeStyle(label: "FRANCE", color: GameTheme.gold)
         case .germany:  NewsScopeStyle(label: "DEUTSCHLAND", color: GameTheme.gold)
         case .domestic: NewsScopeStyle(label: "DEINE POLITIK", color: GameTheme.red)
         }

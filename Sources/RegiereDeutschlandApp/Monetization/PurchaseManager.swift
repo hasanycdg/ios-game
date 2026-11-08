@@ -147,7 +147,7 @@ final class PurchaseManager {
             customerInfo = result.customerInfo
             return isPro || hasFuture2050
         } catch {
-            if country == .unitedStates {
+            if country != .germany {
                 if (error as NSError).code == ErrorCode.purchaseCancelledError.rawValue { return false }
                 lastError = "The purchase could not be completed. Check your connection or payment method and try again."
             } else {
@@ -171,7 +171,7 @@ final class PurchaseManager {
             customerInfo = try await Purchases.shared.restorePurchases()
             return isPro || hasFuture2050
         } catch {
-            lastError = country == .unitedStates
+            lastError = country != .germany
                 ? "Purchases could not be restored. Check your connection and App Store account, then try again."
                 : Self.message(for: error)
             return false

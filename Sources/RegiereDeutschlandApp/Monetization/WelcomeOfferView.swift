@@ -14,7 +14,11 @@ struct WelcomeOfferView: View {
 
     private var english: Bool { presentation.language == .english }
     private func copy(_ german: String, _ englishText: String) -> String {
-        english ? englishText : german
+        switch presentation.language {
+        case .german: german
+        case .english: englishText
+        case .french: GameTextLocalization.frenchFromEnglish(englishText)
+        }
     }
     private var placement: CampaignPaywallPlacement {
         purchases.hasCampaign2005 ? .afterMainCampaign : .catalog
@@ -142,7 +146,7 @@ struct WelcomeOfferView: View {
     private var benefitStrip: some View {
         HStack(alignment: .top, spacing: 8) {
             benefit("building.columns.fill", copy("Wahlen & Politik", "Elections & politics"))
-            benefit("globe.europe.africa.fill", copy("Zwei Länder", "Two countries"))
+            benefit("globe.europe.africa.fill", copy("Vier Länder", "Four countries"))
             benefit("sparkles", copy("Deine Zukunft", "Your future"))
         }
     }

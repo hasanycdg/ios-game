@@ -1,4 +1,4 @@
-# Germany and United States campaigns
+# Country campaigns: Germany, United States, United Kingdom, France
 
 The launch screen always asks for a country. The home screen provides a country
 switch. Country controls language and content independently of the device locale.
@@ -117,3 +117,45 @@ rtk proxy swiftc -parse-as-library -target arm64-apple-macosx14.0 \
   -o /tmp/WindowCountryCheck
 rtk proxy /tmp/WindowCountryCheck
 ```
+
+## United Kingdom and France (2000–2050)
+
+Both use the parliamentary mechanics of the German campaign (coalitions,
+collapse and snap elections, party revolts) with their own party systems,
+calendars and electoral systems. Code: `Models/EuropeanCampaigns.swift`,
+`Data/EuropeanCampaignRepository.swift`.
+
+| | United Kingdom | France |
+| --- | --- | --- |
+| Parties (fictional, modelled on the real system) | People's Labour Party, Unionist Conservative Party, Liberal Alliance, Green Alliance Party; non-playable Scottish Independence Party, Sovereignty Party | Parti Social-Démocrate, Rassemblement Républicain, Élan Centriste, Alliance Écologiste; non-playable Gauche Radicale, Front Patriote |
+| Elections | General elections 2001, 2005, 2010, 2015, 2017, 2019, 2024 | Presidential elections 2002, 2007, 2012, 2017, 2022 (two rounds, run-off) |
+| Seats | 650, first-past-the-post (disproportional allocation, Scotland-only party) | 577, two-round system; majority 289 |
+| Majority | Largest party wins; with ≥ 326 seats it governs alone, otherwise coalition or minority | Run-off winner; then majority, partners or minority government; censure → snap legislative election |
+| Mid-term | Local elections (House of Lords resistance) | Senate renewals |
+| Party revolt | Leader ousted (game over) | President stays; loses influence |
+| Saves | `RegiereDeutschland/UnitedKingdom/` | `RegiereDeutschland/France/` |
+| Elections after 2026 | 2029, 2034, 2039, 2044, 2049 | 2027, 2032, 2037, 2042, 2047 |
+
+- 108 decisions each (four per year 2000–2026). Settings and the "historical
+  reality" notes are factual (2025–2026 verified against news sources in
+  November 2026); responses and their effects are alternate history.
+- Future 2050 (fictional, same structure as Germany and the US): 200 story
+  decisions (eight per year, 2026–2050, in the chapters crisis prevention and
+  escalation, reconstruction, new world order) plus 75 optional domestic events.
+  The 2030 decision on a crisis on NATO's eastern flank sets `scenario_world_war`
+  or `scenario_war_avoided` and changes reconstruction costs; the 2050 settlement
+  sets the final legacy text. Elections continue every five years (UK 2029–2049,
+  France 2027–2047). Source: `scripts/european/future.py`, translations in
+  `scripts/european/future_translations.json`.
+- Purchases use the existing main-campaign, Future 2050 and bundle products
+  through a native screen (`EuropeanCampaignPaywallView`).
+- Sources: `scripts/european/{uk,fr}_events.json` (English + German).
+  Regenerate with `python3 scripts/build_european_campaigns.py`, which validates
+  counts, ids, categories and translations. Event ids must stay stable.
+
+## Languages
+
+Every campaign can be played in German, English and French. French is
+translated from each country's English rendering through one shared catalog
+(`Localization/French.json`, English → French), so country terminology and
+interpolated templates carry over automatically.

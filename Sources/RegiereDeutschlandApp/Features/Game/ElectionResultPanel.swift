@@ -10,6 +10,16 @@ struct ElectionResultPanel: LocalizedGameView {
 
     @State private var revealed = false
 
+    /// France holds presidential elections on its calendar; a snap vote after a
+    /// collapse is a legislative election. The UK holds general elections.
+    private var electionTitle: String {
+        let country = gamePresentation.country
+        if country == .france && !ElectionEngine(country: .france).electionYears.contains(election.year) {
+            return "Parlamentswahl \(election.year)"
+        }
+        return "Bundestagswahl \(election.year)"
+    }
+
     var body: some View {
         ZStack {
             GameTheme.dramaticBackground.ignoresSafeArea()
@@ -26,7 +36,7 @@ struct ElectionResultPanel: LocalizedGameView {
                             .font(.caption.weight(.heavy))
                             .tracking(4)
                             .foregroundStyle(GameTheme.gold)
-                        Text(verbatim: L("Bundestagswahl \(L(election.year))"))
+                        Text(verbatim: L(electionTitle))
                             .font(.system(size: 26, weight: .bold, design: .rounded))
                             .foregroundStyle(GameTheme.primaryText)
                     }
@@ -42,6 +52,8 @@ struct ElectionResultPanel: LocalizedGameView {
 
                     if let votes = election.electoralVotes {
                         ElectoralCollegeCard(votes: votes)
+                    } else if gamePresentation.country.usesEuropeanModel, !parties.isEmpty {
+                        ParliamentSeatsCard(parties: parties, country: gamePresentation.country)
                     } else {
                         SeatDistributionBar(election: election)
                     }

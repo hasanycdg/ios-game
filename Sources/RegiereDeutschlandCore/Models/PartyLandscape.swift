@@ -14,18 +14,25 @@ public struct Party: Identifiable, Equatable, Sendable {
     public let spectrum: Double   // 0 = links, 1 = rechts
     public let support: Double    // Prozent
     public let role: PartyRole
+    /// Explicit seats for countries with a disproportional electoral system.
+    public let seatCount: Int?
 
-    public init(id: String, name: String, shortName: String, spectrum: Double, support: Double, role: PartyRole) {
+    public init(id: String, name: String, shortName: String, spectrum: Double, support: Double, role: PartyRole, seatCount: Int? = nil) {
         self.id = id
         self.name = name
         self.shortName = shortName
         self.spectrum = spectrum
         self.support = support
         self.role = role
+        self.seatCount = seatCount
     }
 
-    /// Sitze im 630er-Bundestag (grob).
-    public var seats: Int { Int((support / 100 * 630).rounded()) }
+    /// Sitze im 630er-Bundestag (grob) bzw. die zugeteilten Sitze in UK/Frankreich.
+    public var seats: Int { seatCount ?? Int((support / 100 * 630).rounded()) }
+
+    func withSeats(_ seats: Int) -> Party {
+        Party(id: id, name: name, shortName: shortName, spectrum: spectrum, support: support, role: role, seatCount: seats)
+    }
 }
 
 /// Die aktuelle Parteienlandschaft – aus dem Spielzustand abgeleitet.
@@ -72,6 +79,10 @@ public enum PartyLandscapeFactory {
             }
             return PartyLandscape(parties: parties.sorted { $0.support > $1.support })
         }
+        if country.usesEuropeanModel {
+            return makeEuropean(state: state, governingShare: governingShare, coalition: coalition,
+                                playerParty: playerParty, country: country)
+        }
         let player = min(52.0, max(18.0, governingShare))
 
         // Koalitionspartner (falls keine Minderheitsregierung) an eine echte Partei koppeln.
@@ -106,6 +117,52 @@ public enum PartyLandscapeFactory {
 
         parties.sort { $0.support > $1.support }
         return PartyLandscape(parties: parties)
+    }
+
+    /// UK and France: the same dynamic poll as Germany, but with each country's
+    /// party system and seats allocated by its electoral system.
+    private static func makeEuropean(state: GameState, governingShare: Double, coalition: CoalitionState,
+                                     playerParty: PlayerParty, country: GameCountry) -> PartyLandscape {
+        let catalog = country.partyLandscape
+        let player = min(52.0, max(18.0, governingShare))
+        let partnerRef: PartyReference? = coalition.isMinority
+            ? nil
+            : catalog.first { $0.name == coalition.partnerName && $0.id != playerParty.id }
+        let partnerSupport = partnerRef == nil ? 0.0 : min(15.0, max(4.0, 5.0 + Double(coalition.satisfaction) * 0.08))
+        let remaining = max(0.0, 100.0 - player - partnerSupport)
+        let others = catalog.filter { $0.id != playerParty.id && $0.id != partnerRef?.id }
+        let weights = others.map { (ref: $0, weight: max(0.1, EuropeanElectionSystem.oppositionWeight(for: $0, state: state, country: country))) }
+        let totalWeight = weights.reduce(0) { $0 + $1.weight }
+
+        var parties: [Party] = [
+            Party(id: playerParty.id, name: playerParty.name, shortName: playerParty.shortName,
+                  spectrum: playerParty.spectrum, support: round1(player), role: .governing)
+        ]
+        if let partnerRef {
+            parties.append(Party(id: partnerRef.id, name: partnerRef.name, shortName: partnerRef.shortName,
+                                 spectrum: partnerRef.spectrum, support: round1(partnerSupport), role: .coalition))
+        }
+        for entry in weights {
+            let support = totalWeight > 0 ? remaining * (entry.weight / totalWeight) : 0
+            parties.append(Party(id: entry.ref.id, name: entry.ref.name, shortName: entry.ref.shortName,
+                                 spectrum: entry.ref.spectrum, support: round1(support), role: .opposition))
+        }
+        let seats = EuropeanElectionSystem.allocateSeats(parties.map { ($0.id, $0.support) }, country: country, year: state.currentYear)
+        parties = parties.map { $0.withSeats(seats[$0.id] ?? 0) }
+        parties.sort { $0.support > $1.support }
+        return PartyLandscape(parties: parties)
+    }
+
+    /// Landscape from fixed vote shares (the starting position in 2000).
+    public static func makeFromBaseSupport(playerParty: PlayerParty, country: GameCountry, year: Int = 2000) -> PartyLandscape {
+        var parties = [Party(id: playerParty.id, name: playerParty.name, shortName: playerParty.shortName,
+                             spectrum: playerParty.spectrum, support: playerParty.baseSupport, role: .governing)]
+        parties += country.partyLandscape.filter { $0.id != playerParty.id }.map {
+            Party(id: $0.id, name: $0.name, shortName: $0.shortName, spectrum: $0.spectrum, support: $0.baseSupport, role: .opposition)
+        }
+        guard country.usesEuropeanModel else { return PartyLandscape(parties: parties) }
+        let seats = EuropeanElectionSystem.allocateSeats(parties.map { ($0.id, $0.support) }, country: country, year: year)
+        return PartyLandscape(parties: parties.map { $0.withSeats(seats[$0.id] ?? 0) }.sorted { $0.support > $1.support })
     }
 
     /// Dynamisches Gewicht einer Oppositionspartei nach Lage und Grundstärke.

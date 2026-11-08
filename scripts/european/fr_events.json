@@ -1,0 +1,2810 @@
+[
+  {
+    "id": "fr-2000-the-35-hour-week-goes-national",
+    "year": 2000,
+    "category": "economy",
+    "shock": null,
+    "title": "The 35-hour week goes national",
+    "context": "The statutory 35-hour week now applies to large firms and will reach small ones in 2002. Employers want flexibility, unions want jobs.",
+    "reality": "The Aubry II law of January 2000 generalised the 35-hour week, cushioned by cuts in employer social charges. Small firms followed from 2002.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 0,
+    "choices": [
+      "Enforce 35 hours with funded charge relief",
+      "Phase it in with sector deals and overtime",
+      "Let firms opt out of the shorter week"
+    ],
+    "de": {
+      "title": "Die 35-Stunden-Woche wird flächendeckend",
+      "context": "Die gesetzliche 35-Stunden-Woche gilt nun für Großunternehmen, kleine Betriebe folgen 2002. Arbeitgeber fordern Flexibilität, Gewerkschaften Arbeitsplätze.",
+      "reality": "Das Gesetz Aubry II vom Januar 2000 verallgemeinerte die 35-Stunden-Woche, abgefedert durch gesenkte Arbeitgeberbeiträge. Kleine Betriebe folgten ab 2002.",
+      "choices": [
+        "35 Stunden mit finanzierter Abgabenentlastung durchsetzen",
+        "Stufenweise mit Branchendeals und Überstunden einführen",
+        "Unternehmen den Ausstieg erlauben"
+      ]
+    }
+  },
+  {
+    "id": "fr-2000-shortening-the-presidential-term",
+    "year": 2000,
+    "category": "society",
+    "shock": null,
+    "title": "Shortening the presidential term",
+    "context": "A seven-year presidential term risks repeated cohabitation. Cutting it to five years would align it with parliament. How should the change be made?",
+    "reality": "Chirac and Jospin agreed on the quinquennat; it was approved by referendum on 24 September 2000 with 73.2% yes but only about 30% turnout.",
+    "source": "Conseil constitutionnel",
+    "historicalChoice": 1,
+    "choices": [
+      "Hold a referendum on a broad institutional overhaul",
+      "Put the five-year term alone to a referendum",
+      "Keep the seven-year term"
+    ],
+    "de": {
+      "title": "Verkürzung der Amtszeit des Präsidenten",
+      "context": "Eine siebenjährige Amtszeit begünstigt wiederholte Kohabitationen. Fünf Jahre würden sie mit dem Parlament synchronisieren. Wie soll die Reform erfolgen?",
+      "reality": "Chirac und Jospin einigten sich auf das Quinquennat; es wurde am 24. September 2000 per Referendum mit 73,2 % Ja-Stimmen angenommen, bei nur rund 30 % Beteiligung.",
+      "choices": [
+        "Referendum über eine umfassende Institutionenreform",
+        "Nur die fünfjährige Amtszeit zur Abstimmung stellen",
+        "Siebenjährige Amtszeit beibehalten"
+      ]
+    }
+  },
+  {
+    "id": "fr-2000-aftermath-of-the-erika-oil-spill",
+    "year": 2000,
+    "category": "energy",
+    "shock": null,
+    "title": "Aftermath of the Erika oil spill",
+    "context": "The wreck of the tanker Erika in December 1999 has fouled hundreds of kilometres of Atlantic coast. Fishing and tourism towns demand action.",
+    "reality": "France pushed the EU 'Erika' maritime safety packages (2000) to phase out single-hull tankers; TotalFina was later convicted and paid damages.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 0,
+    "choices": [
+      "Fund the clean-up and push strict EU tanker rules",
+      "Make the shipper pay, tighten port inspections",
+      "Leave liability to courts and insurers"
+    ],
+    "de": {
+      "title": "Die Folgen der Erika-Ölpest",
+      "context": "Der Untergang des Tankers Erika im Dezember 1999 hat Hunderte Kilometer Atlantikküste verschmutzt. Fischerei- und Urlaubsorte fordern Maßnahmen.",
+      "reality": "Frankreich trieb die EU-Seesicherheitspakete „Erika“ (2000) zum Ausstieg aus Einhüllentankern voran; TotalFina wurde später verurteilt und zahlte Schadenersatz.",
+      "choices": [
+        "Säuberung finanzieren und strenge EU-Tankerregeln durchsetzen",
+        "Verlader zahlen lassen, Hafenkontrollen verschärfen",
+        "Haftung Gerichten und Versicherern überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2000-fuel-price-blockades",
+    "year": 2000,
+    "category": "budget",
+    "shock": null,
+    "title": "Fuel price blockades",
+    "context": "Soaring oil prices trigger blockades of refineries by hauliers, farmers and fishermen. Petrol stations run dry. Protesters demand lower fuel duties.",
+    "reality": "In September 2000 the Jospin government granted targeted relief to hauliers, farmers and fishermen and introduced a floating fuel tax (TIPP flottante).",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a broad energy aid package for households",
+      "Give targeted relief to hard-hit sectors",
+      "Cut fuel tax for everyone"
+    ],
+    "de": {
+      "title": "Blockaden wegen Spritpreisen",
+      "context": "Stark steigende Ölpreise führen zu Raffinerieblockaden durch Spediteure, Landwirte und Fischer. Tankstellen sind leer. Gefordert werden niedrigere Kraftstoffsteuern.",
+      "reality": "Im September 2000 gewährte die Regierung Jospin Spediteuren, Landwirten und Fischern gezielte Entlastungen und führte eine flexible Mineralölsteuer (TIPP flottante) ein.",
+      "choices": [
+        "Breites Energiehilfepaket für Haushalte finanzieren",
+        "Besonders betroffene Branchen gezielt entlasten",
+        "Kraftstoffsteuer für alle senken"
+      ]
+    }
+  },
+  {
+    "id": "fr-2001-after-september-11",
+    "year": 2001,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "After September 11",
+    "context": "Terror attacks in the United States shock the world. Washington prepares to strike Afghanistan and asks allies for support.",
+    "reality": "France declared solidarity, joined operations in Afghanistan from late 2001 (navy and Charles de Gaulle carrier, later ground troops) and reinforced Vigipirate.",
+    "source": "Ministère des Armées",
+    "historicalChoice": 0,
+    "choices": [
+      "Deploy forces alongside the allies",
+      "Offer intelligence and limited support",
+      "Stay out of military operations"
+    ],
+    "de": {
+      "title": "Nach dem 11. September",
+      "context": "Terroranschläge in den USA erschüttern die Welt. Washington bereitet Angriffe in Afghanistan vor und bittet die Verbündeten um Unterstützung.",
+      "reality": "Frankreich erklärte seine Solidarität, beteiligte sich ab Ende 2001 an Einsätzen in Afghanistan (Marine mit dem Träger Charles de Gaulle, später Bodentruppen) und verstärkte Vigipirate.",
+      "choices": [
+        "Streitkräfte an der Seite der Verbündeten einsetzen",
+        "Geheimdienstinfos und begrenzte Hilfe anbieten",
+        "Sich aus Militäreinsätzen heraushalten"
+      ]
+    }
+  },
+  {
+    "id": "fr-2001-chemical-plant-explosion-in-toulouse",
+    "year": 2001,
+    "category": "security",
+    "shock": "disaster",
+    "title": "Chemical plant explosion in Toulouse",
+    "context": "An explosion at a fertiliser plant devastates whole districts of Toulouse. Many industrial sites still sit next to homes and schools.",
+    "reality": "The AZF blast on 21 September 2001 killed 31 people and injured about 2,500. The 2003 Bachelot law created risk-prevention plans (PPRT) around hazardous sites.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund relocation of hazardous plants nationwide",
+      "Impose risk-prevention zones around sites",
+      "Leave safety to operators and insurers"
+    ],
+    "de": {
+      "title": "Explosion einer Chemiefabrik in Toulouse",
+      "context": "Eine Explosion in einer Düngemittelfabrik verwüstet ganze Viertel von Toulouse. Viele Industrieanlagen liegen weiterhin neben Wohnhäusern und Schulen.",
+      "reality": "Die AZF-Explosion am 21. September 2001 tötete 31 Menschen und verletzte rund 2.500. Das Bachelot-Gesetz von 2003 schuf Risikoschutzpläne (PPRT) um gefährliche Anlagen.",
+      "choices": [
+        "Verlagerung gefährlicher Anlagen landesweit finanzieren",
+        "Risikoschutzzonen um Anlagen vorschreiben",
+        "Sicherheit Betreibern und Versicherern überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2001-making-work-pay",
+    "year": 2001,
+    "category": "welfare",
+    "shock": null,
+    "title": "Making work pay",
+    "context": "Low-wage workers gain little from taking a job once benefits are lost. The government looks for a way to reward work without raising labour costs.",
+    "reality": "The law of 30 May 2001 created the prime pour l'emploi, a targeted in-work tax credit for low-paid workers.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund broad wage subsidies for low earners",
+      "Create a targeted in-work tax credit",
+      "Rely on growth and lower charges"
+    ],
+    "de": {
+      "title": "Arbeit soll sich lohnen",
+      "context": "Geringverdiener gewinnen kaum etwas, wenn sie eine Stelle annehmen und Sozialleistungen verlieren. Die Regierung sucht einen Weg, Arbeit zu belohnen, ohne die Lohnkosten zu erhöhen.",
+      "reality": "Das Gesetz vom 30. Mai 2001 schuf die prime pour l'emploi, eine gezielte Steuergutschrift für erwerbstätige Geringverdiener.",
+      "choices": [
+        "Breite Lohnzuschüsse für Geringverdiener finanzieren",
+        "Gezielte Erwerbstätigen-Steuergutschrift einführen",
+        "Auf Wachstum und geringere Abgaben setzen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2001-autonomy-for-corsica",
+    "year": 2001,
+    "category": "society",
+    "shock": null,
+    "title": "Autonomy for Corsica",
+    "context": "After years of nationalist violence, Corsican leaders demand more self-government. Critics warn against breaking the unity of the Republic.",
+    "reality": "The Matignon process led to the law of 22 January 2002 on Corsica; the Conseil constitutionnel struck down the clause letting the island adapt national laws.",
+    "source": "Conseil constitutionnel",
+    "historicalChoice": 1,
+    "choices": [
+      "Grant broad autonomy and fund development",
+      "Transfer limited powers step by step",
+      "Refuse any special status"
+    ],
+    "de": {
+      "title": "Autonomie für Korsika",
+      "context": "Nach Jahren nationalistischer Gewalt fordern korsische Politiker mehr Selbstverwaltung. Kritiker warnen vor einer Spaltung der Republik.",
+      "reality": "Der Matignon-Prozess führte zum Korsika-Gesetz vom 22. Januar 2002; der Conseil constitutionnel kippte die Klausel, die der Insel eine Anpassung nationaler Gesetze erlaubt hätte.",
+      "choices": [
+        "Weitgehende Autonomie gewähren und Entwicklung fördern",
+        "Begrenzte Kompetenzen schrittweise übertragen",
+        "Jeden Sonderstatus ablehnen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2002-euro-notes-and-coins-arrive",
+    "year": 2002,
+    "category": "economy",
+    "shock": null,
+    "title": "Euro notes and coins arrive",
+    "context": "On 1 January the franc gives way to euro cash. Consumers fear that shops will round prices up during the changeover.",
+    "reality": "Euro cash entered circulation on 1 January 2002; the franc ceased to be legal tender on 17 February. Retailers signed price-stability commitments with the state.",
+    "source": "Banque de France",
+    "historicalChoice": 1,
+    "choices": [
+      "Impose strict price controls and checks",
+      "Agree price-stability pledges with retailers",
+      "Leave pricing to competition"
+    ],
+    "de": {
+      "title": "Euro-Bargeld kommt",
+      "context": "Am 1. Januar weicht der Franc dem Euro-Bargeld. Verbraucher fürchten, dass der Handel die Preise bei der Umstellung aufrundet.",
+      "reality": "Euro-Bargeld kam am 1. Januar 2002 in Umlauf; der Franc verlor am 17. Februar seine Gültigkeit. Händler gaben dem Staat Zusagen zur Preisstabilität.",
+      "choices": [
+        "Strenge Preiskontrollen und Prüfungen anordnen",
+        "Preisstabilitätszusagen mit dem Handel vereinbaren",
+        "Preisbildung dem Wettbewerb überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2002-the-21-april-shock",
+    "year": 2002,
+    "category": "society",
+    "shock": null,
+    "title": "The 21 April shock",
+    "context": "A far-right candidate has reached the presidential run-off, eliminating the main left candidate. Protests fill the streets. How should the state respond?",
+    "reality": "Jean-Marie Le Pen (16.9%) edged out Lionel Jospin on 21 April 2002. A 'republican front' formed and Jacques Chirac won the run-off with 82.2%, then made security a priority.",
+    "source": "Conseil constitutionnel",
+    "historicalChoice": 1,
+    "choices": [
+      "Launch a major cohesion and civic plan",
+      "Rally a republican front, focus on security",
+      "Carry on with business as usual"
+    ],
+    "de": {
+      "title": "Der Schock vom 21. April",
+      "context": "Ein rechtsextremer Kandidat hat die Stichwahl um das Präsidentenamt erreicht und den wichtigsten linken Kandidaten verdrängt. Proteste füllen die Straßen. Wie soll der Staat reagieren?",
+      "reality": "Jean-Marie Le Pen (16,9 %) verdrängte am 21. April 2002 Lionel Jospin. Es bildete sich eine „republikanische Front“; Jacques Chirac gewann die Stichwahl mit 82,2 % und machte Sicherheit zur Priorität.",
+      "choices": [
+        "Großen Plan für Zusammenhalt und Bürgersinn starten",
+        "Republikanische Front bilden, auf Sicherheit setzen",
+        "Einfach weitermachen wie bisher"
+      ]
+    }
+  },
+  {
+    "id": "fr-2002-rebellion-in-cote-divoire",
+    "year": 2002,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Rebellion in Côte d'Ivoire",
+    "context": "A military rebellion splits Côte d'Ivoire in two. Thousands of French nationals live there and both sides look to Paris.",
+    "reality": "France launched Opération Licorne in September 2002 to protect civilians and freeze the front line, then brokered the Linas-Marcoussis accords in January 2003.",
+    "source": "Ministère des Armées",
+    "historicalChoice": 0,
+    "choices": [
+      "Deploy troops to hold the ceasefire line",
+      "Evacuate nationals and mediate only",
+      "Stay out of the conflict"
+    ],
+    "de": {
+      "title": "Rebellion in der Elfenbeinküste",
+      "context": "Eine Militärrebellion spaltet die Elfenbeinküste. Tausende Franzosen leben dort, und beide Seiten schauen nach Paris.",
+      "reality": "Frankreich startete im September 2002 die Opération Licorne zum Schutz von Zivilisten und zur Sicherung der Frontlinie und vermittelte im Januar 2003 die Abkommen von Linas-Marcoussis.",
+      "choices": [
+        "Truppen zur Sicherung der Waffenstillstandslinie entsenden",
+        "Staatsbürger evakuieren und nur vermitteln",
+        "Sich aus dem Konflikt heraushalten"
+      ]
+    }
+  },
+  {
+    "id": "fr-2002-campaign-promise-of-lower-income-tax",
+    "year": 2002,
+    "category": "budget",
+    "shock": null,
+    "title": "Campaign promise of lower income tax",
+    "context": "The new majority promised to cut income tax, but growth is slowing and the deficit is rising toward the EU's 3% limit.",
+    "reality": "The amending budget law of August 2002 cut income tax by 5%, followed by further cuts in 2003; the deficit exceeded 3% of GDP in 2002 and 2003.",
+    "source": "INSEE",
+    "historicalChoice": 2,
+    "choices": [
+      "Spend the margin on public investment",
+      "Delay the cut and phase it in",
+      "Cut income tax by 5% now"
+    ],
+    "de": {
+      "title": "Wahlversprechen: niedrigere Einkommensteuer",
+      "context": "Die neue Mehrheit hat Einkommensteuersenkungen versprochen, doch das Wachstum schwächt sich ab und das Defizit steigt Richtung EU-Grenze von 3 %.",
+      "reality": "Das Nachtragshaushaltsgesetz vom August 2002 senkte die Einkommensteuer um 5 %, weitere Senkungen folgten 2003; das Defizit lag 2002 und 2003 über 3 % des BIP.",
+      "choices": [
+        "Spielraum für öffentliche Investitionen nutzen",
+        "Senkung verschieben und stufenweise einführen",
+        "Einkommensteuer sofort um 5 % senken"
+      ]
+    }
+  },
+  {
+    "id": "fr-2003-war-in-iraq",
+    "year": 2003,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "War in Iraq",
+    "context": "Washington and London prepare to invade Iraq and seek UN backing. Paris must decide whether to join, obstruct or stand aside.",
+    "reality": "France opposed the war: Dominique de Villepin argued for continued inspections at the UN on 14 February 2003 and Chirac threatened a veto. France did not take part.",
+    "source": "Ministère de l'Europe et des Affaires étrangères",
+    "historicalChoice": 1,
+    "choices": [
+      "Join the coalition with combat forces",
+      "Back inspections and oppose war at the UN",
+      "Stay neutral and silent"
+    ],
+    "de": {
+      "title": "Krieg im Irak",
+      "context": "Washington und London bereiten eine Invasion des Irak vor und suchen ein UN-Mandat. Paris muss entscheiden: mitmachen, blockieren oder abseits stehen.",
+      "reality": "Frankreich lehnte den Krieg ab: Dominique de Villepin warb am 14. Februar 2003 im UN-Sicherheitsrat für weitere Inspektionen, Chirac drohte mit einem Veto. Frankreich beteiligte sich nicht.",
+      "choices": [
+        "Mit Kampftruppen der Koalition beitreten",
+        "Inspektionen unterstützen, Krieg in der UNO ablehnen",
+        "Neutral und still bleiben"
+      ]
+    }
+  },
+  {
+    "id": "fr-2003-deadly-august-heatwave",
+    "year": 2003,
+    "category": "society",
+    "shock": "disaster",
+    "title": "Deadly August heatwave",
+    "context": "An extreme heatwave hits during the holidays. Hospitals and morgues are overwhelmed, and isolated elderly people are dying alone.",
+    "reality": "The August 2003 heatwave caused around 15,000 excess deaths in France. The state created a heat alert plan and a 'solidarity day' (2004) to fund elderly care.",
+    "source": "Inserm",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a large elderly-care and hospital plan",
+      "Set up heat alerts and a solidarity workday",
+      "Leave care to families and local services"
+    ],
+    "de": {
+      "title": "Tödliche Hitzewelle im August",
+      "context": "Eine extreme Hitzewelle trifft das Land in den Ferien. Krankenhäuser und Leichenhallen sind überlastet, isolierte ältere Menschen sterben allein.",
+      "reality": "Die Hitzewelle im August 2003 verursachte in Frankreich rund 15.000 zusätzliche Todesfälle. Der Staat schuf einen Hitzewarnplan und einen „Solidaritätstag“ (2004) zur Finanzierung der Altenpflege.",
+      "choices": [
+        "Großen Plan für Altenpflege und Kliniken finanzieren",
+        "Hitzewarnsystem und Solidaritätsarbeitstag einführen",
+        "Pflege Familien und Kommunen überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2003-reforming-public-sector-pensions",
+    "year": 2003,
+    "category": "welfare",
+    "shock": null,
+    "title": "Reforming public-sector pensions",
+    "context": "Civil servants retire with fewer contribution years than private workers, and the pension system faces deficits as baby boomers retire.",
+    "reality": "The Fillon law of August 2003 aligned civil servants on private-sector contribution periods (40 years by 2008), despite large strikes in May–June.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund pensions with higher contributions",
+      "Phase in longer contribution periods",
+      "Cut benefits and promote private savings"
+    ],
+    "de": {
+      "title": "Reform der Beamtenpensionen",
+      "context": "Beamte gehen mit weniger Beitragsjahren in Rente als Beschäftigte der Privatwirtschaft, und dem Rentensystem drohen mit den Babyboomern Defizite.",
+      "reality": "Das Fillon-Gesetz vom August 2003 glich die Beitragsdauer der Beamten an die Privatwirtschaft an (40 Jahre bis 2008) – trotz großer Streiks im Mai und Juni.",
+      "choices": [
+        "Renten durch höhere Beiträge finanzieren",
+        "Längere Beitragszeiten stufenweise einführen",
+        "Leistungen kürzen und private Vorsorge fördern"
+      ]
+    }
+  },
+  {
+    "id": "fr-2003-automated-speed-cameras",
+    "year": 2003,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Automated speed cameras",
+    "context": "Road deaths remain among the highest in Western Europe. Automated radar cameras could issue fines without police at the roadside.",
+    "reality": "France installed its first automated speed cameras from late 2003 with centralised processing of fines; road deaths fell sharply in the following years.",
+    "source": "Sécurité routière",
+    "historicalChoice": 0,
+    "choices": [
+      "Roll out a national network of automated cameras",
+      "Pilot cameras on the most dangerous roads",
+      "Rely on police checks and awareness"
+    ],
+    "de": {
+      "title": "Automatische Radarkontrollen",
+      "context": "Die Zahl der Verkehrstoten gehört zu den höchsten in Westeuropa. Automatische Blitzer könnten Bußgelder ohne Polizei am Straßenrand verhängen.",
+      "reality": "Frankreich stellte ab Ende 2003 die ersten automatischen Blitzer mit zentraler Bußgeldbearbeitung auf; die Zahl der Verkehrstoten sank in den Folgejahren deutlich.",
+      "choices": [
+        "Landesweites Netz automatischer Blitzer aufbauen",
+        "Blitzer auf den gefährlichsten Straßen testen",
+        "Auf Polizeikontrollen und Aufklärung setzen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2004-religious-symbols-in-schools",
+    "year": 2004,
+    "category": "society",
+    "shock": null,
+    "title": "Religious symbols in schools",
+    "context": "Disputes over Islamic headscarves in state schools have multiplied. A commission on secularism urges a clear national rule.",
+    "reality": "After the Stasi commission, the law of 15 March 2004 banned conspicuous religious symbols in public primary and secondary schools.",
+    "source": "Légifrance",
+    "historicalChoice": 0,
+    "choices": [
+      "Ban conspicuous religious symbols by law",
+      "Mediate case by case with guidelines",
+      "Leave it to each school"
+    ],
+    "de": {
+      "title": "Religiöse Symbole an Schulen",
+      "context": "Streitfälle um islamische Kopftücher an staatlichen Schulen häufen sich. Eine Kommission zur Laizität fordert eine klare nationale Regel.",
+      "reality": "Nach der Stasi-Kommission verbot das Gesetz vom 15. März 2004 auffällige religiöse Symbole an öffentlichen Grund- und weiterführenden Schulen.",
+      "choices": [
+        "Auffällige religiöse Symbole gesetzlich verbieten",
+        "Im Einzelfall mit Leitlinien vermitteln",
+        "Jeder Schule selbst überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2004-breaching-the-eu-deficit-rule",
+    "year": 2004,
+    "category": "budget",
+    "shock": null,
+    "title": "Breaching the EU deficit rule",
+    "context": "France has exceeded the 3% deficit limit for two years running. Brussels presses for consolidation while the economy is still weak.",
+    "reality": "France and Germany had the EU excessive deficit procedure held in abeyance in late 2003 and then pushed through a more flexible Stability Pact in March 2005.",
+    "source": "European Commission",
+    "historicalChoice": 1,
+    "choices": [
+      "Keep spending to support the recovery",
+      "Consolidate gradually, seek a looser pact",
+      "Impose sharp spending cuts now"
+    ],
+    "de": {
+      "title": "Verstoß gegen die EU-Defizitregel",
+      "context": "Frankreich hat die Defizitgrenze von 3 % zwei Jahre in Folge überschritten. Brüssel drängt auf Konsolidierung, während die Wirtschaft noch schwach ist.",
+      "reality": "Frankreich und Deutschland erreichten Ende 2003, dass das EU-Defizitverfahren ausgesetzt wurde, und setzten im März 2005 einen flexibleren Stabilitätspakt durch.",
+      "choices": [
+        "Ausgaben zur Stützung der Erholung beibehalten",
+        "Schrittweise sparen, lockereren Pakt anstreben",
+        "Sofort drastische Ausgabenkürzungen durchsetzen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2004-health-insurance-deficit",
+    "year": 2004,
+    "category": "welfare",
+    "shock": null,
+    "title": "Health insurance deficit",
+    "context": "The national health insurance fund is running record deficits. Patients consult specialists freely and spending keeps rising.",
+    "reality": "The Douste-Blazy reform of August 2004 introduced the 'médecin traitant' gatekeeper system and a €1 flat fee per consultation.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Raise contributions to protect coverage",
+      "Introduce a gatekeeper GP and small fees",
+      "Cut reimbursements sharply"
+    ],
+    "de": {
+      "title": "Defizit der Krankenversicherung",
+      "context": "Die gesetzliche Krankenversicherung verzeichnet Rekorddefizite. Patienten gehen frei zu Fachärzten, und die Ausgaben steigen weiter.",
+      "reality": "Die Douste-Blazy-Reform vom August 2004 führte das Hausarztmodell („médecin traitant“) und eine Pauschale von 1 € pro Arztbesuch ein.",
+      "choices": [
+        "Beiträge erhöhen, um die Versorgung zu sichern",
+        "Hausarztmodell und kleine Zuzahlungen einführen",
+        "Erstattungen drastisch kürzen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2004-rescuing-an-industrial-champion",
+    "year": 2004,
+    "category": "economy",
+    "shock": null,
+    "title": "Rescuing an industrial champion",
+    "context": "Engineering group Alstom, maker of high-speed trains and power plants, is close to bankruptcy. Tens of thousands of jobs are at stake.",
+    "reality": "The state took a stake of about 21% in Alstom in 2004 under a rescue cleared by the European Commission, then sold it to Bouygues in 2006.",
+    "source": "European Commission",
+    "historicalChoice": 0,
+    "choices": [
+      "Take a public stake to rescue the group",
+      "Arrange a bank-led rescue with guarantees",
+      "Let the group be broken up and sold"
+    ],
+    "de": {
+      "title": "Rettung eines Industriechampions",
+      "context": "Der Technologiekonzern Alstom, Hersteller von Hochgeschwindigkeitszügen und Kraftwerken, steht kurz vor der Pleite. Zehntausende Arbeitsplätze stehen auf dem Spiel.",
+      "reality": "Der Staat übernahm 2004 im Rahmen einer von der EU-Kommission genehmigten Rettung rund 21 % an Alstom und verkaufte den Anteil 2006 an Bouygues.",
+      "choices": [
+        "Staatsbeteiligung zur Rettung übernehmen",
+        "Bankengeführte Rettung mit Garantien organisieren",
+        "Konzern zerschlagen und verkaufen lassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2005-the-eu-constitutional-treaty",
+    "year": 2005,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "The EU constitutional treaty",
+    "context": "The EU has drafted a constitutional treaty that every member state must ratify. A popular vote would be democratic but risky.",
+    "reality": "Chirac chose a referendum. On 29 May 2005, 54.7% voted 'non', sinking the treaty; its substance later returned in the Lisbon Treaty.",
+    "source": "Conseil constitutionnel",
+    "historicalChoice": 0,
+    "choices": [
+      "Hold a referendum and campaign hard",
+      "Ratify the treaty in parliament",
+      "Postpone ratification indefinitely"
+    ],
+    "de": {
+      "title": "Der EU-Verfassungsvertrag",
+      "context": "Die EU hat einen Verfassungsvertrag ausgearbeitet, den alle Mitgliedstaaten ratifizieren müssen. Eine Volksabstimmung wäre demokratisch, aber riskant.",
+      "reality": "Chirac entschied sich für ein Referendum. Am 29. Mai 2005 stimmten 54,7 % mit „Non“ und brachten den Vertrag zu Fall; sein Inhalt kehrte später im Vertrag von Lissabon zurück.",
+      "choices": [
+        "Referendum abhalten und engagiert werben",
+        "Vertrag im Parlament ratifizieren",
+        "Ratifizierung auf unbestimmte Zeit verschieben"
+      ]
+    }
+  },
+  {
+    "id": "fr-2005-unrest-in-the-banlieues",
+    "year": 2005,
+    "category": "society",
+    "shock": null,
+    "title": "Unrest in the banlieues",
+    "context": "The deaths of two teenagers fleeing police near Paris spark weeks of rioting in suburbs nationwide. Thousands of cars are burned.",
+    "reality": "Riots began on 27 October 2005 in Clichy-sous-Bois. On 8 November the government declared a state of emergency allowing local curfews; it lasted until January 2006.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a massive urban renewal and jobs plan",
+      "Allow local curfews, add targeted aid",
+      "Restore order by policing alone"
+    ],
+    "de": {
+      "title": "Unruhen in den Banlieues",
+      "context": "Der Tod zweier Jugendlicher auf der Flucht vor der Polizei bei Paris löst wochenlange Unruhen in Vorstädten im ganzen Land aus. Tausende Autos brennen.",
+      "reality": "Die Unruhen begannen am 27. Oktober 2005 in Clichy-sous-Bois. Am 8. November rief die Regierung den Ausnahmezustand aus, der lokale Ausgangssperren erlaubte; er galt bis Januar 2006.",
+      "choices": [
+        "Großes Stadterneuerungs- und Jobprogramm finanzieren",
+        "Lokale Ausgangssperren erlauben, gezielt helfen",
+        "Ordnung allein durch Polizei herstellen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2005-hiring-in-small-firms",
+    "year": 2005,
+    "category": "economy",
+    "shock": null,
+    "title": "Hiring in small firms",
+    "context": "Unemployment is near 10%. Small business owners say strict dismissal rules make them afraid to hire.",
+    "reality": "The 'contrat nouvelles embauches' (August 2005) gave firms with up to 20 staff a two-year period to dismiss easily. It was condemned by the ILO and scrapped in 2008.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund subsidised jobs in the public sector",
+      "Create a flexible contract for small firms",
+      "Loosen dismissal rules for all firms"
+    ],
+    "de": {
+      "title": "Einstellungen in Kleinbetrieben",
+      "context": "Die Arbeitslosigkeit liegt bei fast 10 %. Kleinunternehmer sagen, strenge Kündigungsregeln hielten sie von Einstellungen ab.",
+      "reality": "Der „contrat nouvelles embauches“ (August 2005) erlaubte Firmen mit bis zu 20 Beschäftigten zwei Jahre lang leichtere Kündigungen. Die ILO rügte ihn, 2008 wurde er abgeschafft.",
+      "choices": [
+        "Geförderte Stellen im öffentlichen Sektor finanzieren",
+        "Flexiblen Vertrag für Kleinbetriebe schaffen",
+        "Kündigungsschutz für alle Firmen lockern"
+      ]
+    }
+  },
+  {
+    "id": "fr-2005-launching-digital-terrestrial-tv",
+    "year": 2005,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Launching digital terrestrial TV",
+    "context": "Analogue television offers only six channels. Digital terrestrial broadcasting could bring many free channels, but the rollout is costly.",
+    "reality": "Free digital terrestrial TV (TNT) launched on 31 March 2005 under the broadcasting regulator's licensing; analogue was switched off in November 2011.",
+    "source": "Arcom (ex-CSA)",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a fast nationwide public rollout",
+      "License broadcasters for a phased launch",
+      "Leave digital TV to satellite and cable"
+    ],
+    "de": {
+      "title": "Start des digitalen Antennenfernsehens",
+      "context": "Analoges Fernsehen bietet nur sechs Sender. Digitales Antennenfernsehen könnte viele Gratissender bringen, doch der Ausbau ist teuer.",
+      "reality": "Das kostenlose digitale Antennenfernsehen (TNT) startete am 31. März 2005 mit Lizenzen der Rundfunkaufsicht; im November 2011 wurde das analoge Signal abgeschaltet.",
+      "choices": [
+        "Schnellen landesweiten öffentlichen Ausbau finanzieren",
+        "Sender lizenzieren und stufenweise starten",
+        "Digital-TV Satellit und Kabel überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2006-the-youth-job-contract-revolt",
+    "year": 2006,
+    "category": "society",
+    "shock": null,
+    "title": "The youth job contract revolt",
+    "context": "A new contract lets employers dismiss workers under 26 without justification for two years. Students and unions bring millions into the streets.",
+    "reality": "The CPE was passed via 49.3 in early 2006, but after mass protests the government withdrew it on 10 April 2006 and replaced it with youth hiring aid.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 0,
+    "choices": [
+      "Replace it with funded youth hiring aid",
+      "Amend the contract with the unions",
+      "Keep the contract unchanged"
+    ],
+    "de": {
+      "title": "Revolte gegen den Jugendarbeitsvertrag",
+      "context": "Ein neuer Vertrag erlaubt es, unter 26-Jährige zwei Jahre lang ohne Begründung zu entlassen. Studierende und Gewerkschaften bringen Millionen auf die Straße.",
+      "reality": "Der CPE wurde Anfang 2006 per 49.3 durchgesetzt, doch nach Massenprotesten zog die Regierung ihn am 10. April 2006 zurück und ersetzte ihn durch Einstellungshilfen für Junge.",
+      "choices": [
+        "Durch finanzierte Einstellungshilfen ersetzen",
+        "Vertrag mit Gewerkschaften nachbessern",
+        "Vertrag unverändert beibehalten"
+      ]
+    }
+  },
+  {
+    "id": "fr-2006-a-new-generation-reactor",
+    "year": 2006,
+    "category": "energy",
+    "shock": null,
+    "title": "A new-generation reactor",
+    "context": "The nuclear fleet built in the 1970s–80s will age out. The utility proposes a first EPR reactor at Flamanville to keep the industry alive.",
+    "reality": "EDF's board approved the Flamanville EPR in 2006; construction began in 2007. It was connected to the grid only in December 2024, more than a decade late and far over budget.",
+    "source": "Cour des comptes",
+    "historicalChoice": 0,
+    "choices": [
+      "Build the new reactor and back the industry",
+      "Build one prototype, review before more",
+      "Leave new capacity to the market"
+    ],
+    "de": {
+      "title": "Ein Reaktor der neuen Generation",
+      "context": "Der in den 1970er- und 1980er-Jahren gebaute Atompark altert. Der Versorger schlägt einen ersten EPR-Reaktor in Flamanville vor, um die Branche zu erhalten.",
+      "reality": "Der EDF-Vorstand genehmigte 2006 den EPR in Flamanville; Baubeginn war 2007. Erst im Dezember 2024 ging er ans Netz – über ein Jahrzehnt zu spät und weit über Budget.",
+      "choices": [
+        "Neuen Reaktor bauen und die Branche stützen",
+        "Einen Prototyp bauen, danach neu bewerten",
+        "Neue Kapazität dem Markt überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2006-war-in-lebanon",
+    "year": 2006,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "War in Lebanon",
+    "context": "War between Israel and Hezbollah devastates Lebanon. A UN ceasefire needs a strengthened peacekeeping force, and France is expected to lead.",
+    "reality": "France co-drafted UN Resolution 1701 and, after first offering only 200 troops, committed about 2,000 soldiers to the reinforced UNIFIL in August 2006.",
+    "source": "United Nations",
+    "historicalChoice": 0,
+    "choices": [
+      "Lead the UN force with thousands of troops",
+      "Send a limited contingent and engineers",
+      "Offer diplomacy only"
+    ],
+    "de": {
+      "title": "Krieg im Libanon",
+      "context": "Der Krieg zwischen Israel und der Hisbollah verwüstet den Libanon. Eine UN-Waffenruhe braucht eine verstärkte Friedenstruppe, und von Frankreich wird Führung erwartet.",
+      "reality": "Frankreich verfasste die UN-Resolution 1701 mit und sagte im August 2006 – nach einem anfänglichen Angebot von nur 200 Soldaten – rund 2.000 Soldaten für die verstärkte UNIFIL zu.",
+      "choices": [
+        "UN-Truppe mit Tausenden Soldaten führen",
+        "Begrenztes Kontingent und Pioniere entsenden",
+        "Nur diplomatisch tätig werden"
+      ]
+    }
+  },
+  {
+    "id": "fr-2006-copyright-in-the-file-sharing-era",
+    "year": 2006,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Copyright in the file-sharing era",
+    "context": "Millions download music and films via peer-to-peer networks. The film and music industries demand protection; users want legal access.",
+    "reality": "Parliament briefly voted a flat-fee 'global licence' in December 2005 but reversed it; the DADVSI law of August 2006 protected DRM and penalised circumvention.",
+    "source": "Légifrance",
+    "historicalChoice": 1,
+    "choices": [
+      "Create a flat-fee licence for all downloads",
+      "Protect DRM and penalise piracy tools",
+      "Leave enforcement to rights holders"
+    ],
+    "de": {
+      "title": "Urheberrecht im Tauschbörsen-Zeitalter",
+      "context": "Millionen laden Musik und Filme über Peer-to-Peer-Netze herunter. Film- und Musikbranche fordern Schutz, Nutzer wollen legalen Zugang.",
+      "reality": "Das Parlament beschloss im Dezember 2005 kurzzeitig eine Pauschal-„Globallizenz“, nahm sie aber zurück; das DADVSI-Gesetz vom August 2006 schützte DRM und bestrafte Umgehungen.",
+      "choices": [
+        "Pauschallizenz für alle Downloads einführen",
+        "DRM schützen und Piraterie-Tools bestrafen",
+        "Durchsetzung den Rechteinhabern überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2007-special-pension-regimes",
+    "year": 2007,
+    "category": "welfare",
+    "shock": null,
+    "title": "Special pension regimes",
+    "context": "Rail, metro and energy workers can retire earlier than other employees under 'special regimes'. Reform threatens a transport shutdown.",
+    "reality": "In autumn 2007 the government aligned special regimes on 40 contribution years; after weeks of strikes, firm-level talks granted compensations.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund the regimes and keep current rights",
+      "Align gradually, negotiate compensation",
+      "Abolish the regimes outright"
+    ],
+    "de": {
+      "title": "Sonderrentensysteme",
+      "context": "Bahn-, Metro- und Energiebeschäftigte können dank „Sonderregime“ früher in Rente gehen als andere. Eine Reform droht den Verkehr lahmzulegen.",
+      "reality": "Im Herbst 2007 glich die Regierung die Sonderregime auf 40 Beitragsjahre an; nach wochenlangen Streiks brachten Verhandlungen auf Unternehmensebene Ausgleichsleistungen.",
+      "choices": [
+        "Regime finanzieren und Rechte erhalten",
+        "Schrittweise angleichen, Ausgleich verhandeln",
+        "Sonderregime sofort abschaffen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2007-a-package-of-tax-breaks",
+    "year": 2007,
+    "category": "budget",
+    "shock": null,
+    "title": "A package of tax breaks",
+    "context": "The new President promised to 'work more to earn more'. Proposals include tax-free overtime and a cap on total taxes for wealthy households.",
+    "reality": "The TEPA law of August 2007 exempted overtime from income tax and charges, lowered the 'bouclier fiscal' tax cap to 50% and added mortgage interest relief.",
+    "source": "Légifrance",
+    "historicalChoice": 2,
+    "choices": [
+      "Invest the money in public services",
+      "Target relief at low and middle earners",
+      "Cut taxes on overtime and high earners"
+    ],
+    "de": {
+      "title": "Ein Paket von Steuererleichterungen",
+      "context": "Der neue Präsident versprach „mehr arbeiten, um mehr zu verdienen“. Geplant sind steuerfreie Überstunden und eine Obergrenze der Gesamtsteuerlast für Wohlhabende.",
+      "reality": "Das TEPA-Gesetz vom August 2007 stellte Überstunden von Steuern und Abgaben frei, senkte den „bouclier fiscal“ auf 50 % und führte eine Entlastung bei Hypothekenzinsen ein.",
+      "choices": [
+        "Geld in öffentliche Dienste investieren",
+        "Gering- und Mittelverdiener gezielt entlasten",
+        "Steuern auf Überstunden und Spitzenverdiener senken"
+      ]
+    }
+  },
+  {
+    "id": "fr-2007-an-environment-summit-with-all-sides",
+    "year": 2007,
+    "category": "energy",
+    "shock": null,
+    "title": "An environment summit with all sides",
+    "context": "Climate change has become a national concern. Environmental groups, unions, business and local government want a seat at the table.",
+    "reality": "The Grenelle de l'environnement brought all stakeholders together in autumn 2007; its commitments were enacted in the Grenelle I (2009) and II (2010) laws.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Impose a carbon tax and large green investment",
+      "Negotiate a stakeholder pact with phased goals",
+      "Leave decarbonisation to the market"
+    ],
+    "de": {
+      "title": "Ein Umweltgipfel mit allen Beteiligten",
+      "context": "Der Klimawandel ist zum nationalen Thema geworden. Umweltverbände, Gewerkschaften, Wirtschaft und Kommunen wollen mitreden.",
+      "reality": "Der Grenelle de l'environnement brachte im Herbst 2007 alle Akteure zusammen; seine Zusagen wurden in den Gesetzen Grenelle I (2009) und II (2010) umgesetzt.",
+      "choices": [
+        "CO₂-Steuer und große grüne Investitionen einführen",
+        "Pakt mit allen Akteuren und Stufenzielen aushandeln",
+        "Dekarbonisierung dem Markt überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2007-a-new-eu-treaty-after-the-non",
+    "year": 2007,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "A new EU treaty after the 'non'",
+    "context": "EU leaders have agreed a slimmer treaty to replace the rejected constitution. Opponents demand a new referendum.",
+    "reality": "The Lisbon Treaty was signed on 13 December 2007; France ratified it by parliamentary vote in February 2008 after a constitutional revision, without a referendum.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Hold a new referendum and campaign",
+      "Ratify the treaty through parliament",
+      "Refuse further EU integration"
+    ],
+    "de": {
+      "title": "Ein neuer EU-Vertrag nach dem „Non“",
+      "context": "Die EU-Spitzen haben einen schlankeren Vertrag als Ersatz für die abgelehnte Verfassung vereinbart. Gegner fordern ein neues Referendum.",
+      "reality": "Der Vertrag von Lissabon wurde am 13. Dezember 2007 unterzeichnet; Frankreich ratifizierte ihn im Februar 2008 nach einer Verfassungsänderung per Parlamentsbeschluss, ohne Referendum.",
+      "choices": [
+        "Neues Referendum abhalten und werben",
+        "Vertrag über das Parlament ratifizieren",
+        "Weitere EU-Integration ablehnen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2008-global-financial-crisis",
+    "year": 2008,
+    "category": "economy",
+    "shock": "financial",
+    "title": "Global financial crisis",
+    "context": "After the collapse of Lehman Brothers, interbank lending freezes. French banks face funding stress and the economy heads into recession.",
+    "reality": "In October 2008 France set up a €360bn plan (€320bn in refinancing guarantees, €40bn for recapitalisation), helped rescue Dexia and launched a €26bn stimulus.",
+    "source": "Ministère de l'Économie",
+    "historicalChoice": 0,
+    "choices": [
+      "Guarantee and recapitalise banks, add stimulus",
+      "Support only banks at risk, with conditions",
+      "Let markets clear without state aid"
+    ],
+    "de": {
+      "title": "Globale Finanzkrise",
+      "context": "Nach dem Zusammenbruch von Lehman Brothers friert der Interbankenmarkt ein. Französische Banken geraten in Finanzierungsnot, die Wirtschaft rutscht in die Rezession.",
+      "reality": "Im Oktober 2008 legte Frankreich einen 360-Mrd.-€-Plan auf (320 Mrd. € Refinanzierungsgarantien, 40 Mrd. € Rekapitalisierung), rettete Dexia mit und startete ein Konjunkturpaket über 26 Mrd. €.",
+      "choices": [
+        "Banken garantieren, rekapitalisieren, Konjunktur stützen",
+        "Nur gefährdete Banken mit Auflagen stützen",
+        "Märkte ohne Staatshilfe bereinigen lassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2008-replacing-minimum-income",
+    "year": 2008,
+    "category": "welfare",
+    "shock": null,
+    "title": "Replacing minimum income",
+    "context": "Recipients of the minimum income (RMI) can lose money by taking a low-paid job. A new benefit would top up earnings for the working poor.",
+    "reality": "The RSA (revenu de solidarité active) was enacted in December 2008 and generalised in June 2009, funded by a new 1.1% levy on capital income.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 0,
+    "choices": [
+      "Create a top-up benefit funded by a capital levy",
+      "Extend local pilots before deciding",
+      "Keep the current minimum income"
+    ],
+    "de": {
+      "title": "Reform der Mindestsicherung",
+      "context": "Empfänger der Mindestsicherung (RMI) können Geld verlieren, wenn sie einen Niedriglohnjob annehmen. Eine neue Leistung soll Einkommen von Erwerbsarmen aufstocken.",
+      "reality": "Das RSA (revenu de solidarité active) wurde im Dezember 2008 beschlossen und im Juni 2009 landesweit eingeführt, finanziert durch eine neue Abgabe von 1,1 % auf Kapitalerträge.",
+      "choices": [
+        "Aufstockung über eine Kapitalabgabe finanzieren",
+        "Lokale Pilotprojekte ausweiten",
+        "Bisherige Mindestsicherung beibehalten"
+      ]
+    }
+  },
+  {
+    "id": "fr-2008-war-in-georgia",
+    "year": 2008,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "War in Georgia",
+    "context": "Russian forces push deep into Georgia. France holds the EU Council presidency and must decide how far Europe should get involved.",
+    "reality": "Nicolas Sarkozy, for the EU presidency, negotiated a six-point ceasefire plan in August 2008 and an EU monitoring mission was deployed.",
+    "source": "Council of the EU",
+    "historicalChoice": 1,
+    "choices": [
+      "Push sanctions and military aid to Georgia",
+      "Broker a ceasefire with an EU mission",
+      "Leave the crisis to Washington"
+    ],
+    "de": {
+      "title": "Krieg in Georgien",
+      "context": "Russische Truppen dringen tief nach Georgien vor. Frankreich hat den EU-Ratsvorsitz und muss entscheiden, wie stark sich Europa einmischt.",
+      "reality": "Nicolas Sarkozy handelte im August 2008 für die EU-Ratspräsidentschaft einen Sechs-Punkte-Waffenstillstand aus; eine EU-Beobachtermission wurde entsandt.",
+      "choices": [
+        "Sanktionen und Militärhilfe für Georgien",
+        "Waffenruhe mit EU-Mission vermitteln",
+        "Krise Washington überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2008-rebalancing-the-constitution",
+    "year": 2008,
+    "category": "society",
+    "shock": null,
+    "title": "Rebalancing the constitution",
+    "context": "Critics say Parliament is too weak under the Fifth Republic. A reform could limit presidential terms and give MPs more control of the agenda.",
+    "reality": "The constitutional revision of 21 July 2008 passed Congress by a single vote (539 vs 538 needed): two-term limit, limits on 49.3, citizen constitutional challenges (QPC).",
+    "source": "Conseil constitutionnel",
+    "historicalChoice": 0,
+    "choices": [
+      "Shift real power to Parliament",
+      "Make limited technical amendments",
+      "Keep the constitution unchanged"
+    ],
+    "de": {
+      "title": "Neuordnung der Verfassung",
+      "context": "Kritiker halten das Parlament der Fünften Republik für zu schwach. Eine Reform könnte Amtszeiten begrenzen und Abgeordneten mehr Kontrolle über die Tagesordnung geben.",
+      "reality": "Die Verfassungsrevision vom 21. Juli 2008 passierte den Kongress mit einer Stimme Mehrheit (539 bei 538 nötigen): Amtszeitbegrenzung, Einschränkung des 49.3, Verfassungsbeschwerde (QPC).",
+      "choices": [
+        "Echte Macht zum Parlament verlagern",
+        "Begrenzte technische Änderungen vornehmen",
+        "Verfassung unverändert lassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2009-swine-flu-vaccines",
+    "year": 2009,
+    "category": "welfare",
+    "shock": null,
+    "title": "Swine flu vaccines",
+    "context": "A new H1N1 influenza is spreading worldwide. Laboratories offer vaccines, but supplies are scarce and the severity of the virus is uncertain.",
+    "reality": "France ordered 94 million doses and ran a mass campaign, but only around 5–6 million people were vaccinated; about 50 million doses were cancelled in 2010.",
+    "source": "Sénat",
+    "historicalChoice": 0,
+    "choices": [
+      "Buy vaccines for the whole population",
+      "Order for risk groups, expand if needed",
+      "Rely on normal flu protocols"
+    ],
+    "de": {
+      "title": "Impfstoffe gegen die Schweinegrippe",
+      "context": "Eine neue H1N1-Grippe breitet sich weltweit aus. Hersteller bieten Impfstoffe an, doch die Mengen sind knapp und die Gefährlichkeit unklar.",
+      "reality": "Frankreich bestellte 94 Millionen Dosen und startete eine Massenkampagne, doch nur etwa 5–6 Millionen Menschen ließen sich impfen; rund 50 Millionen Dosen wurden 2010 storniert.",
+      "choices": [
+        "Impfstoff für die ganze Bevölkerung kaufen",
+        "Für Risikogruppen bestellen, bei Bedarf aufstocken",
+        "Auf normale Grippeprotokolle setzen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2009-rejoining-natos-command",
+    "year": 2009,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Rejoining NATO's command",
+    "context": "Since 1966 France has stayed out of NATO's integrated military command. Rejoining would bring influence but critics fear lost independence.",
+    "reality": "Sarkozy announced France's return to NATO's integrated command in March 2009; it took effect at the Strasbourg-Kehl summit in April, while keeping its nuclear deterrent independent.",
+    "source": "NATO",
+    "historicalChoice": 0,
+    "choices": [
+      "Rejoin the integrated command fully",
+      "Deepen cooperation case by case",
+      "Stay outside the command structure"
+    ],
+    "de": {
+      "title": "Rückkehr in die NATO-Kommandostruktur",
+      "context": "Seit 1966 steht Frankreich außerhalb der integrierten Militärstruktur der NATO. Eine Rückkehr brächte Einfluss, Kritiker fürchten um die Unabhängigkeit.",
+      "reality": "Sarkozy kündigte im März 2009 die Rückkehr in die integrierte NATO-Kommandostruktur an; sie wurde beim Gipfel Straßburg-Kehl im April vollzogen, die Atomstreitmacht blieb unabhängig.",
+      "choices": [
+        "Vollständig in die Kommandostruktur zurückkehren",
+        "Kooperation fallweise vertiefen",
+        "Außerhalb der Kommandostruktur bleiben"
+      ]
+    }
+  },
+  {
+    "id": "fr-2009-graduated-response-to-piracy",
+    "year": 2009,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Graduated response to piracy",
+    "context": "Illegal downloading is still widespread. A new authority could warn file-sharers and ultimately cut off their internet access.",
+    "reality": "The HADOPI law (June 2009) set up warnings; the Conseil constitutionnel struck down disconnection by an administrative body, so HADOPI 2 (October 2009) required a judge.",
+    "source": "Conseil constitutionnel",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund legal platforms and public enforcement",
+      "Create a warning system with judicial sanctions",
+      "Leave it to private lawsuits"
+    ],
+    "de": {
+      "title": "Abgestufte Antwort auf Piraterie",
+      "context": "Illegale Downloads sind weiter verbreitet. Eine neue Behörde könnte Nutzer verwarnen und ihnen am Ende den Internetzugang sperren.",
+      "reality": "Das HADOPI-Gesetz (Juni 2009) führte Verwarnungen ein; der Conseil constitutionnel kippte Sperren durch eine Behörde, daher verlangte HADOPI 2 (Oktober 2009) einen Richter.",
+      "choices": [
+        "Legale Plattformen und staatliche Durchsetzung finanzieren",
+        "Warnsystem mit gerichtlichen Sanktionen schaffen",
+        "Privaten Klagen überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2009-a-carbon-tax",
+    "year": 2009,
+    "category": "energy",
+    "shock": null,
+    "title": "A carbon tax",
+    "context": "Climate commitments require cutting fossil fuel use. A tax on CO₂ emissions would raise fuel and heating prices for households.",
+    "reality": "A carbon tax of €17 per tonne was announced in 2009, but the Conseil constitutionnel struck it down on 29 December over exemptions; it was abandoned in March 2010.",
+    "source": "Conseil constitutionnel",
+    "historicalChoice": 0,
+    "choices": [
+      "Introduce a carbon tax with rebates",
+      "Start with a low rate and many exemptions",
+      "Drop the carbon tax plan"
+    ],
+    "de": {
+      "title": "Eine CO₂-Steuer",
+      "context": "Klimaziele verlangen weniger fossile Energie. Eine Steuer auf CO₂-Emissionen würde Kraftstoff und Heizung für Haushalte verteuern.",
+      "reality": "2009 wurde eine CO₂-Steuer von 17 € je Tonne angekündigt, doch der Conseil constitutionnel kippte sie am 29. Dezember wegen Ausnahmen; im März 2010 wurde sie aufgegeben.",
+      "choices": [
+        "CO₂-Steuer mit Rückerstattungen einführen",
+        "Mit niedrigem Satz und vielen Ausnahmen starten",
+        "Pläne für eine CO₂-Steuer fallen lassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2010-raising-the-retirement-age-to-62",
+    "year": 2010,
+    "category": "welfare",
+    "shock": null,
+    "title": "Raising the retirement age to 62",
+    "context": "The pension system's deficit has widened sharply after the recession. The legal retirement age of 60 is among the lowest in Europe.",
+    "reality": "The Woerth law of November 2010 raised the legal age from 60 to 62 and the full-pension age from 65 to 67, despite months of strikes and fuel shortages.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund pensions with new taxes on capital",
+      "Raise the age gradually to 62",
+      "Cut pensions and boost private schemes"
+    ],
+    "de": {
+      "title": "Rente mit 62",
+      "context": "Das Defizit der Rentenkassen ist nach der Rezession stark gewachsen. Das gesetzliche Rentenalter von 60 gehört zu den niedrigsten in Europa.",
+      "reality": "Das Woerth-Gesetz vom November 2010 hob das gesetzliche Rentenalter von 60 auf 62 und das Alter für die volle Rente von 65 auf 67 an – trotz monatelanger Streiks und Treibstoffknappheit.",
+      "choices": [
+        "Renten über neue Kapitalsteuern finanzieren",
+        "Rentenalter schrittweise auf 62 anheben",
+        "Renten kürzen, private Vorsorge stärken"
+      ]
+    }
+  },
+  {
+    "id": "fr-2010-a-big-loan-for-the-future",
+    "year": 2010,
+    "category": "economy",
+    "shock": null,
+    "title": "A big loan for the future",
+    "context": "Experts propose borrowing tens of billions to invest in universities, research and innovation, despite already high public debt.",
+    "reality": "A €35bn 'Investissements d'avenir' programme was launched in 2010, following the Juppé–Rocard commission, to fund research, universities and innovation.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 0,
+    "choices": [
+      "Borrow €35bn for research and innovation",
+      "Fund a smaller, targeted programme",
+      "Leave innovation to private investors"
+    ],
+    "de": {
+      "title": "Eine große Anleihe für die Zukunft",
+      "context": "Experten schlagen vor, Dutzende Milliarden für Hochschulen, Forschung und Innovation zu leihen – trotz bereits hoher Staatsschulden.",
+      "reality": "Nach der Juppé-Rocard-Kommission startete 2010 das Programm „Investissements d'avenir“ über 35 Mrd. € für Forschung, Hochschulen und Innovation.",
+      "choices": [
+        "35 Mrd. € für Forschung und Innovation leihen",
+        "Kleineres, gezieltes Programm finanzieren",
+        "Innovation privaten Investoren überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2010-scrapping-the-local-business-tax",
+    "year": 2010,
+    "category": "budget",
+    "shock": null,
+    "title": "Scrapping the local business tax",
+    "context": "Firms complain that the local business tax hits their investment in equipment. Local governments depend on it for revenue.",
+    "reality": "The 2010 finance law abolished the taxe professionnelle and replaced it with the CET (property-based CFE and value-added-based CVAE), cutting the burden on firms.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 2,
+    "choices": [
+      "Keep the tax and fund local investment",
+      "Reform the tax base gradually",
+      "Abolish the business tax on equipment"
+    ],
+    "de": {
+      "title": "Abschaffung der Gewerbesteuer",
+      "context": "Unternehmen klagen, die lokale Gewerbesteuer belaste ihre Investitionen in Anlagen. Die Kommunen sind auf die Einnahmen angewiesen.",
+      "reality": "Das Haushaltsgesetz 2010 schaffte die taxe professionnelle ab und ersetzte sie durch die CET (CFE auf Immobilien, CVAE auf Wertschöpfung), was Unternehmen entlastete.",
+      "choices": [
+        "Steuer behalten und lokale Investitionen finanzieren",
+        "Bemessungsgrundlage schrittweise reformieren",
+        "Gewerbesteuer auf Anlagen abschaffen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2010-rescuing-greece",
+    "year": 2010,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Rescuing Greece",
+    "context": "Greece can no longer borrow on markets. French banks are heavily exposed. Without help, the crisis could spread across the eurozone.",
+    "reality": "In May 2010 eurozone states and the IMF agreed a €110bn loan package for Greece and created the €440bn EFSF rescue fund; France was a key supporter.",
+    "source": "European Commission",
+    "historicalChoice": 0,
+    "choices": [
+      "Fund a large eurozone rescue mechanism",
+      "Lend bilaterally with strict conditions",
+      "Refuse to bail out Greece"
+    ],
+    "de": {
+      "title": "Rettung Griechenlands",
+      "context": "Griechenland kann sich nicht mehr am Markt finanzieren. Französische Banken sind stark engagiert. Ohne Hilfe könnte die Krise die Eurozone erfassen.",
+      "reality": "Im Mai 2010 vereinbarten Euroländer und IWF ein Kreditpaket über 110 Mrd. € für Griechenland und schufen den Rettungsfonds EFSF über 440 Mrd. €; Frankreich unterstützte dies maßgeblich.",
+      "choices": [
+        "Großen Euro-Rettungsmechanismus finanzieren",
+        "Bilateral mit strengen Auflagen leihen",
+        "Rettung Griechenlands ablehnen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2011-uprising-in-libya",
+    "year": 2011,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Uprising in Libya",
+    "context": "Libya's regime threatens to crush the rebel city of Benghazi. The UN authorises protection of civilians. Who will act first?",
+    "reality": "After UN Resolution 1973, French jets carried out the first strikes on 19 March 2011; France and the UK then played leading roles in the NATO campaign.",
+    "source": "Ministère des Armées",
+    "historicalChoice": 0,
+    "choices": [
+      "Lead air strikes to protect civilians",
+      "Support a no-fly zone in a secondary role",
+      "Stay out of the conflict"
+    ],
+    "de": {
+      "title": "Aufstand in Libyen",
+      "context": "Libyens Regime droht, die Rebellenstadt Bengasi niederzuschlagen. Die UNO erlaubt den Schutz der Zivilbevölkerung. Wer handelt zuerst?",
+      "reality": "Nach der UN-Resolution 1973 flogen französische Jets am 19. März 2011 die ersten Angriffe; Frankreich und Großbritannien spielten danach führende Rollen im NATO-Einsatz.",
+      "choices": [
+        "Luftangriffe zum Schutz von Zivilisten anführen",
+        "Flugverbotszone in Nebenrolle unterstützen",
+        "Sich aus dem Konflikt heraushalten"
+      ]
+    }
+  },
+  {
+    "id": "fr-2011-after-fukushima",
+    "year": 2011,
+    "category": "energy",
+    "shock": null,
+    "title": "After Fukushima",
+    "context": "The Fukushima disaster in Japan raises fears about nuclear power. France relies on nuclear for about three-quarters of its electricity.",
+    "reality": "The government ordered complementary safety assessments of all nuclear plants by the regulator ASN, leading to a 'hardened core' of post-Fukushima upgrades.",
+    "source": "ASN",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a rapid shift to renewables",
+      "Order stress tests and safety upgrades",
+      "Keep the fleet running as is"
+    ],
+    "de": {
+      "title": "Nach Fukushima",
+      "context": "Die Katastrophe von Fukushima in Japan schürt Ängste vor Atomkraft. Frankreich bezieht rund drei Viertel seines Stroms aus Kernenergie.",
+      "reality": "Die Regierung ließ alle Kernkraftwerke von der Aufsicht ASN zusätzlich überprüfen; daraus folgte ein „harter Kern“ von Nachrüstungen nach Fukushima.",
+      "choices": [
+        "Schnellen Umstieg auf Erneuerbare finanzieren",
+        "Stresstests und Sicherheitsnachrüstungen anordnen",
+        "Atompark unverändert weiterbetreiben"
+      ]
+    }
+  },
+  {
+    "id": "fr-2011-defending-the-triple-a-rating",
+    "year": 2011,
+    "category": "budget",
+    "shock": null,
+    "title": "Defending the triple-A rating",
+    "context": "The euro debt crisis spreads to Italy and Spain. Markets watch France's deficit, and agencies warn its top credit rating is at risk.",
+    "reality": "The Fillon government adopted two austerity plans (August and November 2011), raising the reduced VAT rate to 7% and adding a high-income surtax; S&P still downgraded France in January 2012.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Protect spending, accept a downgrade risk",
+      "Mix spending cuts with temporary taxes",
+      "Make deep spending cuts only"
+    ],
+    "de": {
+      "title": "Kampf um das Triple-A",
+      "context": "Die Euro-Schuldenkrise erfasst Italien und Spanien. Märkte beobachten Frankreichs Defizit, Ratingagenturen warnen vor dem Verlust der Bestnote.",
+      "reality": "Die Regierung Fillon beschloss zwei Sparpläne (August und November 2011), erhöhte den ermäßigten Mehrwertsteuersatz auf 7 % und führte eine Sonderabgabe auf hohe Einkommen ein; S&P stufte Frankreich im Januar 2012 dennoch herab.",
+      "choices": [
+        "Ausgaben schützen, Herabstufung riskieren",
+        "Kürzungen mit befristeten Steuern kombinieren",
+        "Nur tiefe Ausgabenkürzungen vornehmen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2011-banning-full-face-veils",
+    "year": 2011,
+    "category": "society",
+    "shock": null,
+    "title": "Banning full-face veils",
+    "context": "A law banning face coverings in public spaces takes effect. Police must decide how to enforce it, and critics warn of stigmatisation.",
+    "reality": "The ban on concealing the face in public (law of October 2010) took effect on 11 April 2011; the European Court of Human Rights upheld it in 2014.",
+    "source": "Légifrance",
+    "historicalChoice": 0,
+    "choices": [
+      "Enforce the ban with fines and civic courses",
+      "Apply it softly with mediation",
+      "Leave it largely unenforced"
+    ],
+    "de": {
+      "title": "Verbot der Vollverschleierung",
+      "context": "Ein Gesetz gegen Gesichtsverhüllung im öffentlichen Raum tritt in Kraft. Die Polizei muss die Umsetzung regeln, Kritiker warnen vor Stigmatisierung.",
+      "reality": "Das Verbot der Gesichtsverhüllung in der Öffentlichkeit (Gesetz vom Oktober 2010) trat am 11. April 2011 in Kraft; der Europäische Gerichtshof für Menschenrechte bestätigte es 2014.",
+      "choices": [
+        "Verbot mit Bußgeldern und Bürgerkursen durchsetzen",
+        "Behutsam mit Vermittlung anwenden",
+        "Weitgehend nicht durchsetzen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2012-the-european-fiscal-compact",
+    "year": 2012,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "The European fiscal compact",
+    "context": "EU partners want France to ratify a treaty enforcing balanced budgets. The new President promised to renegotiate it.",
+    "reality": "François Hollande obtained a €120bn EU growth pact in June 2012 but did not change the treaty; Parliament ratified the fiscal compact (TSCG) in October 2012.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Demand a full renegotiation and growth fund",
+      "Ratify, adding a growth pact",
+      "Refuse to ratify the treaty"
+    ],
+    "de": {
+      "title": "Der europäische Fiskalpakt",
+      "context": "Die EU-Partner wollen, dass Frankreich einen Vertrag über ausgeglichene Haushalte ratifiziert. Der neue Präsident hatte Nachverhandlungen versprochen.",
+      "reality": "François Hollande erreichte im Juni 2012 einen EU-Wachstumspakt über 120 Mrd. €, änderte den Vertrag aber nicht; das Parlament ratifizierte den Fiskalpakt (TSCG) im Oktober 2012.",
+      "choices": [
+        "Volle Nachverhandlung und Wachstumsfonds fordern",
+        "Ratifizieren und Wachstumspakt ergänzen",
+        "Ratifizierung verweigern"
+      ]
+    }
+  },
+  {
+    "id": "fr-2012-a-75-top-tax-rate",
+    "year": 2012,
+    "category": "budget",
+    "shock": null,
+    "title": "A 75% top tax rate",
+    "context": "The President pledged a 75% tax on incomes above €1 million. Supporters call it fairness; critics warn of an exodus of talent and capital.",
+    "reality": "The Conseil constitutionnel struck down the 75% tax in December 2012; it was replaced by a levy paid by companies on salaries above €1m for 2013–2014 only.",
+    "source": "Conseil constitutionnel",
+    "historicalChoice": 0,
+    "choices": [
+      "Impose a 75% rate on top incomes",
+      "Raise top rates moderately",
+      "Keep top tax rates unchanged"
+    ],
+    "de": {
+      "title": "Ein Spitzensteuersatz von 75 %",
+      "context": "Der Präsident versprach eine Steuer von 75 % auf Einkommen über 1 Million Euro. Befürworter sprechen von Gerechtigkeit, Kritiker warnen vor Abwanderung von Talenten und Kapital.",
+      "reality": "Der Conseil constitutionnel kippte die 75-%-Steuer im Dezember 2012; ersetzt wurde sie durch eine von Unternehmen gezahlte Abgabe auf Gehälter über 1 Mio. €, nur für 2013–2014.",
+      "choices": [
+        "75 % auf Spitzeneinkommen erheben",
+        "Spitzensätze moderat anheben",
+        "Spitzensteuersätze unverändert lassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2012-attacks-in-toulouse-and-montauban",
+    "year": 2012,
+    "category": "security",
+    "shock": null,
+    "title": "Attacks in Toulouse and Montauban",
+    "context": "A gunman kills soldiers and then children and a teacher at a Jewish school. He had been known to intelligence services.",
+    "reality": "Mohamed Merah killed seven people in March 2012. A law of December 2012 extended anti-terror powers, including prosecuting French nationals for terror training abroad.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Overhaul and expand intelligence services",
+      "Pass targeted anti-terror amendments",
+      "Rely on existing laws"
+    ],
+    "de": {
+      "title": "Anschläge in Toulouse und Montauban",
+      "context": "Ein Attentäter tötet Soldaten und danach Kinder und einen Lehrer an einer jüdischen Schule. Er war den Geheimdiensten bekannt.",
+      "reality": "Mohamed Merah tötete im März 2012 sieben Menschen. Ein Gesetz vom Dezember 2012 erweiterte die Antiterrorbefugnisse, u. a. zur Verfolgung von Terrorausbildung im Ausland.",
+      "choices": [
+        "Geheimdienste umbauen und ausbauen",
+        "Gezielte Antiterror-Änderungen beschließen",
+        "Auf bestehende Gesetze vertrauen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2012-car-plant-closure",
+    "year": 2012,
+    "category": "economy",
+    "shock": null,
+    "title": "Car plant closure",
+    "context": "A major carmaker announces it will close its plant at Aulnay-sous-Bois and cut 8,000 jobs. Its finance arm also needs support.",
+    "reality": "PSA closed Aulnay; the state guaranteed €7bn of PSA's bank debt in 2012 and in 2014 took a 14% stake alongside China's Dongfeng.",
+    "source": "Ministère de l'Économie",
+    "historicalChoice": 1,
+    "choices": [
+      "Nationalise or block the closure",
+      "Back a rescue with guarantees and conditions",
+      "Let the company restructure alone"
+    ],
+    "de": {
+      "title": "Schließung eines Autowerks",
+      "context": "Ein großer Autobauer kündigt an, sein Werk in Aulnay-sous-Bois zu schließen und 8.000 Stellen zu streichen. Auch seine Finanzsparte braucht Hilfe.",
+      "reality": "PSA schloss Aulnay; der Staat garantierte 2012 Bankschulden von PSA über 7 Mrd. € und übernahm 2014 zusammen mit dem chinesischen Dongfeng einen Anteil von 14 %.",
+      "choices": [
+        "Verstaatlichen oder Schließung blockieren",
+        "Rettung mit Garantien und Auflagen stützen",
+        "Unternehmen allein umstrukturieren lassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2013-jihadists-advance-in-mali",
+    "year": 2013,
+    "category": "security",
+    "shock": null,
+    "title": "Jihadists advance in Mali",
+    "context": "Armed jihadist groups are driving south toward Mali's capital. Mali's government asks France for immediate military help.",
+    "reality": "France launched Opération Serval on 11 January 2013, halting the offensive and retaking northern cities within weeks.",
+    "source": "Ministère des Armées",
+    "historicalChoice": 0,
+    "choices": [
+      "Intervene militarily at once",
+      "Support African forces with logistics",
+      "Leave it to the UN and the region"
+    ],
+    "de": {
+      "title": "Dschihadisten rücken in Mali vor",
+      "context": "Bewaffnete dschihadistische Gruppen dringen nach Süden in Richtung Malis Hauptstadt vor. Malis Regierung bittet Frankreich um sofortige Militärhilfe.",
+      "reality": "Frankreich startete am 11. Januar 2013 die Opération Serval, stoppte die Offensive und eroberte binnen Wochen die Städte im Norden zurück.",
+      "choices": [
+        "Sofort militärisch eingreifen",
+        "Afrikanische Truppen logistisch unterstützen",
+        "Der UNO und der Region überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2013-marriage-for-same-sex-couples",
+    "year": 2013,
+    "category": "society",
+    "shock": null,
+    "title": "Marriage for same-sex couples",
+    "context": "The government wants to open marriage and adoption to same-sex couples. Huge protest marches oppose the bill.",
+    "reality": "The Taubira law of 17 May 2013 opened marriage and adoption to same-sex couples, despite mass 'Manif pour tous' demonstrations.",
+    "source": "Légifrance",
+    "historicalChoice": 0,
+    "choices": [
+      "Legalise marriage and adoption for all",
+      "Strengthen civil unions instead",
+      "Keep the current law"
+    ],
+    "de": {
+      "title": "Ehe für gleichgeschlechtliche Paare",
+      "context": "Die Regierung will Ehe und Adoption für gleichgeschlechtliche Paare öffnen. Riesige Protestmärsche richten sich gegen das Gesetz.",
+      "reality": "Das Taubira-Gesetz vom 17. Mai 2013 öffnete Ehe und Adoption für gleichgeschlechtliche Paare – trotz massiver Demonstrationen der „Manif pour tous“.",
+      "choices": [
+        "Ehe und Adoption für alle ermöglichen",
+        "Stattdessen eingetragene Partnerschaft stärken",
+        "Bisherige Rechtslage beibehalten"
+      ]
+    }
+  },
+  {
+    "id": "fr-2013-the-heavy-goods-ecotax",
+    "year": 2013,
+    "category": "energy",
+    "shock": null,
+    "title": "The heavy-goods ecotax",
+    "context": "A planned eco-tax on lorries is due to start. In Brittany, 'red caps' protesters wreck the toll gantries that would collect it.",
+    "reality": "The ecotax was suspended in October 2013 after the Bonnets rouges protests and abandoned in 2014; ending the contract with operator Ecomouv cost the state about €1bn.",
+    "source": "Cour des comptes",
+    "historicalChoice": 1,
+    "choices": [
+      "Enforce the ecotax on schedule",
+      "Suspend it and renegotiate",
+      "Scrap the ecotax"
+    ],
+    "de": {
+      "title": "Die Lkw-Ökosteuer",
+      "context": "Eine geplante Ökosteuer für Lkw soll starten. In der Bretagne zerstören Demonstranten mit roten Mützen die Mautportale, die sie erheben sollen.",
+      "reality": "Die Ökosteuer wurde im Oktober 2013 nach den Bonnets-rouges-Protesten ausgesetzt und 2014 aufgegeben; die Vertragsauflösung mit dem Betreiber Ecomouv kostete den Staat rund 1 Mrd. €.",
+      "choices": [
+        "Ökosteuer planmäßig durchsetzen",
+        "Aussetzen und neu verhandeln",
+        "Ökosteuer streichen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2013-balancing-pensions-again",
+    "year": 2013,
+    "category": "welfare",
+    "shock": null,
+    "title": "Balancing pensions again",
+    "context": "The pension system remains in deficit despite the 2010 reform. Unions reject a higher retirement age.",
+    "reality": "The Touraine reform (law of January 2014) raised the required contribution period gradually to 43 years by 2035 and slightly increased contributions.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Raise contributions to close the gap",
+      "Lengthen contribution periods gradually",
+      "Freeze pensions to save money"
+    ],
+    "de": {
+      "title": "Erneut Renten ausgleichen",
+      "context": "Das Rentensystem bleibt trotz der Reform von 2010 defizitär. Die Gewerkschaften lehnen ein höheres Rentenalter ab.",
+      "reality": "Die Touraine-Reform (Gesetz vom Januar 2014) verlängerte die nötige Beitragsdauer schrittweise auf 43 Jahre bis 2035 und erhöhte die Beiträge leicht.",
+      "choices": [
+        "Beiträge erhöhen, um die Lücke zu schließen",
+        "Beitragsdauer schrittweise verlängern",
+        "Renten einfrieren, um zu sparen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2014-a-pact-with-business",
+    "year": 2014,
+    "category": "economy",
+    "shock": null,
+    "title": "A pact with business",
+    "context": "Unemployment keeps rising and firms say labour costs are too high. The President offers relief in exchange for hiring commitments.",
+    "reality": "The 'Pacte de responsabilité' (2014) built on the CICE tax credit to cut business charges and taxes by about €40bn by 2017; hiring pledges largely went unmet.",
+    "source": "France Stratégie",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a large public investment plan",
+      "Cut business charges for hiring pledges",
+      "Cut corporate taxes with no strings"
+    ],
+    "de": {
+      "title": "Ein Pakt mit der Wirtschaft",
+      "context": "Die Arbeitslosigkeit steigt weiter, und Firmen halten die Lohnkosten für zu hoch. Der Präsident bietet Entlastung gegen Einstellungszusagen.",
+      "reality": "Der „Pacte de responsabilité“ (2014) baute auf der Steuergutschrift CICE auf und senkte Abgaben und Steuern der Firmen bis 2017 um rund 40 Mrd. €; Einstellungszusagen blieben weitgehend aus.",
+      "choices": [
+        "Großes öffentliches Investitionsprogramm finanzieren",
+        "Abgaben gegen Einstellungszusagen senken",
+        "Unternehmensteuern ohne Auflagen senken"
+      ]
+    }
+  },
+  {
+    "id": "fr-2014-an-energy-transition-law",
+    "year": 2014,
+    "category": "energy",
+    "shock": null,
+    "title": "An energy transition law",
+    "context": "France depends on nuclear power for about three-quarters of its electricity. A new law could cap nuclear and boost renewables.",
+    "reality": "The energy transition law, debated from 2014 and adopted in August 2015, set a goal of cutting nuclear's share to 50% by 2025 and capped capacity at 63.2 GW.",
+    "source": "Légifrance",
+    "historicalChoice": 1,
+    "choices": [
+      "Rapidly replace reactors with renewables",
+      "Cap nuclear and phase in renewables",
+      "Keep nuclear and let markets decide"
+    ],
+    "de": {
+      "title": "Ein Gesetz zur Energiewende",
+      "context": "Frankreich bezieht rund drei Viertel seines Stroms aus Atomkraft. Ein neues Gesetz könnte die Kernkraft deckeln und Erneuerbare fördern.",
+      "reality": "Das Energiewendegesetz, ab 2014 beraten und im August 2015 verabschiedet, sah einen Atomanteil von 50 % bis 2025 vor und deckelte die Kapazität auf 63,2 GW.",
+      "choices": [
+        "Reaktoren rasch durch Erneuerbare ersetzen",
+        "Atomkraft deckeln, Erneuerbare stufenweise",
+        "Atomkraft behalten, Markt entscheiden lassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2014-warships-for-russia",
+    "year": 2014,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Warships for Russia",
+    "context": "France is building two Mistral helicopter carriers for Russia. After Crimea's annexation and war in eastern Ukraine, allies object to delivery.",
+    "reality": "Delivery was suspended in November 2014; in August 2015 France cancelled the contract, reimbursed Russia and later sold the ships to Egypt.",
+    "source": "Ministère des Armées",
+    "historicalChoice": 1,
+    "choices": [
+      "Cancel the deal and repay Russia",
+      "Suspend delivery pending a ceasefire",
+      "Deliver the ships as contracted"
+    ],
+    "de": {
+      "title": "Kriegsschiffe für Russland",
+      "context": "Frankreich baut zwei Hubschrauberträger der Mistral-Klasse für Russland. Nach der Krim-Annexion und dem Krieg in der Ostukraine protestieren die Verbündeten.",
+      "reality": "Die Lieferung wurde im November 2014 ausgesetzt; im August 2015 kündigte Frankreich den Vertrag, erstattete Russland die Zahlungen und verkaufte die Schiffe später an Ägypten.",
+      "choices": [
+        "Vertrag kündigen und Russland entschädigen",
+        "Lieferung bis zu einer Waffenruhe aussetzen",
+        "Schiffe vertragsgemäß liefern"
+      ]
+    }
+  },
+  {
+    "id": "fr-2014-redrawing-the-regional-map",
+    "year": 2014,
+    "category": "society",
+    "shock": null,
+    "title": "Redrawing the regional map",
+    "context": "France has 22 mainland regions, many considered too small. Merging them could save money, but local identities are at stake.",
+    "reality": "A law adopted in late 2014 (promulgated January 2015) cut mainland regions from 22 to 13 from 2016; the promised savings proved modest.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Merge regions and fund new powers",
+      "Merge regions by negotiated map",
+      "Keep the current regional map"
+    ],
+    "de": {
+      "title": "Neue Landkarte der Regionen",
+      "context": "Frankreich hat 22 Regionen auf dem Festland, viele gelten als zu klein. Fusionen könnten sparen, doch regionale Identitäten stehen auf dem Spiel.",
+      "reality": "Ein Ende 2014 beschlossenes Gesetz (verkündet im Januar 2015) reduzierte die Festlandregionen ab 2016 von 22 auf 13; die versprochenen Einsparungen fielen gering aus.",
+      "choices": [
+        "Regionen fusionieren und neue Kompetenzen finanzieren",
+        "Regionen nach ausgehandelter Karte fusionieren",
+        "Bisherige Regionalkarte beibehalten"
+      ]
+    }
+  },
+  {
+    "id": "fr-2015-the-13-november-attacks",
+    "year": 2015,
+    "category": "security",
+    "shock": "terror",
+    "title": "The 13 November attacks",
+    "context": "Coordinated jihadist attacks strike a concert hall, café terraces and the national stadium in and around Paris. The country is in shock.",
+    "reality": "The attacks killed 130 people. François Hollande declared a state of emergency that was extended until November 2017 and stepped up strikes on Islamic State.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 0,
+    "choices": [
+      "Declare a state of emergency, expand forces",
+      "Reinforce police within ordinary law",
+      "Avoid exceptional measures"
+    ],
+    "de": {
+      "title": "Die Anschläge vom 13. November",
+      "context": "Koordinierte dschihadistische Anschläge treffen einen Konzertsaal, Café-Terrassen und das Nationalstadion in und um Paris. Das Land steht unter Schock.",
+      "reality": "Die Anschläge töteten 130 Menschen. François Hollande rief den Ausnahmezustand aus, der bis November 2017 verlängert wurde, und verstärkte die Angriffe auf den Islamischen Staat.",
+      "choices": [
+        "Ausnahmezustand ausrufen, Kräfte aufstocken",
+        "Polizei im normalen Rechtsrahmen verstärken",
+        "Auf Ausnahmemaßnahmen verzichten"
+      ]
+    }
+  },
+  {
+    "id": "fr-2015-surveillance-after-the-january-attacks",
+    "year": 2015,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Surveillance after the January attacks",
+    "context": "After the attacks on Charlie Hebdo and a kosher supermarket, intelligence services ask for new digital surveillance powers.",
+    "reality": "The intelligence law of July 2015 legalised broad surveillance techniques, including algorithmic 'black boxes' at internet providers, despite privacy criticism.",
+    "source": "Légifrance",
+    "historicalChoice": 0,
+    "choices": [
+      "Grant broad powers incl. algorithmic scanning",
+      "Allow targeted surveillance with oversight",
+      "Keep current surveillance rules"
+    ],
+    "de": {
+      "title": "Überwachung nach den Januar-Anschlägen",
+      "context": "Nach den Anschlägen auf Charlie Hebdo und einen koscheren Supermarkt fordern die Geheimdienste neue digitale Überwachungsbefugnisse.",
+      "reality": "Das Geheimdienstgesetz vom Juli 2015 legalisierte weitreichende Überwachungstechniken, darunter algorithmische „Black Boxes“ bei Internetanbietern – trotz Datenschutzkritik.",
+      "choices": [
+        "Weite Befugnisse inkl. Algorithmen-Scans gewähren",
+        "Gezielte Überwachung mit Kontrolle erlauben",
+        "Bisherige Überwachungsregeln beibehalten"
+      ]
+    }
+  },
+  {
+    "id": "fr-2015-hosting-the-climate-summit",
+    "year": 2015,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Hosting the climate summit",
+    "context": "Paris hosts the UN climate conference. After the failure of Copenhagen in 2009, the host's diplomacy could make or break a global deal.",
+    "reality": "Under Laurent Fabius's presidency, COP21 adopted the Paris Agreement on 12 December 2015, aiming to keep warming well below 2°C.",
+    "source": "UNFCCC",
+    "historicalChoice": 0,
+    "choices": [
+      "Invest heavily in diplomacy and climate finance",
+      "Seek a modest deal with flexible pledges",
+      "Host the talks without taking the lead"
+    ],
+    "de": {
+      "title": "Gastgeber des Klimagipfels",
+      "context": "Paris richtet die UN-Klimakonferenz aus. Nach dem Scheitern von Kopenhagen 2009 könnte die Diplomatie des Gastgebers über ein globales Abkommen entscheiden.",
+      "reality": "Unter dem Vorsitz von Laurent Fabius verabschiedete die COP21 am 12. Dezember 2015 das Pariser Abkommen mit dem Ziel, die Erwärmung deutlich unter 2 °C zu halten.",
+      "choices": [
+        "Stark in Diplomatie und Klimafinanzierung investieren",
+        "Bescheidenes Abkommen mit flexiblen Zusagen",
+        "Gipfel ausrichten, ohne zu führen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2015-opening-up-the-economy",
+    "year": 2015,
+    "category": "economy",
+    "shock": null,
+    "title": "Opening up the economy",
+    "context": "Growth is weak. A reform bill would extend Sunday shopping, open intercity coach travel and deregulate some professions.",
+    "reality": "The 'loi Macron' of August 2015 liberalised Sunday trading and long-distance coaches; the government had to force it through with 49.3.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Pair reform with a public investment push",
+      "Pass a targeted liberalisation package",
+      "Deregulate broadly across sectors"
+    ],
+    "de": {
+      "title": "Öffnung der Wirtschaft",
+      "context": "Das Wachstum ist schwach. Ein Reformgesetz soll Sonntagsöffnungen ausweiten, Fernbusse zulassen und einige Berufe deregulieren.",
+      "reality": "Die „Loi Macron“ vom August 2015 liberalisierte Sonntagsöffnungen und Fernbusse; die Regierung musste sie per 49.3 durchsetzen.",
+      "choices": [
+        "Reform mit öffentlichen Investitionen verbinden",
+        "Gezieltes Liberalisierungspaket beschließen",
+        "Breit über alle Branchen deregulieren"
+      ]
+    }
+  },
+  {
+    "id": "fr-2016-a-contested-labour-law",
+    "year": 2016,
+    "category": "economy",
+    "shock": null,
+    "title": "A contested labour law",
+    "context": "A labour reform would let company-level deals override sector rules. Students and unions protest for months; 'Nuit debout' occupies squares.",
+    "reality": "The El Khomri law, softened after protests, was passed using 49.3 and promulgated in August 2016.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Expand worker protections and training rights",
+      "Pass a softened flexibility reform",
+      "Drop the reform"
+    ],
+    "de": {
+      "title": "Ein umstrittenes Arbeitsgesetz",
+      "context": "Eine Arbeitsmarktreform soll Betriebsvereinbarungen Vorrang vor Branchenregeln geben. Studierende und Gewerkschaften protestieren monatelang, „Nuit debout“ besetzt Plätze.",
+      "reality": "Das nach Protesten abgeschwächte El-Khomri-Gesetz wurde per 49.3 durchgesetzt und im August 2016 verkündet.",
+      "choices": [
+        "Arbeitnehmerschutz und Weiterbildung ausbauen",
+        "Abgeschwächte Flexibilisierung beschließen",
+        "Reform fallen lassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2016-attack-on-the-promenade-des-anglais",
+    "year": 2016,
+    "category": "security",
+    "shock": "terror",
+    "title": "Attack on the Promenade des Anglais",
+    "context": "On Bastille Day, a lorry is driven into a crowd in Nice. The country has been under a state of emergency since November.",
+    "reality": "The Nice attack of 14 July 2016 killed 86 people. Parliament extended the state of emergency by six months and a National Guard of reservists was created.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 0,
+    "choices": [
+      "Extend emergency rule and mobilise reservists",
+      "Bolster local event security",
+      "End emergency rule as planned"
+    ],
+    "de": {
+      "title": "Anschlag auf der Promenade des Anglais",
+      "context": "Am Nationalfeiertag rast ein Lkw in Nizza in eine Menschenmenge. Das Land steht seit November unter Ausnahmezustand.",
+      "reality": "Der Anschlag von Nizza am 14. Juli 2016 tötete 86 Menschen. Das Parlament verlängerte den Ausnahmezustand um sechs Monate, und eine Nationalgarde aus Reservisten wurde geschaffen.",
+      "choices": [
+        "Ausnahmezustand verlängern, Reservisten mobilisieren",
+        "Sicherheit bei Veranstaltungen verstärken",
+        "Ausnahmezustand wie geplant beenden"
+      ]
+    }
+  },
+  {
+    "id": "fr-2016-a-law-for-a-digital-republic",
+    "year": 2016,
+    "category": "digitalization",
+    "shock": null,
+    "title": "A law for a digital republic",
+    "context": "The government wants rules for open data, net neutrality and online rights, and lets citizens comment on the draft online.",
+    "reality": "The 'Loi pour une République numérique' of October 2016 enshrined open data by default, net neutrality and data portability after a public online consultation.",
+    "source": "Légifrance",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a state digital-services platform",
+      "Pass open-data and net-neutrality rules",
+      "Leave digital rules to the EU"
+    ],
+    "de": {
+      "title": "Ein Gesetz für eine digitale Republik",
+      "context": "Die Regierung will Regeln für offene Daten, Netzneutralität und Online-Rechte schaffen und lässt Bürger den Entwurf online kommentieren.",
+      "reality": "Das Gesetz „pour une République numérique“ vom Oktober 2016 verankerte Open Data als Standard, Netzneutralität und Datenportabilität – nach einer öffentlichen Online-Konsultation.",
+      "choices": [
+        "Staatliche Plattform für digitale Dienste finanzieren",
+        "Open-Data- und Netzneutralitätsregeln beschließen",
+        "Digitalregeln der EU überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2016-the-calais-jungle",
+    "year": 2016,
+    "category": "society",
+    "shock": null,
+    "title": "The Calais 'Jungle'",
+    "context": "Thousands of migrants hoping to reach Britain live in a sprawling camp at Calais. Conditions are dire and local tension is high.",
+    "reality": "The camp was dismantled from 24 October 2016; several thousand people were moved to reception and orientation centres (CAO) across France.",
+    "source": "Ministère de l'Intérieur",
+    "historicalChoice": 0,
+    "choices": [
+      "Clear the camp and fund reception centres",
+      "Improve conditions and process claims on site",
+      "Leave it to Britain and local authorities"
+    ],
+    "de": {
+      "title": "Der „Dschungel“ von Calais",
+      "context": "Tausende Migranten, die nach Großbritannien wollen, leben in einem ausgedehnten Lager in Calais. Die Zustände sind katastrophal, die Spannungen vor Ort groß.",
+      "reality": "Das Lager wurde ab dem 24. Oktober 2016 geräumt; mehrere Tausend Menschen kamen in Aufnahme- und Orientierungszentren (CAO) in ganz Frankreich.",
+      "choices": [
+        "Lager räumen und Aufnahmezentren finanzieren",
+        "Bedingungen verbessern, Anträge vor Ort prüfen",
+        "Großbritannien und Kommunen überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2017-labour-reform-by-ordinance",
+    "year": 2017,
+    "category": "economy",
+    "shock": null,
+    "title": "Labour reform by ordinance",
+    "context": "The new President wants to loosen labour rules quickly, without a long parliamentary battle or a summer of protest.",
+    "reality": "After talks with unions, the September 2017 ordinances capped damages for unfair dismissal and merged staff representation bodies.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Pair reform with a major training investment",
+      "Reform by ordinance after union talks",
+      "Fully deregulate dismissal rules"
+    ],
+    "de": {
+      "title": "Arbeitsmarktreform per Verordnung",
+      "context": "Der neue Präsident will das Arbeitsrecht rasch lockern – ohne langen Parlamentskampf oder einen Protestsommer.",
+      "reality": "Nach Gesprächen mit den Gewerkschaften deckelten die Verordnungen vom September 2017 Abfindungen bei unrechtmäßiger Kündigung und legten Arbeitnehmervertretungen zusammen.",
+      "choices": [
+        "Reform mit großer Weiterbildungsoffensive koppeln",
+        "Nach Gewerkschaftsgesprächen per Verordnung reformieren",
+        "Kündigungsregeln vollständig deregulieren"
+      ]
+    }
+  },
+  {
+    "id": "fr-2017-reforming-the-wealth-tax",
+    "year": 2017,
+    "category": "budget",
+    "shock": null,
+    "title": "Reforming the wealth tax",
+    "context": "The government argues the wealth tax drives capital abroad. Opponents call scrapping it a gift to the rich.",
+    "reality": "From 2018 the ISF was replaced by a real-estate wealth tax (IFI) and a 30% flat tax on capital income, earning Macron the label 'president of the rich'.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 2,
+    "choices": [
+      "Keep the wealth tax and fund services",
+      "Lower rates but keep the tax base",
+      "Replace it with a property-only wealth tax"
+    ],
+    "de": {
+      "title": "Reform der Vermögensteuer",
+      "context": "Die Regierung argumentiert, die Vermögensteuer treibe Kapital ins Ausland. Gegner nennen ihre Abschaffung ein Geschenk an die Reichen.",
+      "reality": "Ab 2018 wurde die ISF durch eine Immobilienvermögensteuer (IFI) und eine Pauschalsteuer von 30 % auf Kapitalerträge ersetzt – Macron brachte das den Ruf „Präsident der Reichen“ ein.",
+      "choices": [
+        "Vermögensteuer behalten, Leistungen finanzieren",
+        "Sätze senken, Bemessungsgrundlage behalten",
+        "Durch reine Immobilienvermögensteuer ersetzen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2017-ending-oil-and-gas-extraction",
+    "year": 2017,
+    "category": "energy",
+    "shock": null,
+    "title": "Ending oil and gas extraction",
+    "context": "France produces little oil and gas, but new exploration permits are pending. The environment minister wants a symbolic national ban.",
+    "reality": "The Hulot law of December 2017 banned new hydrocarbon exploration permits and set an end to oil and gas production in France by 2040.",
+    "source": "Légifrance",
+    "historicalChoice": 0,
+    "choices": [
+      "Ban new exploration and end output by 2040",
+      "Phase out permits case by case",
+      "Keep issuing permits"
+    ],
+    "de": {
+      "title": "Ausstieg aus Öl- und Gasförderung",
+      "context": "Frankreich fördert kaum Öl und Gas, doch neue Explorationsgenehmigungen stehen an. Der Umweltminister will ein symbolisches nationales Verbot.",
+      "reality": "Das Hulot-Gesetz vom Dezember 2017 verbot neue Explorationsgenehmigungen und beendet die Öl- und Gasförderung in Frankreich bis 2040.",
+      "choices": [
+        "Neue Exploration verbieten, Förderung bis 2040 beenden",
+        "Genehmigungen fallweise auslaufen lassen",
+        "Weiter Genehmigungen erteilen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2017-leaving-the-state-of-emergency",
+    "year": 2017,
+    "category": "security",
+    "shock": null,
+    "title": "Leaving the state of emergency",
+    "context": "The state of emergency has lasted almost two years. Ending it may weaken counter-terrorism; keeping it erodes civil liberties.",
+    "reality": "The SILT law of 30 October 2017 transferred several emergency powers into ordinary law, and the state of emergency ended on 1 November 2017.",
+    "source": "Légifrance",
+    "historicalChoice": 1,
+    "choices": [
+      "Extend emergency rule indefinitely",
+      "Move key powers into ordinary law",
+      "End emergency rule without new powers"
+    ],
+    "de": {
+      "title": "Ausstieg aus dem Ausnahmezustand",
+      "context": "Der Ausnahmezustand dauert fast zwei Jahre. Ihn zu beenden könnte den Antiterrorkampf schwächen, ihn zu verlängern höhlt Freiheitsrechte aus.",
+      "reality": "Das SILT-Gesetz vom 30. Oktober 2017 überführte mehrere Notstandsbefugnisse ins normale Recht; der Ausnahmezustand endete am 1. November 2017.",
+      "choices": [
+        "Ausnahmezustand unbefristet verlängern",
+        "Zentrale Befugnisse ins normale Recht überführen",
+        "Ausnahmezustand ohne neue Befugnisse beenden"
+      ]
+    }
+  },
+  {
+    "id": "fr-2018-the-yellow-vests",
+    "year": 2018,
+    "category": "budget",
+    "shock": null,
+    "title": "The yellow vests",
+    "context": "A planned rise in fuel taxes sparks weekly protests in yellow high-visibility vests, roundabout occupations and riots in Paris.",
+    "reality": "The government cancelled the 2019 carbon tax rise in December 2018 and Macron announced about €10bn in measures, including a €100 boost to low wages via the prime d'activité.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 0,
+    "choices": [
+      "Fund a €10bn purchasing-power package",
+      "Delay the hike and add targeted aid",
+      "Scrap the fuel tax increase only"
+    ],
+    "de": {
+      "title": "Die Gelbwesten",
+      "context": "Eine geplante Erhöhung der Kraftstoffsteuern löst wöchentliche Proteste in gelben Warnwesten, Kreisverkehrsbesetzungen und Krawalle in Paris aus.",
+      "reality": "Die Regierung strich im Dezember 2018 die CO₂-Steuererhöhung für 2019, und Macron kündigte Maßnahmen von rund 10 Mrd. € an, darunter 100 € mehr für Geringverdiener über die prime d'activité.",
+      "choices": [
+        "Kaufkraftpaket über 10 Mrd. € finanzieren",
+        "Erhöhung verschieben, gezielt helfen",
+        "Nur die Kraftstoffsteuererhöhung streichen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2018-reforming-the-national-railway",
+    "year": 2018,
+    "category": "economy",
+    "shock": null,
+    "title": "Reforming the national railway",
+    "context": "The state rail company is heavily indebted and must open to competition under EU rules. Rail unions defend the workers' special status.",
+    "reality": "The 2018 rail reform ended the 'cheminot' status for new hires from 2020 and the state took over €35bn of SNCF debt, despite months of rolling strikes.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Absorb the debt and invest without reform",
+      "Take on debt, end status for new hires",
+      "Open to competition with no state aid"
+    ],
+    "de": {
+      "title": "Reform der Staatsbahn",
+      "context": "Die Staatsbahn ist hoch verschuldet und muss sich nach EU-Recht dem Wettbewerb öffnen. Die Bahngewerkschaften verteidigen den Sonderstatus der Beschäftigten.",
+      "reality": "Die Bahnreform 2018 beendete den Eisenbahnerstatus für Neueinstellungen ab 2020, und der Staat übernahm 35 Mrd. € SNCF-Schulden – trotz monatelanger Streiks.",
+      "choices": [
+        "Schulden übernehmen, ohne Reform investieren",
+        "Schulden übernehmen, Status für Neue beenden",
+        "Wettbewerb ohne Staatshilfe öffnen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2018-a-plan-against-poverty",
+    "year": 2018,
+    "category": "welfare",
+    "shock": null,
+    "title": "A plan against poverty",
+    "context": "Around 9 million people live below the poverty line, including many children. Charities call for action on early childhood and youth.",
+    "reality": "The national anti-poverty strategy of September 2018 committed €8.5bn over four years, including breakfasts in schools and training obligations for 16–18-year-olds.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Raise minimum benefits substantially",
+      "Fund targeted child and youth measures",
+      "Focus on job growth instead"
+    ],
+    "de": {
+      "title": "Ein Plan gegen Armut",
+      "context": "Rund 9 Millionen Menschen leben unter der Armutsgrenze, darunter viele Kinder. Hilfsorganisationen fordern Maßnahmen für frühe Kindheit und Jugend.",
+      "reality": "Die nationale Strategie gegen Armut vom September 2018 sah 8,5 Mrd. € über vier Jahre vor, darunter Schulfrühstück und eine Ausbildungspflicht für 16- bis 18-Jährige.",
+      "choices": [
+        "Mindestleistungen deutlich anheben",
+        "Gezielte Maßnahmen für Kinder und Jugend finanzieren",
+        "Stattdessen auf Jobwachstum setzen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2018-chemical-attack-in-syria",
+    "year": 2018,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Chemical attack in Syria",
+    "context": "A suspected chemical attack on Douma kills dozens. The President had declared chemical weapons use a red line.",
+    "reality": "On 14 April 2018 France, the US and the UK struck Syrian chemical weapons sites.",
+    "source": "Ministère des Armées",
+    "historicalChoice": 0,
+    "choices": [
+      "Strike chemical sites with allies",
+      "Push UN sanctions and an inquiry",
+      "Condemn without action"
+    ],
+    "de": {
+      "title": "Chemiewaffenangriff in Syrien",
+      "context": "Ein mutmaßlicher Chemiewaffenangriff auf Duma tötet Dutzende Menschen. Der Präsident hatte den Einsatz von Chemiewaffen zur roten Linie erklärt.",
+      "reality": "Am 14. April 2018 griffen Frankreich, die USA und Großbritannien syrische Chemiewaffenanlagen an.",
+      "choices": [
+        "Chemieanlagen mit Verbündeten angreifen",
+        "UN-Sanktionen und Untersuchung fordern",
+        "Verurteilen, ohne zu handeln"
+      ]
+    }
+  },
+  {
+    "id": "fr-2019-a-universal-points-based-pension",
+    "year": 2019,
+    "category": "welfare",
+    "shock": null,
+    "title": "A universal points-based pension",
+    "context": "The government wants to merge 42 pension schemes into one points system. Transport workers launch an open-ended strike in December.",
+    "reality": "Strikes from 5 December 2019 paralysed transport. The government exempted older cohorts, used 49.3 in February 2020, then suspended the reform due to COVID.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Create a fully funded universal system",
+      "Phase it in, exempt older workers",
+      "Shelve the reform"
+    ],
+    "de": {
+      "title": "Ein universelles Punkterentensystem",
+      "context": "Die Regierung will 42 Rentensysteme zu einem Punktesystem verschmelzen. Beschäftigte im Verkehr beginnen im Dezember einen unbefristeten Streik.",
+      "reality": "Streiks ab dem 5. Dezember 2019 legten den Verkehr lahm. Die Regierung nahm ältere Jahrgänge aus, nutzte im Februar 2020 den 49.3 und setzte die Reform wegen COVID aus.",
+      "choices": [
+        "Vollfinanziertes Universalsystem schaffen",
+        "Stufenweise einführen, Ältere ausnehmen",
+        "Reform auf Eis legen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2019-notre-dame-on-fire",
+    "year": 2019,
+    "category": "society",
+    "shock": "disaster",
+    "title": "Notre-Dame on fire",
+    "context": "Fire destroys the roof and spire of Notre-Dame de Paris. Pledges pour in from donors; the President promises a swift rebuild.",
+    "reality": "A special law of July 2019 organised the restoration funded by about €846m in donations; the cathedral reopened on 7 December 2024.",
+    "source": "Établissement public Rebâtir Notre-Dame",
+    "historicalChoice": 0,
+    "choices": [
+      "Lead a state-run rebuild within five years",
+      "Restore gradually with donors and experts",
+      "Leave restoration to the Church and donors"
+    ],
+    "de": {
+      "title": "Notre-Dame in Flammen",
+      "context": "Ein Brand zerstört Dach und Spitzturm von Notre-Dame de Paris. Spendenzusagen strömen herein, der Präsident verspricht einen schnellen Wiederaufbau.",
+      "reality": "Ein Sondergesetz vom Juli 2019 regelte die mit rund 846 Mio. € Spenden finanzierte Restaurierung; die Kathedrale wurde am 7. Dezember 2024 wiedereröffnet.",
+      "choices": [
+        "Staatlich geführter Wiederaufbau in fünf Jahren",
+        "Schrittweise mit Spendern und Experten restaurieren",
+        "Restaurierung Kirche und Spendern überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2019-taxing-the-tech-giants",
+    "year": 2019,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Taxing the tech giants",
+    "context": "Large digital platforms pay little tax in France. An OECD deal is slow, and Washington threatens retaliation against national taxes.",
+    "reality": "France adopted a 3% digital services tax on large platforms' French revenues in July 2019; the US threatened tariffs, and France kept the tax pending an OECD deal.",
+    "source": "Légifrance",
+    "historicalChoice": 0,
+    "choices": [
+      "Impose a national 3% digital tax",
+      "Wait for an OECD agreement",
+      "Leave platform taxation unchanged"
+    ],
+    "de": {
+      "title": "Besteuerung der Tech-Giganten",
+      "context": "Große Digitalplattformen zahlen in Frankreich kaum Steuern. Eine OECD-Lösung lässt auf sich warten, Washington droht bei nationalen Steuern mit Vergeltung.",
+      "reality": "Frankreich führte im Juli 2019 eine Digitalsteuer von 3 % auf die französischen Umsätze großer Plattformen ein; die USA drohten mit Zöllen, Frankreich hielt bis zu einer OECD-Einigung daran fest.",
+      "choices": [
+        "Nationale Digitalsteuer von 3 % einführen",
+        "Auf eine OECD-Einigung warten",
+        "Besteuerung der Plattformen unverändert lassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2019-rethinking-the-nuclear-target",
+    "year": 2019,
+    "category": "energy",
+    "shock": null,
+    "title": "Rethinking the nuclear target",
+    "context": "Cutting nuclear power to 50% by 2025 now looks unrealistic without more fossil fuels. Climate goals point the other way.",
+    "reality": "The energy-climate law of November 2019 pushed the 50% nuclear target back to 2035, set carbon neutrality for 2050 and planned the closure of coal plants.",
+    "source": "Légifrance",
+    "historicalChoice": 1,
+    "choices": [
+      "Close reactors fast and fund renewables",
+      "Delay the nuclear cap, close coal",
+      "Drop the nuclear reduction goal"
+    ],
+    "de": {
+      "title": "Neubewertung des Atomziels",
+      "context": "Den Atomanteil bis 2025 auf 50 % zu senken, gilt ohne mehr fossile Energie als unrealistisch. Die Klimaziele sprechen dagegen.",
+      "reality": "Das Energie-Klima-Gesetz vom November 2019 verschob das 50-%-Atomziel auf 2035, legte Klimaneutralität bis 2050 fest und plante die Schließung der Kohlekraftwerke.",
+      "choices": [
+        "Reaktoren rasch schließen, Erneuerbare fördern",
+        "Atomdeckel verschieben, Kohle beenden",
+        "Ziel der Atomreduktion aufgeben"
+      ]
+    }
+  },
+  {
+    "id": "fr-2020-covid-19-reaches-france",
+    "year": 2020,
+    "category": "welfare",
+    "shock": "pandemic",
+    "title": "COVID-19 reaches France",
+    "context": "A new coronavirus spreads rapidly and hospitals in the east and around Paris are overwhelmed. Masks and tests are scarce.",
+    "reality": "France imposed a strict nationwide lockdown from 17 March 2020, followed by further lockdowns in autumn 2020 and spring 2021.",
+    "source": "Santé publique France",
+    "historicalChoice": 0,
+    "choices": [
+      "Impose a strict national lockdown",
+      "Use targeted local restrictions",
+      "Rely on voluntary distancing"
+    ],
+    "de": {
+      "title": "COVID-19 erreicht Frankreich",
+      "context": "Ein neues Coronavirus breitet sich rasant aus, Kliniken im Osten und um Paris sind überlastet. Masken und Tests sind knapp.",
+      "reality": "Frankreich verhängte ab dem 17. März 2020 einen strengen landesweiten Lockdown, gefolgt von weiteren im Herbst 2020 und Frühjahr 2021.",
+      "choices": [
+        "Strengen landesweiten Lockdown verhängen",
+        "Gezielte lokale Beschränkungen nutzen",
+        "Auf freiwilligen Abstand setzen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2020-whatever-it-costs",
+    "year": 2020,
+    "category": "economy",
+    "shock": null,
+    "title": "\"Whatever it costs\"",
+    "context": "The lockdown is freezing the economy. Firms face collapse and millions of jobs are at risk.",
+    "reality": "Macron promised support 'quoi qu'il en coûte'. Massive short-time work schemes and up to €300bn in state-guaranteed loans (PGE) kept firms afloat.",
+    "source": "Ministère de l'Économie",
+    "historicalChoice": 0,
+    "choices": [
+      "Fund short-time work and guaranteed loans",
+      "Target aid at the hardest-hit sectors",
+      "Limit aid to protect public finances"
+    ],
+    "de": {
+      "title": "„Koste es, was es wolle“",
+      "context": "Der Lockdown legt die Wirtschaft lahm. Firmen droht der Zusammenbruch, Millionen Arbeitsplätze sind gefährdet.",
+      "reality": "Macron versprach Hilfe „quoi qu'il en coûte“. Massive Kurzarbeit und staatlich garantierte Kredite (PGE) von bis zu 300 Mrd. € hielten Unternehmen über Wasser.",
+      "choices": [
+        "Kurzarbeit und Staatsgarantien finanzieren",
+        "Hilfen auf die härtesten Branchen bündeln",
+        "Hilfen begrenzen, Staatsfinanzen schützen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2020-a-100bn-recovery-plan",
+    "year": 2020,
+    "category": "budget",
+    "shock": null,
+    "title": "A €100bn recovery plan",
+    "context": "The economy shrank sharply in 2020. A recovery plan could combine green investment, industry support and tax relief, adding to the debt.",
+    "reality": "France Relance (September 2020) allocated €100bn, including green investment and a €10bn-a-year cut in production taxes, partly funded by the EU recovery fund.",
+    "source": "Ministère de l'Économie",
+    "historicalChoice": 0,
+    "choices": [
+      "Launch a €100bn green and industrial plan",
+      "Fund a smaller targeted plan",
+      "Cut production taxes only"
+    ],
+    "de": {
+      "title": "Ein Konjunkturplan über 100 Mrd. €",
+      "context": "Die Wirtschaft ist 2020 stark geschrumpft. Ein Wiederaufbauplan könnte grüne Investitionen, Industriehilfen und Steuersenkungen bündeln – und die Schulden erhöhen.",
+      "reality": "France Relance (September 2020) umfasste 100 Mrd. €, darunter grüne Investitionen und eine Senkung der Produktionssteuern um 10 Mrd. € pro Jahr, teils aus dem EU-Wiederaufbaufonds.",
+      "choices": [
+        "Grünen Industrieplan über 100 Mrd. € starten",
+        "Kleineren, gezielten Plan finanzieren",
+        "Nur Produktionssteuern senken"
+      ]
+    }
+  },
+  {
+    "id": "fr-2020-murder-of-a-teacher",
+    "year": 2020,
+    "category": "security",
+    "shock": null,
+    "title": "Murder of a teacher",
+    "context": "A teacher who showed caricatures in a class on free speech is beheaded near his school. The government targets Islamist 'separatism'.",
+    "reality": "After Samuel Paty's murder in October 2020, several associations were dissolved and the law 'reinforcing respect for the principles of the Republic' passed in August 2021.",
+    "source": "Légifrance",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a vast security and schools programme",
+      "Pass a targeted law against separatism",
+      "Rely on existing laws"
+    ],
+    "de": {
+      "title": "Ermordung eines Lehrers",
+      "context": "Ein Lehrer, der im Unterricht über Meinungsfreiheit Karikaturen gezeigt hatte, wird nahe seiner Schule enthauptet. Die Regierung nimmt islamistischen „Separatismus“ ins Visier.",
+      "reality": "Nach dem Mord an Samuel Paty im Oktober 2020 wurden mehrere Vereine aufgelöst, und im August 2021 trat das Gesetz „zur Stärkung der Prinzipien der Republik“ in Kraft.",
+      "choices": [
+        "Großes Sicherheits- und Schulprogramm finanzieren",
+        "Gezieltes Gesetz gegen Separatismus beschließen",
+        "Auf bestehende Gesetze vertrauen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2021-the-submarine-snub",
+    "year": 2021,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "The submarine snub",
+    "context": "Australia cancels a multibillion-euro French submarine contract in favour of a secret pact with the US and UK. Paris was not informed.",
+    "reality": "France recalled its ambassadors to the US and Australia in September 2021, a first with Washington; Australia later paid €555m in compensation.",
+    "source": "Ministère de l'Europe et des Affaires étrangères",
+    "historicalChoice": 0,
+    "choices": [
+      "Recall ambassadors and push EU autonomy",
+      "Protest and seek compensation",
+      "Accept it quietly"
+    ],
+    "de": {
+      "title": "Der U-Boot-Affront",
+      "context": "Australien kündigt einen milliardenschweren französischen U-Boot-Auftrag zugunsten eines Geheimpakts mit den USA und Großbritannien. Paris war nicht informiert.",
+      "reality": "Frankreich rief im September 2021 seine Botschafter aus den USA und Australien zurück – gegenüber Washington ein Novum; Australien zahlte später 555 Mio. € Entschädigung.",
+      "choices": [
+        "Botschafter zurückrufen, EU-Autonomie stärken",
+        "Protestieren und Entschädigung fordern",
+        "Still hinnehmen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2021-the-health-pass",
+    "year": 2021,
+    "category": "welfare",
+    "shock": null,
+    "title": "The health pass",
+    "context": "Vaccines are available, but uptake is stalling as a new variant spreads. Making vaccination compulsory would be contested.",
+    "reality": "Macron announced a health pass in July 2021 for restaurants, trains and venues, plus compulsory vaccination for health workers; vaccinations surged.",
+    "source": "Santé publique France",
+    "historicalChoice": 1,
+    "choices": [
+      "Make vaccination mandatory for all",
+      "Require a health pass for public venues",
+      "Leave vaccination to personal choice"
+    ],
+    "de": {
+      "title": "Der Gesundheitspass",
+      "context": "Impfstoffe sind verfügbar, doch die Impfquote stagniert, während sich eine neue Variante ausbreitet. Eine Impfpflicht wäre umstritten.",
+      "reality": "Macron kündigte im Juli 2021 einen Gesundheitspass für Restaurants, Züge und Veranstaltungen sowie eine Impfpflicht für Gesundheitspersonal an; die Impfungen stiegen stark an.",
+      "choices": [
+        "Allgemeine Impfpflicht einführen",
+        "Gesundheitspass für öffentliche Orte verlangen",
+        "Impfung der persönlichen Wahl überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2021-proposals-from-a-citizens-climate-assembly",
+    "year": 2021,
+    "category": "energy",
+    "shock": null,
+    "title": "Proposals from a citizens' climate assembly",
+    "context": "A randomly selected citizens' convention has proposed 149 climate measures. The President had promised to pass them on 'without filter'.",
+    "reality": "The Climate and Resilience law of August 2021 adopted part of the proposals (e.g. limits on short domestic flights, rental ban on badly insulated homes); many were diluted.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Adopt the proposals in full with funding",
+      "Adopt a selection, phased in",
+      "Shelve the proposals"
+    ],
+    "de": {
+      "title": "Vorschläge eines Bürgerklimarats",
+      "context": "Ein ausgeloster Bürgerkonvent hat 149 Klimamaßnahmen vorgeschlagen. Der Präsident hatte versprochen, sie „ohne Filter“ weiterzugeben.",
+      "reality": "Das Klima- und Resilienzgesetz vom August 2021 übernahm einen Teil der Vorschläge (z. B. Grenzen für Inlandskurzflüge, Vermietungsverbot schlecht gedämmter Wohnungen); vieles wurde abgeschwächt.",
+      "choices": [
+        "Vorschläge vollständig und finanziert umsetzen",
+        "Auswahl stufenweise umsetzen",
+        "Vorschläge zurückstellen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2021-an-investment-plan-for-2030",
+    "year": 2021,
+    "category": "economy",
+    "shock": null,
+    "title": "An investment plan for 2030",
+    "context": "Supply-chain shortages during COVID exposed dependence on imports. The President wants to reindustrialise in key technologies.",
+    "reality": "The France 2030 plan, presented in October 2021 with €30bn (later raised to €54bn), funds small reactors, green hydrogen, electric vehicles and semiconductors.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 0,
+    "choices": [
+      "Fund a large state-led industrial plan",
+      "Co-finance selected projects with firms",
+      "Leave industry to market forces"
+    ],
+    "de": {
+      "title": "Ein Investitionsplan für 2030",
+      "context": "Lieferengpässe während COVID zeigten die Abhängigkeit von Importen. Der Präsident will Schlüsseltechnologien reindustrialisieren.",
+      "reality": "Der im Oktober 2021 vorgestellte Plan France 2030 mit 30 Mrd. € (später 54 Mrd. €) fördert kleine Reaktoren, grünen Wasserstoff, E-Autos und Halbleiter.",
+      "choices": [
+        "Großen staatlichen Industrieplan finanzieren",
+        "Ausgewählte Projekte mit Firmen kofinanzieren",
+        "Industrie den Marktkräften überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2022-russia-invades-ukraine",
+    "year": 2022,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Russia invades Ukraine",
+    "context": "Russia launches a full-scale invasion of Ukraine. Allies debate sanctions, weapons deliveries and whether to keep talking to Moscow.",
+    "reality": "France backed EU sanctions, delivered Caesar howitzers and other arms, while Macron kept a channel to Putin and hosted aid conferences.",
+    "source": "Élysée",
+    "historicalChoice": 1,
+    "choices": [
+      "Send heavy weapons and large-scale aid",
+      "Combine sanctions with calibrated arms aid",
+      "Prioritise talks and limit arms deliveries"
+    ],
+    "de": {
+      "title": "Russland greift die Ukraine an",
+      "context": "Russland startet eine großangelegte Invasion der Ukraine. Die Verbündeten debattieren über Sanktionen, Waffenlieferungen und Gespräche mit Moskau.",
+      "reality": "Frankreich unterstützte EU-Sanktionen und lieferte Caesar-Haubitzen und andere Waffen, während Macron einen Draht zu Putin hielt und Hilfskonferenzen ausrichtete.",
+      "choices": [
+        "Schwere Waffen und umfassende Hilfe liefern",
+        "Sanktionen mit dosierter Waffenhilfe verbinden",
+        "Gespräche priorisieren, Waffen begrenzen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2022-energy-price-shock-and-reactor-outages",
+    "year": 2022,
+    "category": "energy",
+    "shock": "energy",
+    "title": "Energy price shock and reactor outages",
+    "context": "Gas and power prices explode while corrosion checks take half the nuclear fleet offline. Households and firms face huge bills.",
+    "reality": "A 'bouclier tarifaire' capped the regulated electricity price rise at 4% in 2022 and 15% in 2023; nuclear output fell to its lowest level in over 30 years.",
+    "source": "Commission de régulation de l'énergie",
+    "historicalChoice": 0,
+    "choices": [
+      "Cap household energy prices with state funds",
+      "Target aid at vulnerable households and firms",
+      "Let prices pass through to consumers"
+    ],
+    "de": {
+      "title": "Energiepreisschock und Reaktorausfälle",
+      "context": "Gas- und Strompreise explodieren, während Korrosionsprüfungen die Hälfte des Atomparks lahmlegen. Haushalte und Firmen drohen riesige Rechnungen.",
+      "reality": "Ein „bouclier tarifaire“ begrenzte den Anstieg des regulierten Strompreises 2022 auf 4 % und 2023 auf 15 %; die Atomstromproduktion fiel auf den tiefsten Stand seit über 30 Jahren.",
+      "choices": [
+        "Energiepreise der Haushalte mit Staatsgeld deckeln",
+        "Gezielt bedürftige Haushalte und Firmen stützen",
+        "Preise an die Verbraucher weitergeben"
+      ]
+    }
+  },
+  {
+    "id": "fr-2022-bringing-the-utility-back-under-full-state-control",
+    "year": 2022,
+    "category": "economy",
+    "shock": null,
+    "title": "Bringing the utility back under full state control",
+    "context": "The state-backed utility is deeply indebted, its reactors are ageing and the President wants new reactors. Minority shareholders remain.",
+    "reality": "After Macron's February 2022 plan for six new EPR2 reactors, the government bought out EDF's minority shareholders; full nationalisation was completed in 2023.",
+    "source": "Ministère de l'Économie",
+    "historicalChoice": 0,
+    "choices": [
+      "Take the utility fully public, fund new reactors",
+      "Recapitalise it partially",
+      "Leave its capital to the markets"
+    ],
+    "de": {
+      "title": "Der Versorger wieder ganz in Staatshand",
+      "context": "Der staatlich dominierte Versorger ist hoch verschuldet, seine Reaktoren altern, und der Präsident will neue Reaktoren. Es gibt noch Minderheitsaktionäre.",
+      "reality": "Nach Macrons Plan vom Februar 2022 für sechs neue EPR2-Reaktoren kaufte die Regierung die Minderheitsaktionäre von EDF heraus; die Verstaatlichung wurde 2023 abgeschlossen.",
+      "choices": [
+        "Versorger ganz verstaatlichen, neue Reaktoren finanzieren",
+        "Teilweise rekapitalisieren",
+        "Kapital dem Markt überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2022-leaving-mali",
+    "year": 2022,
+    "category": "security",
+    "shock": null,
+    "title": "Leaving Mali",
+    "context": "Mali's military junta has brought in Russian Wagner mercenaries and expelled the French ambassador. Troops remain in a hostile country.",
+    "reality": "France announced its withdrawal from Mali in February 2022; the last troops left in August, and Operation Barkhane ended in November 2022.",
+    "source": "Ministère des Armées",
+    "historicalChoice": 1,
+    "choices": [
+      "Reinforce troops to fight jihadists",
+      "Withdraw from Mali, redeploy in the region",
+      "Withdraw from the Sahel entirely"
+    ],
+    "de": {
+      "title": "Abzug aus Mali",
+      "context": "Malis Militärjunta hat russische Wagner-Söldner ins Land geholt und den französischen Botschafter ausgewiesen. Die Truppen stehen in einem feindseligen Land.",
+      "reality": "Frankreich kündigte im Februar 2022 den Abzug aus Mali an; die letzten Soldaten verließen das Land im August, die Operation Barkhane endete im November 2022.",
+      "choices": [
+        "Truppen verstärken, Dschihadisten bekämpfen",
+        "Aus Mali abziehen, in der Region neu stationieren",
+        "Vollständig aus dem Sahel abziehen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2023-retirement-at-64",
+    "year": 2023,
+    "category": "welfare",
+    "shock": null,
+    "title": "Retirement at 64",
+    "context": "The government wants to raise the retirement age from 62 to 64. Unions unite in mass strikes and the government lacks a sure majority.",
+    "reality": "Lacking votes, Élisabeth Borne used 49.3 on 16 March 2023; a censure motion failed by nine votes and the reform was promulgated on 14 April.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund pensions via higher contributions",
+      "Raise the age gradually to 64",
+      "Cut pension indexation instead"
+    ],
+    "de": {
+      "title": "Rente mit 64",
+      "context": "Die Regierung will das Rentenalter von 62 auf 64 anheben. Die Gewerkschaften mobilisieren gemeinsam zu Massenstreiks, eine sichere Mehrheit fehlt.",
+      "reality": "Mangels Stimmen nutzte Élisabeth Borne am 16. März 2023 den 49.3; ein Misstrauensantrag scheiterte um neun Stimmen, die Reform wurde am 14. April verkündet.",
+      "choices": [
+        "Renten über höhere Beiträge finanzieren",
+        "Rentenalter schrittweise auf 64 anheben",
+        "Stattdessen Rentenanpassung kürzen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2023-riots-after-a-police-shooting",
+    "year": 2023,
+    "category": "security",
+    "shock": null,
+    "title": "Riots after a police shooting",
+    "context": "A police officer shoots dead a 17-year-old during a traffic stop in Nanterre. Riots spread to hundreds of towns within days.",
+    "reality": "After Nahel M.'s death on 27 June 2023, the government deployed up to 45,000 police nightly but declined a state of emergency; the unrest subsided within a week.",
+    "source": "Ministère de l'Intérieur",
+    "historicalChoice": 1,
+    "choices": [
+      "Declare emergency, fund a big suburbs plan",
+      "Deploy mass policing, no emergency rule",
+      "Leave order to local authorities"
+    ],
+    "de": {
+      "title": "Unruhen nach tödlichen Polizeischüssen",
+      "context": "Ein Polizist erschießt in Nanterre bei einer Verkehrskontrolle einen 17-Jährigen. Binnen Tagen breiten sich Unruhen auf Hunderte Städte aus.",
+      "reality": "Nach dem Tod von Nahel M. am 27. Juni 2023 setzte die Regierung nachts bis zu 45.000 Polizisten ein, verzichtete aber auf den Ausnahmezustand; nach einer Woche ebbten die Unruhen ab.",
+      "choices": [
+        "Notstand ausrufen, großen Vorstadtplan finanzieren",
+        "Massive Polizeipräsenz, kein Notstand",
+        "Ordnung den Kommunen überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2023-a-new-immigration-law",
+    "year": 2023,
+    "category": "society",
+    "shock": null,
+    "title": "A new immigration law",
+    "context": "The government's immigration bill combines faster expulsions with permits for workers in shortage jobs. It has no majority in the Assembly.",
+    "reality": "A hardened version passed in December 2023 with right-wing votes; in January 2024 the Conseil constitutionnel struck down 35 articles, largely as unrelated riders.",
+    "source": "Conseil constitutionnel",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund integration and regularise workers",
+      "Balance expulsions with shortage permits",
+      "Tighten rules and cut migrants' benefits"
+    ],
+    "de": {
+      "title": "Ein neues Einwanderungsgesetz",
+      "context": "Das Einwanderungsgesetz der Regierung verbindet schnellere Abschiebungen mit Aufenthaltstiteln für Mangelberufe. In der Nationalversammlung fehlt eine Mehrheit.",
+      "reality": "Eine verschärfte Fassung wurde im Dezember 2023 mit Stimmen der Rechten verabschiedet; im Januar 2024 kippte der Conseil constitutionnel 35 Artikel, meist als sachfremde Zusätze.",
+      "choices": [
+        "Integration finanzieren, Arbeitskräfte legalisieren",
+        "Abschiebungen mit Mangelberufs-Titeln ausgleichen",
+        "Regeln verschärfen, Leistungen für Migranten kürzen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2023-coup-in-niger",
+    "year": 2023,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Coup in Niger",
+    "context": "Soldiers depose Niger's elected president, France's key partner in the Sahel. The junta demands that French troops and the ambassador leave.",
+    "reality": "France first refused to recognise the junta, then Macron announced on 24 September 2023 the withdrawal of the ambassador and troops; the last soldiers left in December.",
+    "source": "Ministère des Armées",
+    "historicalChoice": 2,
+    "choices": [
+      "Back a regional force to restore the president",
+      "Stay put and refuse to deal with the junta",
+      "Withdraw troops and the ambassador"
+    ],
+    "de": {
+      "title": "Putsch in Niger",
+      "context": "Soldaten stürzen Nigers gewählten Präsidenten, Frankreichs wichtigsten Partner im Sahel. Die Junta verlangt den Abzug der französischen Truppen und des Botschafters.",
+      "reality": "Frankreich erkannte die Junta zunächst nicht an; am 24. September 2023 kündigte Macron den Abzug von Botschafter und Truppen an, die letzten Soldaten gingen im Dezember.",
+      "choices": [
+        "Regionale Truppe zur Wiedereinsetzung unterstützen",
+        "Bleiben und Gespräche mit der Junta ablehnen",
+        "Truppen und Botschafter abziehen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2024-farmers-block-the-motorways",
+    "year": 2024,
+    "category": "economy",
+    "shock": null,
+    "title": "Farmers block the motorways",
+    "context": "Farmers block motorways and approach Paris, protesting low incomes, red tape, environmental rules and a diesel tax rise.",
+    "reality": "Prime Minister Gabriel Attal dropped the planned rise in farm diesel tax in January 2024, paused the Ecophyto pesticide plan and promised simplification and aid.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a large farm income support plan",
+      "Concede on diesel and rules, add aid",
+      "Hold firm and leave prices to markets"
+    ],
+    "de": {
+      "title": "Bauern blockieren die Autobahnen",
+      "context": "Landwirte blockieren Autobahnen und rücken auf Paris vor – aus Protest gegen niedrige Einkommen, Bürokratie, Umweltauflagen und eine höhere Dieselsteuer.",
+      "reality": "Premierminister Gabriel Attal verzichtete im Januar 2024 auf die geplante Erhöhung der Agrardieselsteuer, setzte den Pestizidplan Ecophyto aus und versprach Vereinfachungen und Hilfen.",
+      "choices": [
+        "Großes Programm für Bauerneinkommen finanzieren",
+        "Bei Diesel und Regeln nachgeben, Hilfe ergänzen",
+        "Hart bleiben, Preise dem Markt überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2024-hosting-the-olympic-games",
+    "year": 2024,
+    "category": "society",
+    "shock": null,
+    "title": "Hosting the Olympic Games",
+    "context": "Paris hosts the Summer Olympics with an open-air opening ceremony on the Seine. Security risks and costs are enormous.",
+    "reality": "The 2024 Games (26 July–11 August) passed without major incident, with about 45,000 police at the opening ceremony and experimental algorithmic video surveillance.",
+    "source": "Cour des comptes",
+    "historicalChoice": 0,
+    "choices": [
+      "Mobilise massive security and public funds",
+      "Scale back the ceremony, share costs",
+      "Minimise public spending on the Games"
+    ],
+    "de": {
+      "title": "Gastgeber der Olympischen Spiele",
+      "context": "Paris richtet die Olympischen Sommerspiele mit einer Eröffnungsfeier unter freiem Himmel auf der Seine aus. Sicherheitsrisiken und Kosten sind enorm.",
+      "reality": "Die Spiele 2024 (26. Juli bis 11. August) verliefen ohne größere Zwischenfälle, mit rund 45.000 Polizisten bei der Eröffnung und versuchsweiser algorithmischer Videoüberwachung.",
+      "choices": [
+        "Massive Sicherheitskräfte und Staatsmittel aufbieten",
+        "Feier verkleinern, Kosten teilen",
+        "Staatsausgaben für die Spiele minimieren"
+      ]
+    }
+  },
+  {
+    "id": "fr-2024-a-budget-without-a-majority",
+    "year": 2024,
+    "category": "budget",
+    "shock": null,
+    "title": "A budget without a majority",
+    "context": "After a snap election left a hung Assembly, the new government must cut a deficit of over 6% of GDP. The opposition threatens censure.",
+    "reality": "Michel Barnier proposed about €60bn in savings and temporary taxes; after he used 49.3 on the social security budget, his government was censured on 4 December 2024 (331 votes).",
+    "source": "Assemblée nationale",
+    "historicalChoice": 1,
+    "choices": [
+      "Protect spending, tax the wealthiest more",
+      "Negotiate cuts and temporary levies",
+      "Impose deep spending cuts by decree"
+    ],
+    "de": {
+      "title": "Ein Haushalt ohne Mehrheit",
+      "context": "Nach vorgezogenen Wahlen ohne klare Mehrheit muss die neue Regierung ein Defizit von über 6 % des BIP senken. Die Opposition droht mit einem Misstrauensvotum.",
+      "reality": "Michel Barnier schlug rund 60 Mrd. € an Einsparungen und befristeten Steuern vor; nachdem er den 49.3 beim Sozialhaushalt nutzte, wurde seine Regierung am 4. Dezember 2024 gestürzt (331 Stimmen).",
+      "choices": [
+        "Ausgaben schützen, Reichste stärker besteuern",
+        "Kürzungen und befristete Abgaben verhandeln",
+        "Tiefe Kürzungen per Dekret durchsetzen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2024-unrest-in-new-caledonia",
+    "year": 2024,
+    "category": "security",
+    "shock": null,
+    "title": "Unrest in New Caledonia",
+    "context": "A constitutional change opening local electoral rolls to more recent residents sparks deadly riots among pro-independence Kanaks in New Caledonia.",
+    "reality": "Riots broke out on 13 May 2024; a state of emergency was declared and reinforcements flown in. Macron suspended the electoral reform in June 2024.",
+    "source": "Vie-publique.fr",
+    "historicalChoice": 1,
+    "choices": [
+      "Deploy massive forces and push the reform",
+      "Restore order and suspend the reform",
+      "Withdraw the reform and leave it to local talks"
+    ],
+    "de": {
+      "title": "Unruhen in Neukaledonien",
+      "context": "Eine Verfassungsänderung, die lokale Wählerlisten für später Zugezogene öffnet, löst tödliche Unruhen unter unabhängigkeitsbefürwortenden Kanak in Neukaledonien aus.",
+      "reality": "Am 13. Mai 2024 brachen Unruhen aus; der Ausnahmezustand wurde verhängt und Verstärkung eingeflogen. Macron setzte die Wahlrechtsreform im Juni 2024 aus.",
+      "choices": [
+        "Massiv Kräfte entsenden und Reform durchsetzen",
+        "Ordnung herstellen, Reform aussetzen",
+        "Reform zurückziehen, lokalen Gesprächen überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2025-a-savings-plan-and-a-confidence-vote",
+    "year": 2025,
+    "category": "budget",
+    "shock": null,
+    "title": "A savings plan and a confidence vote",
+    "context": "With debt rising and no majority, the Prime Minister proposes about €44bn in savings, including scrapping two public holidays, and calls a confidence vote.",
+    "reality": "François Bayrou's government lost the confidence vote on 8 September 2025 (364 against, 194 for); Fitch cut France's rating to A+ days later.",
+    "source": "Assemblée nationale",
+    "historicalChoice": 2,
+    "choices": [
+      "Drop savings and fund spending by borrowing",
+      "Negotiate a smaller, shared effort",
+      "Hold firm on deep cuts and a confidence vote"
+    ],
+    "de": {
+      "title": "Sparplan und Vertrauensfrage",
+      "context": "Bei steigenden Schulden und ohne Mehrheit schlägt der Premierminister rund 44 Mrd. € Einsparungen vor, darunter die Streichung zweier Feiertage, und stellt die Vertrauensfrage.",
+      "reality": "Die Regierung von François Bayrou verlor die Vertrauensabstimmung am 8. September 2025 (364 dagegen, 194 dafür); Fitch senkte Frankreichs Rating wenige Tage später auf A+.",
+      "choices": [
+        "Sparen aufgeben, Ausgaben per Kredit finanzieren",
+        "Kleinere, geteilte Sparanstrengung aushandeln",
+        "An tiefen Kürzungen und Vertrauensfrage festhalten"
+      ]
+    }
+  },
+  {
+    "id": "fr-2025-lets-block-everything",
+    "year": 2025,
+    "category": "society",
+    "shock": null,
+    "title": "\"Let's block everything\"",
+    "context": "An online movement calls for blockades of the whole country against the austerity budget. Unions plan a separate strike day.",
+    "reality": "The 'Bloquons tout' day on 10 September 2025 saw blockades and hundreds of arrests; unions followed with a nationwide strike and marches on 18 September.",
+    "source": "Ministère de l'Intérieur",
+    "historicalChoice": 1,
+    "choices": [
+      "Withdraw austerity and open broad talks",
+      "Police the blockades, negotiate with unions",
+      "Ignore the protests and carry on"
+    ],
+    "de": {
+      "title": "„Blockieren wir alles“",
+      "context": "Eine Online-Bewegung ruft dazu auf, das ganze Land gegen den Sparhaushalt zu blockieren. Die Gewerkschaften planen einen eigenen Streiktag.",
+      "reality": "Der Aktionstag „Bloquons tout“ am 10. September 2025 brachte Blockaden und Hunderte Festnahmen; die Gewerkschaften folgten am 18. September mit landesweitem Streik und Demonstrationen.",
+      "choices": [
+        "Sparkurs zurücknehmen, breiten Dialog eröffnen",
+        "Blockaden räumen, mit Gewerkschaften verhandeln",
+        "Proteste ignorieren und weitermachen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2025-suspending-the-pension-reform",
+    "year": 2025,
+    "category": "welfare",
+    "shock": null,
+    "title": "Suspending the pension reform",
+    "context": "A new government survives only if the centre-left abstains on censure. Its price: freezing the 2023 retirement-age increase.",
+    "reality": "Sébastien Lecornu proposed the suspension on 14 October 2025 and survived censure; the social security budget adopted on 16 December froze the reform until January 2028.",
+    "source": "Assemblée nationale",
+    "historicalChoice": 1,
+    "choices": [
+      "Repeal the reform and fund the cost",
+      "Suspend the reform until after 2027",
+      "Keep the reform and risk censure"
+    ],
+    "de": {
+      "title": "Aussetzung der Rentenreform",
+      "context": "Eine neue Regierung überlebt nur, wenn sich die Mitte-links-Opposition beim Misstrauensvotum enthält. Ihr Preis: das Einfrieren der Rentenaltererhöhung von 2023.",
+      "reality": "Sébastien Lecornu schlug die Aussetzung am 14. Oktober 2025 vor und überstand das Misstrauensvotum; der am 16. Dezember verabschiedete Sozialhaushalt fror die Reform bis Januar 2028 ein.",
+      "choices": [
+        "Reform aufheben und Kosten finanzieren",
+        "Reform bis nach 2027 aussetzen",
+        "Reform beibehalten, Sturz riskieren"
+      ]
+    }
+  },
+  {
+    "id": "fr-2025-hosting-an-ai-summit",
+    "year": 2025,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Hosting an AI summit",
+    "context": "France hosts a global summit on artificial intelligence. The country wants to attract data centres and keep its AI start-ups at home.",
+    "reality": "At the AI Action Summit in Paris on 10–11 February 2025, Macron announced €109bn of private investment pledges in AI infrastructure in France.",
+    "source": "Élysée",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund public AI compute and research",
+      "Court private investors with fast permits",
+      "Leave AI to the market and the EU"
+    ],
+    "de": {
+      "title": "Gastgeber eines KI-Gipfels",
+      "context": "Frankreich richtet einen Weltgipfel zur künstlichen Intelligenz aus. Das Land will Rechenzentren anlocken und seine KI-Start-ups im Land halten.",
+      "reality": "Beim KI-Aktionsgipfel in Paris am 10. und 11. Februar 2025 kündigte Macron private Investitionszusagen über 109 Mrd. € in KI-Infrastruktur in Frankreich an.",
+      "choices": [
+        "Öffentliche KI-Rechenleistung und Forschung finanzieren",
+        "Private Investoren mit schnellen Genehmigungen locken",
+        "KI dem Markt und der EU überlassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2026-the-2026-budget-deadlock",
+    "year": 2026,
+    "category": "budget",
+    "shock": null,
+    "title": "The 2026 budget deadlock",
+    "context": "No budget was passed by year-end and a stopgap law is in force. The Prime Minister had pledged not to force bills through without a vote.",
+    "reality": "Sébastien Lecornu used 49.3 three times in January 2026; censure motions failed and the budget, targeting a 5% deficit, was finally adopted on 2 February 2026.",
+    "source": "Assemblée nationale",
+    "historicalChoice": 1,
+    "choices": [
+      "Keep spending and extend the stopgap law",
+      "Force the budget through with 49.3",
+      "Impose deep cuts to win the right"
+    ],
+    "de": {
+      "title": "Die Haushaltsblockade 2026",
+      "context": "Bis zum Jahresende wurde kein Haushalt verabschiedet, ein Übergangsgesetz gilt. Der Premierminister hatte versprochen, Gesetze nicht ohne Abstimmung durchzudrücken.",
+      "reality": "Sébastien Lecornu nutzte im Januar 2026 dreimal den 49.3; die Misstrauensanträge scheiterten, und der Haushalt mit einem Defizitziel von 5 % wurde am 2. Februar 2026 endgültig angenommen.",
+      "choices": [
+        "Ausgaben halten, Übergangsgesetz verlängern",
+        "Haushalt per 49.3 durchsetzen",
+        "Tiefe Kürzungen, um die Rechte zu gewinnen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2026-a-ten-year-energy-roadmap",
+    "year": 2026,
+    "category": "energy",
+    "shock": null,
+    "title": "A ten-year energy roadmap",
+    "context": "The energy plan to 2035 is years overdue. The choice: how much new nuclear, and how much onshore wind and solar.",
+    "reality": "The third multi-year energy programme (PPE3) was issued by decree on 12 February 2026, boosting nuclear output targets while slowing onshore wind growth; it was challenged in court.",
+    "source": "Légifrance",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund new reactors and renewables at full speed",
+      "Prioritise nuclear, slow onshore wind",
+      "Freeze new capacity, let markets decide"
+    ],
+    "de": {
+      "title": "Ein Energiefahrplan für zehn Jahre",
+      "context": "Der Energieplan bis 2035 ist seit Jahren überfällig. Die Wahl: wie viel neue Atomkraft und wie viel Windkraft an Land und Solarenergie.",
+      "reality": "Die dritte mehrjährige Energieprogrammierung (PPE3) wurde am 12. Februar 2026 per Dekret erlassen; sie hebt die Atomstromziele an, bremst den Windausbau an Land und wurde gerichtlich angefochten.",
+      "choices": [
+        "Neue Reaktoren und Erneuerbare voll vorantreiben",
+        "Atomkraft priorisieren, Wind an Land bremsen",
+        "Neue Kapazität einfrieren, Markt entscheiden lassen"
+      ]
+    }
+  },
+  {
+    "id": "fr-2026-the-right-to-assisted-dying",
+    "year": 2026,
+    "category": "society",
+    "shock": null,
+    "title": "The right to assisted dying",
+    "context": "A bill would allow terminally ill adults to receive lethal medication under strict conditions. The Senate opposes it.",
+    "reality": "After the Senate repeatedly rejected it, the Assemblée nationale had the final say and adopted the assisted-dying law on 15 July 2026 (291 to 241).",
+    "source": "Assemblée nationale",
+    "historicalChoice": 0,
+    "choices": [
+      "Legalise assisted dying with strict safeguards",
+      "Expand palliative care first, delay the bill",
+      "Keep the current end-of-life law"
+    ],
+    "de": {
+      "title": "Das Recht auf Sterbehilfe",
+      "context": "Ein Gesetz soll unheilbar kranken Erwachsenen unter strengen Bedingungen ein tödliches Medikament ermöglichen. Der Senat lehnt es ab.",
+      "reality": "Nachdem der Senat den Text mehrfach abgelehnt hatte, erhielt die Nationalversammlung das letzte Wort und verabschiedete das Sterbehilfegesetz am 15. Juli 2026 (291 zu 241).",
+      "choices": [
+        "Sterbehilfe mit strengen Schutzregeln legalisieren",
+        "Erst Palliativversorgung ausbauen, Gesetz vertagen",
+        "Bisheriges Sterbebegleitungsrecht beibehalten"
+      ]
+    }
+  },
+  {
+    "id": "fr-2026-a-new-national-service",
+    "year": 2026,
+    "category": "security",
+    "shock": null,
+    "title": "A new national service",
+    "context": "With war in Ukraine and rising threats, the army wants more trained young reservists. Reviving conscription would be costly and unpopular.",
+    "reality": "A voluntary 10-month military national service announced in November 2025 took in its first cohort of about 3,000 volunteers in late summer 2026, with 10,000 targeted by 2030.",
+    "source": "Ministère des Armées",
+    "historicalChoice": 1,
+    "choices": [
+      "Reintroduce compulsory military service",
+      "Launch a paid voluntary national service",
+      "Rely on the professional army only"
+    ],
+    "de": {
+      "title": "Ein neuer Nationaldienst",
+      "context": "Angesichts des Kriegs in der Ukraine und wachsender Bedrohungen will die Armee mehr ausgebildete junge Reservisten. Eine Rückkehr der Wehrpflicht wäre teuer und unbeliebt.",
+      "reality": "Ein im November 2025 angekündigter freiwilliger zehnmonatiger Militärdienst nahm im Spätsommer 2026 seine erste Kohorte von rund 3.000 Freiwilligen auf; bis 2030 sollen es 10.000 sein.",
+      "choices": [
+        "Allgemeine Wehrpflicht wieder einführen",
+        "Bezahlten freiwilligen Nationaldienst starten",
+        "Nur auf die Berufsarmee setzen"
+      ]
+    }
+  }
+]

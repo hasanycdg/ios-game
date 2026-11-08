@@ -119,7 +119,7 @@ struct USCampaignPaywallView: LocalizedGameView {
                 }
             } label: {
                 HStack {
-                    Text(L(owned ? "Unlocked" : "Unlock"))
+                    Text(L(owned ? String("Unlocked") : String("Unlock")))
                     Spacer()
                     Text(owned ? "✓" : package.storeProduct.localizedPriceString)
                 }

@@ -71,7 +71,7 @@ extension GameViewModel {
     }
 
     func electionLandscape(_ election: ElectionResult) -> PartyLandscape {
-        guard country == .unitedStates else { return partyLandscape }
+        guard country != .germany else { return partyLandscape }
         return PartyLandscapeFactory.make(state: state, governingShare: election.governingPartyShare,
             coalition: coalition, playerParty: playerParty, country: country)
     }

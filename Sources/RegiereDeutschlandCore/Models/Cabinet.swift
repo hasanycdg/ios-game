@@ -99,9 +99,19 @@ public enum MinisterPool {
     ]
 
     public static func make(seed: Int, country: GameCountry = .germany) -> Minister {
-        let pool = country == .germany ? names : ["Jordan Williams", "Dr. Taylor Brooks", "Casey Johnson", "Dr. Avery Davis", "Morgan Reed", "Jamie Thompson", "Dr. Riley Chen", "Sam Rodriguez", "Alex Carter", "Dr. Cameron Patel", "Drew Jackson", "Quinn Mitchell", "Dr. Reese Anderson", "Parker Lewis", "Dakota Wilson", "Dr. Sidney Clark"]
+        let pool: [String]
+        switch country {
+        case .germany: pool = names
+        case .unitedKingdom: pool = ukNames
+        case .france: pool = frNames
+        case .unitedStates: pool = usNames
+        }
         let name = pool[abs(seed) % pool.count]
         let competence = 45 + (abs(seed &* 31 &+ 7) % 41)
         return Minister(name: name, competence: competence)
     }
+
+    static let ukNames = ["Dr. Eleanor Hughes", "James Whitfield", "Priya Shah", "Dr. Owen Price", "Fiona MacLeod", "Tom Brennan", "Dr. Amara Okafor", "Hugh Pemberton", "Siân Morgan", "Dr. Rupert Ashby", "Kate Doherty", "Imran Qureshi", "Dr. Helen Garside", "Callum Reid", "Lucy Barnes", "Dr. Neil Fairbairn"]
+    static let frNames = ["Dr. Claire Moreau", "Julien Lefèvre", "Sophie Garnier", "Dr. Antoine Roussel", "Nadia Benali", "Thomas Girard", "Dr. Élise Fontaine", "Marc Delorme", "Isabelle Chevalier", "Dr. Hugo Marchand", "Léa Perrin", "Karim Haddad", "Dr. Anne Lambert", "Olivier Brun", "Margaux Vidal", "Dr. François Caron"]
+    static let usNames = ["Jordan Williams", "Dr. Taylor Brooks", "Casey Johnson", "Dr. Avery Davis", "Morgan Reed", "Jamie Thompson", "Dr. Riley Chen", "Sam Rodriguez", "Alex Carter", "Dr. Cameron Patel", "Drew Jackson", "Quinn Mitchell", "Dr. Reese Anderson", "Parker Lewis", "Dakota Wilson", "Dr. Sidney Clark"]
 }

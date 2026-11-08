@@ -1,4 +1,5 @@
 import SwiftUI
+import RegiereDeutschlandCore
 
 // MARK: - Onboarding-Inhalt
 
@@ -20,6 +21,23 @@ struct OnboardingPage: Identifiable {
 }
 
 enum OnboardingContent {
+    /// The UK and France end in 2026: no Future 2050 pages.
+    static func pages(for country: GameCountry) -> [OnboardingPage] {
+        guard !country.hasFutureExpansion else { return pages }
+        return Array(pages.dropLast(2)) + [
+            OnboardingPage(
+                icon: "sparkles", accent: GameTheme.gold,
+                kicker: "Dein Einstieg",
+                title: "Dein Weg bis 2026",
+                message: "Spiele den Prolog von 2000 bis 2004 kostenlos. Danach führt dich die Hauptkampagne durch alle Wahlen und Krisen bis 2026.",
+                bullets: [
+                    .init(icon: "gift.fill", text: "Der Prolog ist kostenlos spielbar."),
+                    .init(icon: "tag.fill", text: "Die Angebote und aktuellen Preise siehst du im nächsten Schritt. Du kannst sie jederzeit schließen.")
+                ]
+            )
+        ]
+    }
+
     static let pages: [OnboardingPage] = [
         OnboardingPage(
             icon: "building.columns.fill", accent: GameTheme.gold,
@@ -82,7 +100,7 @@ struct OnboardingView: LocalizedGameView {
     var onFinish: () -> Void
 
     @State private var index = 0
-    private let pages = OnboardingContent.pages
+    private var pages: [OnboardingPage] { OnboardingContent.pages(for: gamePresentation.country) }
 
     private var isLastPage: Bool { index >= pages.count - 1 }
 

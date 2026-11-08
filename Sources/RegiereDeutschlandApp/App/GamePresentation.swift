@@ -58,14 +58,16 @@ struct CountrySelectionView: View {
                         .foregroundStyle(GameTheme.gold)
                         .padding(.top, 48)
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("Wähle dein Land\nChoose your country")
+                        Text("Wähle dein Land\nChoose your country\nChoisis ton pays")
                             .font(.system(size: 32, weight: .heavy, design: .rounded))
-                        Text("Zwei Länder. Deine Entscheidungen.\nTwo countries. Your decisions.")
+                        Text("Vier Länder. Deine Entscheidungen.\nFour countries. Your decisions.\nQuatre pays. Tes décisions.")
                             .foregroundStyle(GameTheme.secondaryText)
                     }
-                    countryButton(.germany, flag: "🇩🇪", name: "Deutschland", detail: "Regiere Deutschland von 2000 bis 2050.")
-                    countryButton(.unitedStates, flag: "🇺🇸", name: "United States", detail: "Lead America from 2000 to 2050.")
-                    Text("Spielstände werden für jedes Land separat gespeichert.\nEach country has its own saved progress.")
+                    countryButton(.germany, flag: "🇩🇪", name: "Deutschland", detail: "Regiere Deutschland · 2000–2050")
+                    countryButton(.unitedStates, flag: "🇺🇸", name: "United States", detail: "Lead America · 2000–2050")
+                    countryButton(.unitedKingdom, flag: "🇬🇧", name: "United Kingdom", detail: "Govern Britain · 2000–2050")
+                    countryButton(.france, flag: "🇫🇷", name: "France", detail: "Gouverne la France · 2000–2050")
+                    Text("Spielstände werden für jedes Land separat gespeichert.\nEach country has its own saved progress.\nChaque pays a sa propre sauvegarde.")
                         .font(.footnote)
                         .foregroundStyle(GameTheme.tertiaryText)
                     Spacer(minLength: 32)
@@ -110,17 +112,18 @@ struct LanguageSelectionView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
                     Button(action: onBack) {
-                        Label("Zurück · Back", systemImage: "chevron.left")
+                        Label("Zurück · Back · Retour", systemImage: "chevron.left")
                     }
                     .foregroundStyle(GameTheme.gold)
                     .padding(.top, 36)
-                    Text(country == .germany ? "🇩🇪 Deutschland" : "🇺🇸 United States")
+                    Text(country.flag + " " + country.nativeName)
                         .font(.title2.weight(.bold))
-                    Text("Wähle deine Sprache\nChoose your language")
+                    Text("Wähle deine Sprache\nChoose your language\nChoisis ta langue")
                         .font(.system(size: 30, weight: .heavy, design: .rounded))
                     languageButton(.german, name: "Deutsch")
                     languageButton(.english, name: "English")
-                    Text("Dein Spielstand bleibt für dieses Land erhalten.\nYour saved progress stays with this country.")
+                    languageButton(.french, name: "Français")
+                    Text("Dein Spielstand bleibt für dieses Land erhalten.\nYour saved progress stays with this country.\nTa sauvegarde reste liée à ce pays.")
                         .font(.footnote)
                         .foregroundStyle(GameTheme.tertiaryText)
                 }
@@ -146,5 +149,36 @@ struct LanguageSelectionView: View {
         }
         .buttonStyle(.plain)
         .accessibilityIdentifier("language.\(language.rawValue)")
+    }
+}
+
+extension GameCountry {
+    var flag: String {
+        switch self {
+        case .germany: "🇩🇪"
+        case .unitedStates: "🇺🇸"
+        case .unitedKingdom: "🇬🇧"
+        case .france: "🇫🇷"
+        }
+    }
+
+    /// Name shown on the country and language screens (before a language is chosen).
+    var nativeName: String {
+        switch self {
+        case .germany: "Deutschland"
+        case .unitedStates: "United States"
+        case .unitedKingdom: "United Kingdom"
+        case .france: "France"
+        }
+    }
+
+    /// Suffix for per-country preference keys. Germany keeps its original keys.
+    var preferenceSuffix: String {
+        switch self {
+        case .germany: ""
+        case .unitedStates: ".us"
+        case .unitedKingdom: ".uk"
+        case .france: ".fr"
+        }
     }
 }

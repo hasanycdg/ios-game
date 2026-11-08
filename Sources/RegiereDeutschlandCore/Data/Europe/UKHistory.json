@@ -1,0 +1,1730 @@
+[
+  {
+    "id": "uk-2000-fuel-protests",
+    "year": 2000,
+    "category": "energy",
+    "shock": null,
+    "title": "Fuel blockades bring the country to a halt",
+    "context": "Hauliers and farmers blockade oil refineries over high fuel duty. Petrol stations run dry and the protesters demand an immediate tax cut.",
+    "reality": "In September 2000 blockades emptied petrol stations. Tony Blair refused to cut duty under pressure; Gordon Brown's November pre-budget report froze fuel duty and cut vehicle excise duty for lorries and small cars.",
+    "source": "HM Treasury, Pre-Budget Report 2000",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund public transport and fuel-saving help",
+      "Freeze duty and offer targeted relief",
+      "Hold firm and leave prices unchanged"
+    ]
+  },
+  {
+    "id": "uk-2000-millennium-dome",
+    "year": 2000,
+    "category": "budget",
+    "shock": null,
+    "title": "The Millennium Dome money pit",
+    "context": "The flagship millennium attraction draws far fewer visitors than forecast and needs fresh public money to stay open through the year.",
+    "reality": "The Dome drew about 6.5 million visitors against a 12 million target. The Millennium Commission granted extra Lottery money several times in 2000 while a buyer was sought; it closed on 31 December 2000.",
+    "source": "National Audit Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Inject fresh public funds to keep it running",
+      "Grant limited extra funds and seek a buyer",
+      "Close it early and cut the losses"
+    ]
+  },
+  {
+    "id": "uk-2000-investigatory-powers-ripa",
+    "year": 2000,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Who may read the nation's emails?",
+    "context": "Email and mobile phones are spreading fast. Police and intelligence agencies want clear legal powers to intercept communications and obtain data.",
+    "reality": "The Regulation of Investigatory Powers Act 2000 put interception, communications data and covert surveillance on a statutory footing, with ministerial warrants, oversight commissioners and a tribunal.",
+    "source": "legislation.gov.uk",
+    "historicalChoice": 1,
+    "choices": [
+      "Grant broad powers to intercept and monitor",
+      "Grant powers under warrants and oversight",
+      "Leave it to providers and existing law"
+    ]
+  },
+  {
+    "id": "uk-2000-nhs-plan",
+    "year": 2000,
+    "category": "welfare",
+    "shock": null,
+    "title": "A ten-year plan for the NHS",
+    "context": "Winter crises and long waiting lists strain the health service. The Prime Minister has promised to raise health spending towards the European average.",
+    "reality": "The March 2000 Budget raised NHS funding by over 6% a year in real terms. The NHS Plan of July 2000 promised 7,000 extra beds, 7,500 more consultants and 20,000 more nurses.",
+    "source": "Department of Health, The NHS Plan (2000)",
+    "historicalChoice": 0,
+    "choices": [
+      "Fund a large multi-year NHS expansion",
+      "Fund targeted increases tied to reforms",
+      "Hold spending and encourage private care"
+    ]
+  },
+  {
+    "id": "uk-2001-foot-and-mouth-outbreak",
+    "year": 2001,
+    "category": "economy",
+    "shock": "disaster",
+    "title": "Foot-and-mouth disease sweeps the countryside",
+    "context": "A highly contagious livestock disease spreads across farms. Footpaths close, rural tourism collapses and farmers demand action and compensation.",
+    "reality": "Over 6 million animals were slaughtered in 2001; the army helped with disposal and local and general elections were delayed to June. The NAO put the cost at about £3bn to the public sector and £5bn to the private sector.",
+    "source": "National Audit Office",
+    "historicalChoice": 0,
+    "choices": [
+      "Mount a mass cull with army help and compensation",
+      "Combine targeted culls with vaccination",
+      "Leave containment to farmers and councils"
+    ]
+  },
+  {
+    "id": "uk-2001-september-11-and-afghanistan",
+    "year": 2001,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "After 11 September",
+    "context": "Terrorist attacks in the United States kill nearly 3,000 people. Washington prepares military action against al-Qaeda and its Taliban hosts in Afghanistan.",
+    "reality": "Tony Blair pledged to stand 'shoulder to shoulder' with the US. British forces joined strikes on Afghanistan from 7 October 2001, and Britain led the first ISAF security mission in Kabul.",
+    "source": "House of Commons Library",
+    "historicalChoice": 0,
+    "choices": [
+      "Join military action with substantial forces",
+      "Offer limited support and push UN diplomacy",
+      "Stay out of military action"
+    ]
+  },
+  {
+    "id": "uk-2001-anti-terror-detention-powers",
+    "year": 2001,
+    "category": "security",
+    "shock": null,
+    "title": "Emergency anti-terror powers",
+    "context": "After the attacks abroad, the security services warn of foreign terror suspects in Britain who can be neither deported nor prosecuted.",
+    "reality": "The Anti-terrorism, Crime and Security Act 2001 allowed indefinite detention without trial of foreign terror suspects. In December 2004 the Law Lords ruled this incompatible with human rights law.",
+    "source": "House of Lords judgment, A v Home Secretary (2004)",
+    "historicalChoice": 0,
+    "choices": [
+      "Allow detention without trial",
+      "Expand surveillance but keep trials",
+      "Rely on existing criminal law"
+    ]
+  },
+  {
+    "id": "uk-2001-northern-town-riots",
+    "year": 2001,
+    "category": "society",
+    "shock": null,
+    "title": "Riots in northern towns",
+    "context": "Violent clashes involving white and Asian youths and the police erupt in Oldham, Burnley and Bradford, exposing deeply segregated communities.",
+    "reality": "After the summer 2001 riots the government commissioned the Cantle Report, which found communities living 'parallel lives' and made community cohesion a national policy priority.",
+    "source": "Home Office, Cantle Report (2001)",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund major regeneration and integration schemes",
+      "Commission a review and fund cohesion projects",
+      "Leave it to the police and local councils"
+    ]
+  },
+  {
+    "id": "uk-2002-national-insurance-rise-for-the-nhs",
+    "year": 2002,
+    "category": "budget",
+    "shock": null,
+    "title": "Paying for the NHS",
+    "context": "An independent review warns that the health service needs years of higher funding. The Treasury must decide how to pay for it.",
+    "reality": "In the April 2002 Budget, following the Wanless review, Gordon Brown raised National Insurance by one percentage point from April 2003 to fund large increases in NHS spending.",
+    "source": "HM Treasury, Budget 2002",
+    "historicalChoice": 0,
+    "choices": [
+      "Raise national insurance to fund the NHS",
+      "Fund modest rises through growth and borrowing",
+      "Hold spending and keep taxes unchanged"
+    ]
+  },
+  {
+    "id": "uk-2002-firefighters-strike",
+    "year": 2002,
+    "category": "economy",
+    "shock": null,
+    "title": "Firefighters walk out",
+    "context": "The firefighters' union demands a 40% pay rise. Strikes loom, and the army's ageing 'Green Goddess' engines would have to provide cover.",
+    "reality": "Firefighters struck from November 2002 while troops provided emergency cover. The dispute ended in June 2003 with a 16% rise over three years, tied to modernisation of the service.",
+    "source": "Eurofound",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund the full pay demand",
+      "Offer a phased rise tied to reform",
+      "Refuse talks and rely on army cover"
+    ]
+  },
+  {
+    "id": "uk-2002-sangatte-and-the-channel",
+    "year": 2002,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "The Sangatte camp at Calais",
+    "context": "Hundreds of migrants at a Red Cross centre near Calais try nightly to reach Britain through the Channel Tunnel. France wants a deal.",
+    "reality": "Britain and France agreed to close Sangatte in December 2002; Britain admitted about 1,200 of its residents. The 2003 Le Touquet treaty then placed British border checks on French soil.",
+    "source": "House of Commons Library",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund joint border operations and resettlement",
+      "Negotiate closure in exchange for some intake",
+      "Refuse any intake and leave it to France"
+    ]
+  },
+  {
+    "id": "uk-2002-network-rail-replaces-railtrack",
+    "year": 2002,
+    "category": "economy",
+    "shock": null,
+    "title": "What to do after Railtrack",
+    "context": "The privatised rail infrastructure company has collapsed into administration after fatal crashes and spiralling costs. The network needs a new owner.",
+    "reality": "Railtrack was put into administration in October 2001. In October 2002 the network passed to Network Rail, a not-for-dividend company whose debts were backed by the state.",
+    "source": "Office of Rail and Road",
+    "historicalChoice": 1,
+    "choices": [
+      "Fully renationalise the rail network",
+      "Create a not-for-dividend public-interest firm",
+      "Sell it to new private investors"
+    ]
+  },
+  {
+    "id": "uk-2003-war-in-iraq",
+    "year": 2003,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "War in Iraq",
+    "context": "The United States is preparing to invade Iraq over alleged weapons of mass destruction. A second UN resolution looks out of reach and huge crowds march in protest.",
+    "reality": "On 18 March 2003 the Commons backed military action by 412 to 149, after 139 Labour MPs rebelled on an amendment. British forces joined the invasion two days later; no WMD stockpiles were found.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 0,
+    "choices": [
+      "Join the invasion with major forces",
+      "Back action only with a new UN mandate",
+      "Refuse to take part in the war"
+    ]
+  },
+  {
+    "id": "uk-2003-euro-five-tests",
+    "year": 2003,
+    "category": "economy",
+    "shock": null,
+    "title": "Should the pound join the euro?",
+    "context": "The Treasury has set five economic tests for joining the single currency. The assessment is due and business is divided.",
+    "reality": "In June 2003 Gordon Brown announced that only one of the five tests, on financial services, had been met. Britain would not join the euro for now; the question was never revived.",
+    "source": "HM Treasury",
+    "historicalChoice": 1,
+    "choices": [
+      "Prepare to join the euro",
+      "Keep the option open and review later",
+      "Rule out euro membership"
+    ]
+  },
+  {
+    "id": "uk-2003-energy-white-paper",
+    "year": 2003,
+    "category": "energy",
+    "shock": null,
+    "title": "Charting Britain's energy future",
+    "context": "North Sea output is past its peak and climate commitments loom. Ministers must set a long-term direction for power supply.",
+    "reality": "The 2003 Energy White Paper set a goal of cutting carbon dioxide emissions by about 60% by 2050 and backed renewables, but left new nuclear power as an option without committing to it.",
+    "source": "Department of Trade and Industry",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund renewables and new nuclear stations",
+      "Set climate goals, keep nuclear option open",
+      "Leave the energy mix to the market"
+    ]
+  },
+  {
+    "id": "uk-2003-foundation-hospitals",
+    "year": 2003,
+    "category": "welfare",
+    "shock": null,
+    "title": "Freedom for top hospitals",
+    "context": "Ministers propose giving the best-performing NHS hospitals more independence over finances and pay. Many MPs fear a two-tier health service.",
+    "reality": "The Health and Social Care Act 2003 created NHS foundation trusts. The key Commons vote in November 2003 passed with a majority of just 17.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 1,
+    "choices": [
+      "Keep central control and fund more",
+      "Grant autonomy to top-rated hospitals",
+      "Open the NHS widely to private providers"
+    ]
+  },
+  {
+    "id": "uk-2004-eu-enlargement-and-migration",
+    "year": 2004,
+    "category": "society",
+    "shock": null,
+    "title": "Opening the doors to new EU members",
+    "context": "Ten countries join the EU in May. Most existing members restrict workers from the new states for years; Britain must choose its approach.",
+    "reality": "Britain, Ireland and Sweden gave immediate labour market access in May 2004, with a worker registration scheme. A study had forecast 5,000-13,000 net arrivals a year; actual inflows were far higher.",
+    "source": "House of Commons Library",
+    "historicalChoice": 1,
+    "choices": [
+      "Open the labour market and fund integration",
+      "Open access with worker registration",
+      "Impose transitional controls for years"
+    ]
+  },
+  {
+    "id": "uk-2004-top-up-tuition-fees",
+    "year": 2004,
+    "category": "society",
+    "shock": null,
+    "title": "Top-up tuition fees",
+    "context": "Universities say they are underfunded. The government proposes variable fees repaid after graduation, despite an earlier pledge not to introduce them.",
+    "reality": "The Higher Education Bill passed its second reading by just 316 to 311 in January 2004. Variable fees of up to £3,000 a year began in 2006, repayable after graduation.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund universities from general taxation",
+      "Introduce deferred fees with grants",
+      "Let universities set market fees"
+    ]
+  },
+  {
+    "id": "uk-2004-gershon-efficiency-review",
+    "year": 2004,
+    "category": "budget",
+    "shock": null,
+    "title": "The hunt for efficiency savings",
+    "context": "Public spending has risen fast. A review proposes cutting back-office costs and civil service posts to free money for frontline services.",
+    "reality": "The 2004 Gershon Review identified £21.5bn of annual efficiency gains by 2007-08, and the government planned to cut about 84,000 civil service posts.",
+    "source": "HM Treasury, Gershon Review",
+    "historicalChoice": 1,
+    "choices": [
+      "Keep expanding services and staff",
+      "Make phased savings and reinvest them",
+      "Cut deeply to lower spending"
+    ]
+  },
+  {
+    "id": "uk-2004-pension-protection-fund",
+    "year": 2004,
+    "category": "welfare",
+    "shock": null,
+    "title": "Workers lose their pensions",
+    "context": "Thousands of workers have lost much of their pensions after employers with underfunded schemes went bust. They demand protection.",
+    "reality": "The Pensions Act 2004 created the Pension Protection Fund from April 2005, financed by a levy on defined-benefit schemes rather than taxpayers. A separate Financial Assistance Scheme helped earlier victims.",
+    "source": "Pension Protection Fund",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a taxpayer-backed pension guarantee",
+      "Create a lifeboat fund paid by schemes",
+      "Leave it to employers and trustees"
+    ]
+  },
+  {
+    "id": "uk-2005-london-bombings-7-7",
+    "year": 2005,
+    "category": "security",
+    "shock": "terror",
+    "title": "Bombs on London's transport network",
+    "context": "Suicide bombers attack three Underground trains and a bus in London, killing dozens. Police want far longer pre-charge detention.",
+    "reality": "The 7 July 2005 bombings killed 52 people. The government sought 90-day pre-charge detention but lost a Commons vote in November 2005; the Terrorism Act 2006 set 28 days.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 0,
+    "choices": [
+      "Seek 90-day detention and tough new powers",
+      "Extend detention moderately, add offences",
+      "Rely on existing counter-terror laws"
+    ]
+  },
+  {
+    "id": "uk-2005-g8-gleneagles-aid-and-debt",
+    "year": 2005,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Make Poverty History",
+    "context": "Britain hosts the G8 summit at Gleneagles. Campaigners and global concerts demand debt relief and more aid for Africa.",
+    "reality": "At Gleneagles in July 2005 the G8 endorsed cancelling the debts of 18 of the poorest countries and pledged to raise aid by around $50bn a year by 2010.",
+    "source": "G8 Gleneagles Communiqué",
+    "historicalChoice": 0,
+    "choices": [
+      "Lead a big push on aid and debt relief",
+      "Agree targeted debt relief only",
+      "Avoid new spending commitments"
+    ]
+  },
+  {
+    "id": "uk-2005-pensions-commission",
+    "year": 2005,
+    "category": "welfare",
+    "shock": null,
+    "title": "The pensions time bomb",
+    "context": "People are living longer while saving too little. A commission proposes reforming state and private pensions for decades ahead.",
+    "reality": "The Turner Commission reported in 2005. The Pensions Acts of 2007 and 2008 restored the earnings link, raised the state pension age to 68 by 2046 and introduced automatic enrolment into workplace pensions.",
+    "source": "Pensions Commission (Turner Report)",
+    "historicalChoice": 1,
+    "choices": [
+      "Raise the state pension, funded by taxes",
+      "Pair a later pension age with auto-enrolment",
+      "Leave retirement saving to individuals"
+    ]
+  },
+  {
+    "id": "uk-2005-mg-rover-collapse",
+    "year": 2005,
+    "category": "economy",
+    "shock": null,
+    "title": "MG Rover collapses",
+    "context": "The last big British-owned volume carmaker runs out of money after talks with a Chinese partner fail. Thousands of jobs at Longbridge are at risk.",
+    "reality": "MG Rover collapsed in April 2005 with around 5,000-6,000 job losses. Ministers declined a bailout beyond a £6.5m bridging loan and announced a £150m package for workers and suppliers.",
+    "source": "National Audit Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Nationalise or bail out the carmaker",
+      "Fund retraining and help for suppliers",
+      "Let it collapse without intervention"
+    ]
+  },
+  {
+    "id": "uk-2006-identity-cards",
+    "year": 2006,
+    "category": "digitalization",
+    "shock": null,
+    "title": "National identity cards",
+    "context": "The government wants biometric ID cards and a national identity register to fight terrorism, fraud and illegal working. Civil liberties groups object.",
+    "reality": "The Identity Cards Act 2006 created the National Identity Register and biometric cards. The scheme was abolished by the Identity Documents Act 2010 before it was widely rolled out.",
+    "source": "legislation.gov.uk",
+    "historicalChoice": 0,
+    "choices": [
+      "Build a national ID card and register",
+      "Introduce voluntary ID cards only",
+      "Drop the ID card plans"
+    ]
+  },
+  {
+    "id": "uk-2006-energy-review-new-nuclear",
+    "year": 2006,
+    "category": "energy",
+    "shock": null,
+    "title": "A new generation of nuclear power?",
+    "context": "Ageing nuclear and coal plants will close within two decades while gas imports grow. Ministers must decide whether to back new nuclear stations.",
+    "reality": "The 2006 Energy Review and the 2008 Nuclear White Paper backed new nuclear power, on condition that private companies would fund, build and operate the stations.",
+    "source": "Department of Trade and Industry",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund new nuclear stations with public money",
+      "Allow private nuclear build without subsidy",
+      "Leave the power mix to the market"
+    ]
+  },
+  {
+    "id": "uk-2006-foreign-prisoners-scandal",
+    "year": 2006,
+    "category": "security",
+    "shock": null,
+    "title": "Foreign prisoners freed without deportation checks",
+    "context": "It emerges that over a thousand foreign prisoners were released without being considered for deportation. Some cannot be traced.",
+    "reality": "In 2006 the Home Office admitted that 1,023 foreign prisoners had been freed without deportation checks. Charles Clarke was sacked, and in 2007 the department was split, creating the Ministry of Justice.",
+    "source": "House of Commons Home Affairs Committee",
+    "historicalChoice": 0,
+    "choices": [
+      "Overhaul and split the Home Office",
+      "Tighten deportation rules and review cases",
+      "Fix it within existing budgets"
+    ]
+  },
+  {
+    "id": "uk-2006-smoking-ban",
+    "year": 2006,
+    "category": "society",
+    "shock": null,
+    "title": "Smoking in pubs and restaurants",
+    "context": "Scotland is banning smoking in enclosed public places. The government must decide how far a ban in England should go.",
+    "reality": "Ministers first proposed exempting private clubs and pubs not serving food, but MPs voted 384 to 184 in February 2006 for a full ban, which took effect in England in July 2007.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 0,
+    "choices": [
+      "Ban smoking in all enclosed public places",
+      "Ban it with exemptions for some pubs and clubs",
+      "Leave smoking rules to venues"
+    ]
+  },
+  {
+    "id": "uk-2007-northern-rock-bank-run",
+    "year": 2007,
+    "category": "economy",
+    "shock": null,
+    "title": "A run on Northern Rock",
+    "context": "A mortgage lender reliant on wholesale funding has asked the central bank for emergency support. Savers queue to withdraw their money.",
+    "reality": "In September 2007 Britain saw its first bank run in well over a century. Alistair Darling guaranteed Northern Rock's deposits; when no private buyer was found, it was nationalised in February 2008.",
+    "source": "House of Commons Treasury Committee",
+    "historicalChoice": 1,
+    "choices": [
+      "Nationalise the bank immediately",
+      "Guarantee deposits and seek a buyer",
+      "Let the bank fail"
+    ]
+  },
+  {
+    "id": "uk-2007-summer-floods",
+    "year": 2007,
+    "category": "society",
+    "shock": "disaster",
+    "title": "Summer floods",
+    "context": "Exceptional rain floods towns across England. Homes are ruined, and a failed water treatment works leaves hundreds of thousands without tap water.",
+    "reality": "The summer 2007 floods killed 13 people and flooded about 55,000 properties; the Mythe works failure cut supplies to some 350,000 people. Flood defence spending was raised and the Pitt Review commissioned.",
+    "source": "Pitt Review (Cabinet Office)",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund major new national flood defences",
+      "Raise flood spending and review resilience",
+      "Leave protection to insurers and councils"
+    ]
+  },
+  {
+    "id": "uk-2007-northern-ireland-power-sharing",
+    "year": 2007,
+    "category": "security",
+    "shock": null,
+    "title": "Restoring power-sharing in Northern Ireland",
+    "context": "Devolved government in Northern Ireland has been suspended since 2002. The two largest parties remain far apart, but talks are progressing.",
+    "reality": "After the 2006 St Andrews Agreement, Ian Paisley and Martin McGuinness became First Minister and deputy First Minister on 8 May 2007, restoring devolved government.",
+    "source": "Northern Ireland Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a large peace and investment package",
+      "Broker power-sharing with firm deadlines",
+      "Continue direct rule from London"
+    ]
+  },
+  {
+    "id": "uk-2007-child-benefit-data-loss",
+    "year": 2007,
+    "category": "digitalization",
+    "shock": null,
+    "title": "25 million records lost in the post",
+    "context": "The tax authority has lost two discs holding the child benefit records of millions of families, including bank details.",
+    "reality": "In November 2007 HMRC admitted losing two CDs with data on 25 million people. Its chairman resigned, and reviews led to new data-handling rules across government.",
+    "source": "Poynter Review (HM Treasury)",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund an overhaul of state data security",
+      "Order reviews and tighten data rules",
+      "Leave departments to fix their own systems"
+    ]
+  },
+  {
+    "id": "uk-2008-banking-crisis-bailout",
+    "year": 2008,
+    "category": "economy",
+    "shock": "financial",
+    "title": "The banking system on the brink",
+    "context": "Global credit markets have frozen after a US investment bank collapsed. Several major British banks could fail within days.",
+    "reality": "In October 2008 the government announced a £500bn rescue: £50bn to recapitalise banks, £250bn of loan guarantees and £200bn of liquidity. RBS and Lloyds-HBOS received about £37bn of state capital.",
+    "source": "HM Treasury",
+    "historicalChoice": 0,
+    "choices": [
+      "Recapitalise banks with public money",
+      "Guarantee lending and broker mergers",
+      "Let failing banks go under"
+    ]
+  },
+  {
+    "id": "uk-2008-recession-vat-cut",
+    "year": 2008,
+    "category": "budget",
+    "shock": null,
+    "title": "Recession: a fiscal stimulus?",
+    "context": "The economy is shrinking and unemployment rising. Economists debate whether the government should borrow to boost demand.",
+    "reality": "In November 2008 Alistair Darling cut VAT from 17.5% to 15% for 13 months, at a cost of about £12.5bn, and brought forward some capital spending.",
+    "source": "HM Treasury, Pre-Budget Report 2008",
+    "historicalChoice": 2,
+    "choices": [
+      "Fund a big public investment programme",
+      "Bring forward projects and target support",
+      "Cut VAT tax temporarily to lift spending"
+    ]
+  },
+  {
+    "id": "uk-2008-42-day-detention",
+    "year": 2008,
+    "category": "security",
+    "shock": null,
+    "title": "42 days without charge",
+    "context": "Police argue that complex terror plots need longer pre-charge detention. Critics call it an attack on civil liberties.",
+    "reality": "The Commons approved 42-day detention by just nine votes in June 2008, but the Lords rejected it by 309 to 118 in October and the government dropped the plan.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 0,
+    "choices": [
+      "Extend detention to 42 days",
+      "Allow extension only in emergencies",
+      "Keep the 28-day limit"
+    ]
+  },
+  {
+    "id": "uk-2008-climate-change-act",
+    "year": 2008,
+    "category": "energy",
+    "shock": null,
+    "title": "A legally binding climate target",
+    "context": "Campaigners demand binding cuts in emissions. Business fears higher energy costs during a downturn.",
+    "reality": "The Climate Change Act 2008 made an 80% cut in greenhouse gas emissions by 2050 legally binding, with five-year carbon budgets and an independent Committee on Climate Change.",
+    "source": "legislation.gov.uk",
+    "historicalChoice": 0,
+    "choices": [
+      "Legislate binding targets and carbon budgets",
+      "Set non-binding targets with reviews",
+      "Leave emissions to markets and the EU"
+    ]
+  },
+  {
+    "id": "uk-2009-mps-expenses-scandal",
+    "year": 2009,
+    "category": "society",
+    "shock": null,
+    "title": "The MPs' expenses scandal",
+    "context": "Leaked records show MPs claiming for second homes, moat cleaning and a duck house. Public anger at politicians is intense.",
+    "reality": "The Daily Telegraph's revelations from May 2009 forced Speaker Michael Martin out. The Parliamentary Standards Act 2009 created the independent IPSA, and an audit ordered repayments.",
+    "source": "UK Parliament",
+    "historicalChoice": 0,
+    "choices": [
+      "Create an independent regulator and audit all",
+      "Tighten the rules and order repayments",
+      "Leave reform to Parliament itself"
+    ]
+  },
+  {
+    "id": "uk-2009-car-scrappage-scheme",
+    "year": 2009,
+    "category": "economy",
+    "shock": null,
+    "title": "Car industry in free fall",
+    "context": "Car sales have collapsed in the recession. Manufacturers and dealers ask for state help as plants cut shifts.",
+    "reality": "The 2009 Budget launched a car scrappage scheme: £2,000 off a new car when trading in one over ten years old, half paid by the state and half by manufacturers.",
+    "source": "HM Treasury, Budget 2009",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund large direct bailouts for carmakers",
+      "Fund a targeted scrappage incentive",
+      "Leave carmakers to the market"
+    ]
+  },
+  {
+    "id": "uk-2009-afghanistan-reinforcements",
+    "year": 2009,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Reinforcements for Helmand",
+    "context": "British casualties in Afghanistan are at their highest. The United States is sending a troop surge and asks allies to do more.",
+    "reality": "2009 was the deadliest year for British forces in Afghanistan. Gordon Brown agreed to send 500 more troops, taking the total to about 9,500, on conditions including equipment and allied contributions.",
+    "source": "Ministry of Defence",
+    "historicalChoice": 1,
+    "choices": [
+      "Send substantial reinforcements",
+      "Send limited troops with conditions",
+      "Begin withdrawing British forces"
+    ]
+  },
+  {
+    "id": "uk-2009-record-deficit-and-50p-rate",
+    "year": 2009,
+    "category": "budget",
+    "shock": null,
+    "title": "A record deficit",
+    "context": "Borrowing has soared to its highest level since the Second World War. The government must choose between stimulus, tax rises and cuts.",
+    "reality": "Alistair Darling's April 2009 Budget created a 50p top income tax rate from April 2010, funded the Future Jobs Fund and set out a plan to halve the deficit over four years.",
+    "source": "HM Treasury, Budget 2009",
+    "historicalChoice": 1,
+    "choices": [
+      "Keep stimulus going and fund job schemes",
+      "Raise the top tax rate, phase deficit cuts",
+      "Start deep spending cuts now"
+    ]
+  },
+  {
+    "id": "uk-2010-coalition-and-austerity",
+    "year": 2010,
+    "category": "budget",
+    "shock": null,
+    "title": "A coalition and the deficit",
+    "context": "A new coalition government takes office facing a record peacetime deficit. With the Greek debt crisis unfolding, ministers must set a fiscal course.",
+    "reality": "The June 2010 emergency Budget raised VAT to 20%, and the October Spending Review cut departmental budgets by an average of 19% over four years.",
+    "source": "HM Treasury, Spending Review 2010",
+    "historicalChoice": 2,
+    "choices": [
+      "Delay cuts and keep investing",
+      "Phase in consolidation, mixing taxes and cuts",
+      "Front-load deep spending cuts"
+    ]
+  },
+  {
+    "id": "uk-2010-tripling-tuition-fees",
+    "year": 2010,
+    "category": "society",
+    "shock": null,
+    "title": "Tripling tuition fees",
+    "context": "Funding for university teaching is being cut. An independent review proposes higher fees repaid through income-contingent loans.",
+    "reality": "In December 2010 MPs voted 323 to 302 to raise the fee cap to £9,000. The Liberal Democrats, who had pledged to oppose any rise, split, and student protests turned violent.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund universities through general taxation",
+      "Raise fees with income-linked repayments",
+      "Cut teaching grants and lift the fee cap"
+    ]
+  },
+  {
+    "id": "uk-2010-strategic-defence-review",
+    "year": 2010,
+    "category": "security",
+    "shock": null,
+    "title": "Defence review in an age of austerity",
+    "context": "The defence budget faces a large black hole while troops fight in Afghanistan. Expensive programmes must be cut or protected.",
+    "reality": "The 2010 Strategic Defence and Security Review cut the defence budget by 8% in real terms over four years, retired the Harrier jets and HMS Ark Royal, and scrapped the Nimrod MRA4.",
+    "source": "HM Government, SDSR 2010",
+    "historicalChoice": 1,
+    "choices": [
+      "Protect the defence budget in full",
+      "Trim spending, keep core programmes",
+      "Make deep cuts to help close the deficit"
+    ]
+  },
+  {
+    "id": "uk-2010-universal-credit",
+    "year": 2010,
+    "category": "welfare",
+    "shock": null,
+    "title": "One benefit to replace six",
+    "context": "The benefits system is complex and can leave people better off out of work. Ministers propose a single, digitally run payment.",
+    "reality": "The November 2010 white paper proposed Universal Credit, merging six means-tested benefits. The Welfare Reform Act 2012 enacted it, but the rollout ran years behind schedule.",
+    "source": "Department for Work and Pensions",
+    "historicalChoice": 0,
+    "choices": [
+      "Build a single new digital benefit",
+      "Simplify existing benefits step by step",
+      "Just cut existing benefits"
+    ]
+  },
+  {
+    "id": "uk-2011-england-riots",
+    "year": 2011,
+    "category": "society",
+    "shock": null,
+    "title": "Riots spread across English cities",
+    "context": "After a fatal police shooting in Tottenham, looting and arson spread across London and other cities for several nights.",
+    "reality": "The August 2011 riots left five people dead. 16,000 police were deployed in London, courts sat through the night, and the Troubled Families programme followed in December.",
+    "source": "Home Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund large youth and family programmes",
+      "Surge police numbers and fast-track courts",
+      "Leave recovery to the police and councils"
+    ]
+  },
+  {
+    "id": "uk-2011-libya-intervention",
+    "year": 2011,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Protecting civilians in Libya",
+    "context": "Libya's dictator sends his forces against rebel-held Benghazi and threatens a massacre. France and Britain push for a no-fly zone.",
+    "reality": "After UN Security Council Resolution 1973, the RAF joined strikes on Libya in March 2011. The Commons backed action by 557 votes to 13; Muammar Gaddafi was overthrown that year.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 0,
+    "choices": [
+      "Lead air strikes to enforce a no-fly zone",
+      "Back sanctions and support allies",
+      "Stay out of the conflict"
+    ]
+  },
+  {
+    "id": "uk-2011-eurozone-treaty-veto",
+    "year": 2011,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "A treaty to save the euro",
+    "context": "Eurozone leaders want EU treaty changes for tighter budget rules. Britain wants safeguards for its financial services sector.",
+    "reality": "In December 2011 David Cameron vetoed an EU-wide treaty change after failing to secure safeguards for the City. The other states agreed the Fiscal Compact as a separate treaty.",
+    "source": "House of Commons Library",
+    "historicalChoice": 2,
+    "choices": [
+      "Join the new fiscal treaty",
+      "Accept changes in return for safeguards",
+      "Veto the treaty change"
+    ]
+  },
+  {
+    "id": "uk-2011-public-sector-pensions-strike",
+    "year": 2011,
+    "category": "welfare",
+    "shock": null,
+    "title": "Public sector pensions strike",
+    "context": "Ministers want public employees to work longer and pay more into their pensions. Unions call a mass walkout.",
+    "reality": "Unions said up to two million public sector workers struck on 30 November 2011. Following the Hutton review, final-salary schemes were replaced by career-average schemes and contributions rose.",
+    "source": "Independent Public Service Pensions Commission (Hutton)",
+    "historicalChoice": 1,
+    "choices": [
+      "Keep current schemes and fund the cost",
+      "Move to career-average schemes with protection",
+      "Close the schemes to new staff"
+    ]
+  },
+  {
+    "id": "uk-2012-olympic-security",
+    "year": 2012,
+    "category": "security",
+    "shock": null,
+    "title": "Security for the Olympic Games",
+    "context": "Weeks before the London Olympics, the private security contractor admits it cannot supply enough guards for the venues.",
+    "reality": "In July 2012 G4S failed to deliver enough guards; the government deployed 3,500 extra troops at short notice, and the Games passed off securely.",
+    "source": "House of Commons Home Affairs Committee",
+    "historicalChoice": 0,
+    "choices": [
+      "Deploy troops to fill the gap",
+      "Mix extra police with contractor staff",
+      "Leave the contractor to fix it"
+    ]
+  },
+  {
+    "id": "uk-2012-leveson-press-regulation",
+    "year": 2012,
+    "category": "society",
+    "shock": null,
+    "title": "Regulating the press after phone hacking",
+    "context": "A judicial inquiry into phone hacking recommends an independent press regulator backed by law. Newspapers warn of state control.",
+    "reality": "The Leveson Report of November 2012 called for statutory underpinning. David Cameron refused; instead a Royal Charter on press self-regulation was agreed in 2013.",
+    "source": "Leveson Inquiry",
+    "historicalChoice": 1,
+    "choices": [
+      "Legislate for a statutory press regulator",
+      "Back a Royal Charter-based regulator",
+      "Leave the press to regulate itself"
+    ]
+  },
+  {
+    "id": "uk-2012-top-rate-of-income-tax",
+    "year": 2012,
+    "category": "budget",
+    "shock": null,
+    "title": "The 50p top tax rate",
+    "context": "The 50p top rate of income tax is said to raise little and deter investment. Cutting it in hard times could look unfair.",
+    "reality": "George Osborne's March 2012 Budget cut the top rate to 45p from April 2013. U-turns on a 'pasty tax' and other measures led critics to call it an 'omnishambles'.",
+    "source": "HM Treasury, Budget 2012",
+    "historicalChoice": 2,
+    "choices": [
+      "Keep 50p and fund more investment",
+      "Keep the top rate for now, review later",
+      "Cut the top income tax rate"
+    ]
+  },
+  {
+    "id": "uk-2012-benefit-cap",
+    "year": 2012,
+    "category": "welfare",
+    "shock": null,
+    "title": "Capping benefits",
+    "context": "Ministers argue that no workless household should receive more in benefits than the average working family earns.",
+    "reality": "The Welfare Reform Act 2012 introduced a £26,000 annual household benefit cap from 2013, with exemptions for disabled people, alongside the so-called 'bedroom tax' in social housing.",
+    "source": "Department for Work and Pensions",
+    "historicalChoice": 1,
+    "choices": [
+      "Protect benefits and fund more housing",
+      "Cap benefits with exemptions",
+      "Cut benefits across the board"
+    ]
+  },
+  {
+    "id": "uk-2013-syria-chemical-weapons-vote",
+    "year": 2013,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Chemical weapons in Syria",
+    "context": "The Syrian regime is accused of a nerve-gas attack near Damascus that killed hundreds. The United States plans punitive strikes.",
+    "reality": "On 29 August 2013 the Commons rejected the government's motion on military action by 285 to 272. David Cameron accepted the result and Britain did not join strikes.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 0,
+    "choices": [
+      "Join punitive military strikes",
+      "Push the UN route and humanitarian aid",
+      "Stay out of any action"
+    ]
+  },
+  {
+    "id": "uk-2013-hinkley-point-c",
+    "year": 2013,
+    "category": "energy",
+    "shock": null,
+    "title": "Hinkley Point C",
+    "context": "No new nuclear plant has been built for decades. A French state-owned firm will build one only with a long-term guaranteed price.",
+    "reality": "In October 2013 the government agreed a strike price of £92.50/MWh for 35 years with EDF for Hinkley Point C. The project has since run years late and far over budget.",
+    "source": "Department of Energy and Climate Change",
+    "historicalChoice": 1,
+    "choices": [
+      "Build new nuclear with public money",
+      "Guarantee a price for private builders",
+      "Leave new plants to the market"
+    ]
+  },
+  {
+    "id": "uk-2013-help-to-buy",
+    "year": 2013,
+    "category": "economy",
+    "shock": null,
+    "title": "Getting first-time buyers on the ladder",
+    "context": "Young people struggle to raise deposits, and housebuilding is weak after the crash.",
+    "reality": "The 2013 Budget launched Help to Buy, offering equity loans of up to 20% on new-build homes and mortgage guarantees. Critics said it pushed up prices.",
+    "source": "HM Treasury, Budget 2013",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a large public housebuilding drive",
+      "Subsidise buyers with equity loans",
+      "Leave housing to the market"
+    ]
+  },
+  {
+    "id": "uk-2013-same-sex-marriage",
+    "year": 2013,
+    "category": "society",
+    "shock": null,
+    "title": "Equal marriage",
+    "context": "Same-sex couples can form civil partnerships but cannot marry. Religious groups are divided over change.",
+    "reality": "The Marriage (Same Sex Couples) Act 2013 legalised same-sex marriage in England and Wales from March 2014, with protections for religious bodies that decline to conduct such marriages.",
+    "source": "legislation.gov.uk",
+    "historicalChoice": 1,
+    "choices": [
+      "Legislate full marriage equality",
+      "Legalise it with religious protections",
+      "Keep civil partnerships only"
+    ]
+  },
+  {
+    "id": "uk-2014-scottish-independence-referendum",
+    "year": 2014,
+    "category": "society",
+    "shock": null,
+    "title": "Scotland decides",
+    "context": "Scotland will vote on independence. Days before the vote, a poll puts the Yes side ahead for the first time.",
+    "reality": "Unionist party leaders pledged extensive new powers in 'The Vow'. On 18 September 2014 Scotland voted 55.3% No; the Smith Commission led to the Scotland Act 2016.",
+    "source": "Electoral Commission",
+    "historicalChoice": 0,
+    "choices": [
+      "Pledge sweeping new powers for Scotland",
+      "Offer a negotiated devolution package",
+      "Refuse further concessions"
+    ]
+  },
+  {
+    "id": "uk-2014-emergency-data-retention-law",
+    "year": 2014,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Data retention struck down",
+    "context": "Europe's top court has annulled the EU data retention directive. Police warn they will lose access to phone and internet records.",
+    "reality": "The Data Retention and Investigatory Powers Act was rushed through Parliament within days in July 2014, with a sunset clause for the end of 2016 and an independent review.",
+    "source": "legislation.gov.uk",
+    "historicalChoice": 1,
+    "choices": [
+      "Pass a permanent law expanding retention",
+      "Pass a temporary law with a sunset clause",
+      "Let data retention lapse"
+    ]
+  },
+  {
+    "id": "uk-2014-russia-annexes-crimea",
+    "year": 2014,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Russia annexes Crimea",
+    "context": "Russian forces have seized Crimea and are stoking conflict in eastern Ukraine. Allies debate how hard to punish Moscow.",
+    "reality": "Britain backed EU and G7 sanctions, and Russia was suspended from the G8. After flight MH17 was shot down over eastern Ukraine in July 2014, sanctions were tightened.",
+    "source": "House of Commons Library",
+    "historicalChoice": 1,
+    "choices": [
+      "Push maximum sanctions and arm Ukraine",
+      "Coordinate targeted EU sanctions",
+      "Avoid measures that hurt trade"
+    ]
+  },
+  {
+    "id": "uk-2014-rotherham-abuse-report",
+    "year": 2014,
+    "category": "society",
+    "shock": null,
+    "title": "The Rotherham abuse report",
+    "context": "An inquiry finds that about 1,400 children in one town were sexually exploited over 16 years while officials failed to act.",
+    "reality": "The 2014 Jay report found around 1,400 children were abused in Rotherham between 1997 and 2013. After the Casey inspection, ministers sent commissioners to run the council in 2015.",
+    "source": "Independent Inquiry (Jay Report)",
+    "historicalChoice": 1,
+    "choices": [
+      "Launch a national inquiry and fund victims",
+      "Inspect and take over the failing council",
+      "Leave it to local agencies"
+    ]
+  },
+  {
+    "id": "uk-2015-european-refugee-crisis",
+    "year": 2015,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Europe's refugee crisis",
+    "context": "Over a million people head for Europe, many fleeing war in Syria. The EU wants member states to share asylum seekers through quotas.",
+    "reality": "Britain stayed out of EU relocation quotas. In September 2015 David Cameron pledged instead to resettle 20,000 Syrian refugees directly from the region over five years.",
+    "source": "Home Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Accept large numbers under EU quotas",
+      "Resettle refugees directly from camps",
+      "Take no additional refugees"
+    ]
+  },
+  {
+    "id": "uk-2015-air-strikes-in-syria",
+    "year": 2015,
+    "category": "security",
+    "shock": null,
+    "title": "Air strikes against ISIS in Syria",
+    "context": "After deadly terror attacks in Paris, France asks allies for help. British jets already strike ISIS in Iraq, but not in Syria.",
+    "reality": "On 2 December 2015 the Commons voted 397 to 223 to extend RAF air strikes against ISIS into Syria.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 0,
+    "choices": [
+      "Extend air strikes into Syria",
+      "Keep to Iraq, support allies otherwise",
+      "Stay out of further military action"
+    ]
+  },
+  {
+    "id": "uk-2015-national-living-wage",
+    "year": 2015,
+    "category": "economy",
+    "shock": null,
+    "title": "A national living wage",
+    "context": "Low pay is widespread and in-work benefits are costly. The Treasury considers a much higher legal wage floor.",
+    "reality": "The July 2015 Budget announced a National Living Wage of £7.20 an hour for over-25s from April 2016, with the aim of reaching 60% of median earnings by 2020.",
+    "source": "HM Treasury, Summer Budget 2015",
+    "historicalChoice": 0,
+    "choices": [
+      "Raise the wage floor sharply",
+      "Raise it gradually on expert advice",
+      "Leave wages to the market"
+    ]
+  },
+  {
+    "id": "uk-2015-national-cyber-security",
+    "year": 2015,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Cyber attacks on the rise",
+    "context": "Hackers target companies and public bodies, stealing data on millions of customers. The security agencies want more money and a national cyber centre.",
+    "reality": "In November 2015 George Osborne announced £1.9bn over five years for cyber security and a new national cyber centre; the National Cyber Security Centre opened in 2016.",
+    "source": "National Cyber Security Centre",
+    "historicalChoice": 0,
+    "choices": [
+      "Fund a national cyber security centre",
+      "Fund targeted protection for key systems",
+      "Leave cyber defence to companies"
+    ]
+  },
+  {
+    "id": "uk-2016-eu-referendum",
+    "year": 2016,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "In or out of the EU?",
+    "context": "Pressure grows for a public vote on EU membership. The Prime Minister has renegotiated some terms and must decide whether and how to put the question to the people.",
+    "reality": "David Cameron held an in/out referendum on 23 June 2016 after renegotiating membership terms. Leave won with 51.9% and Cameron resigned.",
+    "source": "Electoral Commission",
+    "historicalChoice": 0,
+    "choices": [
+      "Hold an in/out referendum",
+      "Renegotiate and let Parliament decide",
+      "Refuse a referendum"
+    ]
+  },
+  {
+    "id": "uk-2016-investigatory-powers-act",
+    "year": 2016,
+    "category": "digitalization",
+    "shock": null,
+    "title": "The 'snoopers' charter'",
+    "context": "Emergency data laws expire soon. Intelligence agencies want powers for bulk data collection and to require storage of internet connection records.",
+    "reality": "The Investigatory Powers Act 2016 authorised bulk interception and required providers to keep internet connection records for 12 months, with warrants approved by judicial commissioners.",
+    "source": "legislation.gov.uk",
+    "historicalChoice": 1,
+    "choices": [
+      "Legislate broad bulk surveillance powers",
+      "Grant powers with judicial approval",
+      "Let emergency powers lapse"
+    ]
+  },
+  {
+    "id": "uk-2016-steel-crisis-port-talbot",
+    "year": 2016,
+    "category": "economy",
+    "shock": null,
+    "title": "Steel in crisis",
+    "context": "Cheap imports and high energy costs hit steelmaking. The owner of the country's largest steelworks, at Port Talbot, puts its UK business up for sale.",
+    "reality": "Tata Steel announced in March 2016 that it would sell its UK business. Ministers ruled out nationalisation but offered to co-invest up to 25% alongside a buyer; Tata ultimately kept the business.",
+    "source": "Department for Business, Innovation and Skills",
+    "historicalChoice": 1,
+    "choices": [
+      "Nationalise the steelworks",
+      "Offer co-investment to a buyer",
+      "Let the market decide"
+    ]
+  },
+  {
+    "id": "uk-2016-sugar-levy",
+    "year": 2016,
+    "category": "society",
+    "shock": null,
+    "title": "A levy on sugary drinks",
+    "context": "Child obesity is rising. Health campaigners call for a levy on sugary soft drinks; the industry warns of job losses.",
+    "reality": "The 2016 Budget announced the Soft Drinks Industry Levy, in force from April 2018, with revenue initially used for school sport. Many manufacturers cut sugar to avoid it.",
+    "source": "HM Treasury, Budget 2016",
+    "historicalChoice": 0,
+    "choices": [
+      "Impose a sugar levy and fund school sport",
+      "Negotiate voluntary sugar cuts",
+      "Leave diets to consumers"
+    ]
+  },
+  {
+    "id": "uk-2017-grenfell-tower-fire",
+    "year": 2017,
+    "category": "society",
+    "shock": null,
+    "title": "Fire at Grenfell Tower",
+    "context": "A fire in a London tower block kills dozens. Flammable cladding is then found on hundreds of buildings across the country.",
+    "reality": "The Grenfell Tower fire of 14 June 2017 killed 72 people. A public inquiry followed; in 2018 the government funded £400m to remove cladding from social housing, with private blocks funded later.",
+    "source": "Grenfell Tower Inquiry",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund cladding removal on all buildings",
+      "Fund social-housing work and review rules",
+      "Leave remediation to building owners"
+    ]
+  },
+  {
+    "id": "uk-2017-wave-of-terror-attacks",
+    "year": 2017,
+    "category": "security",
+    "shock": "terror",
+    "title": "A wave of terror attacks",
+    "context": "Attacks hit Westminster, a pop concert in Manchester and London Bridge within months. The national threat level is raised to critical.",
+    "reality": "The 2017 attacks killed 36 people, 22 of them at Manchester Arena. Troops were briefly deployed under Operation Temperer, and the Counter-Terrorism and Border Security Act 2019 followed.",
+    "source": "Home Office",
+    "historicalChoice": 0,
+    "choices": [
+      "Deploy troops and toughen terror laws",
+      "Review strategy and boost police resources",
+      "Rely on existing police powers"
+    ]
+  },
+  {
+    "id": "uk-2017-triggering-article-50",
+    "year": 2017,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Triggering Article 50",
+    "context": "After the referendum, the government must formally notify the EU of withdrawal and decide what kind of future relationship to seek.",
+    "reality": "Theresa May triggered Article 50 on 29 March 2017, having ruled out single market and customs union membership in favour of a bespoke, deep free trade agreement.",
+    "source": "UK Parliament",
+    "historicalChoice": 1,
+    "choices": [
+      "Seek to stay in the single market",
+      "Seek a bespoke free trade deal",
+      "Prepare to leave on WTO terms"
+    ]
+  },
+  {
+    "id": "uk-2017-energy-price-cap",
+    "year": 2017,
+    "category": "energy",
+    "shock": null,
+    "title": "Rip-off energy tariffs",
+    "context": "Millions of loyal customers pay far more than those who switch supplier. Consumer groups demand a cap on prices.",
+    "reality": "The government legislated in 2018 for a cap on default energy tariffs, which the regulator Ofgem introduced from January 2019.",
+    "source": "Ofgem",
+    "historicalChoice": 1,
+    "choices": [
+      "Cap all energy tariffs by law",
+      "Cap default tariffs only",
+      "Leave prices to competition"
+    ]
+  },
+  {
+    "id": "uk-2018-salisbury-poisoning",
+    "year": 2018,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Nerve agent attack in Salisbury",
+    "context": "A former Russian spy and his daughter are poisoned with a military-grade nerve agent in an English city. Moscow denies involvement.",
+    "reality": "Britain expelled 23 Russian diplomats in March 2018 and allies expelled over 150 more. A local woman, Dawn Sturgess, died that July after exposure to discarded Novichok.",
+    "source": "Foreign and Commonwealth Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Impose sweeping sanctions on Russia",
+      "Expel diplomats and rally allies",
+      "Limit the response to protests"
+    ]
+  },
+  {
+    "id": "uk-2018-windrush-scandal",
+    "year": 2018,
+    "category": "society",
+    "shock": null,
+    "title": "The Windrush scandal",
+    "context": "Long-settled Caribbean-born residents have been wrongly denied jobs, healthcare and benefits, and some deported, for lacking documents.",
+    "reality": "The scandal broke in April 2018 and Home Secretary Amber Rudd resigned. The government apologised, offered citizenship and set up a compensation scheme in 2019.",
+    "source": "National Audit Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund full redress and end hostile policies",
+      "Apologise, regularise status, compensate",
+      "Review cases one by one"
+    ]
+  },
+  {
+    "id": "uk-2018-nhs-funding-settlement",
+    "year": 2018,
+    "category": "welfare",
+    "shock": null,
+    "title": "A birthday present for the NHS",
+    "context": "The NHS turns 70 amid long waits and winter crises. Its leaders call for a multi-year funding settlement.",
+    "reality": "In June 2018 Theresa May announced NHS England funding would rise by £20.5bn a year in real terms by 2023-24, about 3.4% a year, followed by a ten-year Long Term Plan.",
+    "source": "Department of Health and Social Care",
+    "historicalChoice": 0,
+    "choices": [
+      "Fund a large multi-year NHS increase",
+      "Fund modest rises tied to efficiency",
+      "Hold spending and expand private care"
+    ]
+  },
+  {
+    "id": "uk-2018-carillion-collapse",
+    "year": 2018,
+    "category": "economy",
+    "shock": null,
+    "title": "Carillion collapses",
+    "context": "A giant contractor that runs services in hospitals, schools and prisons faces insolvency and asks for state support.",
+    "reality": "Carillion went into compulsory liquidation in January 2018. The government refused a bailout; the Official Receiver kept public services running with state funding.",
+    "source": "National Audit Office",
+    "historicalChoice": 2,
+    "choices": [
+      "Bail out the contractor",
+      "Ringfence key contracts with interim support",
+      "Let it go into liquidation"
+    ]
+  },
+  {
+    "id": "uk-2019-brexit-deadlock",
+    "year": 2019,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Brexit deadlock",
+    "context": "Parliament has rejected the withdrawal agreement three times. The EU grants delays and a no-deal exit is a real possibility.",
+    "reality": "After record defeats for Theresa May's deal, Boris Johnson renegotiated it in October 2019, replacing the Irish backstop with the Northern Ireland Protocol.",
+    "source": "UK Parliament",
+    "historicalChoice": 1,
+    "choices": [
+      "Seek a customs union with the EU",
+      "Renegotiate the withdrawal deal",
+      "Prepare to leave without a deal"
+    ]
+  },
+  {
+    "id": "uk-2019-net-zero-2050",
+    "year": 2019,
+    "category": "energy",
+    "shock": null,
+    "title": "Net zero by 2050",
+    "context": "Climate advisers say a net zero emissions target for 2050 is achievable. Business groups worry about the cost.",
+    "reality": "In June 2019 Britain became the first major economy to legislate for net zero greenhouse gas emissions by 2050, amending the Climate Change Act.",
+    "source": "Climate Change Committee",
+    "historicalChoice": 0,
+    "choices": [
+      "Legislate net zero by 2050 with funding",
+      "Set a later or softer target",
+      "Keep the existing 80% target"
+    ]
+  },
+  {
+    "id": "uk-2019-police-numbers-and-knife-crime",
+    "year": 2019,
+    "category": "security",
+    "shock": null,
+    "title": "Rising knife crime",
+    "context": "Knife crime is at record levels and police numbers have fallen by about 20,000 since 2010.",
+    "reality": "In July 2019 Boris Johnson pledged 20,000 more police officers in England and Wales by March 2023. The government reported the target met in 2023.",
+    "source": "Home Office",
+    "historicalChoice": 0,
+    "choices": [
+      "Recruit thousands more police officers",
+      "Fund targeted violence reduction units",
+      "Leave priorities to police forces"
+    ]
+  },
+  {
+    "id": "uk-2019-thomas-cook-collapse",
+    "year": 2019,
+    "category": "economy",
+    "shock": null,
+    "title": "Thomas Cook goes bust",
+    "context": "The world's oldest travel firm faces collapse with around 150,000 British holidaymakers abroad. It asks for a state rescue.",
+    "reality": "Thomas Cook collapsed in September 2019 after the government refused a bailout. The Civil Aviation Authority flew home about 140,000 customers, the largest peacetime repatriation.",
+    "source": "Civil Aviation Authority",
+    "historicalChoice": 1,
+    "choices": [
+      "Bail out the travel company",
+      "Refuse a bailout but fly travellers home",
+      "Leave travellers to insurers"
+    ]
+  },
+  {
+    "id": "uk-2020-covid-19-lockdown",
+    "year": 2020,
+    "category": "society",
+    "shock": "pandemic",
+    "title": "A new virus spreads",
+    "context": "A new coronavirus is spreading rapidly and hospitals fear being overwhelmed. Scientific advisers urge drastic measures.",
+    "reality": "On 23 March 2020 Boris Johnson ordered a national lockdown. Further lockdowns followed in November 2020 and January 2021; a public inquiry later criticised the delays.",
+    "source": "UK Covid-19 Inquiry",
+    "historicalChoice": 0,
+    "choices": [
+      "Impose a national lockdown",
+      "Use targeted restrictions and shielding",
+      "Rely on voluntary guidance"
+    ]
+  },
+  {
+    "id": "uk-2020-furlough-scheme",
+    "year": 2020,
+    "category": "economy",
+    "shock": null,
+    "title": "Saving jobs in lockdown",
+    "context": "Lockdown shuts large parts of the economy overnight. Millions of jobs are at risk.",
+    "reality": "The Coronavirus Job Retention Scheme paid 80% of wages up to £2,500 a month. It supported 11.7 million jobs before it closed at the end of September 2021.",
+    "source": "HM Revenue and Customs",
+    "historicalChoice": 0,
+    "choices": [
+      "Pay most wages of furloughed staff",
+      "Offer targeted loans and grants",
+      "Leave firms to cope alone"
+    ]
+  },
+  {
+    "id": "uk-2020-huawei-and-5g",
+    "year": 2020,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Huawei and the 5G network",
+    "context": "A Chinese firm supplies cheap 5G equipment. Allies warn of security risks; mobile operators warn of delays and costs.",
+    "reality": "In January 2020 Huawei was capped at 35% of the network periphery. After new US sanctions, the government in July 2020 banned new Huawei kit and ordered its removal from 5G by 2027.",
+    "source": "National Cyber Security Centre",
+    "historicalChoice": 0,
+    "choices": [
+      "Ban the vendor and fund alternatives",
+      "Cap its role outside the core network",
+      "Let operators choose their suppliers"
+    ]
+  },
+  {
+    "id": "uk-2020-eu-trade-deal",
+    "year": 2020,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "The end of the transition",
+    "context": "The Brexit transition period ends on 31 December. Talks with the EU stall over fishing, state aid and fair competition.",
+    "reality": "On 24 December 2020 the UK and EU agreed the Trade and Cooperation Agreement, with zero tariffs and quotas on goods but new customs checks and paperwork.",
+    "source": "House of Commons Library",
+    "historicalChoice": 1,
+    "choices": [
+      "Extend the transition and seek closer ties",
+      "Sign a zero-tariff trade deal",
+      "Leave on WTO terms"
+    ]
+  },
+  {
+    "id": "uk-2021-aukus-pact",
+    "year": 2021,
+    "category": "security",
+    "shock": null,
+    "title": "A new pact in the Indo-Pacific",
+    "context": "China's military power is growing. The United States and Australia discuss nuclear-powered submarines with Britain.",
+    "reality": "AUKUS was announced in September 2021: Britain and the US agreed to help Australia acquire nuclear-powered submarines and to cooperate on advanced military technology.",
+    "source": "Ministry of Defence",
+    "historicalChoice": 0,
+    "choices": [
+      "Join a security pact and invest heavily",
+      "Join with limited commitments",
+      "Stay out to protect trade with China"
+    ]
+  },
+  {
+    "id": "uk-2021-fall-of-kabul",
+    "year": 2021,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "The fall of Kabul",
+    "context": "US forces are withdrawing and the Taliban have taken Kabul. Thousands of Afghans who worked with Britain seek evacuation.",
+    "reality": "Operation Pitting airlifted about 15,000 people from Kabul in August 2021. Resettlement schemes followed, but many eligible Afghans were left behind.",
+    "source": "Ministry of Defence",
+    "historicalChoice": 1,
+    "choices": [
+      "Push allies to keep forces in place",
+      "Run a large evacuation and resettlement",
+      "Withdraw with minimal evacuations"
+    ]
+  },
+  {
+    "id": "uk-2021-health-and-social-care-levy",
+    "year": 2021,
+    "category": "budget",
+    "shock": null,
+    "title": "Paying for social care",
+    "context": "NHS backlogs are growing after the pandemic and social care is in crisis. A promise not to raise national insurance stands in the way.",
+    "reality": "In September 2021 Boris Johnson announced a 1.25 percentage point Health and Social Care Levy on National Insurance. It took effect in April 2022 and was reversed that November.",
+    "source": "HM Treasury",
+    "historicalChoice": 0,
+    "choices": [
+      "Raise national insurance to fund care",
+      "Fund care gradually through borrowing",
+      "Hold taxes and fund care from savings"
+    ]
+  },
+  {
+    "id": "uk-2021-cop26-glasgow",
+    "year": 2021,
+    "category": "energy",
+    "shock": null,
+    "title": "Hosting the climate summit",
+    "context": "Britain hosts the UN climate conference in Glasgow. It wants a deal to phase out coal and to cut emissions faster.",
+    "reality": "The Glasgow Climate Pact of November 2021 was the first COP agreement to mention coal, but a late change pushed by India and China weakened 'phase-out' to 'phase-down'.",
+    "source": "UNFCCC",
+    "historicalChoice": 1,
+    "choices": [
+      "Push for coal phase-out with climate finance",
+      "Broker a compromise on coal",
+      "Host without new pledges"
+    ]
+  },
+  {
+    "id": "uk-2022-russia-invades-ukraine",
+    "year": 2022,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Russia invades Ukraine",
+    "context": "Russia launches a full-scale invasion of Ukraine. Kyiv asks for weapons, and millions of refugees flee west.",
+    "reality": "Britain supplied anti-tank weapons and other arms, imposed sweeping sanctions on Russia and launched the Homes for Ukraine scheme. It gave about £2.3bn of military aid in 2022.",
+    "source": "House of Commons Library",
+    "historicalChoice": 0,
+    "choices": [
+      "Supply arms and impose sweeping sanctions",
+      "Send aid and join targeted sanctions",
+      "Avoid steps that escalate the conflict"
+    ]
+  },
+  {
+    "id": "uk-2022-energy-price-shock",
+    "year": 2022,
+    "category": "energy",
+    "shock": "energy",
+    "title": "Energy bills explode",
+    "context": "Gas prices have hit record highs. Household energy bills are set to rise far beyond what many families can afford.",
+    "reality": "From October 2022 the Energy Price Guarantee capped a typical household bill at £2,500 a year, on top of a £400 bill discount. A windfall tax on oil and gas profits had been introduced in May.",
+    "source": "Department for Business, Energy and Industrial Strategy",
+    "historicalChoice": 0,
+    "choices": [
+      "Cap bills for all households",
+      "Target support at the poorest households",
+      "Leave prices to the market"
+    ]
+  },
+  {
+    "id": "uk-2022-mini-budget-gilt-crisis",
+    "year": 2022,
+    "category": "budget",
+    "shock": null,
+    "title": "The mini-budget",
+    "context": "The new government wants faster growth through large tax cuts funded by borrowing, at a time of high inflation and rising interest rates.",
+    "reality": "Kwasi Kwarteng's September 2022 mini-budget announced about £45bn of unfunded tax cuts. Gilt markets slumped, the Bank of England intervened, Kwarteng was sacked and Liz Truss resigned within weeks.",
+    "source": "Office for Budget Responsibility",
+    "historicalChoice": 2,
+    "choices": [
+      "Fund energy support and invest within rules",
+      "Phase targeted cuts with funding",
+      "Cut taxes sharply, funded by borrowing"
+    ]
+  },
+  {
+    "id": "uk-2022-infected-blood-compensation",
+    "year": 2022,
+    "category": "welfare",
+    "shock": null,
+    "title": "Compensating victims of infected blood",
+    "context": "Thousands were infected with HIV and hepatitis through contaminated NHS blood products decades ago. Many have died waiting for compensation.",
+    "reality": "In August 2022 the government agreed interim payments of £100,000 to around 4,000 infected people and bereaved partners. A full compensation scheme followed the inquiry's final report in 2024.",
+    "source": "Infected Blood Inquiry",
+    "historicalChoice": 1,
+    "choices": [
+      "Pay full compensation to all victims now",
+      "Pay interim sums and await the inquiry",
+      "Wait for the inquiry to finish"
+    ]
+  },
+  {
+    "id": "uk-2023-rwanda-deportation-plan",
+    "year": 2023,
+    "category": "security",
+    "shock": null,
+    "title": "The Rwanda deportation plan",
+    "context": "Small boat crossings remain high. The Supreme Court has ruled the plan to send asylum seekers to Rwanda unlawful.",
+    "reality": "After the November 2023 ruling, Rishi Sunak signed a new treaty and passed the Safety of Rwanda Act 2024. No asylum seekers were forcibly removed, and the scheme was scrapped in July 2024.",
+    "source": "UK Supreme Court",
+    "historicalChoice": 0,
+    "choices": [
+      "Override the courts by law and fund flights",
+      "Sign a new treaty and speed up processing",
+      "Drop the scheme"
+    ]
+  },
+  {
+    "id": "uk-2023-windsor-framework",
+    "year": 2023,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Fixing the Northern Ireland Protocol",
+    "context": "Post-Brexit trade checks between Great Britain and Northern Ireland cause friction, and power-sharing has collapsed in protest.",
+    "reality": "The Windsor Framework, agreed with the EU in February 2023, eased checks through a 'green lane' and added the 'Stormont brake'. Power-sharing resumed in February 2024.",
+    "source": "UK Government / European Commission",
+    "historicalChoice": 1,
+    "choices": [
+      "Align closely with EU rules across the UK",
+      "Negotiate a new framework with the EU",
+      "Override the protocol unilaterally"
+    ]
+  },
+  {
+    "id": "uk-2023-nhs-strikes",
+    "year": 2023,
+    "category": "welfare",
+    "shock": null,
+    "title": "Strikes across the NHS",
+    "context": "Nurses, ambulance staff and junior doctors walk out over pay eroded by inflation. Waiting lists reach record levels.",
+    "reality": "Most NHS staff groups settled in 2023, but junior doctors kept striking. In July 2023 the government accepted pay review body awards of around 6%.",
+    "source": "Department of Health and Social Care",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund the pay demands in full",
+      "Accept pay review awards, keep talking",
+      "Hold pay down to curb inflation"
+    ]
+  },
+  {
+    "id": "uk-2023-net-zero-rollback",
+    "year": 2023,
+    "category": "energy",
+    "shock": null,
+    "title": "Slowing the green transition",
+    "context": "Households face high living costs, and some politicians argue climate deadlines are too costly for families.",
+    "reality": "In September 2023 Rishi Sunak delayed the ban on new petrol and diesel cars from 2030 to 2035 and softened the phase-out of gas boilers, while keeping the 2050 net zero target.",
+    "source": "UK Government",
+    "historicalChoice": 1,
+    "choices": [
+      "Keep deadlines and fund the transition",
+      "Delay some targets, keep net zero",
+      "Scrap green targets and levies"
+    ]
+  },
+  {
+    "id": "uk-2024-post-office-horizon-scandal",
+    "year": 2024,
+    "category": "society",
+    "shock": null,
+    "title": "The Post Office Horizon scandal",
+    "context": "A television drama revives national outrage: hundreds of sub-postmasters were wrongly prosecuted because of a faulty IT system.",
+    "reality": "After ITV's 'Mr Bates vs The Post Office' in January 2024, Parliament passed the Post Office (Horizon System) Offences Act 2024, quashing convictions en masse, and expanded compensation.",
+    "source": "legislation.gov.uk",
+    "historicalChoice": 0,
+    "choices": [
+      "Quash convictions by law and fund redress",
+      "Speed up appeals and compensation",
+      "Leave it to the courts"
+    ]
+  },
+  {
+    "id": "uk-2024-riots-after-southport",
+    "year": 2024,
+    "category": "security",
+    "shock": null,
+    "title": "Riots after Southport",
+    "context": "After three young girls are killed in a knife attack, misinformation online fuels riots, including attacks on mosques and hotels housing asylum seekers.",
+    "reality": "Rioting spread across England and Northern Ireland in summer 2024. The government prioritised rapid arrests and fast-tracked prosecutions, with over 1,000 arrests and hundreds of prison sentences.",
+    "source": "Crown Prosecution Service",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a standing national riot response force",
+      "Fast-track arrests and prosecutions",
+      "Leave policing to local forces"
+    ]
+  },
+  {
+    "id": "uk-2024-prison-overcrowding-early-release",
+    "year": 2024,
+    "category": "society",
+    "shock": null,
+    "title": "Prisons at bursting point",
+    "context": "Prisons in England and Wales are almost full. Without action, courts may soon be unable to jail offenders.",
+    "reality": "From September 2024 many prisoners were released after serving 40% of their sentence instead of 50%. Thousands left early while the government pledged 14,000 new prison places.",
+    "source": "Ministry of Justice",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund emergency prison places",
+      "Release some prisoners earlier",
+      "Leave it to courts and prison service"
+    ]
+  },
+  {
+    "id": "uk-2024-autumn-budget-2024",
+    "year": 2024,
+    "category": "budget",
+    "shock": null,
+    "title": "Filling the fiscal black hole",
+    "context": "The new government says it has inherited a £22bn spending gap. Public services need money, but income tax and VAT rises have been ruled out.",
+    "reality": "Rachel Reeves's October 2024 Budget raised taxes by about £40bn, chiefly by lifting employer National Insurance to 15% and cutting the threshold at which it is paid to £5,000.",
+    "source": "Office for Budget Responsibility",
+    "historicalChoice": 0,
+    "choices": [
+      "Raise taxes and invest in services",
+      "Raise some taxes and phase spending",
+      "Cut spending and avoid tax rises"
+    ]
+  },
+  {
+    "id": "uk-2025-autumn-budget-2025",
+    "year": 2025,
+    "category": "budget",
+    "shock": null,
+    "title": "A second tax-raising Budget",
+    "context": "Weak growth and higher borrowing costs leave a hole in the public finances. Ministers face pressure to tackle child poverty without breaking tax pledges.",
+    "reality": "Rachel Reeves's November 2025 Budget raised taxes by £26bn by 2029-30, mainly by freezing income tax thresholds until 2031, and scrapped the two-child benefit limit from April 2026.",
+    "source": "Office for Budget Responsibility",
+    "historicalChoice": 0,
+    "choices": [
+      "Raise taxes and lift child benefits",
+      "Freeze thresholds and phase measures",
+      "Cut spending to avoid tax rises"
+    ]
+  },
+  {
+    "id": "uk-2025-welfare-reform-rebellion",
+    "year": 2025,
+    "category": "welfare",
+    "shock": null,
+    "title": "Welfare cuts and a backbench revolt",
+    "context": "Sickness and disability benefit costs are rising fast. Planned cuts face a revolt by more than 100 government MPs.",
+    "reality": "In July 2025 the government dropped its planned PIP eligibility changes pending a review led by Stephen Timms. The bill passed second reading with 49 Labour MPs voting against.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 1,
+    "choices": [
+      "Protect benefits and fund job support",
+      "Narrow the cuts and review disability benefits",
+      "Push the full cuts through"
+    ]
+  },
+  {
+    "id": "uk-2025-defence-spending-rise",
+    "year": 2025,
+    "category": "security",
+    "shock": null,
+    "title": "Rearming in a dangerous world",
+    "context": "Washington demands that European allies spend far more on defence while Russia's war against Ukraine continues.",
+    "reality": "In February 2025 Keir Starmer pledged defence spending of 2.5% of GDP by 2027, funded by cutting aid to 0.3% of GNI. At the NATO summit in June he backed 5% by 2035, including 3.5% on core defence.",
+    "source": "House of Commons Library",
+    "historicalChoice": 1,
+    "choices": [
+      "Raise defence spending fast, fund by taxes",
+      "Raise it gradually, fund by cutting aid",
+      "Keep defence spending near current levels"
+    ]
+  },
+  {
+    "id": "uk-2025-asylum-hotels-and-small-boats",
+    "year": 2025,
+    "category": "society",
+    "shock": null,
+    "title": "Asylum hotels and small boats",
+    "context": "Small boat arrivals stay high and hotels housing asylum seekers spark protests in several towns. Pressure for tougher rules grows.",
+    "reality": "Protests at an Epping asylum hotel spread in summer 2025. Britain agreed a 'one in, one out' returns pilot with France and in November proposed temporary refugee status and a 20-year wait for settlement.",
+    "source": "Home Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund faster processing and new housing",
+      "Agree returns deals and tighten rules",
+      "Leave asylum housing to councils"
+    ]
+  },
+  {
+    "id": "uk-2026-iran-war-and-british-bases",
+    "year": 2026,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "War with Iran and British bases",
+    "context": "The United States and Israel have struck Iran, which retaliates and threatens shipping in the Strait of Hormuz. Washington asks to use British bases.",
+    "reality": "After the war began on 28 February 2026, Keir Starmer let the US use British bases for defensive operations and, from March, strikes on missile sites targeting shipping, but kept Britain out of offensive action.",
+    "source": "House of Commons Library",
+    "historicalChoice": 1,
+    "choices": [
+      "Join US operations with British forces",
+      "Allow limited defensive use of bases",
+      "Refuse any use of British bases"
+    ]
+  },
+  {
+    "id": "uk-2026-electricity-vat-cut",
+    "year": 2026,
+    "category": "energy",
+    "shock": "energy",
+    "title": "Energy bills rise again",
+    "context": "War in the Gulf has driven up oil and gas prices. Household energy bills and fuel costs are climbing again.",
+    "reality": "In July 2026 the new Prime Minister, Andy Burnham, scrapped VAT on household electricity from 1 October 2026 to 31 March 2027, worth about £45 a year, as Ofgem's October price cap rose by about 4%.",
+    "source": "Ofgem",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund broad support for all energy bills",
+      "Scrap VAT on electricity bills only",
+      "Leave bills to the price cap"
+    ]
+  },
+  {
+    "id": "uk-2026-defence-investment-plan",
+    "year": 2026,
+    "category": "security",
+    "shock": null,
+    "title": "Funding the armed forces",
+    "context": "A ten-year defence investment plan is long overdue. Military chiefs say the money on offer falls short, while other departments face cuts to pay for defence.",
+    "reality": "In June 2026 Defence Secretary John Healey resigned, saying the funding settlement for the Defence Investment Plan fell well short of what the forces needed. Keir Starmer announced his own resignation later that month.",
+    "source": "UK Defence Journal",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund the forces' full investment plan",
+      "Agree a constrained ten-year plan",
+      "Hold defence budgets flat"
+    ]
+  },
+  {
+    "id": "uk-2026-digital-id-climbdown",
+    "year": 2026,
+    "category": "digitalization",
+    "shock": null,
+    "title": "The digital ID climbdown",
+    "context": "A national digital ID, required to prove the right to work, faces a petition signed by millions and opposition from across the political spectrum.",
+    "reality": "Announced in September 2025, the scheme's mandatory right-to-work element was dropped in January 2026. In July 2026 Andy Burnham's government cancelled the programme to help fund a cut in VAT on electricity.",
+    "source": "UK Parliament",
+    "historicalChoice": 2,
+    "choices": [
+      "Build a mandatory national digital ID",
+      "Offer a voluntary digital ID",
+      "Scrap the digital ID programme"
+    ]
+  }
+]

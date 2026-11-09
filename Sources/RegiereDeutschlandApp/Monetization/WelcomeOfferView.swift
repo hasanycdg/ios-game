@@ -11,6 +11,8 @@ struct WelcomeOfferView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var selectedProductID: String?
     @State private var restoreMessage: String?
+    /// The player's name from onboarding, used to personalise the headline.
+    var playerName: String = ""
 
     private var english: Bool { presentation.language == .english }
     private func copy(_ german: String, _ englishText: String) -> String {
@@ -30,6 +32,32 @@ struct WelcomeOfferView: View {
             : [Monetization.completeProductID, Monetization.campaignProductID]
         return ids.compactMap { id in available.first { $0.storeProduct.productIdentifier == id } }
     }
+    private func pick(_ german: String, _ english: String, _ french: String) -> String {
+        presentation.pick(german, english, french)
+    }
+
+    /// Bundle price versus buying both campaigns separately (same currency only).
+    private var bundleAnchor: (regular: String, saving: String)? {
+        guard !purchases.hasCampaign2005 else { return nil }
+        let products = purchases.offering(for: placement, country: presentation.country)?.availablePackages.map(\.storeProduct) ?? []
+        guard let main = products.first(where: { $0.productIdentifier == Monetization.campaignProductID }),
+              let future = products.first(where: { $0.productIdentifier == Monetization.future2050ProductID }),
+              let bundle = products.first(where: { $0.productIdentifier == Monetization.completeProductID }),
+              let saving = CampaignBundleSaving.amount(main: main.price, future: future.price, bundle: bundle.price,
+                                                       mainCurrency: main.currencyCode, futureCurrency: future.currencyCode,
+                                                       bundleCurrency: bundle.currencyCode),
+              let formatter = bundle.priceFormatter,
+              let regular = formatter.string(from: NSDecimalNumber(decimal: main.price + future.price)),
+              let savingText = formatter.string(from: NSDecimalNumber(decimal: saving)) else { return nil }
+        return (regular, savingText)
+    }
+
+    private var greeting: String {
+        let name = playerName.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !name.isEmpty else { return copy("DEINE GESCHICHTE BEGINNT", "YOUR STORY BEGINS") }
+        return pick("\(name.uppercased()), DEINE AMTSZEIT BEGINNT", "\(name.uppercased()), YOUR TERM BEGINS", "\(name.uppercased()), TON MANDAT COMMENCE")
+    }
+
     private var selected: Package? {
         packages.first { $0.storeProduct.productIdentifier == selectedProductID } ?? packages.first
     }
@@ -78,7 +106,9 @@ struct WelcomeOfferView: View {
                         }
                         Text(copy("Einmal zahlen. Dauerhaft spielen. Kein Abo.", "Pay once. Play forever. No subscription."))
                             .font(.footnote.weight(.medium)).foregroundStyle(GameTheme.secondaryText)
-                        Button(copy("Kostenlos weiterspielen", "Continue for free")) { dismiss() }
+                        Button(purchases.hasCampaign2005
+                               ? copy("Kostenlos weiterspielen", "Continue for free")
+                               : pick("Erst den kostenlosen Prolog spielen", "Play the free prologue first", "Jouer d’abord le prologue gratuit")) { dismiss() }
                             .font(.subheadline.weight(.semibold))
                             .foregroundStyle(GameTheme.primaryText)
                             .disabled(purchases.isPurchasing)
@@ -122,7 +152,7 @@ struct WelcomeOfferView: View {
             }
             LinearGradient(colors: [.clear, .black.opacity(0.45), Color(red: 0.025, green: 0.035, blue: 0.055)], startPoint: .top, endPoint: .bottom)
             VStack(alignment: .leading, spacing: 9) {
-                Text(copy("DEINE GESCHICHTE BEGINNT", "YOUR STORY BEGINS"))
+                Text(greeting)
                     .font(.system(size: 10, weight: .heavy)).tracking(2)
                     .foregroundStyle(GameTheme.goldBright)
                 Text(purchases.hasCampaign2005
@@ -145,18 +175,21 @@ struct WelcomeOfferView: View {
 
     private var benefitStrip: some View {
         HStack(alignment: .top, spacing: 8) {
-            benefit("building.columns.fill", copy("Wahlen & Politik", "Elections & politics"))
-            benefit("globe.europe.africa.fill", copy("Vier Länder", "Four countries"))
-            benefit("sparkles", copy("Deine Zukunft", "Your future"))
+            benefit("85+", pick("historische Ereignisse bis 2026", "historical events to 2026", "événements historiques jusqu’en 2026"))
+            benefit("270+", pick("Entscheidungen in Zukunft 2050", "decisions in Future 2050", "décisions dans Futur 2050"))
+            benefit("4", pick("Länder mit eigenen Kampagnen", "countries, each with its own campaign", "pays, chacun avec sa campagne"))
         }
     }
-    private func benefit(_ icon: String, _ title: String) -> some View {
-        VStack(spacing: 7) {
-            Image(systemName: icon).font(.system(size: 15, weight: .semibold)).foregroundStyle(GameTheme.goldBright)
-            Text(title).font(.system(size: 10, weight: .semibold)).foregroundStyle(GameTheme.secondaryText).multilineTextAlignment(.center)
+    private func benefit(_ value: String, _ title: String) -> some View {
+        VStack(spacing: 5) {
+            Text(value)
+                .font(.system(size: 22, weight: .heavy, design: .rounded))
+                .foregroundStyle(GameTheme.goldBright)
+            Text(title).font(.system(size: 10, weight: .semibold)).foregroundStyle(GameTheme.secondaryText)
+                .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
         }
         .frame(maxWidth: .infinity)
-        .padding(.vertical, 12)
+        .padding(.vertical, 12).padding(.horizontal, 4)
         .background(.white.opacity(0.045), in: RoundedRectangle(cornerRadius: 14))
     }
     private func packageRow(_ package: Package) -> some View {
@@ -169,14 +202,32 @@ struct WelcomeOfferView: View {
                 Image(systemName: active ? "largecircle.fill.circle" : "circle")
                     .font(.system(size: 20)).foregroundStyle(active ? GameTheme.goldBright : GameTheme.tertiaryText)
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(bundle ? copy("Komplettpaket", "Complete bundle") : future ? copy("Zukunft 2050", "Future 2050") : copy("Hauptkampagne", "Main campaign"))
-                        .font(.subheadline.weight(.bold)).foregroundStyle(.white)
+                    HStack(spacing: 6) {
+                        Text(bundle ? copy("Komplettpaket", "Complete bundle") : future ? copy("Zukunft 2050", "Future 2050") : copy("Hauptkampagne", "Main campaign"))
+                            .font(.subheadline.weight(.bold)).foregroundStyle(.white)
+                        if bundle, let anchor = bundleAnchor {
+                            Text(pick("SPARE \(anchor.saving)", "SAVE \(anchor.saving)", "ÉCONOMISE \(anchor.saving)"))
+                                .font(.system(size: 9, weight: .heavy)).tracking(0.6)
+                                .foregroundStyle(Color(red: 0.12, green: 0.10, blue: 0.05))
+                                .padding(.horizontal, 6).padding(.vertical, 3)
+                                .background(GameTheme.goldGradient, in: Capsule())
+                        }
+                    }
                     Text(bundle ? copy("Hauptkampagne + Zukunft 2050", "Main campaign + Future 2050") : future ? copy("Fiktive Erweiterung · 2026–2050", "Fictional expansion · 2026–2050") : "2005–2026")
                         .font(.caption).foregroundStyle(GameTheme.secondaryText)
                 }
                 Spacer(minLength: 4)
-                Text(package.storeProduct.localizedPriceString)
-                    .font(.subheadline.weight(.heavy)).foregroundStyle(.white)
+                VStack(alignment: .trailing, spacing: 2) {
+                    Text(package.storeProduct.localizedPriceString)
+                        .font(.subheadline.weight(.heavy)).foregroundStyle(.white)
+                    if bundle, let anchor = bundleAnchor {
+                        Text(anchor.regular)
+                            .font(.caption2.weight(.semibold))
+                            .strikethrough()
+                            .foregroundStyle(GameTheme.tertiaryText)
+                            .accessibilityLabel(pick("Einzeln \(anchor.regular)", "Separately \(anchor.regular)", "Séparément \(anchor.regular)"))
+                    }
+                }
             }
             .padding(15)
             .background(active ? GameTheme.gold.opacity(0.13) : .white.opacity(0.045), in: RoundedRectangle(cornerRadius: 16))
@@ -218,9 +269,11 @@ struct WelcomeOfferView: View {
     private func buy(_ package: Package) {
         Task {
             restoreMessage = nil
+            let id = package.storeProduct.productIdentifier
+            Analytics.track(.purchaseStarted, ["product": id, "placement": "welcome"])
             let success = await purchases.purchase(package, country: presentation.country)
             guard success else { return }
-            let id = package.storeProduct.productIdentifier
+            Analytics.track(.purchaseCompleted, ["product": id, "placement": "welcome"])
             let unlocked = id == Monetization.completeProductID ? purchases.hasCampaign2005 && purchases.hasFuture2050
                 : id == Monetization.future2050ProductID ? purchases.hasFuture2050 : purchases.hasCampaign2005
             if unlocked { dismiss() }

@@ -268,3 +268,11 @@ func aUSCampaignCanBePlayedFrom2000Through2050(partyID: String) throws {
     #expect(CampaignOfferSchedule.shouldPresent(hasFutureCampaign: false, lastPresented: now - CampaignOfferSchedule.interval, now: now, afterOnboarding: false))
     #expect(CampaignOfferSchedule.shouldPresent(hasFutureCampaign: false, lastPresented: 0, now: now, afterOnboarding: false))
 }
+
+@Test(arguments: GameCountry.allCases)
+func prologueCliffhangerShowsRealEventsFrom2005(country: GameCountry) {
+    let engine = GameEngine(country: country, finalYear: 2004)
+    let titles = engine.upcomingEventTitles(in: 2005)
+    #expect(titles.count == 3)
+    #expect(titles.allSatisfy { !$0.isEmpty })
+}

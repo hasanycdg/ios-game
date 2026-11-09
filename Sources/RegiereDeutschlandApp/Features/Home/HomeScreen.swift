@@ -14,6 +14,9 @@ struct HomeScreen: LocalizedGameView {
     @State private var showPartyPaywall = false
     @State private var showWelcomePaywall = false
     @State private var offerAfterOnboarding = false
+    /// First run: after the onboarding (and the optional offer) the prologue starts directly.
+    @State private var startPrologueAfterOffer = false
+    @State private var startPrologue = false
     @AppStorage("lastAutomaticCampaignOffer") private var lastAutomaticCampaignOffer = 0.0
     @AppStorage private var hasSeenOnboarding: Bool
     @AppStorage private var storedName: String
@@ -52,12 +55,23 @@ struct HomeScreen: LocalizedGameView {
 
             ScrollView {
                 VStack(spacing: 24) {
+                    HStack {
+                    Menu {
+                        SoundToggles()
+                    } label: {
+                        Image(systemName: SoundManager.shared.musicEnabled || SoundManager.shared.effectsEnabled ? "speaker.wave.2.fill" : "speaker.slash.fill")
+                            .font(.footnote.weight(.semibold))
+                            .foregroundStyle(GameTheme.secondaryText)
+                            .frame(width: 32, height: 32)
+                    }
+                    .accessibilityLabel(gamePresentation.pick("Ton", "Sound", "Son"))
+                    Spacer()
                     Button(action: chooseCountry) {
                         Label(L(country == .germany ? L("Deutschland · Land wechseln") : country == .unitedStates ? L("United States · Change country") : L("Land wechseln")), systemImage: "globe.americas.fill")
                             .font(.footnote.weight(.semibold))
                     }
                     .foregroundStyle(GameTheme.secondaryText)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    }
                     Spacer(minLength: 8)
                     hero
                     nameField
@@ -79,7 +93,10 @@ struct HomeScreen: LocalizedGameView {
         .foregroundStyle(GameTheme.primaryText)
         .inlineNavigationTitle()
         .hiddenNavigationBar()
-        .onAppear(perform: reload)
+        .onAppear {
+            reload()
+            SoundManager.shared.playMusic(.menu)
+        }
         .task {
             guard hasSeenOnboarding else { return }
             await purchases.refreshCustomerInfo()
@@ -95,19 +112,34 @@ struct HomeScreen: LocalizedGameView {
             Task {
                 await purchases.refreshCustomerInfo()
                 presentAutomaticOffer(force: true)
+                // Nothing left to offer: go straight into the game.
+                if !showWelcomePaywall, startPrologueAfterOffer { beginPrologue() }
             }
         }) {
-            OnboardingView {
-                offerAfterOnboarding = !hasSeenOnboarding
+            OnboardingView(country: country, initialName: playerName, initialPartyID: selectedPartyID) { result in
+                let firstRun = !hasSeenOnboarding
+                if let result {
+                    playerName = result.playerName == country.defaultLeaderName ? "" : result.playerName
+                    storedName = result.playerName
+                    selectedPartyID = result.partyID
+                }
+                startPrologueAfterOffer = firstRun && result != nil && !hasSaveGame
+                offerAfterOnboarding = firstRun
                 hasSeenOnboarding = true
                 showOnboarding = false
             }
         }
-        .sheet(isPresented: $showWelcomePaywall) {
+        .navigationDestination(isPresented: $startPrologue) {
+            GameContainerView(mode: .newGame, party: selectedParty, playerName: effectiveName, difficulty: selectedDifficulty, finalYear: accessibleFinalYear, country: country)
+        }
+        .sheet(isPresented: $showWelcomePaywall, onDismiss: {
+            Analytics.track(.offerDismissed, ["placement": "welcome"])
+            if startPrologueAfterOffer { beginPrologue() }
+        }) {
             if country.usesEuropeanModel {
                 EuropeanCampaignPaywallView()
             } else {
-                WelcomeOfferView()
+                WelcomeOfferView(playerName: storedName)
             }
         }
         .proPaywallSheet(isPresented: $showPartyPaywall)
@@ -137,6 +169,13 @@ struct HomeScreen: LocalizedGameView {
                                                   now: now, afterOnboarding: force) else { return }
         lastAutomaticCampaignOffer = now
         showWelcomePaywall = true
+        Analytics.track(.offerShown, ["placement": "welcome", "afterOnboarding": String(force), "country": country.rawValue])
+    }
+
+    private func beginPrologue() {
+        startPrologueAfterOffer = false
+        Analytics.track(.prologueStarted, ["country": country.rawValue, "party": selectedPartyID, "source": "onboarding"])
+        startPrologue = true
     }
 
     private var hero: some View {

@@ -7,6 +7,10 @@ struct RootView: View {
     @State private var selectedCountry: GameCountry?
     @State private var countryAwaitingLanguage: GameCountry?
     @State private var presentation = GamePresentation()
+    /// Country and language are chosen once and restored on every launch.
+    @AppStorage("selectedGameCountry") private var storedCountry = ""
+    @AppStorage("selectedGameLanguage") private var storedLanguage = ""
+    @State private var didRestoreSelection = false
 
     var body: some View {
         Group {
@@ -18,27 +22,28 @@ struct RootView: View {
                 .environment(\.chooseCountry, {
                     selectedCountry = nil
                     countryAwaitingLanguage = nil
+                    storedCountry = ""
                     navigationID = UUID()
                 })
             } else if let country = countryAwaitingLanguage {
                 LanguageSelectionView(country: country) { language in
-                    presentation.country = country
-                    presentation.language = language
-                    selectedCountry = country
-                    countryAwaitingLanguage = nil
-                    navigationID = UUID()
+                    Analytics.track(.countrySelected, ["country": country.rawValue, "language": language.rawValue])
+                    select(country, language)
                 } onBack: {
                     countryAwaitingLanguage = nil
                 }
-            } else {
+            } else if didRestoreSelection {
                 CountrySelectionView { country in
                     countryAwaitingLanguage = country
                 }
+            } else {
+                GameTheme.background.ignoresSafeArea()
             }
         }
         .id(navigationID)
         .tint(GameTheme.gold)
         .preferredColorScheme(.dark)
+        .onAppear(perform: restoreSelection)
         .sheet(isPresented: Binding(
             get: { reminder.showFutureUpdate && selectedCountry?.hasFutureExpansion == true },
             set: { reminder.showFutureUpdate = $0 }
@@ -50,5 +55,24 @@ struct RootView: View {
             if isPresented { navigationID = UUID() }
         }
         .environment(presentation)
+    }
+
+    private func select(_ country: GameCountry, _ language: GameLanguage) {
+        presentation.country = country
+        presentation.language = language
+        storedCountry = country.rawValue
+        storedLanguage = language.rawValue
+        selectedCountry = country
+        countryAwaitingLanguage = nil
+        navigationID = UUID()
+    }
+
+    private func restoreSelection() {
+        guard !didRestoreSelection else { return }
+        didRestoreSelection = true
+        if let country = GameCountry(rawValue: storedCountry),
+           let language = GameLanguage(rawValue: storedLanguage) {
+            select(country, language)
+        }
     }
 }

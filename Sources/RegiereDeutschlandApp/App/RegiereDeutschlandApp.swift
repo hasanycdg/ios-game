@@ -12,6 +12,7 @@ struct RegiereDeutschlandApp: App {
 
     init() {
         AppAppearance.configure()
+        Analytics.configure()
     }
 
     var body: some Scene {

@@ -9,6 +9,8 @@ struct ElectionResultPanel: LocalizedGameView {
     let onContinue: () -> Void
 
     @State private var revealed = false
+    /// The live count plays first; the detailed result follows.
+    @State private var liveFinished = false
 
     /// France holds presidential elections on its calendar; a snap vote after a
     /// collapse is a legislative election. The UK holds general elections.
@@ -21,6 +23,16 @@ struct ElectionResultPanel: LocalizedGameView {
     }
 
     var body: some View {
+        if liveFinished {
+            details
+        } else {
+            ElectionNightLive(election: election, title: L(electionTitle)) {
+                withAnimation(.easeInOut(duration: 0.4)) { liveFinished = true }
+            }
+        }
+    }
+
+    private var details: some View {
         ZStack {
             GameTheme.dramaticBackground.ignoresSafeArea()
 
@@ -96,7 +108,6 @@ struct ElectionResultPanel: LocalizedGameView {
         .foregroundStyle(GameTheme.primaryText)
         .onAppear {
             withAnimation(.easeInOut(duration: 0.7)) { revealed = true }
-            if election.didWin { Haptics.success() } else { Haptics.warning() }
         }
     }
 

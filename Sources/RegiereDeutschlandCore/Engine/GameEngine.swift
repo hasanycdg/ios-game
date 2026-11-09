@@ -396,6 +396,15 @@ public final class GameEngine {
         return max(1, income)
     }
 
+    /// Titles of historical events awaiting the player in `year`, used as a
+    /// teaser when a campaign package ends (e.g. after the free prologue).
+    public func upcomingEventTitles(in year: Int, limit: Int = 3) -> [String] {
+        Array(eventRepository.events(for: year)
+            .filter { !$0.id.hasPrefix("future-") && !FutureScenario.isStoryEvent($0.id) }
+            .map(\.title)
+            .prefix(limit))
+    }
+
     public func availableEvents() -> [GameEvent] {
         eventRepository
             .events(for: state.currentYear)

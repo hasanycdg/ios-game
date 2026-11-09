@@ -13,8 +13,14 @@ struct GameOverPanel: LocalizedGameView {
     var partyName: String = ""
     var continuationTitle: String? = nil
     var onContinueCampaign: (() -> Void)? = nil
+    /// End of the free prologue without access to the main campaign: show what comes next.
+    var cliffhangerHeadlines: [String] = []
     let onNewGame: () -> Void
     var onExitToMenu: (() -> Void)? = nil
+
+    private var showsCliffhanger: Bool {
+        !cliffhangerHeadlines.isEmpty && continuationTitle != nil && onContinueCampaign != nil
+    }
 
     @State private var shareImage: Image?
 
@@ -28,6 +34,7 @@ struct GameOverPanel: LocalizedGameView {
             ScrollView {
                 VStack(spacing: 20) {
                     header
+                    if showsCliffhanger { cliffhanger }
                     scoreHero
                     endReport
                     if !programResults.isEmpty { programCard }
@@ -55,10 +62,17 @@ struct GameOverPanel: LocalizedGameView {
                             .buttonStyle(PrimaryActionButtonStyle())
                         }
 
-                        Button(action: onNewGame) {
-                            Label(L("Neues Spiel"), systemImage: "arrow.clockwise")
+                        if showsCliffhanger {
+                            Button(action: onNewGame) {
+                                Label(L("Neues Spiel"), systemImage: "arrow.clockwise")
+                            }
+                            .buttonStyle(SecondaryActionButtonStyle())
+                        } else {
+                            Button(action: onNewGame) {
+                                Label(L("Neues Spiel"), systemImage: "arrow.clockwise")
+                            }
+                            .buttonStyle(PrimaryActionButtonStyle())
                         }
-                        .buttonStyle(PrimaryActionButtonStyle())
 
                         if let shareImage {
                             ShareLink(
@@ -83,7 +97,11 @@ struct GameOverPanel: LocalizedGameView {
             }
         }
         .foregroundStyle(GameTheme.primaryText)
-        .onAppear(perform: renderShareImage)
+        .onAppear {
+            renderShareImage()
+            // Jedes erreichte Kampagnenende (2004, 2026, 2050) – nicht bei Abwahl.
+            if reachedEnd { SoundManager.shared.play(.epochEnd) }
+        }
     }
 
     private func renderShareImage() {
@@ -113,6 +131,54 @@ struct GameOverPanel: LocalizedGameView {
                 .fixedSize(horizontal: false, vertical: true)
         }
         .padding(.top, 36)
+    }
+
+    /// "To be continued": the next year's real events and a direct way to continue.
+    private var cliffhanger: some View {
+        let p = gamePresentation
+        let nextYear = summary.endYear + 1
+        return VStack(alignment: .leading, spacing: 14) {
+            HStack {
+                Label(p.pick("FORTSETZUNG FOLGT", "TO BE CONTINUED", "À SUIVRE"), systemImage: "hourglass")
+                    .font(.caption.weight(.heavy)).tracking(1.6)
+                    .foregroundStyle(GameTheme.goldBright)
+                Spacer()
+                Text(verbatim: String(nextYear))
+                    .font(.system(size: 22, weight: .heavy, design: .serif))
+                    .foregroundStyle(GameTheme.gold)
+            }
+            Text(p.pick("Deine Amtszeit ist noch nicht vorbei. Das wartet \(nextYear) auf dich:",
+                        "Your time in office isn’t over. Here’s what awaits you in \(nextYear):",
+                        "Ton mandat n’est pas terminé. Voici ce qui t’attend en \(nextYear) :"))
+                .font(.subheadline.weight(.semibold))
+                .fixedSize(horizontal: false, vertical: true)
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(Array(cliffhangerHeadlines.enumerated()), id: \.offset) { _, headline in
+                    HStack(alignment: .top, spacing: 10) {
+                        Image(systemName: "newspaper.fill")
+                            .font(.caption.weight(.bold))
+                            .foregroundStyle(GameTheme.gold)
+                            .padding(.top, 2)
+                        Text(L(headline))
+                            .font(.system(.subheadline, design: .serif).weight(.semibold))
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+            }
+            Text(p.pick("Dein Spielstand, deine Partei und alle Folgen deiner Entscheidungen bleiben erhalten.",
+                        "Your save, your party and every consequence of your decisions carry over.",
+                        "Ta partie, ton parti et toutes les conséquences de tes décisions sont conservés."))
+                .font(.caption)
+                .foregroundStyle(GameTheme.secondaryText)
+                .fixedSize(horizontal: false, vertical: true)
+            if let continuationTitle, let onContinueCampaign {
+                Button(action: onContinueCampaign) {
+                    Label(L(continuationTitle), systemImage: "arrow.right.circle.fill")
+                }
+                .buttonStyle(PrimaryActionButtonStyle())
+            }
+        }
+        .gameCard(padding: 16, tint: GameTheme.gold)
     }
 
     private var scoreHero: some View {

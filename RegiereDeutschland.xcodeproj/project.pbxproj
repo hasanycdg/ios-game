@@ -10,6 +10,7 @@
 		1A0000000000000000000012 /* RegiereDeutschlandCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1A0000000000000000000011 /* RegiereDeutschlandCore */; };
 		1A0000000000000000000016 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 1A0000000000000000000014 /* RevenueCat */; };
 		1A0000000000000000000017 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1A0000000000000000000015 /* RevenueCatUI */; };
+		1A000000000000000000001A /* Aptabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1A0000000000000000000019 /* Aptabase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 				1A0000000000000000000012 /* RegiereDeutschlandCore in Frameworks */,
 				1A0000000000000000000016 /* RevenueCat in Frameworks */,
 				1A0000000000000000000017 /* RevenueCatUI in Frameworks */,
+				1A000000000000000000001A /* Aptabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +81,7 @@
 				1A0000000000000000000011 /* RegiereDeutschlandCore */,
 				1A0000000000000000000014 /* RevenueCat */,
 				1A0000000000000000000015 /* RevenueCatUI */,
+				1A0000000000000000000019 /* Aptabase */,
 			);
 			productName = RegiereDeutschland;
 			productReference = 1A0000000000000000000005 /* RegiereDeutschland.app */;
@@ -112,6 +115,7 @@
 			packageReferences = (
 				1A0000000000000000000010 /* XCLocalSwiftPackageReference "." */,
 				1A0000000000000000000013 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
+				1A0000000000000000000018 /* XCRemoteSwiftPackageReference "aptabase-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1A0000000000000000000003 /* Products */;
@@ -307,6 +311,14 @@
 				minimumVersion = 5.14.0;
 			};
 		};
+		1A0000000000000000000018 /* XCRemoteSwiftPackageReference "aptabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aptabase/aptabase-swift.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -323,6 +335,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1A0000000000000000000013 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
 			productName = RevenueCatUI;
+		};
+		1A0000000000000000000019 /* Aptabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A0000000000000000000018 /* XCRemoteSwiftPackageReference "aptabase-swift" */;
+			productName = Aptabase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

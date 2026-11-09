@@ -50,6 +50,10 @@ final class GameViewModel: ObservableObject {
     let maxCapital = 10
 
     var budget: BudgetSummary { engine.budgetSummary() }
+
+    func upcomingEventTitles(in year: Int, limit: Int = 3) -> [String] {
+        engine.upcomingEventTitles(in: year, limit: limit)
+    }
     #if DEBUG
     @Published private(set) var balanceSummaryText: String = ""
     #endif

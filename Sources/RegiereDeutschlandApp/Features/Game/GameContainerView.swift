@@ -148,6 +148,7 @@ struct GameContainerView: LocalizedGameView {
                 partyName: viewModel.playerParty.name,
                 continuationTitle: continuationTitle(for: summary),
                 onContinueCampaign: summary.reason == .reachedFinalYear ? { continueCampaign() } : nil,
+                cliffhangerHeadlines: cliffhangerHeadlines(for: summary),
                 onNewGame: {
                     withAnimation(.easeInOut) {
                         selectedTab = 0
@@ -158,6 +159,10 @@ struct GameContainerView: LocalizedGameView {
             )
             .transition(.opacity)
             .zIndex(1)
+            .onAppear {
+                guard summary.reason == .reachedFinalYear, viewModel.finalYear == 2004 else { return }
+                Analytics.track(.prologueCompleted, ["country": viewModel.country.rawValue, "score": String(summary.score)])
+            }
     }
 
     private func continuationTitle(for summary: GameOverSummary) -> String? {
@@ -173,7 +178,17 @@ struct GameContainerView: LocalizedGameView {
         }
     }
 
+    /// After the free prologue the next year's real events tempt the player to continue.
+    private func cliffhangerHeadlines(for summary: GameOverSummary) -> [String] {
+        guard summary.reason == .reachedFinalYear, viewModel.finalYear == 2004, !purchases.hasCampaign2005 else { return [] }
+        return viewModel.upcomingEventTitles(in: 2005)
+    }
+
     private func continueCampaign() {
+        if viewModel.finalYear == 2004 {
+            Analytics.track(.continueAfterPrologueTapped, ["country": viewModel.country.rawValue,
+                                                            "owned": String(purchases.hasCampaign2005)])
+        }
         if purchases.campaignAccess.continuationFinalYear(after: viewModel.finalYear) != nil {
             synchronizeCampaignAccess()
             return

@@ -21,6 +21,30 @@ final class GamePresentation {
         translations[source] = result
         return result
     }
+
+    /// Copy written directly in all three languages (onboarding, offers).
+    func pick(_ german: String, _ english: String, _ french: String) -> String {
+        switch language {
+        case .german: german
+        case .english: english
+        case .french: french
+        }
+    }
+}
+
+extension GameLanguage {
+    /// The device's preferred language, if the game supports it.
+    static var deviceDefault: GameLanguage {
+        for identifier in Locale.preferredLanguages {
+            switch Locale(identifier: identifier).language.languageCode?.identifier {
+            case "de": return .german
+            case "fr": return .french
+            case "en": return .english
+            default: continue
+            }
+        }
+        return .english
+    }
 }
 
 @MainActor
@@ -120,9 +144,10 @@ struct LanguageSelectionView: View {
                         .font(.title2.weight(.bold))
                     Text("Wähle deine Sprache\nChoose your language\nChoisis ta langue")
                         .font(.system(size: 30, weight: .heavy, design: .rounded))
-                    languageButton(.german, name: "Deutsch")
-                    languageButton(.english, name: "English")
-                    languageButton(.french, name: "Français")
+                    ForEach(orderedLanguages, id: \.self) { language in
+                        languageButton(language, name: language.nativeName,
+                                       recommended: language == GameLanguage.deviceDefault)
+                    }
                     Text("Dein Spielstand bleibt für dieses Land erhalten.\nYour saved progress stays with this country.\nTa sauvegarde reste liée à ce pays.")
                         .font(.footnote)
                         .foregroundStyle(GameTheme.tertiaryText)
@@ -135,20 +160,42 @@ struct LanguageSelectionView: View {
         .foregroundStyle(GameTheme.primaryText)
     }
 
-    private func languageButton(_ language: GameLanguage, name: String) -> some View {
+    /// The device language comes first, so most players confirm with one tap.
+    private var orderedLanguages: [GameLanguage] {
+        let preferred = GameLanguage.deviceDefault
+        return [preferred] + GameLanguage.allCases.filter { $0 != preferred }
+    }
+
+    private func languageButton(_ language: GameLanguage, name: String, recommended: Bool) -> some View {
         Button { onSelect(language) } label: {
             HStack {
                 Text(name).font(.title3.weight(.bold))
+                if recommended {
+                    Image(systemName: "iphone")
+                        .font(.caption.weight(.bold))
+                        .foregroundStyle(GameTheme.gold)
+                        .accessibilityLabel("Device language")
+                }
                 Spacer()
                 Image(systemName: "chevron.right").foregroundStyle(GameTheme.gold)
             }
             .padding(20)
-            .background(RoundedRectangle(cornerRadius: 18).fill(GameTheme.surface))
-            .overlay(RoundedRectangle(cornerRadius: 18).stroke(GameTheme.gold.opacity(0.3)))
+            .background(RoundedRectangle(cornerRadius: 18).fill(recommended ? GameTheme.gold.opacity(0.12) : GameTheme.surface))
+            .overlay(RoundedRectangle(cornerRadius: 18).stroke(GameTheme.gold.opacity(recommended ? 0.8 : 0.3), lineWidth: recommended ? 1.5 : 1))
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
         .accessibilityIdentifier("language.\(language.rawValue)")
+    }
+}
+
+extension GameLanguage {
+    var nativeName: String {
+        switch self {
+        case .german: "Deutsch"
+        case .english: "English"
+        case .french: "Français"
+        }
     }
 }
 

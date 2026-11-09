@@ -4,6 +4,8 @@ import Foundation
 public enum NewsScope: String, Codable, Sendable {
     case world      // Weltgeschehen
     case unitedStates
+    case unitedKingdom
+    case france
     case germany    // Deutschland
     case domestic   // Reaktion auf die eigene Politik (dynamisch erzeugt)
 }

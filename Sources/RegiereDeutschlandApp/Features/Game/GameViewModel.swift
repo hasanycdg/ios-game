@@ -77,7 +77,13 @@ final class GameViewModel: ObservableObject {
         self.language = country == .germany ? .german : .english
         let gamePersistence = persistence ?? GamePersistence(country: country)
         self.persistence = gamePersistence
-        self.newsRepository = newsRepository ?? (country == .germany ? LocalJSONNewsRepository() : USNewsRepository())
+        self.newsRepository = newsRepository ?? {
+            switch country {
+            case .germany: LocalJSONNewsRepository()
+            case .unitedStates: USNewsRepository()
+            case .unitedKingdom, .france: EuropeanNewsRepository(country: country)
+            }
+        }()
         switch mode {
         case .newGame:
             self.engine = GameEngine(country: country, finalYear: finalYear)
@@ -202,7 +208,7 @@ final class GameViewModel: ObservableObject {
 
     /// Historische Welt-/Deutschland-Schlagzeilen des aktuellen Jahres.
     var worldNews: [NewsItem] {
-        cachedNews.filter { $0.year == state.currentYear && (!$0.id.contains("USFuture") || state.historicalFlags.contains("content_future_2050")) }
+        cachedNews.filter { $0.year == state.currentYear && (!($0.id.contains("USFuture") || $0.id.contains("-news-future-")) || state.historicalFlags.contains("content_future_2050")) }
     }
 
     /// Reaktive Schlagzeilen zur Politik des Spielers.

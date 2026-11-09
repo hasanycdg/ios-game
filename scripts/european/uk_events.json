@@ -1,0 +1,2810 @@
+[
+  {
+    "id": "uk-2000-fuel-protests",
+    "year": 2000,
+    "category": "energy",
+    "shock": null,
+    "title": "Fuel blockades bring the country to a halt",
+    "context": "Hauliers and farmers blockade oil refineries over high fuel duty. Petrol stations run dry and the protesters demand an immediate tax cut.",
+    "reality": "In September 2000 blockades emptied petrol stations. Tony Blair refused to cut duty under pressure; Gordon Brown's November pre-budget report froze fuel duty and cut vehicle excise duty for lorries and small cars.",
+    "source": "HM Treasury, Pre-Budget Report 2000",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund public transport and fuel-saving help",
+      "Freeze duty and offer targeted relief",
+      "Hold firm and leave prices unchanged"
+    ],
+    "de": {
+      "title": "Treibstoffblockaden legen das Land lahm",
+      "context": "Spediteure und Landwirte blockieren Raffinerien wegen der hohen Mineralölsteuer. Tankstellen laufen leer, die Protestierenden fordern eine sofortige Steuersenkung.",
+      "reality": "Im September 2000 legten Blockaden die Tankstellen trocken. Tony Blair lehnte eine Steuersenkung unter Druck ab; Gordon Browns Haushaltsvorbericht im November fror die Mineralölsteuer ein und senkte die Kfz-Steuer für Lkw und Kleinwagen.",
+      "choices": [
+        "Nahverkehr und Spritsparhilfen finanzieren",
+        "Steuer einfrieren und gezielt entlasten",
+        "Hart bleiben und Preise unverändert lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2000-millennium-dome",
+    "year": 2000,
+    "category": "budget",
+    "shock": null,
+    "title": "The Millennium Dome money pit",
+    "context": "The flagship millennium attraction draws far fewer visitors than forecast and needs fresh public money to stay open through the year.",
+    "reality": "The Dome drew about 6.5 million visitors against a 12 million target. The Millennium Commission granted extra Lottery money several times in 2000 while a buyer was sought; it closed on 31 December 2000.",
+    "source": "National Audit Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Inject fresh public funds to keep it running",
+      "Grant limited extra funds and seek a buyer",
+      "Close it early and cut the losses"
+    ],
+    "de": {
+      "title": "Das Millennium Dome als Geldgrab",
+      "context": "Die Vorzeigeattraktion zur Jahrtausendwende lockt weit weniger Besucher an als erwartet und braucht neues öffentliches Geld, um das Jahr durchzuhalten.",
+      "reality": "Der Dome zählte rund 6,5 Millionen Besucher statt der angepeilten 12 Millionen. Die Millennium Commission bewilligte 2000 mehrfach zusätzliche Lotteriemittel, während ein Käufer gesucht wurde; am 31. Dezember 2000 schloss er.",
+      "choices": [
+        "Neue öffentliche Mittel für den Weiterbetrieb",
+        "Begrenzt nachschießen und Käufer suchen",
+        "Früh schließen und Verluste begrenzen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2000-investigatory-powers-ripa",
+    "year": 2000,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Who may read the nation's emails?",
+    "context": "Email and mobile phones are spreading fast. Police and intelligence agencies want clear legal powers to intercept communications and obtain data.",
+    "reality": "The Regulation of Investigatory Powers Act 2000 put interception, communications data and covert surveillance on a statutory footing, with ministerial warrants, oversight commissioners and a tribunal.",
+    "source": "legislation.gov.uk",
+    "historicalChoice": 1,
+    "choices": [
+      "Grant broad powers to intercept and monitor",
+      "Grant powers under warrants and oversight",
+      "Leave it to providers and existing law"
+    ],
+    "de": {
+      "title": "Wer darf die E-Mails der Nation lesen?",
+      "context": "E-Mail und Mobiltelefone verbreiten sich rasant. Polizei und Geheimdienste wollen klare gesetzliche Befugnisse, um Kommunikation abzufangen und Daten abzufragen.",
+      "reality": "Der Regulation of Investigatory Powers Act 2000 stellte Abhörmaßnahmen, Verbindungsdaten und verdeckte Überwachung auf eine gesetzliche Grundlage – mit ministeriellen Anordnungen, Aufsichtsbeauftragten und einem Tribunal.",
+      "choices": [
+        "Weitreichende Abhör- und Überwachungsbefugnisse",
+        "Befugnisse mit Anordnung und Aufsicht erteilen",
+        "Den Anbietern und geltendem Recht überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2000-nhs-plan",
+    "year": 2000,
+    "category": "welfare",
+    "shock": null,
+    "title": "A ten-year plan for the NHS",
+    "context": "Winter crises and long waiting lists strain the health service. The Prime Minister has promised to raise health spending towards the European average.",
+    "reality": "The March 2000 Budget raised NHS funding by over 6% a year in real terms. The NHS Plan of July 2000 promised 7,000 extra beds, 7,500 more consultants and 20,000 more nurses.",
+    "source": "Department of Health, The NHS Plan (2000)",
+    "historicalChoice": 0,
+    "choices": [
+      "Fund a large multi-year NHS expansion",
+      "Fund targeted increases tied to reforms",
+      "Hold spending and encourage private care"
+    ],
+    "de": {
+      "title": "Ein Zehnjahresplan für den NHS",
+      "context": "Winterkrisen und lange Wartelisten belasten das Gesundheitswesen. Der Premierminister hat versprochen, die Gesundheitsausgaben an den europäischen Durchschnitt heranzuführen.",
+      "reality": "Der Haushalt vom März 2000 erhöhte die NHS-Mittel real um über 6 % pro Jahr. Der NHS-Plan vom Juli 2000 versprach 7.000 zusätzliche Betten, 7.500 weitere Fachärzte und 20.000 weitere Pflegekräfte.",
+      "choices": [
+        "Großen mehrjährigen NHS-Ausbau finanzieren",
+        "Gezielte Erhöhungen an Reformen knüpfen",
+        "Ausgaben halten und Privatversorgung fördern"
+      ]
+    }
+  },
+  {
+    "id": "uk-2001-foot-and-mouth-outbreak",
+    "year": 2001,
+    "category": "economy",
+    "shock": "disaster",
+    "title": "Foot-and-mouth disease sweeps the countryside",
+    "context": "A highly contagious livestock disease spreads across farms. Footpaths close, rural tourism collapses and farmers demand action and compensation.",
+    "reality": "Over 6 million animals were slaughtered in 2001; the army helped with disposal and local and general elections were delayed to June. The NAO put the cost at about £3bn to the public sector and £5bn to the private sector.",
+    "source": "National Audit Office",
+    "historicalChoice": 0,
+    "choices": [
+      "Mount a mass cull with army help and compensation",
+      "Combine targeted culls with vaccination",
+      "Leave containment to farmers and councils"
+    ],
+    "de": {
+      "title": "Maul- und Klauenseuche überzieht das Land",
+      "context": "Eine hochansteckende Tierseuche breitet sich auf den Höfen aus. Wanderwege werden gesperrt, der Landtourismus bricht ein, Landwirte fordern Maßnahmen und Entschädigung.",
+      "reality": "2001 wurden über 6 Millionen Tiere getötet; die Armee half bei der Beseitigung, Kommunal- und Unterhauswahlen wurden auf Juni verschoben. Der Rechnungshof bezifferte die Kosten auf rund 3 Mrd. £ für den Staat und 5 Mrd. £ für die Privatwirtschaft.",
+      "choices": [
+        "Massenkeulung mit Armee und Entschädigung",
+        "Gezielte Keulung mit Impfung kombinieren",
+        "Eindämmung Landwirten und Kommunen überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2001-september-11-and-afghanistan",
+    "year": 2001,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "After 11 September",
+    "context": "Terrorist attacks in the United States kill nearly 3,000 people. Washington prepares military action against al-Qaeda and its Taliban hosts in Afghanistan.",
+    "reality": "Tony Blair pledged to stand 'shoulder to shoulder' with the US. British forces joined strikes on Afghanistan from 7 October 2001, and Britain led the first ISAF security mission in Kabul.",
+    "source": "House of Commons Library",
+    "historicalChoice": 0,
+    "choices": [
+      "Join military action with substantial forces",
+      "Offer limited support and push UN diplomacy",
+      "Stay out of military action"
+    ],
+    "de": {
+      "title": "Nach dem 11. September",
+      "context": "Terroranschläge in den USA töten fast 3.000 Menschen. Washington bereitet einen Militärschlag gegen al-Qaida und ihre Taliban-Gastgeber in Afghanistan vor.",
+      "reality": "Tony Blair versprach, „Schulter an Schulter“ mit den USA zu stehen. Britische Streitkräfte beteiligten sich ab dem 7. Oktober 2001 an den Angriffen in Afghanistan, und Großbritannien führte die erste ISAF-Mission in Kabul.",
+      "choices": [
+        "Mit starken Kräften militärisch beteiligen",
+        "Begrenzt helfen und UN-Diplomatie vorantreiben",
+        "Sich aus Militäreinsätzen heraushalten"
+      ]
+    }
+  },
+  {
+    "id": "uk-2001-anti-terror-detention-powers",
+    "year": 2001,
+    "category": "security",
+    "shock": null,
+    "title": "Emergency anti-terror powers",
+    "context": "After the attacks abroad, the security services warn of foreign terror suspects in Britain who can be neither deported nor prosecuted.",
+    "reality": "The Anti-terrorism, Crime and Security Act 2001 allowed indefinite detention without trial of foreign terror suspects. In December 2004 the Law Lords ruled this incompatible with human rights law.",
+    "source": "House of Lords judgment, A v Home Secretary (2004)",
+    "historicalChoice": 0,
+    "choices": [
+      "Allow detention without trial",
+      "Expand surveillance but keep trials",
+      "Rely on existing criminal law"
+    ],
+    "de": {
+      "title": "Notstandsbefugnisse gegen Terror",
+      "context": "Nach den Anschlägen im Ausland warnen die Sicherheitsdienste vor ausländischen Terrorverdächtigen in Großbritannien, die weder abgeschoben noch angeklagt werden können.",
+      "reality": "Der Anti-terrorism, Crime and Security Act 2001 erlaubte die unbefristete Inhaftierung ausländischer Terrorverdächtiger ohne Prozess. Im Dezember 2004 erklärten die Law Lords dies für unvereinbar mit den Menschenrechten.",
+      "choices": [
+        "Haft ohne Gerichtsverfahren erlauben",
+        "Überwachung ausweiten, Prozesse beibehalten",
+        "Auf geltendes Strafrecht setzen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2001-northern-town-riots",
+    "year": 2001,
+    "category": "society",
+    "shock": null,
+    "title": "Riots in northern towns",
+    "context": "Violent clashes involving white and Asian youths and the police erupt in Oldham, Burnley and Bradford, exposing deeply segregated communities.",
+    "reality": "After the summer 2001 riots the government commissioned the Cantle Report, which found communities living 'parallel lives' and made community cohesion a national policy priority.",
+    "source": "Home Office, Cantle Report (2001)",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund major regeneration and integration schemes",
+      "Commission a review and fund cohesion projects",
+      "Leave it to the police and local councils"
+    ],
+    "de": {
+      "title": "Unruhen in nordenglischen Städten",
+      "context": "In Oldham, Burnley und Bradford kommt es zu gewaltsamen Zusammenstößen zwischen weißen und asiatischstämmigen Jugendlichen und der Polizei. Sie offenbaren tief gespaltene Gemeinschaften.",
+      "reality": "Nach den Unruhen im Sommer 2001 gab die Regierung den Cantle-Bericht in Auftrag. Er stellte fest, dass Gemeinschaften „Parallelleben“ führten, und machte gesellschaftlichen Zusammenhalt zur politischen Priorität.",
+      "choices": [
+        "Große Stadterneuerungs- und Integrationsprogramme",
+        "Untersuchung anstoßen und Projekte fördern",
+        "Polizei und Kommunen überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2002-national-insurance-rise-for-the-nhs",
+    "year": 2002,
+    "category": "budget",
+    "shock": null,
+    "title": "Paying for the NHS",
+    "context": "An independent review warns that the health service needs years of higher funding. The Treasury must decide how to pay for it.",
+    "reality": "In the April 2002 Budget, following the Wanless review, Gordon Brown raised National Insurance by one percentage point from April 2003 to fund large increases in NHS spending.",
+    "source": "HM Treasury, Budget 2002",
+    "historicalChoice": 0,
+    "choices": [
+      "Raise national insurance to fund the NHS",
+      "Fund modest rises through growth and borrowing",
+      "Hold spending and keep taxes unchanged"
+    ],
+    "de": {
+      "title": "Wie den NHS bezahlen?",
+      "context": "Ein unabhängiger Bericht warnt, dass das Gesundheitswesen über Jahre deutlich mehr Geld braucht. Das Finanzministerium muss entscheiden, wie das bezahlt wird.",
+      "reality": "Im Haushalt vom April 2002 erhöhte Gordon Brown nach dem Wanless-Bericht die Sozialversicherungsbeiträge ab April 2003 um einen Prozentpunkt, um deutlich höhere NHS-Ausgaben zu finanzieren.",
+      "choices": [
+        "Sozialabgaben für den NHS erhöhen",
+        "Moderate Erhöhungen über Wachstum und Kredite",
+        "Ausgaben halten und Steuern unverändert lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2002-firefighters-strike",
+    "year": 2002,
+    "category": "economy",
+    "shock": null,
+    "title": "Firefighters walk out",
+    "context": "The firefighters' union demands a 40% pay rise. Strikes loom, and the army's ageing 'Green Goddess' engines would have to provide cover.",
+    "reality": "Firefighters struck from November 2002 while troops provided emergency cover. The dispute ended in June 2003 with a 16% rise over three years, tied to modernisation of the service.",
+    "source": "Eurofound",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund the full pay demand",
+      "Offer a phased rise tied to reform",
+      "Refuse talks and rely on army cover"
+    ],
+    "de": {
+      "title": "Die Feuerwehr streikt",
+      "context": "Die Feuerwehrgewerkschaft fordert 40 % mehr Lohn. Streiks drohen, und die alten „Green Goddess“-Löschfahrzeuge der Armee müssten einspringen.",
+      "reality": "Ab November 2002 streikten die Feuerwehrleute, Soldaten übernahmen den Notdienst. Der Konflikt endete im Juni 2003 mit 16 % mehr Lohn über drei Jahre, gekoppelt an eine Modernisierung des Dienstes.",
+      "choices": [
+        "Die volle Lohnforderung finanzieren",
+        "Gestaffelte Erhöhung gegen Reformen anbieten",
+        "Gespräche ablehnen und auf die Armee setzen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2002-sangatte-and-the-channel",
+    "year": 2002,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "The Sangatte camp at Calais",
+    "context": "Hundreds of migrants at a Red Cross centre near Calais try nightly to reach Britain through the Channel Tunnel. France wants a deal.",
+    "reality": "Britain and France agreed to close Sangatte in December 2002; Britain admitted about 1,200 of its residents. The 2003 Le Touquet treaty then placed British border checks on French soil.",
+    "source": "House of Commons Library",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund joint border operations and resettlement",
+      "Negotiate closure in exchange for some intake",
+      "Refuse any intake and leave it to France"
+    ],
+    "de": {
+      "title": "Das Lager Sangatte bei Calais",
+      "context": "Hunderte Migranten in einem Rotkreuzlager bei Calais versuchen jede Nacht, durch den Eurotunnel nach Großbritannien zu gelangen. Frankreich will eine Einigung.",
+      "reality": "Großbritannien und Frankreich vereinbarten, Sangatte im Dezember 2002 zu schließen; Großbritannien nahm rund 1.200 Bewohner auf. Der Vertrag von Le Touquet 2003 verlegte britische Grenzkontrollen auf französischen Boden.",
+      "choices": [
+        "Gemeinsame Grenzeinsätze und Aufnahme finanzieren",
+        "Schließung gegen begrenzte Aufnahme aushandeln",
+        "Jede Aufnahme ablehnen und es Frankreich überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2002-network-rail-replaces-railtrack",
+    "year": 2002,
+    "category": "economy",
+    "shock": null,
+    "title": "What to do after Railtrack",
+    "context": "The privatised rail infrastructure company has collapsed into administration after fatal crashes and spiralling costs. The network needs a new owner.",
+    "reality": "Railtrack was put into administration in October 2001. In October 2002 the network passed to Network Rail, a not-for-dividend company whose debts were backed by the state.",
+    "source": "Office of Rail and Road",
+    "historicalChoice": 1,
+    "choices": [
+      "Fully renationalise the rail network",
+      "Create a not-for-dividend public-interest firm",
+      "Sell it to new private investors"
+    ],
+    "de": {
+      "title": "Wie weiter nach Railtrack?",
+      "context": "Die privatisierte Schienennetzgesellschaft ist nach tödlichen Unfällen und explodierenden Kosten in die Zwangsverwaltung gegangen. Das Netz braucht einen neuen Eigentümer.",
+      "reality": "Railtrack kam im Oktober 2001 unter Zwangsverwaltung. Im Oktober 2002 ging das Netz an Network Rail über, ein Unternehmen ohne Dividendenausschüttung, dessen Schulden der Staat absicherte.",
+      "choices": [
+        "Das Schienennetz vollständig verstaatlichen",
+        "Gemeinwohlfirma ohne Dividenden gründen",
+        "An neue private Investoren verkaufen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2003-war-in-iraq",
+    "year": 2003,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "War in Iraq",
+    "context": "The United States is preparing to invade Iraq over alleged weapons of mass destruction. A second UN resolution looks out of reach and huge crowds march in protest.",
+    "reality": "On 18 March 2003 the Commons backed military action by 412 to 149, after 139 Labour MPs rebelled on an amendment. British forces joined the invasion two days later; no WMD stockpiles were found.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 0,
+    "choices": [
+      "Join the invasion with major forces",
+      "Back action only with a new UN mandate",
+      "Refuse to take part in the war"
+    ],
+    "de": {
+      "title": "Krieg im Irak",
+      "context": "Die USA bereiten wegen angeblicher Massenvernichtungswaffen eine Invasion des Irak vor. Eine zweite UN-Resolution scheint außer Reichweite, riesige Menschenmengen demonstrieren.",
+      "reality": "Am 18. März 2003 billigte das Unterhaus den Militäreinsatz mit 412 zu 149 Stimmen, nachdem 139 Labour-Abgeordnete bei einem Änderungsantrag rebelliert hatten. Zwei Tage später marschierten britische Truppen mit ein; Massenvernichtungswaffen wurden nicht gefunden.",
+      "choices": [
+        "Mit starken Kräften an der Invasion teilnehmen",
+        "Nur mit neuem UN-Mandat unterstützen",
+        "Die Teilnahme am Krieg verweigern"
+      ]
+    }
+  },
+  {
+    "id": "uk-2003-euro-five-tests",
+    "year": 2003,
+    "category": "economy",
+    "shock": null,
+    "title": "Should the pound join the euro?",
+    "context": "The Treasury has set five economic tests for joining the single currency. The assessment is due and business is divided.",
+    "reality": "In June 2003 Gordon Brown announced that only one of the five tests, on financial services, had been met. Britain would not join the euro for now; the question was never revived.",
+    "source": "HM Treasury",
+    "historicalChoice": 1,
+    "choices": [
+      "Prepare to join the euro",
+      "Keep the option open and review later",
+      "Rule out euro membership"
+    ],
+    "de": {
+      "title": "Soll das Pfund dem Euro beitreten?",
+      "context": "Das Finanzministerium hat fünf wirtschaftliche Tests für den Beitritt zur Gemeinschaftswährung festgelegt. Die Bewertung steht an, die Wirtschaft ist gespalten.",
+      "reality": "Im Juni 2003 verkündete Gordon Brown, dass nur einer der fünf Tests – der zu Finanzdienstleistungen – erfüllt sei. Großbritannien trat vorerst nicht bei; die Frage kam nie wieder ernsthaft auf.",
+      "choices": [
+        "Den Euro-Beitritt vorbereiten",
+        "Option offenhalten und später prüfen",
+        "Eine Euro-Mitgliedschaft ausschließen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2003-energy-white-paper",
+    "year": 2003,
+    "category": "energy",
+    "shock": null,
+    "title": "Charting Britain's energy future",
+    "context": "North Sea output is past its peak and climate commitments loom. Ministers must set a long-term direction for power supply.",
+    "reality": "The 2003 Energy White Paper set a goal of cutting carbon dioxide emissions by about 60% by 2050 and backed renewables, but left new nuclear power as an option without committing to it.",
+    "source": "Department of Trade and Industry",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund renewables and new nuclear stations",
+      "Set climate goals, keep nuclear option open",
+      "Leave the energy mix to the market"
+    ],
+    "de": {
+      "title": "Kurs für Großbritanniens Energiezukunft",
+      "context": "Die Förderung in der Nordsee hat ihren Höhepunkt überschritten, Klimaziele rücken näher. Die Regierung muss die langfristige Richtung der Stromversorgung festlegen.",
+      "reality": "Das Energieweißbuch von 2003 setzte das Ziel, den CO₂-Ausstoß bis 2050 um etwa 60 % zu senken, und setzte auf erneuerbare Energien. Neue Atomkraftwerke blieben eine Option ohne feste Zusage.",
+      "choices": [
+        "Erneuerbare und neue Atomkraftwerke finanzieren",
+        "Klimaziele setzen, Atomoption offenhalten",
+        "Den Energiemix dem Markt überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2003-foundation-hospitals",
+    "year": 2003,
+    "category": "welfare",
+    "shock": null,
+    "title": "Freedom for top hospitals",
+    "context": "Ministers propose giving the best-performing NHS hospitals more independence over finances and pay. Many MPs fear a two-tier health service.",
+    "reality": "The Health and Social Care Act 2003 created NHS foundation trusts. The key Commons vote in November 2003 passed with a majority of just 17.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 1,
+    "choices": [
+      "Keep central control and fund more",
+      "Grant autonomy to top-rated hospitals",
+      "Open the NHS widely to private providers"
+    ],
+    "de": {
+      "title": "Mehr Freiheit für Spitzenkliniken",
+      "context": "Die Regierung will den leistungsstärksten NHS-Krankenhäusern mehr Unabhängigkeit bei Finanzen und Bezahlung geben. Viele Abgeordnete fürchten eine Zweiklassenmedizin.",
+      "reality": "Der Health and Social Care Act 2003 schuf die NHS Foundation Trusts. Die entscheidende Abstimmung im Unterhaus im November 2003 ging mit einer Mehrheit von nur 17 Stimmen durch.",
+      "choices": [
+        "Zentral steuern und mehr Geld geben",
+        "Spitzenkliniken Autonomie gewähren",
+        "Den NHS weit für private Anbieter öffnen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2004-eu-enlargement-and-migration",
+    "year": 2004,
+    "category": "society",
+    "shock": null,
+    "title": "Opening the doors to new EU members",
+    "context": "Ten countries join the EU in May. Most existing members restrict workers from the new states for years; Britain must choose its approach.",
+    "reality": "Britain, Ireland and Sweden gave immediate labour market access in May 2004, with a worker registration scheme. A study had forecast 5,000-13,000 net arrivals a year; actual inflows were far higher.",
+    "source": "House of Commons Library",
+    "historicalChoice": 1,
+    "choices": [
+      "Open the labour market and fund integration",
+      "Open access with worker registration",
+      "Impose transitional controls for years"
+    ],
+    "de": {
+      "title": "Türen auf für die neuen EU-Mitglieder",
+      "context": "Zehn Staaten treten im Mai der EU bei. Die meisten bisherigen Mitglieder beschränken den Zuzug von Arbeitskräften für Jahre; Großbritannien muss sich entscheiden.",
+      "reality": "Großbritannien, Irland und Schweden öffneten ihre Arbeitsmärkte im Mai 2004 sofort, mit einer Registrierungspflicht für Arbeitnehmer. Eine Studie hatte 5.000 bis 13.000 Nettozuzüge pro Jahr prognostiziert; tatsächlich kamen weit mehr.",
+      "choices": [
+        "Arbeitsmarkt öffnen und Integration finanzieren",
+        "Zugang mit Arbeitnehmerregistrierung öffnen",
+        "Für Jahre Übergangsbeschränkungen verhängen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2004-top-up-tuition-fees",
+    "year": 2004,
+    "category": "society",
+    "shock": null,
+    "title": "Top-up tuition fees",
+    "context": "Universities say they are underfunded. The government proposes variable fees repaid after graduation, despite an earlier pledge not to introduce them.",
+    "reality": "The Higher Education Bill passed its second reading by just 316 to 311 in January 2004. Variable fees of up to £3,000 a year began in 2006, repayable after graduation.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund universities from general taxation",
+      "Introduce deferred fees with grants",
+      "Let universities set market fees"
+    ],
+    "de": {
+      "title": "Höhere Studiengebühren",
+      "context": "Die Universitäten klagen über Unterfinanzierung. Die Regierung schlägt variable, nach dem Studium zurückzuzahlende Gebühren vor – trotz eines früheren Versprechens, darauf zu verzichten.",
+      "reality": "Das Hochschulgesetz passierte die zweite Lesung im Januar 2004 mit nur 316 zu 311 Stimmen. Ab 2006 durften Hochschulen bis zu 3.000 £ pro Jahr verlangen, zurückzuzahlen nach dem Abschluss.",
+      "choices": [
+        "Hochschulen aus Steuermitteln finanzieren",
+        "Nachgelagerte Gebühren mit Stipendien einführen",
+        "Hochschulen Marktpreise verlangen lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2004-gershon-efficiency-review",
+    "year": 2004,
+    "category": "budget",
+    "shock": null,
+    "title": "The hunt for efficiency savings",
+    "context": "Public spending has risen fast. A review proposes cutting back-office costs and civil service posts to free money for frontline services.",
+    "reality": "The 2004 Gershon Review identified £21.5bn of annual efficiency gains by 2007-08, and the government planned to cut about 84,000 civil service posts.",
+    "source": "HM Treasury, Gershon Review",
+    "historicalChoice": 1,
+    "choices": [
+      "Keep expanding services and staff",
+      "Make phased savings and reinvest them",
+      "Cut deeply to lower spending"
+    ],
+    "de": {
+      "title": "Auf der Jagd nach Effizienzgewinnen",
+      "context": "Die Staatsausgaben sind stark gestiegen. Ein Bericht empfiehlt, Verwaltungskosten und Beamtenstellen zu kürzen, um Geld für die Bürgerdienste freizumachen.",
+      "reality": "Der Gershon-Bericht von 2004 ermittelte jährliche Effizienzgewinne von 21,5 Mrd. £ bis 2007/08; die Regierung plante, rund 84.000 Stellen im öffentlichen Dienst abzubauen.",
+      "choices": [
+        "Dienste und Personal weiter ausbauen",
+        "Schrittweise sparen und reinvestieren",
+        "Tief kürzen, um Ausgaben zu senken"
+      ]
+    }
+  },
+  {
+    "id": "uk-2004-pension-protection-fund",
+    "year": 2004,
+    "category": "welfare",
+    "shock": null,
+    "title": "Workers lose their pensions",
+    "context": "Thousands of workers have lost much of their pensions after employers with underfunded schemes went bust. They demand protection.",
+    "reality": "The Pensions Act 2004 created the Pension Protection Fund from April 2005, financed by a levy on defined-benefit schemes rather than taxpayers. A separate Financial Assistance Scheme helped earlier victims.",
+    "source": "Pension Protection Fund",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a taxpayer-backed pension guarantee",
+      "Create a lifeboat fund paid by schemes",
+      "Leave it to employers and trustees"
+    ],
+    "de": {
+      "title": "Arbeitnehmer verlieren ihre Betriebsrenten",
+      "context": "Tausende haben einen Großteil ihrer Rente verloren, weil Arbeitgeber mit unterfinanzierten Pensionsplänen pleitegingen. Sie fordern Schutz.",
+      "reality": "Der Pensions Act 2004 schuf ab April 2005 den Pension Protection Fund, finanziert durch eine Abgabe der Leistungszusagepläne statt durch Steuergeld. Ein separater Hilfsfonds unterstützte frühere Opfer.",
+      "choices": [
+        "Staatlich garantierte Rentensicherung finanzieren",
+        "Rettungsfonds der Pensionspläne schaffen",
+        "Arbeitgebern und Treuhändern überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2005-london-bombings-7-7",
+    "year": 2005,
+    "category": "security",
+    "shock": "terror",
+    "title": "Bombs on London's transport network",
+    "context": "Suicide bombers attack three Underground trains and a bus in London, killing dozens. Police want far longer pre-charge detention.",
+    "reality": "The 7 July 2005 bombings killed 52 people. The government sought 90-day pre-charge detention but lost a Commons vote in November 2005; the Terrorism Act 2006 set 28 days.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 0,
+    "choices": [
+      "Seek 90-day detention and tough new powers",
+      "Extend detention moderately, add offences",
+      "Rely on existing counter-terror laws"
+    ],
+    "de": {
+      "title": "Bomben im Londoner Nahverkehr",
+      "context": "Selbstmordattentäter greifen drei U-Bahn-Züge und einen Bus in London an und töten Dutzende. Die Polizei will eine weit längere Haft vor Anklageerhebung.",
+      "reality": "Die Anschläge vom 7. Juli 2005 töteten 52 Menschen. Die Regierung wollte 90 Tage Haft vor Anklage, verlor im November 2005 aber eine Abstimmung im Unterhaus; der Terrorism Act 2006 legte 28 Tage fest.",
+      "choices": [
+        "90 Tage Haft und harte neue Befugnisse anstreben",
+        "Haft moderat verlängern, neue Straftatbestände",
+        "Auf bestehende Terrorgesetze setzen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2005-g8-gleneagles-aid-and-debt",
+    "year": 2005,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Make Poverty History",
+    "context": "Britain hosts the G8 summit at Gleneagles. Campaigners and global concerts demand debt relief and more aid for Africa.",
+    "reality": "At Gleneagles in July 2005 the G8 endorsed cancelling the debts of 18 of the poorest countries and pledged to raise aid by around $50bn a year by 2010.",
+    "source": "G8 Gleneagles Communiqué",
+    "historicalChoice": 0,
+    "choices": [
+      "Lead a big push on aid and debt relief",
+      "Agree targeted debt relief only",
+      "Avoid new spending commitments"
+    ],
+    "de": {
+      "title": "Kampagne „Make Poverty History“",
+      "context": "Großbritannien richtet den G8-Gipfel in Gleneagles aus. Aktivisten und weltweite Konzerte fordern Schuldenerlass und mehr Hilfe für Afrika.",
+      "reality": "In Gleneagles billigten die G8 im Juli 2005 den Schuldenerlass für 18 der ärmsten Länder und sagten zu, die Entwicklungshilfe bis 2010 um rund 50 Mrd. Dollar jährlich zu erhöhen.",
+      "choices": [
+        "Großen Vorstoß für Hilfe und Schuldenerlass führen",
+        "Nur gezielten Schuldenerlass vereinbaren",
+        "Neue Ausgabenzusagen vermeiden"
+      ]
+    }
+  },
+  {
+    "id": "uk-2005-pensions-commission",
+    "year": 2005,
+    "category": "welfare",
+    "shock": null,
+    "title": "The pensions time bomb",
+    "context": "People are living longer while saving too little. A commission proposes reforming state and private pensions for decades ahead.",
+    "reality": "The Turner Commission reported in 2005. The Pensions Acts of 2007 and 2008 restored the earnings link, raised the state pension age to 68 by 2046 and introduced automatic enrolment into workplace pensions.",
+    "source": "Pensions Commission (Turner Report)",
+    "historicalChoice": 1,
+    "choices": [
+      "Raise the state pension, funded by taxes",
+      "Pair a later pension age with auto-enrolment",
+      "Leave retirement saving to individuals"
+    ],
+    "de": {
+      "title": "Die Rentenzeitbombe",
+      "context": "Die Menschen leben länger und sparen zu wenig. Eine Kommission schlägt eine Reform der staatlichen und privaten Altersvorsorge für Jahrzehnte vor.",
+      "reality": "Die Turner-Kommission legte 2005 ihren Bericht vor. Die Rentengesetze von 2007 und 2008 koppelten die Rente wieder an die Löhne, hoben das Rentenalter bis 2046 auf 68 an und führten die automatische Einbeziehung in Betriebsrenten ein.",
+      "choices": [
+        "Staatsrente erhöhen, über Steuern finanziert",
+        "Späteres Rentenalter plus automatische Betriebsrente",
+        "Altersvorsorge den Einzelnen überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2005-mg-rover-collapse",
+    "year": 2005,
+    "category": "economy",
+    "shock": null,
+    "title": "MG Rover collapses",
+    "context": "The last big British-owned volume carmaker runs out of money after talks with a Chinese partner fail. Thousands of jobs at Longbridge are at risk.",
+    "reality": "MG Rover collapsed in April 2005 with around 5,000-6,000 job losses. Ministers declined a bailout beyond a £6.5m bridging loan and announced a £150m package for workers and suppliers.",
+    "source": "National Audit Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Nationalise or bail out the carmaker",
+      "Fund retraining and help for suppliers",
+      "Let it collapse without intervention"
+    ],
+    "de": {
+      "title": "MG Rover bricht zusammen",
+      "context": "Der letzte große britische Massenautohersteller ist zahlungsunfähig, nachdem Gespräche mit einem chinesischen Partner gescheitert sind. Tausende Jobs in Longbridge stehen auf dem Spiel.",
+      "reality": "MG Rover brach im April 2005 zusammen, rund 5.000 bis 6.000 Arbeitsplätze gingen verloren. Die Regierung lehnte eine Rettung über einen Überbrückungskredit von 6,5 Mio. £ hinaus ab und legte ein 150-Mio.-£-Paket für Beschäftigte und Zulieferer auf.",
+      "choices": [
+        "Den Autobauer verstaatlichen oder retten",
+        "Umschulungen und Hilfe für Zulieferer finanzieren",
+        "Ohne Eingreifen zusammenbrechen lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2006-identity-cards",
+    "year": 2006,
+    "category": "digitalization",
+    "shock": null,
+    "title": "National identity cards",
+    "context": "The government wants biometric ID cards and a national identity register to fight terrorism, fraud and illegal working. Civil liberties groups object.",
+    "reality": "The Identity Cards Act 2006 created the National Identity Register and biometric cards. The scheme was abolished by the Identity Documents Act 2010 before it was widely rolled out.",
+    "source": "legislation.gov.uk",
+    "historicalChoice": 0,
+    "choices": [
+      "Build a national ID card and register",
+      "Introduce voluntary ID cards only",
+      "Drop the ID card plans"
+    ],
+    "de": {
+      "title": "Nationale Personalausweise",
+      "context": "Die Regierung will biometrische Ausweise und ein nationales Identitätsregister gegen Terror, Betrug und Schwarzarbeit. Bürgerrechtsgruppen protestieren.",
+      "reality": "Der Identity Cards Act 2006 schuf das nationale Identitätsregister und biometrische Ausweise. Mit dem Identity Documents Act 2010 wurde das Projekt abgeschafft, bevor es breit eingeführt war.",
+      "choices": [
+        "Nationalen Ausweis samt Register aufbauen",
+        "Nur freiwillige Ausweise einführen",
+        "Die Ausweispläne fallen lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2006-energy-review-new-nuclear",
+    "year": 2006,
+    "category": "energy",
+    "shock": null,
+    "title": "A new generation of nuclear power?",
+    "context": "Ageing nuclear and coal plants will close within two decades while gas imports grow. Ministers must decide whether to back new nuclear stations.",
+    "reality": "The 2006 Energy Review and the 2008 Nuclear White Paper backed new nuclear power, on condition that private companies would fund, build and operate the stations.",
+    "source": "Department of Trade and Industry",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund new nuclear stations with public money",
+      "Allow private nuclear build without subsidy",
+      "Leave the power mix to the market"
+    ],
+    "de": {
+      "title": "Eine neue Generation von Atomkraftwerken?",
+      "context": "Alternde Atom- und Kohlekraftwerke gehen binnen zwei Jahrzehnten vom Netz, die Gasimporte steigen. Die Regierung muss entscheiden, ob sie neue Atomkraftwerke unterstützt.",
+      "reality": "Die Energieüberprüfung 2006 und das Atomweißbuch 2008 befürworteten neue Kernkraftwerke – unter der Bedingung, dass private Unternehmen sie finanzieren, bauen und betreiben.",
+      "choices": [
+        "Neue AKW mit Staatsgeld finanzieren",
+        "Privaten AKW-Bau ohne Subventionen erlauben",
+        "Den Strommix dem Markt überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2006-foreign-prisoners-scandal",
+    "year": 2006,
+    "category": "security",
+    "shock": null,
+    "title": "Foreign prisoners freed without deportation checks",
+    "context": "It emerges that over a thousand foreign prisoners were released without being considered for deportation. Some cannot be traced.",
+    "reality": "In 2006 the Home Office admitted that 1,023 foreign prisoners had been freed without deportation checks. Charles Clarke was sacked, and in 2007 the department was split, creating the Ministry of Justice.",
+    "source": "House of Commons Home Affairs Committee",
+    "historicalChoice": 0,
+    "choices": [
+      "Overhaul and split the Home Office",
+      "Tighten deportation rules and review cases",
+      "Fix it within existing budgets"
+    ],
+    "de": {
+      "title": "Ausländische Häftlinge ohne Abschiebeprüfung freigelassen",
+      "context": "Es wird bekannt, dass über tausend ausländische Häftlinge entlassen wurden, ohne dass eine Abschiebung geprüft wurde. Einige sind unauffindbar.",
+      "reality": "2006 räumte das Innenministerium ein, dass 1.023 ausländische Häftlinge ohne Abschiebeprüfung freigekommen waren. Charles Clarke wurde entlassen, 2007 wurde das Ministerium geteilt und das Justizministerium geschaffen.",
+      "choices": [
+        "Innenministerium umbauen und aufteilen",
+        "Abschieberegeln verschärfen und Fälle prüfen",
+        "Im bestehenden Budget beheben"
+      ]
+    }
+  },
+  {
+    "id": "uk-2006-smoking-ban",
+    "year": 2006,
+    "category": "society",
+    "shock": null,
+    "title": "Smoking in pubs and restaurants",
+    "context": "Scotland is banning smoking in enclosed public places. The government must decide how far a ban in England should go.",
+    "reality": "Ministers first proposed exempting private clubs and pubs not serving food, but MPs voted 384 to 184 in February 2006 for a full ban, which took effect in England in July 2007.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 0,
+    "choices": [
+      "Ban smoking in all enclosed public places",
+      "Ban it with exemptions for some pubs and clubs",
+      "Leave smoking rules to venues"
+    ],
+    "de": {
+      "title": "Rauchen in Pubs und Restaurants",
+      "context": "Schottland verbietet das Rauchen in geschlossenen öffentlichen Räumen. Die Regierung muss entscheiden, wie weit ein Verbot in England gehen soll.",
+      "reality": "Die Regierung wollte zunächst private Clubs und Pubs ohne Speisenangebot ausnehmen, doch das Unterhaus stimmte im Februar 2006 mit 384 zu 184 für ein vollständiges Verbot, das im Juli 2007 in England in Kraft trat.",
+      "choices": [
+        "Rauchen in allen geschlossenen Räumen verbieten",
+        "Verbot mit Ausnahmen für Pubs und Clubs",
+        "Rauchregeln den Lokalen überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2007-northern-rock-bank-run",
+    "year": 2007,
+    "category": "economy",
+    "shock": null,
+    "title": "A run on Northern Rock",
+    "context": "A mortgage lender reliant on wholesale funding has asked the central bank for emergency support. Savers queue to withdraw their money.",
+    "reality": "In September 2007 Britain saw its first bank run in well over a century. Alistair Darling guaranteed Northern Rock's deposits; when no private buyer was found, it was nationalised in February 2008.",
+    "source": "House of Commons Treasury Committee",
+    "historicalChoice": 1,
+    "choices": [
+      "Nationalise the bank immediately",
+      "Guarantee deposits and seek a buyer",
+      "Let the bank fail"
+    ],
+    "de": {
+      "title": "Ansturm auf Northern Rock",
+      "context": "Ein auf Kapitalmarktfinanzierung angewiesener Hypothekenfinanzierer bittet die Zentralbank um Notkredite. Sparer stehen Schlange, um ihr Geld abzuheben.",
+      "reality": "Im September 2007 erlebte Großbritannien den ersten Bankansturm seit weit über hundert Jahren. Alistair Darling garantierte die Einlagen; da sich kein privater Käufer fand, wurde Northern Rock im Februar 2008 verstaatlicht.",
+      "choices": [
+        "Die Bank sofort verstaatlichen",
+        "Einlagen garantieren und Käufer suchen",
+        "Die Bank pleitegehen lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2007-summer-floods",
+    "year": 2007,
+    "category": "society",
+    "shock": "disaster",
+    "title": "Summer floods",
+    "context": "Exceptional rain floods towns across England. Homes are ruined, and a failed water treatment works leaves hundreds of thousands without tap water.",
+    "reality": "The summer 2007 floods killed 13 people and flooded about 55,000 properties; the Mythe works failure cut supplies to some 350,000 people. Flood defence spending was raised and the Pitt Review commissioned.",
+    "source": "Pitt Review (Cabinet Office)",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund major new national flood defences",
+      "Raise flood spending and review resilience",
+      "Leave protection to insurers and councils"
+    ],
+    "de": {
+      "title": "Sommerhochwasser",
+      "context": "Außergewöhnlicher Regen überflutet Städte in ganz England. Häuser werden zerstört, und ein ausgefallenes Wasserwerk lässt Hunderttausende ohne Leitungswasser.",
+      "reality": "Die Überschwemmungen im Sommer 2007 töteten 13 Menschen und setzten rund 55.000 Gebäude unter Wasser; der Ausfall des Wasserwerks Mythe traf etwa 350.000 Menschen. Die Ausgaben für Hochwasserschutz wurden erhöht und der Pitt-Bericht in Auftrag gegeben.",
+      "choices": [
+        "Großen nationalen Hochwasserschutz finanzieren",
+        "Mittel erhöhen und Vorsorge überprüfen",
+        "Schutz Versicherern und Kommunen überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2007-northern-ireland-power-sharing",
+    "year": 2007,
+    "category": "security",
+    "shock": null,
+    "title": "Restoring power-sharing in Northern Ireland",
+    "context": "Devolved government in Northern Ireland has been suspended since 2002. The two largest parties remain far apart, but talks are progressing.",
+    "reality": "After the 2006 St Andrews Agreement, Ian Paisley and Martin McGuinness became First Minister and deputy First Minister on 8 May 2007, restoring devolved government.",
+    "source": "Northern Ireland Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a large peace and investment package",
+      "Broker power-sharing with firm deadlines",
+      "Continue direct rule from London"
+    ],
+    "de": {
+      "title": "Wiederherstellung der Machtteilung in Nordirland",
+      "context": "Die nordirische Regionalregierung ist seit 2002 ausgesetzt. Die beiden größten Parteien liegen weit auseinander, doch die Gespräche kommen voran.",
+      "reality": "Nach dem St-Andrews-Abkommen von 2006 wurden Ian Paisley und Martin McGuinness am 8. Mai 2007 Erster Minister und stellvertretender Erster Minister; die Selbstverwaltung war wiederhergestellt.",
+      "choices": [
+        "Großes Friedens- und Investitionspaket finanzieren",
+        "Machtteilung mit festen Fristen vermitteln",
+        "Direktverwaltung aus London fortsetzen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2007-child-benefit-data-loss",
+    "year": 2007,
+    "category": "digitalization",
+    "shock": null,
+    "title": "25 million records lost in the post",
+    "context": "The tax authority has lost two discs holding the child benefit records of millions of families, including bank details.",
+    "reality": "In November 2007 HMRC admitted losing two CDs with data on 25 million people. Its chairman resigned, and reviews led to new data-handling rules across government.",
+    "source": "Poynter Review (HM Treasury)",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund an overhaul of state data security",
+      "Order reviews and tighten data rules",
+      "Leave departments to fix their own systems"
+    ],
+    "de": {
+      "title": "25 Millionen Datensätze auf dem Postweg verloren",
+      "context": "Die Steuerbehörde hat zwei Datenträger mit den Kindergelddaten von Millionen Familien verloren, einschließlich Bankverbindungen.",
+      "reality": "Im November 2007 räumte die Steuerbehörde HMRC den Verlust zweier CDs mit Daten von 25 Millionen Menschen ein. Ihr Vorsitzender trat zurück; Untersuchungen führten zu neuen Datenschutzregeln in der gesamten Verwaltung.",
+      "choices": [
+        "Datensicherheit des Staates umfassend erneuern",
+        "Untersuchungen anordnen und Regeln verschärfen",
+        "Die Behörden selbst nachbessern lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2008-banking-crisis-bailout",
+    "year": 2008,
+    "category": "economy",
+    "shock": "financial",
+    "title": "The banking system on the brink",
+    "context": "Global credit markets have frozen after a US investment bank collapsed. Several major British banks could fail within days.",
+    "reality": "In October 2008 the government announced a £500bn rescue: £50bn to recapitalise banks, £250bn of loan guarantees and £200bn of liquidity. RBS and Lloyds-HBOS received about £37bn of state capital.",
+    "source": "HM Treasury",
+    "historicalChoice": 0,
+    "choices": [
+      "Recapitalise banks with public money",
+      "Guarantee lending and broker mergers",
+      "Let failing banks go under"
+    ],
+    "de": {
+      "title": "Das Bankensystem am Abgrund",
+      "context": "Nach dem Zusammenbruch einer US-Investmentbank sind die Kreditmärkte weltweit eingefroren. Mehrere britische Großbanken könnten binnen Tagen kollabieren.",
+      "reality": "Im Oktober 2008 verkündete die Regierung ein Rettungspaket über 500 Mrd. £: 50 Mrd. für Kapitalspritzen, 250 Mrd. an Kreditgarantien und 200 Mrd. an Liquidität. RBS und Lloyds-HBOS erhielten rund 37 Mrd. £ Staatskapital.",
+      "choices": [
+        "Banken mit Staatsgeld rekapitalisieren",
+        "Kredite garantieren und Fusionen vermitteln",
+        "Marode Banken untergehen lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2008-recession-vat-cut",
+    "year": 2008,
+    "category": "budget",
+    "shock": null,
+    "title": "Recession: a fiscal stimulus?",
+    "context": "The economy is shrinking and unemployment rising. Economists debate whether the government should borrow to boost demand.",
+    "reality": "In November 2008 Alistair Darling cut VAT from 17.5% to 15% for 13 months, at a cost of about £12.5bn, and brought forward some capital spending.",
+    "source": "HM Treasury, Pre-Budget Report 2008",
+    "historicalChoice": 2,
+    "choices": [
+      "Fund a big public investment programme",
+      "Bring forward projects and target support",
+      "Cut VAT tax temporarily to lift spending"
+    ],
+    "de": {
+      "title": "Rezession: ein Konjunkturprogramm?",
+      "context": "Die Wirtschaft schrumpft, die Arbeitslosigkeit steigt. Ökonomen streiten, ob der Staat sich verschulden soll, um die Nachfrage anzukurbeln.",
+      "reality": "Im November 2008 senkte Alistair Darling die Mehrwertsteuer für 13 Monate von 17,5 % auf 15 % – Kosten rund 12,5 Mrd. £ – und zog einige Investitionen vor.",
+      "choices": [
+        "Großes öffentliches Investitionsprogramm finanzieren",
+        "Projekte vorziehen und gezielt helfen",
+        "Mehrwertsteuer befristet senken"
+      ]
+    }
+  },
+  {
+    "id": "uk-2008-42-day-detention",
+    "year": 2008,
+    "category": "security",
+    "shock": null,
+    "title": "42 days without charge",
+    "context": "Police argue that complex terror plots need longer pre-charge detention. Critics call it an attack on civil liberties.",
+    "reality": "The Commons approved 42-day detention by just nine votes in June 2008, but the Lords rejected it by 309 to 118 in October and the government dropped the plan.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 0,
+    "choices": [
+      "Extend detention to 42 days",
+      "Allow extension only in emergencies",
+      "Keep the 28-day limit"
+    ],
+    "de": {
+      "title": "42 Tage ohne Anklage",
+      "context": "Die Polizei argumentiert, komplexe Terrorpläne erforderten eine längere Haft vor Anklage. Kritiker sehen darin einen Angriff auf die Bürgerrechte.",
+      "reality": "Das Unterhaus billigte die 42-Tage-Haft im Juni 2008 mit nur neun Stimmen Mehrheit, doch das Oberhaus lehnte sie im Oktober mit 309 zu 118 ab, und die Regierung gab den Plan auf.",
+      "choices": [
+        "Haft auf 42 Tage verlängern",
+        "Verlängerung nur im Notfall erlauben",
+        "Bei 28 Tagen bleiben"
+      ]
+    }
+  },
+  {
+    "id": "uk-2008-climate-change-act",
+    "year": 2008,
+    "category": "energy",
+    "shock": null,
+    "title": "A legally binding climate target",
+    "context": "Campaigners demand binding cuts in emissions. Business fears higher energy costs during a downturn.",
+    "reality": "The Climate Change Act 2008 made an 80% cut in greenhouse gas emissions by 2050 legally binding, with five-year carbon budgets and an independent Committee on Climate Change.",
+    "source": "legislation.gov.uk",
+    "historicalChoice": 0,
+    "choices": [
+      "Legislate binding targets and carbon budgets",
+      "Set non-binding targets with reviews",
+      "Leave emissions to markets and the EU"
+    ],
+    "de": {
+      "title": "Ein rechtsverbindliches Klimaziel",
+      "context": "Aktivisten fordern verbindliche Emissionssenkungen. Die Wirtschaft fürchtet in der Krise höhere Energiekosten.",
+      "reality": "Der Climate Change Act 2008 schrieb eine Senkung der Treibhausgase um 80 % bis 2050 gesetzlich fest – mit Fünfjahres-CO₂-Budgets und einem unabhängigen Klimaausschuss.",
+      "choices": [
+        "Verbindliche Ziele und CO₂-Budgets beschließen",
+        "Unverbindliche Ziele mit Überprüfung setzen",
+        "Emissionen Märkten und EU überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2009-mps-expenses-scandal",
+    "year": 2009,
+    "category": "society",
+    "shock": null,
+    "title": "The MPs' expenses scandal",
+    "context": "Leaked records show MPs claiming for second homes, moat cleaning and a duck house. Public anger at politicians is intense.",
+    "reality": "The Daily Telegraph's revelations from May 2009 forced Speaker Michael Martin out. The Parliamentary Standards Act 2009 created the independent IPSA, and an audit ordered repayments.",
+    "source": "UK Parliament",
+    "historicalChoice": 0,
+    "choices": [
+      "Create an independent regulator and audit all",
+      "Tighten the rules and order repayments",
+      "Leave reform to Parliament itself"
+    ],
+    "de": {
+      "title": "Der Spesenskandal der Abgeordneten",
+      "context": "Durchgesickerte Belege zeigen, dass Abgeordnete Zweitwohnungen, Burggrabenreinigung und ein Entenhaus abgerechnet haben. Die Wut auf die Politik ist enorm.",
+      "reality": "Die Enthüllungen des Daily Telegraph ab Mai 2009 zwangen Parlamentspräsident Michael Martin zum Rücktritt. Der Parliamentary Standards Act 2009 schuf die unabhängige Aufsicht IPSA, eine Prüfung ordnete Rückzahlungen an.",
+      "choices": [
+        "Unabhängige Aufsicht schaffen und alles prüfen",
+        "Regeln verschärfen und Rückzahlungen anordnen",
+        "Die Reform dem Parlament selbst überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2009-car-scrappage-scheme",
+    "year": 2009,
+    "category": "economy",
+    "shock": null,
+    "title": "Car industry in free fall",
+    "context": "Car sales have collapsed in the recession. Manufacturers and dealers ask for state help as plants cut shifts.",
+    "reality": "The 2009 Budget launched a car scrappage scheme: £2,000 off a new car when trading in one over ten years old, half paid by the state and half by manufacturers.",
+    "source": "HM Treasury, Budget 2009",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund large direct bailouts for carmakers",
+      "Fund a targeted scrappage incentive",
+      "Leave carmakers to the market"
+    ],
+    "de": {
+      "title": "Autoindustrie im freien Fall",
+      "context": "Die Autoverkäufe sind in der Rezession eingebrochen. Hersteller und Händler bitten um staatliche Hilfe, Werke streichen Schichten.",
+      "reality": "Der Haushalt 2009 führte eine Abwrackprämie ein: 2.000 £ Rabatt auf einen Neuwagen bei Verschrottung eines über zehn Jahre alten Autos, je zur Hälfte vom Staat und von den Herstellern bezahlt.",
+      "choices": [
+        "Große direkte Rettungen für Autobauer",
+        "Gezielte Abwrackprämie finanzieren",
+        "Die Autobauer dem Markt überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2009-afghanistan-reinforcements",
+    "year": 2009,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Reinforcements for Helmand",
+    "context": "British casualties in Afghanistan are at their highest. The United States is sending a troop surge and asks allies to do more.",
+    "reality": "2009 was the deadliest year for British forces in Afghanistan. Gordon Brown agreed to send 500 more troops, taking the total to about 9,500, on conditions including equipment and allied contributions.",
+    "source": "Ministry of Defence",
+    "historicalChoice": 1,
+    "choices": [
+      "Send substantial reinforcements",
+      "Send limited troops with conditions",
+      "Begin withdrawing British forces"
+    ],
+    "de": {
+      "title": "Verstärkung für Helmand",
+      "context": "Die britischen Verluste in Afghanistan sind so hoch wie nie. Die USA schicken zusätzliche Truppen und fordern mehr Einsatz von den Verbündeten.",
+      "reality": "2009 war das verlustreichste Jahr für britische Truppen in Afghanistan. Gordon Brown sagte 500 weitere Soldaten zu – insgesamt rund 9.500 –, gebunden an Bedingungen wie Ausrüstung und Beiträge der Verbündeten.",
+      "choices": [
+        "Umfangreiche Verstärkung entsenden",
+        "Begrenzt Truppen unter Auflagen schicken",
+        "Mit dem Abzug britischer Truppen beginnen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2009-record-deficit-and-50p-rate",
+    "year": 2009,
+    "category": "budget",
+    "shock": null,
+    "title": "A record deficit",
+    "context": "Borrowing has soared to its highest level since the Second World War. The government must choose between stimulus, tax rises and cuts.",
+    "reality": "Alistair Darling's April 2009 Budget created a 50p top income tax rate from April 2010, funded the Future Jobs Fund and set out a plan to halve the deficit over four years.",
+    "source": "HM Treasury, Budget 2009",
+    "historicalChoice": 1,
+    "choices": [
+      "Keep stimulus going and fund job schemes",
+      "Raise the top tax rate, phase deficit cuts",
+      "Start deep spending cuts now"
+    ],
+    "de": {
+      "title": "Ein Rekorddefizit",
+      "context": "Die Neuverschuldung ist auf den höchsten Stand seit dem Zweiten Weltkrieg gestiegen. Die Regierung muss zwischen Konjunkturhilfen, Steuererhöhungen und Kürzungen wählen.",
+      "reality": "Alistair Darlings Haushalt vom April 2009 führte ab April 2010 einen Spitzensteuersatz von 50 % ein, finanzierte den Future Jobs Fund und sah vor, das Defizit binnen vier Jahren zu halbieren.",
+      "choices": [
+        "Konjunkturhilfen fortsetzen, Jobprogramme finanzieren",
+        "Spitzensteuer erhöhen, Defizit schrittweise senken",
+        "Sofort tiefe Ausgabenkürzungen beginnen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2010-coalition-and-austerity",
+    "year": 2010,
+    "category": "budget",
+    "shock": null,
+    "title": "A coalition and the deficit",
+    "context": "A new coalition government takes office facing a record peacetime deficit. With the Greek debt crisis unfolding, ministers must set a fiscal course.",
+    "reality": "The June 2010 emergency Budget raised VAT to 20%, and the October Spending Review cut departmental budgets by an average of 19% over four years.",
+    "source": "HM Treasury, Spending Review 2010",
+    "historicalChoice": 2,
+    "choices": [
+      "Delay cuts and keep investing",
+      "Phase in consolidation, mixing taxes and cuts",
+      "Front-load deep spending cuts"
+    ],
+    "de": {
+      "title": "Eine Koalition und das Defizit",
+      "context": "Eine neue Koalitionsregierung übernimmt mit einem Friedenszeit-Rekorddefizit. Während sich die griechische Schuldenkrise zuspitzt, muss sie einen Haushaltskurs festlegen.",
+      "reality": "Der Notfallhaushalt vom Juni 2010 hob die Mehrwertsteuer auf 20 % an, die Ausgabenüberprüfung im Oktober kürzte die Ressortbudgets über vier Jahre um durchschnittlich 19 %.",
+      "choices": [
+        "Kürzungen aufschieben und weiter investieren",
+        "Schrittweise konsolidieren, Steuern und Kürzungen",
+        "Tiefe Ausgabenkürzungen vorziehen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2010-tripling-tuition-fees",
+    "year": 2010,
+    "category": "society",
+    "shock": null,
+    "title": "Tripling tuition fees",
+    "context": "Funding for university teaching is being cut. An independent review proposes higher fees repaid through income-contingent loans.",
+    "reality": "In December 2010 MPs voted 323 to 302 to raise the fee cap to £9,000. The Liberal Democrats, who had pledged to oppose any rise, split, and student protests turned violent.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund universities through general taxation",
+      "Raise fees with income-linked repayments",
+      "Cut teaching grants and lift the fee cap"
+    ],
+    "de": {
+      "title": "Verdreifachung der Studiengebühren",
+      "context": "Die Mittel für die Hochschullehre werden gekürzt. Ein unabhängiger Bericht empfiehlt höhere Gebühren, die über einkommensabhängige Darlehen zurückgezahlt werden.",
+      "reality": "Im Dezember 2010 stimmte das Unterhaus mit 323 zu 302 für eine Obergrenze von 9.000 £. Die Liberaldemokraten, die jede Erhöhung abzulehnen versprochen hatten, spalteten sich; Studentenproteste wurden gewalttätig.",
+      "choices": [
+        "Hochschulen aus Steuermitteln finanzieren",
+        "Gebühren mit einkommensabhängiger Rückzahlung",
+        "Lehrmittel kürzen und Gebührendeckel aufheben"
+      ]
+    }
+  },
+  {
+    "id": "uk-2010-strategic-defence-review",
+    "year": 2010,
+    "category": "security",
+    "shock": null,
+    "title": "Defence review in an age of austerity",
+    "context": "The defence budget faces a large black hole while troops fight in Afghanistan. Expensive programmes must be cut or protected.",
+    "reality": "The 2010 Strategic Defence and Security Review cut the defence budget by 8% in real terms over four years, retired the Harrier jets and HMS Ark Royal, and scrapped the Nimrod MRA4.",
+    "source": "HM Government, SDSR 2010",
+    "historicalChoice": 1,
+    "choices": [
+      "Protect the defence budget in full",
+      "Trim spending, keep core programmes",
+      "Make deep cuts to help close the deficit"
+    ],
+    "de": {
+      "title": "Verteidigungsreview in Zeiten der Sparpolitik",
+      "context": "Im Verteidigungshaushalt klafft ein großes Loch, während Soldaten in Afghanistan kämpfen. Teure Programme müssen gestrichen oder geschützt werden.",
+      "reality": "Die Strategic Defence and Security Review 2010 kürzte den Verteidigungsetat über vier Jahre real um 8 %, mustete die Harrier-Jets und die HMS Ark Royal aus und strich den Nimrod MRA4.",
+      "choices": [
+        "Den Verteidigungsetat voll schützen",
+        "Ausgaben stutzen, Kernprogramme erhalten",
+        "Tief kürzen, um das Defizit zu senken"
+      ]
+    }
+  },
+  {
+    "id": "uk-2010-universal-credit",
+    "year": 2010,
+    "category": "welfare",
+    "shock": null,
+    "title": "One benefit to replace six",
+    "context": "The benefits system is complex and can leave people better off out of work. Ministers propose a single, digitally run payment.",
+    "reality": "The November 2010 white paper proposed Universal Credit, merging six means-tested benefits. The Welfare Reform Act 2012 enacted it, but the rollout ran years behind schedule.",
+    "source": "Department for Work and Pensions",
+    "historicalChoice": 0,
+    "choices": [
+      "Build a single new digital benefit",
+      "Simplify existing benefits step by step",
+      "Just cut existing benefits"
+    ],
+    "de": {
+      "title": "Eine Leistung statt sechs",
+      "context": "Das Sozialsystem ist kompliziert, und ohne Arbeit stehen manche besser da. Die Regierung schlägt eine einzige, digital verwaltete Leistung vor.",
+      "reality": "Das Weißbuch vom November 2010 schlug den Universal Credit vor, der sechs bedarfsabhängige Leistungen bündelt. Der Welfare Reform Act 2012 setzte ihn um, die Einführung verzögerte sich aber um Jahre.",
+      "choices": [
+        "Eine neue digitale Einheitsleistung aufbauen",
+        "Bestehende Leistungen schrittweise vereinfachen",
+        "Bestehende Leistungen einfach kürzen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2011-england-riots",
+    "year": 2011,
+    "category": "society",
+    "shock": null,
+    "title": "Riots spread across English cities",
+    "context": "After a fatal police shooting in Tottenham, looting and arson spread across London and other cities for several nights.",
+    "reality": "The August 2011 riots left five people dead. 16,000 police were deployed in London, courts sat through the night, and the Troubled Families programme followed in December.",
+    "source": "Home Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund large youth and family programmes",
+      "Surge police numbers and fast-track courts",
+      "Leave recovery to the police and councils"
+    ],
+    "de": {
+      "title": "Krawalle erfassen englische Städte",
+      "context": "Nach tödlichen Polizeischüssen in Tottenham breiten sich Plünderungen und Brandstiftungen mehrere Nächte lang über London und andere Städte aus.",
+      "reality": "Bei den Krawallen im August 2011 starben fünf Menschen. In London wurden 16.000 Polizisten eingesetzt, Gerichte tagten die Nacht hindurch, im Dezember folgte das Programm „Troubled Families“.",
+      "choices": [
+        "Große Jugend- und Familienprogramme finanzieren",
+        "Polizeipräsenz erhöhen und Schnellverfahren",
+        "Aufarbeitung Polizei und Kommunen überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2011-libya-intervention",
+    "year": 2011,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Protecting civilians in Libya",
+    "context": "Libya's dictator sends his forces against rebel-held Benghazi and threatens a massacre. France and Britain push for a no-fly zone.",
+    "reality": "After UN Security Council Resolution 1973, the RAF joined strikes on Libya in March 2011. The Commons backed action by 557 votes to 13; Muammar Gaddafi was overthrown that year.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 0,
+    "choices": [
+      "Lead air strikes to enforce a no-fly zone",
+      "Back sanctions and support allies",
+      "Stay out of the conflict"
+    ],
+    "de": {
+      "title": "Schutz der Zivilbevölkerung in Libyen",
+      "context": "Libyens Diktator schickt seine Truppen gegen das von Rebellen gehaltene Bengasi und droht mit einem Massaker. Frankreich und Großbritannien drängen auf eine Flugverbotszone.",
+      "reality": "Nach Resolution 1973 des UN-Sicherheitsrats beteiligte sich die Royal Air Force im März 2011 an Angriffen in Libyen. Das Unterhaus stimmte mit 557 zu 13 zu; Muammar al-Gaddafi wurde im selben Jahr gestürzt.",
+      "choices": [
+        "Luftangriffe zur Durchsetzung einer Flugverbotszone",
+        "Sanktionen und Verbündete unterstützen",
+        "Sich aus dem Konflikt heraushalten"
+      ]
+    }
+  },
+  {
+    "id": "uk-2011-eurozone-treaty-veto",
+    "year": 2011,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "A treaty to save the euro",
+    "context": "Eurozone leaders want EU treaty changes for tighter budget rules. Britain wants safeguards for its financial services sector.",
+    "reality": "In December 2011 David Cameron vetoed an EU-wide treaty change after failing to secure safeguards for the City. The other states agreed the Fiscal Compact as a separate treaty.",
+    "source": "House of Commons Library",
+    "historicalChoice": 2,
+    "choices": [
+      "Join the new fiscal treaty",
+      "Accept changes in return for safeguards",
+      "Veto the treaty change"
+    ],
+    "de": {
+      "title": "Ein Vertrag zur Rettung des Euro",
+      "context": "Die Euroländer wollen die EU-Verträge für strengere Haushaltsregeln ändern. Großbritannien will Garantien für seinen Finanzsektor.",
+      "reality": "Im Dezember 2011 legte David Cameron sein Veto gegen eine EU-weite Vertragsänderung ein, nachdem er keine Garantien für die City erhalten hatte. Die übrigen Staaten schlossen den Fiskalpakt als eigenen Vertrag.",
+      "choices": [
+        "Dem neuen Fiskalvertrag beitreten",
+        "Änderungen gegen Garantien akzeptieren",
+        "Ein Veto gegen die Vertragsänderung einlegen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2011-public-sector-pensions-strike",
+    "year": 2011,
+    "category": "welfare",
+    "shock": null,
+    "title": "Public sector pensions strike",
+    "context": "Ministers want public employees to work longer and pay more into their pensions. Unions call a mass walkout.",
+    "reality": "Unions said up to two million public sector workers struck on 30 November 2011. Following the Hutton review, final-salary schemes were replaced by career-average schemes and contributions rose.",
+    "source": "Independent Public Service Pensions Commission (Hutton)",
+    "historicalChoice": 1,
+    "choices": [
+      "Keep current schemes and fund the cost",
+      "Move to career-average schemes with protection",
+      "Close the schemes to new staff"
+    ],
+    "de": {
+      "title": "Streik um die Beamtenpensionen",
+      "context": "Die Regierung will, dass Beschäftigte im öffentlichen Dienst länger arbeiten und mehr in ihre Pensionen einzahlen. Die Gewerkschaften rufen zum Massenstreik auf.",
+      "reality": "Laut Gewerkschaften streikten am 30. November 2011 bis zu zwei Millionen Beschäftigte. Nach dem Hutton-Bericht wurden Endgehaltssysteme durch Durchschnittsverdienstmodelle ersetzt und die Beiträge erhöht.",
+      "choices": [
+        "Bestehende Systeme halten und Kosten tragen",
+        "Auf Durchschnittsverdienst mit Übergangsschutz",
+        "Systeme für neue Beschäftigte schließen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2012-olympic-security",
+    "year": 2012,
+    "category": "security",
+    "shock": null,
+    "title": "Security for the Olympic Games",
+    "context": "Weeks before the London Olympics, the private security contractor admits it cannot supply enough guards for the venues.",
+    "reality": "In July 2012 G4S failed to deliver enough guards; the government deployed 3,500 extra troops at short notice, and the Games passed off securely.",
+    "source": "House of Commons Home Affairs Committee",
+    "historicalChoice": 0,
+    "choices": [
+      "Deploy troops to fill the gap",
+      "Mix extra police with contractor staff",
+      "Leave the contractor to fix it"
+    ],
+    "de": {
+      "title": "Sicherheit für die Olympischen Spiele",
+      "context": "Wenige Wochen vor den Olympischen Spielen in London räumt der private Sicherheitsdienstleister ein, nicht genug Wachpersonal stellen zu können.",
+      "reality": "Im Juli 2012 lieferte G4S nicht genügend Personal; die Regierung setzte kurzfristig 3.500 zusätzliche Soldaten ein, und die Spiele verliefen sicher.",
+      "choices": [
+        "Soldaten einsetzen, um die Lücke zu füllen",
+        "Zusätzliche Polizei und Firmenpersonal mischen",
+        "Den Dienstleister selbst nachbessern lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2012-leveson-press-regulation",
+    "year": 2012,
+    "category": "society",
+    "shock": null,
+    "title": "Regulating the press after phone hacking",
+    "context": "A judicial inquiry into phone hacking recommends an independent press regulator backed by law. Newspapers warn of state control.",
+    "reality": "The Leveson Report of November 2012 called for statutory underpinning. David Cameron refused; instead a Royal Charter on press self-regulation was agreed in 2013.",
+    "source": "Leveson Inquiry",
+    "historicalChoice": 1,
+    "choices": [
+      "Legislate for a statutory press regulator",
+      "Back a Royal Charter-based regulator",
+      "Leave the press to regulate itself"
+    ],
+    "de": {
+      "title": "Presseaufsicht nach dem Abhörskandal",
+      "context": "Eine richterliche Untersuchung zum Abhören von Telefonen empfiehlt eine unabhängige, gesetzlich verankerte Presseaufsicht. Zeitungen warnen vor Staatskontrolle.",
+      "reality": "Der Leveson-Bericht vom November 2012 forderte eine gesetzliche Verankerung. David Cameron lehnte ab; stattdessen wurde 2013 eine königliche Charta zur Selbstregulierung der Presse vereinbart.",
+      "choices": [
+        "Gesetzliche Presseaufsicht beschließen",
+        "Aufsicht auf Basis einer königlichen Charta",
+        "Die Presse sich selbst regulieren lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2012-top-rate-of-income-tax",
+    "year": 2012,
+    "category": "budget",
+    "shock": null,
+    "title": "The 50p top tax rate",
+    "context": "The 50p top rate of income tax is said to raise little and deter investment. Cutting it in hard times could look unfair.",
+    "reality": "George Osborne's March 2012 Budget cut the top rate to 45p from April 2013. U-turns on a 'pasty tax' and other measures led critics to call it an 'omnishambles'.",
+    "source": "HM Treasury, Budget 2012",
+    "historicalChoice": 2,
+    "choices": [
+      "Keep 50p and fund more investment",
+      "Keep the top rate for now, review later",
+      "Cut the top income tax rate"
+    ],
+    "de": {
+      "title": "Der Spitzensteuersatz von 50 %",
+      "context": "Der Spitzensteuersatz von 50 % soll wenig einbringen und Investitionen abschrecken. Ihn in harten Zeiten zu senken, könnte ungerecht wirken.",
+      "reality": "George Osbornes Haushalt vom März 2012 senkte den Spitzensatz ab April 2013 auf 45 %. Kehrtwenden bei einer „Pasty-Steuer“ und anderen Maßnahmen brachten ihm den Spott „Omnishambles“ ein.",
+      "choices": [
+        "50 % halten und mehr investieren",
+        "Spitzensatz vorerst halten, später prüfen",
+        "Den Spitzensteuersatz senken"
+      ]
+    }
+  },
+  {
+    "id": "uk-2012-benefit-cap",
+    "year": 2012,
+    "category": "welfare",
+    "shock": null,
+    "title": "Capping benefits",
+    "context": "Ministers argue that no workless household should receive more in benefits than the average working family earns.",
+    "reality": "The Welfare Reform Act 2012 introduced a £26,000 annual household benefit cap from 2013, with exemptions for disabled people, alongside the so-called 'bedroom tax' in social housing.",
+    "source": "Department for Work and Pensions",
+    "historicalChoice": 1,
+    "choices": [
+      "Protect benefits and fund more housing",
+      "Cap benefits with exemptions",
+      "Cut benefits across the board"
+    ],
+    "de": {
+      "title": "Deckelung der Sozialleistungen",
+      "context": "Die Regierung argumentiert, kein Haushalt ohne Arbeit solle mehr Leistungen erhalten, als eine durchschnittliche Arbeitnehmerfamilie verdient.",
+      "reality": "Der Welfare Reform Act 2012 führte ab 2013 eine Obergrenze von 26.000 £ pro Haushalt und Jahr ein, mit Ausnahmen für Menschen mit Behinderung, dazu die sogenannte „Schlafzimmersteuer“ im Sozialwohnungsbau.",
+      "choices": [
+        "Leistungen schützen und Wohnraum finanzieren",
+        "Leistungen mit Ausnahmen deckeln",
+        "Leistungen auf breiter Front kürzen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2013-syria-chemical-weapons-vote",
+    "year": 2013,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Chemical weapons in Syria",
+    "context": "The Syrian regime is accused of a nerve-gas attack near Damascus that killed hundreds. The United States plans punitive strikes.",
+    "reality": "On 29 August 2013 the Commons rejected the government's motion on military action by 285 to 272. David Cameron accepted the result and Britain did not join strikes.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 0,
+    "choices": [
+      "Join punitive military strikes",
+      "Push the UN route and humanitarian aid",
+      "Stay out of any action"
+    ],
+    "de": {
+      "title": "Chemiewaffen in Syrien",
+      "context": "Dem syrischen Regime wird ein Giftgasangriff nahe Damaskus mit Hunderten Toten vorgeworfen. Die USA planen Vergeltungsschläge.",
+      "reality": "Am 29. August 2013 lehnte das Unterhaus den Regierungsantrag zu einem Militäreinsatz mit 285 zu 272 ab. David Cameron akzeptierte das Ergebnis, Großbritannien beteiligte sich nicht an Angriffen.",
+      "choices": [
+        "Sich an Vergeltungsschlägen beteiligen",
+        "Auf UN-Weg und humanitäre Hilfe setzen",
+        "Sich aus jedem Einsatz heraushalten"
+      ]
+    }
+  },
+  {
+    "id": "uk-2013-hinkley-point-c",
+    "year": 2013,
+    "category": "energy",
+    "shock": null,
+    "title": "Hinkley Point C",
+    "context": "No new nuclear plant has been built for decades. A French state-owned firm will build one only with a long-term guaranteed price.",
+    "reality": "In October 2013 the government agreed a strike price of £92.50/MWh for 35 years with EDF for Hinkley Point C. The project has since run years late and far over budget.",
+    "source": "Department of Energy and Climate Change",
+    "historicalChoice": 1,
+    "choices": [
+      "Build new nuclear with public money",
+      "Guarantee a price for private builders",
+      "Leave new plants to the market"
+    ],
+    "de": {
+      "title": "Neues Atomkraftwerk Hinkley Point C",
+      "context": "Seit Jahrzehnten wurde kein neues Atomkraftwerk gebaut. Ein französischer Staatskonzern will nur mit einem langfristig garantierten Strompreis bauen.",
+      "reality": "Im Oktober 2013 vereinbarte die Regierung mit EDF für Hinkley Point C einen garantierten Preis von 92,50 £/MWh über 35 Jahre. Das Projekt ist seither Jahre im Verzug und weit über Budget.",
+      "choices": [
+        "Neue AKW mit Staatsgeld bauen",
+        "Privaten Bauherren einen Preis garantieren",
+        "Neue Kraftwerke dem Markt überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2013-help-to-buy",
+    "year": 2013,
+    "category": "economy",
+    "shock": null,
+    "title": "Getting first-time buyers on the ladder",
+    "context": "Young people struggle to raise deposits, and housebuilding is weak after the crash.",
+    "reality": "The 2013 Budget launched Help to Buy, offering equity loans of up to 20% on new-build homes and mortgage guarantees. Critics said it pushed up prices.",
+    "source": "HM Treasury, Budget 2013",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a large public housebuilding drive",
+      "Subsidise buyers with equity loans",
+      "Leave housing to the market"
+    ],
+    "de": {
+      "title": "Erstkäufern den Weg zum Eigenheim ebnen",
+      "context": "Junge Menschen können kaum Eigenkapital aufbringen, und der Wohnungsbau ist nach der Krise schwach.",
+      "reality": "Der Haushalt 2013 startete Help to Buy mit Eigenkapitaldarlehen von bis zu 20 % für Neubauten und Hypothekengarantien. Kritiker meinten, das treibe die Preise.",
+      "choices": [
+        "Großes staatliches Wohnungsbauprogramm finanzieren",
+        "Käufer mit Eigenkapitaldarlehen fördern",
+        "Den Wohnungsmarkt sich selbst überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2013-same-sex-marriage",
+    "year": 2013,
+    "category": "society",
+    "shock": null,
+    "title": "Equal marriage",
+    "context": "Same-sex couples can form civil partnerships but cannot marry. Religious groups are divided over change.",
+    "reality": "The Marriage (Same Sex Couples) Act 2013 legalised same-sex marriage in England and Wales from March 2014, with protections for religious bodies that decline to conduct such marriages.",
+    "source": "legislation.gov.uk",
+    "historicalChoice": 1,
+    "choices": [
+      "Legislate full marriage equality",
+      "Legalise it with religious protections",
+      "Keep civil partnerships only"
+    ],
+    "de": {
+      "title": "Die Ehe für alle",
+      "context": "Gleichgeschlechtliche Paare können eingetragene Partnerschaften eingehen, aber nicht heiraten. Religionsgemeinschaften sind gespalten.",
+      "reality": "Der Marriage (Same Sex Couples) Act 2013 erlaubte ab März 2014 gleichgeschlechtliche Ehen in England und Wales, mit Schutzklauseln für Religionsgemeinschaften, die solche Trauungen ablehnen.",
+      "choices": [
+        "Volle Gleichstellung in der Ehe beschließen",
+        "Mit Schutz für Religionsgemeinschaften erlauben",
+        "Bei eingetragenen Partnerschaften bleiben"
+      ]
+    }
+  },
+  {
+    "id": "uk-2014-scottish-independence-referendum",
+    "year": 2014,
+    "category": "society",
+    "shock": null,
+    "title": "Scotland decides",
+    "context": "Scotland will vote on independence. Days before the vote, a poll puts the Yes side ahead for the first time.",
+    "reality": "Unionist party leaders pledged extensive new powers in 'The Vow'. On 18 September 2014 Scotland voted 55.3% No; the Smith Commission led to the Scotland Act 2016.",
+    "source": "Electoral Commission",
+    "historicalChoice": 0,
+    "choices": [
+      "Pledge sweeping new powers for Scotland",
+      "Offer a negotiated devolution package",
+      "Refuse further concessions"
+    ],
+    "de": {
+      "title": "Schottland entscheidet",
+      "context": "Schottland stimmt über die Unabhängigkeit ab. Wenige Tage vor dem Votum sieht eine Umfrage erstmals das Ja-Lager vorn.",
+      "reality": "Die Vorsitzenden der unionistischen Parteien versprachen in „The Vow“ weitreichende neue Befugnisse. Am 18. September 2014 stimmte Schottland mit 55,3 % mit Nein; die Smith-Kommission mündete in den Scotland Act 2016.",
+      "choices": [
+        "Weitreichende neue Befugnisse versprechen",
+        "Ausgehandeltes Dezentralisierungspaket anbieten",
+        "Weitere Zugeständnisse ablehnen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2014-emergency-data-retention-law",
+    "year": 2014,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Data retention struck down",
+    "context": "Europe's top court has annulled the EU data retention directive. Police warn they will lose access to phone and internet records.",
+    "reality": "The Data Retention and Investigatory Powers Act was rushed through Parliament within days in July 2014, with a sunset clause for the end of 2016 and an independent review.",
+    "source": "legislation.gov.uk",
+    "historicalChoice": 1,
+    "choices": [
+      "Pass a permanent law expanding retention",
+      "Pass a temporary law with a sunset clause",
+      "Let data retention lapse"
+    ],
+    "de": {
+      "title": "Vorratsdatenspeicherung gekippt",
+      "context": "Der Europäische Gerichtshof hat die EU-Richtlinie zur Vorratsdatenspeicherung für nichtig erklärt. Die Polizei warnt, den Zugriff auf Telefon- und Internetdaten zu verlieren.",
+      "reality": "Der Data Retention and Investigatory Powers Act wurde im Juli 2014 binnen Tagen durchs Parlament gebracht – befristet bis Ende 2016 und mit unabhängiger Überprüfung.",
+      "choices": [
+        "Dauerhaftes Gesetz mit mehr Speicherung",
+        "Befristetes Gesetz mit Auslaufklausel",
+        "Die Vorratsdatenspeicherung auslaufen lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2014-russia-annexes-crimea",
+    "year": 2014,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Russia annexes Crimea",
+    "context": "Russian forces have seized Crimea and are stoking conflict in eastern Ukraine. Allies debate how hard to punish Moscow.",
+    "reality": "Britain backed EU and G7 sanctions, and Russia was suspended from the G8. After flight MH17 was shot down over eastern Ukraine in July 2014, sanctions were tightened.",
+    "source": "House of Commons Library",
+    "historicalChoice": 1,
+    "choices": [
+      "Push maximum sanctions and arm Ukraine",
+      "Coordinate targeted EU sanctions",
+      "Avoid measures that hurt trade"
+    ],
+    "de": {
+      "title": "Russland annektiert die Krim",
+      "context": "Russische Truppen haben die Krim besetzt und schüren den Konflikt in der Ostukraine. Die Verbündeten streiten, wie hart Moskau bestraft werden soll.",
+      "reality": "Großbritannien unterstützte Sanktionen von EU und G7, Russland wurde aus der G8 ausgeschlossen. Nach dem Abschuss von Flug MH17 über der Ostukraine im Juli 2014 wurden die Sanktionen verschärft.",
+      "choices": [
+        "Maximale Sanktionen und Waffen für die Ukraine",
+        "Gezielte EU-Sanktionen abstimmen",
+        "Handelsschädliche Maßnahmen vermeiden"
+      ]
+    }
+  },
+  {
+    "id": "uk-2014-rotherham-abuse-report",
+    "year": 2014,
+    "category": "society",
+    "shock": null,
+    "title": "The Rotherham abuse report",
+    "context": "An inquiry finds that about 1,400 children in one town were sexually exploited over 16 years while officials failed to act.",
+    "reality": "The 2014 Jay report found around 1,400 children were abused in Rotherham between 1997 and 2013. After the Casey inspection, ministers sent commissioners to run the council in 2015.",
+    "source": "Independent Inquiry (Jay Report)",
+    "historicalChoice": 1,
+    "choices": [
+      "Launch a national inquiry and fund victims",
+      "Inspect and take over the failing council",
+      "Leave it to local agencies"
+    ],
+    "de": {
+      "title": "Der Missbrauchsbericht von Rotherham",
+      "context": "Eine Untersuchung ergibt, dass in einer Stadt über 16 Jahre rund 1.400 Kinder sexuell ausgebeutet wurden, während die Behörden untätig blieben.",
+      "reality": "Der Jay-Bericht von 2014 stellte fest, dass in Rotherham zwischen 1997 und 2013 rund 1.400 Kinder missbraucht wurden. Nach der Casey-Prüfung setzte die Regierung 2015 Kommissare zur Leitung der Stadtverwaltung ein.",
+      "choices": [
+        "Nationale Untersuchung und Opferhilfe finanzieren",
+        "Prüfen und die Stadtverwaltung übernehmen",
+        "Den lokalen Behörden überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2015-european-refugee-crisis",
+    "year": 2015,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Europe's refugee crisis",
+    "context": "Over a million people head for Europe, many fleeing war in Syria. The EU wants member states to share asylum seekers through quotas.",
+    "reality": "Britain stayed out of EU relocation quotas. In September 2015 David Cameron pledged instead to resettle 20,000 Syrian refugees directly from the region over five years.",
+    "source": "Home Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Accept large numbers under EU quotas",
+      "Resettle refugees directly from camps",
+      "Take no additional refugees"
+    ],
+    "de": {
+      "title": "Europas Flüchtlingskrise",
+      "context": "Über eine Million Menschen machen sich auf den Weg nach Europa, viele fliehen vor dem Krieg in Syrien. Die EU will Asylsuchende per Quote auf die Mitgliedstaaten verteilen.",
+      "reality": "Großbritannien beteiligte sich nicht an den EU-Verteilquoten. Im September 2015 sagte David Cameron stattdessen zu, binnen fünf Jahren 20.000 syrische Flüchtlinge direkt aus der Region aufzunehmen.",
+      "choices": [
+        "Viele Menschen über EU-Quoten aufnehmen",
+        "Flüchtlinge direkt aus Lagern ansiedeln",
+        "Keine zusätzlichen Flüchtlinge aufnehmen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2015-air-strikes-in-syria",
+    "year": 2015,
+    "category": "security",
+    "shock": null,
+    "title": "Air strikes against ISIS in Syria",
+    "context": "After deadly terror attacks in Paris, France asks allies for help. British jets already strike ISIS in Iraq, but not in Syria.",
+    "reality": "On 2 December 2015 the Commons voted 397 to 223 to extend RAF air strikes against ISIS into Syria.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 0,
+    "choices": [
+      "Extend air strikes into Syria",
+      "Keep to Iraq, support allies otherwise",
+      "Stay out of further military action"
+    ],
+    "de": {
+      "title": "Luftangriffe gegen den IS in Syrien",
+      "context": "Nach den tödlichen Anschlägen in Paris bittet Frankreich die Verbündeten um Hilfe. Britische Jets greifen den IS bereits im Irak an, aber nicht in Syrien.",
+      "reality": "Am 2. Dezember 2015 stimmte das Unterhaus mit 397 zu 223 dafür, die Luftangriffe der Royal Air Force gegen den IS auf Syrien auszuweiten.",
+      "choices": [
+        "Luftangriffe auf Syrien ausweiten",
+        "Beim Irak bleiben, Verbündete anders stützen",
+        "Sich aus weiteren Einsätzen heraushalten"
+      ]
+    }
+  },
+  {
+    "id": "uk-2015-national-living-wage",
+    "year": 2015,
+    "category": "economy",
+    "shock": null,
+    "title": "A national living wage",
+    "context": "Low pay is widespread and in-work benefits are costly. The Treasury considers a much higher legal wage floor.",
+    "reality": "The July 2015 Budget announced a National Living Wage of £7.20 an hour for over-25s from April 2016, with the aim of reaching 60% of median earnings by 2020.",
+    "source": "HM Treasury, Summer Budget 2015",
+    "historicalChoice": 0,
+    "choices": [
+      "Raise the wage floor sharply",
+      "Raise it gradually on expert advice",
+      "Leave wages to the market"
+    ],
+    "de": {
+      "title": "Ein existenzsichernder Mindestlohn",
+      "context": "Niedriglöhne sind weit verbreitet, Aufstockerleistungen teuer. Das Finanzministerium erwägt eine deutlich höhere gesetzliche Lohnuntergrenze.",
+      "reality": "Der Haushalt vom Juli 2015 kündigte ab April 2016 einen National Living Wage von 7,20 £ pro Stunde für über 25-Jährige an, mit dem Ziel von 60 % des Medianlohns bis 2020.",
+      "choices": [
+        "Lohnuntergrenze kräftig anheben",
+        "Schrittweise nach Expertenrat anheben",
+        "Löhne dem Markt überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2015-national-cyber-security",
+    "year": 2015,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Cyber attacks on the rise",
+    "context": "Hackers target companies and public bodies, stealing data on millions of customers. The security agencies want more money and a national cyber centre.",
+    "reality": "In November 2015 George Osborne announced £1.9bn over five years for cyber security and a new national cyber centre; the National Cyber Security Centre opened in 2016.",
+    "source": "National Cyber Security Centre",
+    "historicalChoice": 0,
+    "choices": [
+      "Fund a national cyber security centre",
+      "Fund targeted protection for key systems",
+      "Leave cyber defence to companies"
+    ],
+    "de": {
+      "title": "Cyberangriffe nehmen zu",
+      "context": "Hacker greifen Unternehmen und Behörden an und stehlen Daten von Millionen Kunden. Die Sicherheitsdienste fordern mehr Geld und ein nationales Cyberzentrum.",
+      "reality": "Im November 2015 kündigte George Osborne 1,9 Mrd. £ über fünf Jahre für Cybersicherheit und ein nationales Cyberzentrum an; das National Cyber Security Centre nahm 2016 die Arbeit auf.",
+      "choices": [
+        "Nationales Cyberabwehrzentrum finanzieren",
+        "Gezielt kritische Systeme schützen",
+        "Cyberabwehr den Unternehmen überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2016-eu-referendum",
+    "year": 2016,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "In or out of the EU?",
+    "context": "Pressure grows for a public vote on EU membership. The Prime Minister has renegotiated some terms and must decide whether and how to put the question to the people.",
+    "reality": "David Cameron held an in/out referendum on 23 June 2016 after renegotiating membership terms. Leave won with 51.9% and Cameron resigned.",
+    "source": "Electoral Commission",
+    "historicalChoice": 0,
+    "choices": [
+      "Hold an in/out referendum",
+      "Renegotiate and let Parliament decide",
+      "Refuse a referendum"
+    ],
+    "de": {
+      "title": "Drin oder draußen in der EU?",
+      "context": "Der Druck für eine Volksabstimmung über die EU-Mitgliedschaft wächst. Der Premierminister hat einige Bedingungen nachverhandelt und muss entscheiden, ob und wie das Volk gefragt wird.",
+      "reality": "David Cameron hielt nach Nachverhandlungen am 23. Juni 2016 ein Referendum über Verbleib oder Austritt ab. „Leave“ gewann mit 51,9 %, Cameron trat zurück.",
+      "choices": [
+        "Ein Referendum über Verbleib oder Austritt abhalten",
+        "Nachverhandeln und das Parlament entscheiden lassen",
+        "Ein Referendum ablehnen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2016-investigatory-powers-act",
+    "year": 2016,
+    "category": "digitalization",
+    "shock": null,
+    "title": "The 'snoopers' charter'",
+    "context": "Emergency data laws expire soon. Intelligence agencies want powers for bulk data collection and to require storage of internet connection records.",
+    "reality": "The Investigatory Powers Act 2016 authorised bulk interception and required providers to keep internet connection records for 12 months, with warrants approved by judicial commissioners.",
+    "source": "legislation.gov.uk",
+    "historicalChoice": 1,
+    "choices": [
+      "Legislate broad bulk surveillance powers",
+      "Grant powers with judicial approval",
+      "Let emergency powers lapse"
+    ],
+    "de": {
+      "title": "Die „Schnüffler-Charta“",
+      "context": "Die Notfallgesetze zur Datenspeicherung laufen bald aus. Die Geheimdienste wollen Befugnisse zur Massendatenerfassung und zur Speicherung von Internetverbindungsdaten.",
+      "reality": "Der Investigatory Powers Act 2016 erlaubte massenhaftes Abfangen von Kommunikation und verpflichtete Anbieter, Verbindungsdaten zwölf Monate zu speichern – mit richterlich genehmigten Anordnungen.",
+      "choices": [
+        "Weitreichende Massenüberwachung beschließen",
+        "Befugnisse mit richterlicher Genehmigung",
+        "Notfallbefugnisse auslaufen lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2016-steel-crisis-port-talbot",
+    "year": 2016,
+    "category": "economy",
+    "shock": null,
+    "title": "Steel in crisis",
+    "context": "Cheap imports and high energy costs hit steelmaking. The owner of the country's largest steelworks, at Port Talbot, puts its UK business up for sale.",
+    "reality": "Tata Steel announced in March 2016 that it would sell its UK business. Ministers ruled out nationalisation but offered to co-invest up to 25% alongside a buyer; Tata ultimately kept the business.",
+    "source": "Department for Business, Innovation and Skills",
+    "historicalChoice": 1,
+    "choices": [
+      "Nationalise the steelworks",
+      "Offer co-investment to a buyer",
+      "Let the market decide"
+    ],
+    "de": {
+      "title": "Stahl in der Krise",
+      "context": "Billigimporte und hohe Energiekosten setzen der Stahlindustrie zu. Der Eigentümer des größten Stahlwerks des Landes in Port Talbot stellt sein britisches Geschäft zum Verkauf.",
+      "reality": "Tata Steel kündigte im März 2016 den Verkauf seines britischen Geschäfts an. Die Regierung schloss eine Verstaatlichung aus, bot aber an, sich mit bis zu 25 % neben einem Käufer zu beteiligen; Tata behielt die Werke letztlich.",
+      "choices": [
+        "Das Stahlwerk verstaatlichen",
+        "Einem Käufer eine Staatsbeteiligung anbieten",
+        "Den Markt entscheiden lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2016-sugar-levy",
+    "year": 2016,
+    "category": "society",
+    "shock": null,
+    "title": "A levy on sugary drinks",
+    "context": "Child obesity is rising. Health campaigners call for a levy on sugary soft drinks; the industry warns of job losses.",
+    "reality": "The 2016 Budget announced the Soft Drinks Industry Levy, in force from April 2018, with revenue initially used for school sport. Many manufacturers cut sugar to avoid it.",
+    "source": "HM Treasury, Budget 2016",
+    "historicalChoice": 0,
+    "choices": [
+      "Impose a sugar levy and fund school sport",
+      "Negotiate voluntary sugar cuts",
+      "Leave diets to consumers"
+    ],
+    "de": {
+      "title": "Eine Abgabe auf zuckerhaltige Getränke",
+      "context": "Übergewicht bei Kindern nimmt zu. Gesundheitsverbände fordern eine Abgabe auf gezuckerte Softdrinks, die Industrie warnt vor Jobverlusten.",
+      "reality": "Der Haushalt 2016 kündigte die Soft Drinks Industry Levy an, die ab April 2018 galt; die Einnahmen flossen zunächst in den Schulsport. Viele Hersteller senkten den Zuckergehalt, um sie zu vermeiden.",
+      "choices": [
+        "Zuckerabgabe einführen und Schulsport fördern",
+        "Freiwillige Zuckerreduktion aushandeln",
+        "Ernährung den Verbrauchern überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2017-grenfell-tower-fire",
+    "year": 2017,
+    "category": "society",
+    "shock": null,
+    "title": "Fire at Grenfell Tower",
+    "context": "A fire in a London tower block kills dozens. Flammable cladding is then found on hundreds of buildings across the country.",
+    "reality": "The Grenfell Tower fire of 14 June 2017 killed 72 people. A public inquiry followed; in 2018 the government funded £400m to remove cladding from social housing, with private blocks funded later.",
+    "source": "Grenfell Tower Inquiry",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund cladding removal on all buildings",
+      "Fund social-housing work and review rules",
+      "Leave remediation to building owners"
+    ],
+    "de": {
+      "title": "Brand im Grenfell Tower",
+      "context": "Ein Feuer in einem Londoner Hochhaus tötet Dutzende Menschen. Danach wird an Hunderten Gebäuden im ganzen Land brennbare Fassadenverkleidung entdeckt.",
+      "reality": "Der Brand im Grenfell Tower am 14. Juni 2017 tötete 72 Menschen. Es folgte eine öffentliche Untersuchung; 2018 stellte die Regierung 400 Mio. £ für die Sanierung von Sozialwohnungen bereit, private Gebäude kamen später hinzu.",
+      "choices": [
+        "Sanierung aller Gebäude finanzieren",
+        "Sozialwohnungen sanieren, Regeln überprüfen",
+        "Sanierung den Eigentümern überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2017-wave-of-terror-attacks",
+    "year": 2017,
+    "category": "security",
+    "shock": "terror",
+    "title": "A wave of terror attacks",
+    "context": "Attacks hit Westminster, a pop concert in Manchester and London Bridge within months. The national threat level is raised to critical.",
+    "reality": "The 2017 attacks killed 36 people, 22 of them at Manchester Arena. Troops were briefly deployed under Operation Temperer, and the Counter-Terrorism and Border Security Act 2019 followed.",
+    "source": "Home Office",
+    "historicalChoice": 0,
+    "choices": [
+      "Deploy troops and toughen terror laws",
+      "Review strategy and boost police resources",
+      "Rely on existing police powers"
+    ],
+    "de": {
+      "title": "Eine Welle von Terroranschlägen",
+      "context": "Binnen Monaten treffen Anschläge Westminster, ein Popkonzert in Manchester und die London Bridge. Die Terrorwarnstufe wird auf „kritisch“ angehoben.",
+      "reality": "Die Anschläge 2017 töteten 36 Menschen, 22 davon in der Manchester Arena. Im Rahmen der Operation Temperer wurden kurzzeitig Soldaten eingesetzt; 2019 folgte ein verschärftes Antiterrorgesetz.",
+      "choices": [
+        "Soldaten einsetzen und Terrorgesetze verschärfen",
+        "Strategie überprüfen, Polizei stärken",
+        "Auf bestehende Polizeibefugnisse setzen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2017-triggering-article-50",
+    "year": 2017,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Triggering Article 50",
+    "context": "After the referendum, the government must formally notify the EU of withdrawal and decide what kind of future relationship to seek.",
+    "reality": "Theresa May triggered Article 50 on 29 March 2017, having ruled out single market and customs union membership in favour of a bespoke, deep free trade agreement.",
+    "source": "UK Parliament",
+    "historicalChoice": 1,
+    "choices": [
+      "Seek to stay in the single market",
+      "Seek a bespoke free trade deal",
+      "Prepare to leave on WTO terms"
+    ],
+    "de": {
+      "title": "Auslösung von Artikel 50",
+      "context": "Nach dem Referendum muss die Regierung der EU den Austritt formell mitteilen und entscheiden, welches künftige Verhältnis sie anstrebt.",
+      "reality": "Theresa May löste am 29. März 2017 Artikel 50 aus, nachdem sie Binnenmarkt und Zollunion ausgeschlossen und ein maßgeschneidertes, umfassendes Freihandelsabkommen angestrebt hatte.",
+      "choices": [
+        "Im Binnenmarkt bleiben wollen",
+        "Ein maßgeschneidertes Freihandelsabkommen anstreben",
+        "Austritt zu WTO-Bedingungen vorbereiten"
+      ]
+    }
+  },
+  {
+    "id": "uk-2017-energy-price-cap",
+    "year": 2017,
+    "category": "energy",
+    "shock": null,
+    "title": "Rip-off energy tariffs",
+    "context": "Millions of loyal customers pay far more than those who switch supplier. Consumer groups demand a cap on prices.",
+    "reality": "The government legislated in 2018 for a cap on default energy tariffs, which the regulator Ofgem introduced from January 2019.",
+    "source": "Ofgem",
+    "historicalChoice": 1,
+    "choices": [
+      "Cap all energy tariffs by law",
+      "Cap default tariffs only",
+      "Leave prices to competition"
+    ],
+    "de": {
+      "title": "Abzocke bei Energietarifen",
+      "context": "Millionen treue Kunden zahlen weit mehr als Wechselwillige. Verbraucherverbände fordern eine Preisobergrenze.",
+      "reality": "Die Regierung beschloss 2018 eine Obergrenze für Standardtarife bei Strom und Gas, die die Regulierungsbehörde Ofgem ab Januar 2019 einführte.",
+      "choices": [
+        "Alle Energietarife gesetzlich deckeln",
+        "Nur Standardtarife deckeln",
+        "Preise dem Wettbewerb überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2018-salisbury-poisoning",
+    "year": 2018,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Nerve agent attack in Salisbury",
+    "context": "A former Russian spy and his daughter are poisoned with a military-grade nerve agent in an English city. Moscow denies involvement.",
+    "reality": "Britain expelled 23 Russian diplomats in March 2018 and allies expelled over 150 more. A local woman, Dawn Sturgess, died that July after exposure to discarded Novichok.",
+    "source": "Foreign and Commonwealth Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Impose sweeping sanctions on Russia",
+      "Expel diplomats and rally allies",
+      "Limit the response to protests"
+    ],
+    "de": {
+      "title": "Nervengiftanschlag in Salisbury",
+      "context": "Ein früherer russischer Spion und seine Tochter werden in einer englischen Stadt mit einem militärischen Nervengift vergiftet. Moskau bestreitet jede Beteiligung.",
+      "reality": "Großbritannien wies im März 2018 23 russische Diplomaten aus, Verbündete über 150 weitere. Die Einheimische Dawn Sturgess starb im Juli, nachdem sie mit weggeworfenem Nowitschok in Kontakt gekommen war.",
+      "choices": [
+        "Umfassende Sanktionen gegen Russland",
+        "Diplomaten ausweisen und Verbündete sammeln",
+        "Sich auf Proteste beschränken"
+      ]
+    }
+  },
+  {
+    "id": "uk-2018-windrush-scandal",
+    "year": 2018,
+    "category": "society",
+    "shock": null,
+    "title": "The Windrush scandal",
+    "context": "Long-settled Caribbean-born residents have been wrongly denied jobs, healthcare and benefits, and some deported, for lacking documents.",
+    "reality": "The scandal broke in April 2018 and Home Secretary Amber Rudd resigned. The government apologised, offered citizenship and set up a compensation scheme in 2019.",
+    "source": "National Audit Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund full redress and end hostile policies",
+      "Apologise, regularise status, compensate",
+      "Review cases one by one"
+    ],
+    "de": {
+      "title": "Der Windrush-Skandal",
+      "context": "Seit Langem ansässigen, in der Karibik geborenen Menschen wurden mangels Papieren zu Unrecht Arbeit, Gesundheitsversorgung und Leistungen verweigert, manche wurden abgeschoben.",
+      "reality": "Der Skandal wurde im April 2018 publik, Innenministerin Amber Rudd trat zurück. Die Regierung entschuldigte sich, bot die Staatsbürgerschaft an und richtete 2019 ein Entschädigungsprogramm ein.",
+      "choices": [
+        "Volle Wiedergutmachung, feindselige Politik beenden",
+        "Entschuldigen, Status klären, entschädigen",
+        "Fälle einzeln prüfen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2018-nhs-funding-settlement",
+    "year": 2018,
+    "category": "welfare",
+    "shock": null,
+    "title": "A birthday present for the NHS",
+    "context": "The NHS turns 70 amid long waits and winter crises. Its leaders call for a multi-year funding settlement.",
+    "reality": "In June 2018 Theresa May announced NHS England funding would rise by £20.5bn a year in real terms by 2023-24, about 3.4% a year, followed by a ten-year Long Term Plan.",
+    "source": "Department of Health and Social Care",
+    "historicalChoice": 0,
+    "choices": [
+      "Fund a large multi-year NHS increase",
+      "Fund modest rises tied to efficiency",
+      "Hold spending and expand private care"
+    ],
+    "de": {
+      "title": "Ein Geburtstagsgeschenk für den NHS",
+      "context": "Der NHS wird 70 – inmitten langer Wartezeiten und Winterkrisen. Seine Führung fordert eine mehrjährige Finanzierungszusage.",
+      "reality": "Im Juni 2018 kündigte Theresa May an, das Budget des NHS England bis 2023/24 real um 20,5 Mrd. £ pro Jahr zu erhöhen, rund 3,4 % jährlich; es folgte ein Zehnjahresplan.",
+      "choices": [
+        "Große mehrjährige NHS-Aufstockung finanzieren",
+        "Moderate Erhöhungen an Effizienz knüpfen",
+        "Ausgaben halten und Privatversorgung ausbauen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2018-carillion-collapse",
+    "year": 2018,
+    "category": "economy",
+    "shock": null,
+    "title": "Carillion collapses",
+    "context": "A giant contractor that runs services in hospitals, schools and prisons faces insolvency and asks for state support.",
+    "reality": "Carillion went into compulsory liquidation in January 2018. The government refused a bailout; the Official Receiver kept public services running with state funding.",
+    "source": "National Audit Office",
+    "historicalChoice": 2,
+    "choices": [
+      "Bail out the contractor",
+      "Ringfence key contracts with interim support",
+      "Let it go into liquidation"
+    ],
+    "de": {
+      "title": "Carillion bricht zusammen",
+      "context": "Ein riesiger Dienstleister, der Aufgaben in Krankenhäusern, Schulen und Gefängnissen übernimmt, steht vor der Insolvenz und bittet um Staatshilfe.",
+      "reality": "Carillion ging im Januar 2018 in die Zwangsliquidation. Die Regierung lehnte eine Rettung ab; der staatliche Insolvenzverwalter hielt die öffentlichen Dienste mit Staatsgeld am Laufen.",
+      "choices": [
+        "Den Konzern retten",
+        "Schlüsselverträge sichern und überbrücken",
+        "In die Liquidation gehen lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2019-brexit-deadlock",
+    "year": 2019,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Brexit deadlock",
+    "context": "Parliament has rejected the withdrawal agreement three times. The EU grants delays and a no-deal exit is a real possibility.",
+    "reality": "After record defeats for Theresa May's deal, Boris Johnson renegotiated it in October 2019, replacing the Irish backstop with the Northern Ireland Protocol.",
+    "source": "UK Parliament",
+    "historicalChoice": 1,
+    "choices": [
+      "Seek a customs union with the EU",
+      "Renegotiate the withdrawal deal",
+      "Prepare to leave without a deal"
+    ],
+    "de": {
+      "title": "Brexit-Blockade",
+      "context": "Das Parlament hat das Austrittsabkommen dreimal abgelehnt. Die EU gewährt Aufschub, ein ungeregelter Austritt ist eine reale Möglichkeit.",
+      "reality": "Nach historischen Niederlagen für Theresa Mays Abkommen verhandelte Boris Johnson es im Oktober 2019 neu und ersetzte den irischen Backstop durch das Nordirland-Protokoll.",
+      "choices": [
+        "Eine Zollunion mit der EU anstreben",
+        "Das Austrittsabkommen neu verhandeln",
+        "Einen Austritt ohne Abkommen vorbereiten"
+      ]
+    }
+  },
+  {
+    "id": "uk-2019-net-zero-2050",
+    "year": 2019,
+    "category": "energy",
+    "shock": null,
+    "title": "Net zero by 2050",
+    "context": "Climate advisers say a net zero emissions target for 2050 is achievable. Business groups worry about the cost.",
+    "reality": "In June 2019 Britain became the first major economy to legislate for net zero greenhouse gas emissions by 2050, amending the Climate Change Act.",
+    "source": "Climate Change Committee",
+    "historicalChoice": 0,
+    "choices": [
+      "Legislate net zero by 2050 with funding",
+      "Set a later or softer target",
+      "Keep the existing 80% target"
+    ],
+    "de": {
+      "title": "Netto-Null bis 2050",
+      "context": "Klimaberater halten Netto-Null-Emissionen bis 2050 für erreichbar. Wirtschaftsverbände sorgen sich um die Kosten.",
+      "reality": "Im Juni 2019 schrieb Großbritannien als erste große Volkswirtschaft Netto-Null-Treibhausgasemissionen bis 2050 gesetzlich fest und änderte dafür den Climate Change Act.",
+      "choices": [
+        "Netto-Null bis 2050 beschließen und finanzieren",
+        "Ein späteres oder weicheres Ziel setzen",
+        "Am bisherigen 80-%-Ziel festhalten"
+      ]
+    }
+  },
+  {
+    "id": "uk-2019-police-numbers-and-knife-crime",
+    "year": 2019,
+    "category": "security",
+    "shock": null,
+    "title": "Rising knife crime",
+    "context": "Knife crime is at record levels and police numbers have fallen by about 20,000 since 2010.",
+    "reality": "In July 2019 Boris Johnson pledged 20,000 more police officers in England and Wales by March 2023. The government reported the target met in 2023.",
+    "source": "Home Office",
+    "historicalChoice": 0,
+    "choices": [
+      "Recruit thousands more police officers",
+      "Fund targeted violence reduction units",
+      "Leave priorities to police forces"
+    ],
+    "de": {
+      "title": "Steigende Messerkriminalität",
+      "context": "Die Messerkriminalität ist auf Rekordniveau, und die Zahl der Polizisten ist seit 2010 um rund 20.000 gesunken.",
+      "reality": "Im Juli 2019 versprach Boris Johnson bis März 2023 20.000 zusätzliche Polizisten für England und Wales. Die Regierung meldete das Ziel 2023 als erreicht.",
+      "choices": [
+        "Tausende zusätzliche Polizisten einstellen",
+        "Gezielt Gewaltpräventionsteams finanzieren",
+        "Prioritäten den Polizeibehörden überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2019-thomas-cook-collapse",
+    "year": 2019,
+    "category": "economy",
+    "shock": null,
+    "title": "Thomas Cook goes bust",
+    "context": "The world's oldest travel firm faces collapse with around 150,000 British holidaymakers abroad. It asks for a state rescue.",
+    "reality": "Thomas Cook collapsed in September 2019 after the government refused a bailout. The Civil Aviation Authority flew home about 140,000 customers, the largest peacetime repatriation.",
+    "source": "Civil Aviation Authority",
+    "historicalChoice": 1,
+    "choices": [
+      "Bail out the travel company",
+      "Refuse a bailout but fly travellers home",
+      "Leave travellers to insurers"
+    ],
+    "de": {
+      "title": "Thomas Cook ist pleite",
+      "context": "Das älteste Reiseunternehmen der Welt steht mit rund 150.000 britischen Urlaubern im Ausland vor dem Aus. Es bittet um staatliche Rettung.",
+      "reality": "Thomas Cook brach im September 2019 zusammen, nachdem die Regierung eine Rettung abgelehnt hatte. Die Luftfahrtbehörde CAA flog rund 140.000 Kunden heim – die größte Rückholaktion in Friedenszeiten.",
+      "choices": [
+        "Das Reiseunternehmen retten",
+        "Keine Rettung, aber Reisende heimholen",
+        "Reisende ihren Versicherern überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2020-covid-19-lockdown",
+    "year": 2020,
+    "category": "society",
+    "shock": "pandemic",
+    "title": "A new virus spreads",
+    "context": "A new coronavirus is spreading rapidly and hospitals fear being overwhelmed. Scientific advisers urge drastic measures.",
+    "reality": "On 23 March 2020 Boris Johnson ordered a national lockdown. Further lockdowns followed in November 2020 and January 2021; a public inquiry later criticised the delays.",
+    "source": "UK Covid-19 Inquiry",
+    "historicalChoice": 0,
+    "choices": [
+      "Impose a national lockdown",
+      "Use targeted restrictions and shielding",
+      "Rely on voluntary guidance"
+    ],
+    "de": {
+      "title": "Ein neues Virus breitet sich aus",
+      "context": "Ein neues Coronavirus verbreitet sich rasant, Krankenhäuser fürchten eine Überlastung. Wissenschaftliche Berater fordern drastische Maßnahmen.",
+      "reality": "Am 23. März 2020 verhängte Boris Johnson einen landesweiten Lockdown. Weitere folgten im November 2020 und Januar 2021; eine öffentliche Untersuchung kritisierte später die Verzögerungen.",
+      "choices": [
+        "Einen landesweiten Lockdown verhängen",
+        "Gezielte Beschränkungen und Schutz Gefährdeter",
+        "Auf freiwillige Empfehlungen setzen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2020-furlough-scheme",
+    "year": 2020,
+    "category": "economy",
+    "shock": null,
+    "title": "Saving jobs in lockdown",
+    "context": "Lockdown shuts large parts of the economy overnight. Millions of jobs are at risk.",
+    "reality": "The Coronavirus Job Retention Scheme paid 80% of wages up to £2,500 a month. It supported 11.7 million jobs before it closed at the end of September 2021.",
+    "source": "HM Revenue and Customs",
+    "historicalChoice": 0,
+    "choices": [
+      "Pay most wages of furloughed staff",
+      "Offer targeted loans and grants",
+      "Leave firms to cope alone"
+    ],
+    "de": {
+      "title": "Arbeitsplätze im Lockdown retten",
+      "context": "Der Lockdown legt große Teile der Wirtschaft über Nacht still. Millionen Arbeitsplätze sind in Gefahr.",
+      "reality": "Das Kurzarbeitsprogramm übernahm 80 % der Löhne bis 2.500 £ im Monat. Es sicherte 11,7 Millionen Arbeitsplätze, bevor es Ende September 2021 auslief.",
+      "choices": [
+        "Den Großteil der Löhne in Kurzarbeit zahlen",
+        "Gezielte Kredite und Zuschüsse anbieten",
+        "Firmen sich selbst überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2020-huawei-and-5g",
+    "year": 2020,
+    "category": "digitalization",
+    "shock": null,
+    "title": "Huawei and the 5G network",
+    "context": "A Chinese firm supplies cheap 5G equipment. Allies warn of security risks; mobile operators warn of delays and costs.",
+    "reality": "In January 2020 Huawei was capped at 35% of the network periphery. After new US sanctions, the government in July 2020 banned new Huawei kit and ordered its removal from 5G by 2027.",
+    "source": "National Cyber Security Centre",
+    "historicalChoice": 0,
+    "choices": [
+      "Ban the vendor and fund alternatives",
+      "Cap its role outside the core network",
+      "Let operators choose their suppliers"
+    ],
+    "de": {
+      "title": "Huawei und das 5G-Netz",
+      "context": "Ein chinesischer Konzern liefert günstige 5G-Technik. Verbündete warnen vor Sicherheitsrisiken, Netzbetreiber vor Verzögerungen und Kosten.",
+      "reality": "Im Januar 2020 wurde Huaweis Anteil am Netzrand auf 35 % begrenzt. Nach neuen US-Sanktionen verbot die Regierung im Juli 2020 neue Huawei-Technik und ordnete den Ausbau aus dem 5G-Netz bis 2027 an.",
+      "choices": [
+        "Den Anbieter verbannen und Alternativen fördern",
+        "Seine Rolle außerhalb des Kernnetzes begrenzen",
+        "Netzbetreiber frei wählen lassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2020-eu-trade-deal",
+    "year": 2020,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "The end of the transition",
+    "context": "The Brexit transition period ends on 31 December. Talks with the EU stall over fishing, state aid and fair competition.",
+    "reality": "On 24 December 2020 the UK and EU agreed the Trade and Cooperation Agreement, with zero tariffs and quotas on goods but new customs checks and paperwork.",
+    "source": "House of Commons Library",
+    "historicalChoice": 1,
+    "choices": [
+      "Extend the transition and seek closer ties",
+      "Sign a zero-tariff trade deal",
+      "Leave on WTO terms"
+    ],
+    "de": {
+      "title": "Das Ende der Übergangsphase",
+      "context": "Die Brexit-Übergangsphase endet am 31. Dezember. Die Gespräche mit der EU stocken bei Fischerei, Beihilfen und fairem Wettbewerb.",
+      "reality": "Am 24. Dezember 2020 einigten sich Großbritannien und die EU auf das Handels- und Kooperationsabkommen: keine Zölle und Quoten auf Waren, aber neue Zollkontrollen und Bürokratie.",
+      "choices": [
+        "Übergang verlängern und engere Bindung suchen",
+        "Ein zollfreies Handelsabkommen schließen",
+        "Zu WTO-Bedingungen austreten"
+      ]
+    }
+  },
+  {
+    "id": "uk-2021-aukus-pact",
+    "year": 2021,
+    "category": "security",
+    "shock": null,
+    "title": "A new pact in the Indo-Pacific",
+    "context": "China's military power is growing. The United States and Australia discuss nuclear-powered submarines with Britain.",
+    "reality": "AUKUS was announced in September 2021: Britain and the US agreed to help Australia acquire nuclear-powered submarines and to cooperate on advanced military technology.",
+    "source": "Ministry of Defence",
+    "historicalChoice": 0,
+    "choices": [
+      "Join a security pact and invest heavily",
+      "Join with limited commitments",
+      "Stay out to protect trade with China"
+    ],
+    "de": {
+      "title": "Ein neuer Pakt im Indopazifik",
+      "context": "Chinas militärische Macht wächst. Die USA und Australien beraten mit Großbritannien über atomgetriebene U-Boote.",
+      "reality": "Im September 2021 wurde AUKUS verkündet: Großbritannien und die USA helfen Australien beim Erwerb atomgetriebener U-Boote und kooperieren bei militärischer Spitzentechnologie.",
+      "choices": [
+        "Sicherheitspakt beitreten und stark investieren",
+        "Mit begrenzten Zusagen beitreten",
+        "Fernbleiben, um den China-Handel zu schützen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2021-fall-of-kabul",
+    "year": 2021,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "The fall of Kabul",
+    "context": "US forces are withdrawing and the Taliban have taken Kabul. Thousands of Afghans who worked with Britain seek evacuation.",
+    "reality": "Operation Pitting airlifted about 15,000 people from Kabul in August 2021. Resettlement schemes followed, but many eligible Afghans were left behind.",
+    "source": "Ministry of Defence",
+    "historicalChoice": 1,
+    "choices": [
+      "Push allies to keep forces in place",
+      "Run a large evacuation and resettlement",
+      "Withdraw with minimal evacuations"
+    ],
+    "de": {
+      "title": "Der Fall von Kabul",
+      "context": "Die US-Truppen ziehen ab, die Taliban haben Kabul eingenommen. Tausende Afghanen, die für Großbritannien gearbeitet haben, wollen evakuiert werden.",
+      "reality": "Die Operation Pitting flog im August 2021 rund 15.000 Menschen aus Kabul aus. Es folgten Aufnahmeprogramme, doch viele berechtigte Afghanen blieben zurück.",
+      "choices": [
+        "Verbündete zum Bleiben drängen",
+        "Große Evakuierung und Aufnahme organisieren",
+        "Mit minimaler Evakuierung abziehen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2021-health-and-social-care-levy",
+    "year": 2021,
+    "category": "budget",
+    "shock": null,
+    "title": "Paying for social care",
+    "context": "NHS backlogs are growing after the pandemic and social care is in crisis. A promise not to raise national insurance stands in the way.",
+    "reality": "In September 2021 Boris Johnson announced a 1.25 percentage point Health and Social Care Levy on National Insurance. It took effect in April 2022 and was reversed that November.",
+    "source": "HM Treasury",
+    "historicalChoice": 0,
+    "choices": [
+      "Raise national insurance to fund care",
+      "Fund care gradually through borrowing",
+      "Hold taxes and fund care from savings"
+    ],
+    "de": {
+      "title": "Wie die Pflege bezahlen?",
+      "context": "Nach der Pandemie wachsen die Rückstände im NHS, die Pflege steckt in der Krise. Ein Versprechen, die Sozialabgaben nicht zu erhöhen, steht im Weg.",
+      "reality": "Im September 2021 kündigte Boris Johnson eine Gesundheits- und Pflegeabgabe von 1,25 Prozentpunkten auf die Sozialversicherung an. Sie galt ab April 2022 und wurde im November desselben Jahres wieder abgeschafft.",
+      "choices": [
+        "Sozialabgaben für die Pflege erhöhen",
+        "Pflege schrittweise über Kredite finanzieren",
+        "Steuern halten und durch Einsparungen finanzieren"
+      ]
+    }
+  },
+  {
+    "id": "uk-2021-cop26-glasgow",
+    "year": 2021,
+    "category": "energy",
+    "shock": null,
+    "title": "Hosting the climate summit",
+    "context": "Britain hosts the UN climate conference in Glasgow. It wants a deal to phase out coal and to cut emissions faster.",
+    "reality": "The Glasgow Climate Pact of November 2021 was the first COP agreement to mention coal, but a late change pushed by India and China weakened 'phase-out' to 'phase-down'.",
+    "source": "UNFCCC",
+    "historicalChoice": 1,
+    "choices": [
+      "Push for coal phase-out with climate finance",
+      "Broker a compromise on coal",
+      "Host without new pledges"
+    ],
+    "de": {
+      "title": "Gastgeber des Klimagipfels",
+      "context": "Großbritannien richtet die UN-Klimakonferenz in Glasgow aus. Es will eine Einigung zum Kohleausstieg und schnellere Emissionssenkungen.",
+      "reality": "Der Glasgower Klimapakt vom November 2021 erwähnte als erstes COP-Abkommen die Kohle, doch eine späte Änderung auf Druck Indiens und Chinas schwächte den „Ausstieg“ zur „schrittweisen Verringerung“ ab.",
+      "choices": [
+        "Kohleausstieg mit Klimafinanzierung durchsetzen",
+        "Einen Kompromiss zur Kohle vermitteln",
+        "Gastgeber sein ohne neue Zusagen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2022-russia-invades-ukraine",
+    "year": 2022,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Russia invades Ukraine",
+    "context": "Russia launches a full-scale invasion of Ukraine. Kyiv asks for weapons, and millions of refugees flee west.",
+    "reality": "Britain supplied anti-tank weapons and other arms, imposed sweeping sanctions on Russia and launched the Homes for Ukraine scheme. It gave about £2.3bn of military aid in 2022.",
+    "source": "House of Commons Library",
+    "historicalChoice": 0,
+    "choices": [
+      "Supply arms and impose sweeping sanctions",
+      "Send aid and join targeted sanctions",
+      "Avoid steps that escalate the conflict"
+    ],
+    "de": {
+      "title": "Russland überfällt die Ukraine",
+      "context": "Russland beginnt eine großangelegte Invasion der Ukraine. Kiew bittet um Waffen, Millionen Menschen fliehen nach Westen.",
+      "reality": "Großbritannien lieferte Panzerabwehrwaffen und weitere Rüstungsgüter, verhängte umfassende Sanktionen gegen Russland und startete das Programm „Homes for Ukraine“. 2022 leistete es rund 2,3 Mrd. £ Militärhilfe.",
+      "choices": [
+        "Waffen liefern und umfassende Sanktionen",
+        "Hilfe leisten und gezielte Sanktionen",
+        "Eskalierende Schritte vermeiden"
+      ]
+    }
+  },
+  {
+    "id": "uk-2022-energy-price-shock",
+    "year": 2022,
+    "category": "energy",
+    "shock": "energy",
+    "title": "Energy bills explode",
+    "context": "Gas prices have hit record highs. Household energy bills are set to rise far beyond what many families can afford.",
+    "reality": "From October 2022 the Energy Price Guarantee capped a typical household bill at £2,500 a year, on top of a £400 bill discount. A windfall tax on oil and gas profits had been introduced in May.",
+    "source": "Department for Business, Energy and Industrial Strategy",
+    "historicalChoice": 0,
+    "choices": [
+      "Cap bills for all households",
+      "Target support at the poorest households",
+      "Leave prices to the market"
+    ],
+    "de": {
+      "title": "Explodierende Energierechnungen",
+      "context": "Die Gaspreise haben Rekordhöhen erreicht. Die Energierechnungen der Haushalte drohen weit über das hinauszugehen, was viele Familien bezahlen können.",
+      "reality": "Ab Oktober 2022 begrenzte die Energiepreisgarantie die Rechnung eines typischen Haushalts auf 2.500 £ im Jahr, zusätzlich gab es 400 £ Rabatt. Im Mai war bereits eine Übergewinnsteuer auf Öl- und Gasgewinne eingeführt worden.",
+      "choices": [
+        "Rechnungen für alle Haushalte deckeln",
+        "Gezielt den Ärmsten helfen",
+        "Preise dem Markt überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2022-mini-budget-gilt-crisis",
+    "year": 2022,
+    "category": "budget",
+    "shock": null,
+    "title": "The mini-budget",
+    "context": "The new government wants faster growth through large tax cuts funded by borrowing, at a time of high inflation and rising interest rates.",
+    "reality": "Kwasi Kwarteng's September 2022 mini-budget announced about £45bn of unfunded tax cuts. Gilt markets slumped, the Bank of England intervened, Kwarteng was sacked and Liz Truss resigned within weeks.",
+    "source": "Office for Budget Responsibility",
+    "historicalChoice": 2,
+    "choices": [
+      "Fund energy support and invest within rules",
+      "Phase targeted cuts with funding",
+      "Cut taxes sharply, funded by borrowing"
+    ],
+    "de": {
+      "title": "Der Mini-Haushalt",
+      "context": "Die neue Regierung will mit großen, schuldenfinanzierten Steuersenkungen mehr Wachstum erzielen – bei hoher Inflation und steigenden Zinsen.",
+      "reality": "Kwasi Kwartengs Mini-Haushalt vom September 2022 kündigte rund 45 Mrd. £ ungedeckte Steuersenkungen an. Staatsanleihen stürzten ab, die Bank of England griff ein, Kwarteng wurde entlassen, und Liz Truss trat binnen Wochen zurück.",
+      "choices": [
+        "Energiehilfen und Investitionen regelkonform finanzieren",
+        "Gezielte Senkungen gegenfinanziert staffeln",
+        "Steuern kräftig senken, auf Pump"
+      ]
+    }
+  },
+  {
+    "id": "uk-2022-infected-blood-compensation",
+    "year": 2022,
+    "category": "welfare",
+    "shock": null,
+    "title": "Compensating victims of infected blood",
+    "context": "Thousands were infected with HIV and hepatitis through contaminated NHS blood products decades ago. Many have died waiting for compensation.",
+    "reality": "In August 2022 the government agreed interim payments of £100,000 to around 4,000 infected people and bereaved partners. A full compensation scheme followed the inquiry's final report in 2024.",
+    "source": "Infected Blood Inquiry",
+    "historicalChoice": 1,
+    "choices": [
+      "Pay full compensation to all victims now",
+      "Pay interim sums and await the inquiry",
+      "Wait for the inquiry to finish"
+    ],
+    "de": {
+      "title": "Entschädigung für die Opfer verseuchter Blutprodukte",
+      "context": "Tausende wurden vor Jahrzehnten durch verseuchte Blutprodukte des NHS mit HIV und Hepatitis infiziert. Viele sind gestorben, während sie auf Entschädigung warteten.",
+      "reality": "Im August 2022 sagte die Regierung rund 4.000 Infizierten und hinterbliebenen Partnern Abschlagszahlungen von je 100.000 £ zu. Nach dem Abschlussbericht der Untersuchung 2024 folgte ein umfassendes Entschädigungsprogramm.",
+      "choices": [
+        "Allen Opfern sofort volle Entschädigung zahlen",
+        "Abschläge zahlen und Untersuchung abwarten",
+        "Das Ende der Untersuchung abwarten"
+      ]
+    }
+  },
+  {
+    "id": "uk-2023-rwanda-deportation-plan",
+    "year": 2023,
+    "category": "security",
+    "shock": null,
+    "title": "The Rwanda deportation plan",
+    "context": "Small boat crossings remain high. The Supreme Court has ruled the plan to send asylum seekers to Rwanda unlawful.",
+    "reality": "After the November 2023 ruling, Rishi Sunak signed a new treaty and passed the Safety of Rwanda Act 2024. No asylum seekers were forcibly removed, and the scheme was scrapped in July 2024.",
+    "source": "UK Supreme Court",
+    "historicalChoice": 0,
+    "choices": [
+      "Override the courts by law and fund flights",
+      "Sign a new treaty and speed up processing",
+      "Drop the scheme"
+    ],
+    "de": {
+      "title": "Der Ruanda-Abschiebeplan",
+      "context": "Die Überfahrten mit kleinen Booten bleiben zahlreich. Der Oberste Gerichtshof hat den Plan, Asylsuchende nach Ruanda zu schicken, für rechtswidrig erklärt.",
+      "reality": "Nach dem Urteil vom November 2023 unterzeichnete Rishi Sunak einen neuen Vertrag und brachte den Safety of Rwanda Act 2024 durch. Niemand wurde zwangsweise abgeschoben, im Juli 2024 wurde das Programm gestoppt.",
+      "choices": [
+        "Gerichte per Gesetz übergehen, Flüge finanzieren",
+        "Neuen Vertrag schließen, Verfahren beschleunigen",
+        "Das Programm aufgeben"
+      ]
+    }
+  },
+  {
+    "id": "uk-2023-windsor-framework",
+    "year": 2023,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "Fixing the Northern Ireland Protocol",
+    "context": "Post-Brexit trade checks between Great Britain and Northern Ireland cause friction, and power-sharing has collapsed in protest.",
+    "reality": "The Windsor Framework, agreed with the EU in February 2023, eased checks through a 'green lane' and added the 'Stormont brake'. Power-sharing resumed in February 2024.",
+    "source": "UK Government / European Commission",
+    "historicalChoice": 1,
+    "choices": [
+      "Align closely with EU rules across the UK",
+      "Negotiate a new framework with the EU",
+      "Override the protocol unilaterally"
+    ],
+    "de": {
+      "title": "Reparatur des Nordirland-Protokolls",
+      "context": "Die Handelskontrollen zwischen Großbritannien und Nordirland nach dem Brexit sorgen für Reibung, die Machtteilung ist aus Protest zusammengebrochen.",
+      "reality": "Das im Februar 2023 mit der EU vereinbarte Windsor-Rahmenabkommen erleichterte Kontrollen über eine „grüne Spur“ und schuf die „Stormont-Bremse“. Im Februar 2024 nahm die Regionalregierung die Arbeit wieder auf.",
+      "choices": [
+        "Sich im ganzen Land eng an EU-Regeln anlehnen",
+        "Neues Rahmenabkommen mit der EU aushandeln",
+        "Das Protokoll einseitig aushebeln"
+      ]
+    }
+  },
+  {
+    "id": "uk-2023-nhs-strikes",
+    "year": 2023,
+    "category": "welfare",
+    "shock": null,
+    "title": "Strikes across the NHS",
+    "context": "Nurses, ambulance staff and junior doctors walk out over pay eroded by inflation. Waiting lists reach record levels.",
+    "reality": "Most NHS staff groups settled in 2023, but junior doctors kept striking. In July 2023 the government accepted pay review body awards of around 6%.",
+    "source": "Department of Health and Social Care",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund the pay demands in full",
+      "Accept pay review awards, keep talking",
+      "Hold pay down to curb inflation"
+    ],
+    "de": {
+      "title": "Streiks im gesamten NHS",
+      "context": "Pflegekräfte, Rettungsdienste und Assistenzärzte streiken wegen inflationsbedingter Reallohnverluste. Die Wartelisten erreichen Rekordlänge.",
+      "reality": "Die meisten NHS-Berufsgruppen einigten sich 2023, doch die Assistenzärzte streikten weiter. Im Juli 2023 übernahm die Regierung die Empfehlungen der Gehaltskommissionen von rund 6 %.",
+      "choices": [
+        "Die Lohnforderungen voll finanzieren",
+        "Kommissionsempfehlungen übernehmen, weiter verhandeln",
+        "Löhne gegen die Inflation niedrig halten"
+      ]
+    }
+  },
+  {
+    "id": "uk-2023-net-zero-rollback",
+    "year": 2023,
+    "category": "energy",
+    "shock": null,
+    "title": "Slowing the green transition",
+    "context": "Households face high living costs, and some politicians argue climate deadlines are too costly for families.",
+    "reality": "In September 2023 Rishi Sunak delayed the ban on new petrol and diesel cars from 2030 to 2035 and softened the phase-out of gas boilers, while keeping the 2050 net zero target.",
+    "source": "UK Government",
+    "historicalChoice": 1,
+    "choices": [
+      "Keep deadlines and fund the transition",
+      "Delay some targets, keep net zero",
+      "Scrap green targets and levies"
+    ],
+    "de": {
+      "title": "Die grüne Wende bremsen",
+      "context": "Die Haushalte kämpfen mit hohen Lebenshaltungskosten, und manche Politiker halten die Klimafristen für zu teuer für Familien.",
+      "reality": "Im September 2023 verschob Rishi Sunak das Verkaufsverbot für neue Benzin- und Dieselautos von 2030 auf 2035 und schwächte den Ausstieg aus Gasheizungen ab, hielt aber am Netto-Null-Ziel 2050 fest.",
+      "choices": [
+        "Fristen halten und die Wende finanzieren",
+        "Einige Ziele verschieben, Netto-Null halten",
+        "Grüne Ziele und Abgaben streichen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2024-post-office-horizon-scandal",
+    "year": 2024,
+    "category": "society",
+    "shock": null,
+    "title": "The Post Office Horizon scandal",
+    "context": "A television drama revives national outrage: hundreds of sub-postmasters were wrongly prosecuted because of a faulty IT system.",
+    "reality": "After ITV's 'Mr Bates vs The Post Office' in January 2024, Parliament passed the Post Office (Horizon System) Offences Act 2024, quashing convictions en masse, and expanded compensation.",
+    "source": "legislation.gov.uk",
+    "historicalChoice": 0,
+    "choices": [
+      "Quash convictions by law and fund redress",
+      "Speed up appeals and compensation",
+      "Leave it to the courts"
+    ],
+    "de": {
+      "title": "Der Horizon-Skandal der Post",
+      "context": "Ein Fernsehdrama entfacht landesweite Empörung: Hunderte Postfilialleiter wurden wegen eines fehlerhaften IT-Systems zu Unrecht strafrechtlich verfolgt.",
+      "reality": "Nach der ITV-Serie „Mr Bates vs The Post Office“ im Januar 2024 beschloss das Parlament den Post Office (Horizon System) Offences Act 2024, der Verurteilungen pauschal aufhob, und weitete die Entschädigung aus.",
+      "choices": [
+        "Urteile per Gesetz aufheben und entschädigen",
+        "Berufungen und Entschädigung beschleunigen",
+        "Den Gerichten überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2024-riots-after-southport",
+    "year": 2024,
+    "category": "security",
+    "shock": null,
+    "title": "Riots after Southport",
+    "context": "After three young girls are killed in a knife attack, misinformation online fuels riots, including attacks on mosques and hotels housing asylum seekers.",
+    "reality": "Rioting spread across England and Northern Ireland in summer 2024. The government prioritised rapid arrests and fast-tracked prosecutions, with over 1,000 arrests and hundreds of prison sentences.",
+    "source": "Crown Prosecution Service",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund a standing national riot response force",
+      "Fast-track arrests and prosecutions",
+      "Leave policing to local forces"
+    ],
+    "de": {
+      "title": "Krawalle nach Southport",
+      "context": "Nachdem drei junge Mädchen bei einem Messerangriff getötet wurden, schüren Falschinformationen im Netz Krawalle, darunter Angriffe auf Moscheen und Asylunterkünfte in Hotels.",
+      "reality": "Im Sommer 2024 breiteten sich Krawalle über England und Nordirland aus. Die Regierung setzte auf schnelle Festnahmen und beschleunigte Verfahren – mit über 1.000 Festnahmen und Hunderten Haftstrafen.",
+      "choices": [
+        "Eine ständige nationale Einsatztruppe finanzieren",
+        "Festnahmen und Verfahren beschleunigen",
+        "Polizeiarbeit den Behörden vor Ort überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2024-prison-overcrowding-early-release",
+    "year": 2024,
+    "category": "society",
+    "shock": null,
+    "title": "Prisons at bursting point",
+    "context": "Prisons in England and Wales are almost full. Without action, courts may soon be unable to jail offenders.",
+    "reality": "From September 2024 many prisoners were released after serving 40% of their sentence instead of 50%. Thousands left early while the government pledged 14,000 new prison places.",
+    "source": "Ministry of Justice",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund emergency prison places",
+      "Release some prisoners earlier",
+      "Leave it to courts and prison service"
+    ],
+    "de": {
+      "title": "Überfüllte Gefängnisse",
+      "context": "Die Gefängnisse in England und Wales sind fast voll. Ohne Gegenmaßnahmen könnten Gerichte bald niemanden mehr inhaftieren.",
+      "reality": "Ab September 2024 wurden viele Häftlinge nach 40 % statt 50 % ihrer Strafe entlassen. Tausende kamen früher frei, während die Regierung 14.000 neue Haftplätze zusagte.",
+      "choices": [
+        "Notfall-Haftplätze finanzieren",
+        "Manche Häftlinge früher entlassen",
+        "Gerichten und Strafvollzug überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2024-autumn-budget-2024",
+    "year": 2024,
+    "category": "budget",
+    "shock": null,
+    "title": "Filling the fiscal black hole",
+    "context": "The new government says it has inherited a £22bn spending gap. Public services need money, but income tax and VAT rises have been ruled out.",
+    "reality": "Rachel Reeves's October 2024 Budget raised taxes by about £40bn, chiefly by lifting employer National Insurance to 15% and cutting the threshold at which it is paid to £5,000.",
+    "source": "Office for Budget Responsibility",
+    "historicalChoice": 0,
+    "choices": [
+      "Raise taxes and invest in services",
+      "Raise some taxes and phase spending",
+      "Cut spending and avoid tax rises"
+    ],
+    "de": {
+      "title": "Das Haushaltsloch stopfen",
+      "context": "Die neue Regierung sagt, sie habe eine Finanzierungslücke von 22 Mrd. £ geerbt. Die öffentlichen Dienste brauchen Geld, doch höhere Einkommen- und Mehrwertsteuer sind ausgeschlossen.",
+      "reality": "Rachel Reeves' Haushalt vom Oktober 2024 erhöhte die Steuern um rund 40 Mrd. £, vor allem durch höhere Arbeitgeberbeiträge zur Sozialversicherung von 15 % und eine auf 5.000 £ gesenkte Beitragsschwelle.",
+      "choices": [
+        "Steuern erhöhen und in Dienste investieren",
+        "Einige Steuern erhöhen, Ausgaben staffeln",
+        "Ausgaben kürzen und Steuererhöhungen vermeiden"
+      ]
+    }
+  },
+  {
+    "id": "uk-2025-autumn-budget-2025",
+    "year": 2025,
+    "category": "budget",
+    "shock": null,
+    "title": "A second tax-raising Budget",
+    "context": "Weak growth and higher borrowing costs leave a hole in the public finances. Ministers face pressure to tackle child poverty without breaking tax pledges.",
+    "reality": "Rachel Reeves's November 2025 Budget raised taxes by £26bn by 2029-30, mainly by freezing income tax thresholds until 2031, and scrapped the two-child benefit limit from April 2026.",
+    "source": "Office for Budget Responsibility",
+    "historicalChoice": 0,
+    "choices": [
+      "Raise taxes and lift child benefits",
+      "Freeze thresholds and phase measures",
+      "Cut spending to avoid tax rises"
+    ],
+    "de": {
+      "title": "Ein zweiter Haushalt mit Steuererhöhungen",
+      "context": "Schwaches Wachstum und höhere Finanzierungskosten reißen ein Loch in die Staatsfinanzen. Die Regierung soll Kinderarmut bekämpfen, ohne Steuerversprechen zu brechen.",
+      "reality": "Rachel Reeves' Haushalt vom November 2025 erhöhte die Steuern bis 2029/30 um 26 Mrd. £, vor allem durch eingefrorene Einkommensteuerfreibeträge bis 2031, und schaffte ab April 2026 die Zwei-Kind-Grenze bei Sozialleistungen ab.",
+      "choices": [
+        "Steuern erhöhen und Kinderleistungen ausweiten",
+        "Freibeträge einfrieren, Maßnahmen staffeln",
+        "Ausgaben kürzen statt Steuern erhöhen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2025-welfare-reform-rebellion",
+    "year": 2025,
+    "category": "welfare",
+    "shock": null,
+    "title": "Welfare cuts and a backbench revolt",
+    "context": "Sickness and disability benefit costs are rising fast. Planned cuts face a revolt by more than 100 government MPs.",
+    "reality": "In July 2025 the government dropped its planned PIP eligibility changes pending a review led by Stephen Timms. The bill passed second reading with 49 Labour MPs voting against.",
+    "source": "UK Parliament (Hansard)",
+    "historicalChoice": 1,
+    "choices": [
+      "Protect benefits and fund job support",
+      "Narrow the cuts and review disability benefits",
+      "Push the full cuts through"
+    ],
+    "de": {
+      "title": "Sozialkürzungen und eine Revolte der Hinterbänkler",
+      "context": "Die Ausgaben für Kranken- und Behindertenleistungen steigen rasant. Geplante Kürzungen stoßen auf den Widerstand von über 100 Abgeordneten der Regierungsfraktion.",
+      "reality": "Im Juli 2025 ließ die Regierung die geplanten Verschärfungen beim Pflegegeld PIP bis zu einer Überprüfung durch Stephen Timms fallen. Das Gesetz passierte die zweite Lesung, 49 Labour-Abgeordnete stimmten dagegen.",
+      "choices": [
+        "Leistungen schützen und Jobhilfen finanzieren",
+        "Kürzungen eingrenzen, Leistungen überprüfen",
+        "Die vollen Kürzungen durchsetzen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2025-defence-spending-rise",
+    "year": 2025,
+    "category": "security",
+    "shock": null,
+    "title": "Rearming in a dangerous world",
+    "context": "Washington demands that European allies spend far more on defence while Russia's war against Ukraine continues.",
+    "reality": "In February 2025 Keir Starmer pledged defence spending of 2.5% of GDP by 2027, funded by cutting aid to 0.3% of GNI. At the NATO summit in June he backed 5% by 2035, including 3.5% on core defence.",
+    "source": "House of Commons Library",
+    "historicalChoice": 1,
+    "choices": [
+      "Raise defence spending fast, fund by taxes",
+      "Raise it gradually, fund by cutting aid",
+      "Keep defence spending near current levels"
+    ],
+    "de": {
+      "title": "Aufrüstung in gefährlichen Zeiten",
+      "context": "Washington verlangt von den europäischen Verbündeten deutlich höhere Verteidigungsausgaben, während Russlands Krieg gegen die Ukraine andauert.",
+      "reality": "Im Februar 2025 sagte Keir Starmer Verteidigungsausgaben von 2,5 % des BIP bis 2027 zu, finanziert durch Kürzung der Entwicklungshilfe auf 0,3 % des BNE. Beim NATO-Gipfel im Juni unterstützte er 5 % bis 2035, davon 3,5 % für Kernverteidigung.",
+      "choices": [
+        "Verteidigung schnell erhöhen, über Steuern",
+        "Schrittweise erhöhen, Entwicklungshilfe kürzen",
+        "Verteidigungsausgaben etwa halten"
+      ]
+    }
+  },
+  {
+    "id": "uk-2025-asylum-hotels-and-small-boats",
+    "year": 2025,
+    "category": "society",
+    "shock": null,
+    "title": "Asylum hotels and small boats",
+    "context": "Small boat arrivals stay high and hotels housing asylum seekers spark protests in several towns. Pressure for tougher rules grows.",
+    "reality": "Protests at an Epping asylum hotel spread in summer 2025. Britain agreed a 'one in, one out' returns pilot with France and in November proposed temporary refugee status and a 20-year wait for settlement.",
+    "source": "Home Office",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund faster processing and new housing",
+      "Agree returns deals and tighten rules",
+      "Leave asylum housing to councils"
+    ],
+    "de": {
+      "title": "Asylhotels und kleine Boote",
+      "context": "Die Ankünfte über den Ärmelkanal bleiben hoch, Hotels für Asylsuchende lösen in mehreren Städten Proteste aus. Der Druck für strengere Regeln wächst.",
+      "reality": "Proteste vor einem Asylhotel in Epping breiteten sich im Sommer 2025 aus. Großbritannien vereinbarte mit Frankreich ein Rückführungsprojekt nach dem Prinzip „einer rein, einer raus“ und plante im November befristeten Schutzstatus und 20 Jahre Wartezeit auf Daueraufenthalt.",
+      "choices": [
+        "Schnellere Verfahren und neue Unterkünfte finanzieren",
+        "Rückführungsabkommen schließen, Regeln verschärfen",
+        "Unterbringung den Kommunen überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2026-iran-war-and-british-bases",
+    "year": 2026,
+    "category": "foreignPolicy",
+    "shock": null,
+    "title": "War with Iran and British bases",
+    "context": "The United States and Israel have struck Iran, which retaliates and threatens shipping in the Strait of Hormuz. Washington asks to use British bases.",
+    "reality": "After the war began on 28 February 2026, Keir Starmer let the US use British bases for defensive operations and, from March, strikes on missile sites targeting shipping, but kept Britain out of offensive action.",
+    "source": "House of Commons Library",
+    "historicalChoice": 1,
+    "choices": [
+      "Join US operations with British forces",
+      "Allow limited defensive use of bases",
+      "Refuse any use of British bases"
+    ],
+    "de": {
+      "title": "Krieg mit dem Iran und britische Stützpunkte",
+      "context": "Die USA und Israel haben den Iran angegriffen, der zurückschlägt und die Schifffahrt in der Straße von Hormus bedroht. Washington will britische Stützpunkte nutzen.",
+      "reality": "Nach Kriegsbeginn am 28. Februar 2026 erlaubte Keir Starmer den USA die Nutzung britischer Stützpunkte für defensive Einsätze und ab März für Angriffe auf Raketenstellungen gegen die Schifffahrt, hielt Großbritannien aber aus Offensivhandlungen heraus.",
+      "choices": [
+        "Mit britischen Kräften an US-Einsätzen teilnehmen",
+        "Begrenzte defensive Nutzung der Stützpunkte",
+        "Jede Nutzung britischer Stützpunkte verweigern"
+      ]
+    }
+  },
+  {
+    "id": "uk-2026-electricity-vat-cut",
+    "year": 2026,
+    "category": "energy",
+    "shock": "energy",
+    "title": "Energy bills rise again",
+    "context": "War in the Gulf has driven up oil and gas prices. Household energy bills and fuel costs are climbing again.",
+    "reality": "In July 2026 the new Prime Minister, Andy Burnham, scrapped VAT on household electricity from 1 October 2026 to 31 March 2027, worth about £45 a year, as Ofgem's October price cap rose by about 4%.",
+    "source": "Ofgem",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund broad support for all energy bills",
+      "Scrap VAT on electricity bills only",
+      "Leave bills to the price cap"
+    ],
+    "de": {
+      "title": "Die Energierechnungen steigen erneut",
+      "context": "Der Krieg am Golf hat die Öl- und Gaspreise nach oben getrieben. Energierechnungen und Spritkosten der Haushalte steigen wieder.",
+      "reality": "Im Juli 2026 strich der neue Premierminister Andy Burnham die Mehrwertsteuer auf Haushaltsstrom vom 1. Oktober 2026 bis 31. März 2027 – rund 45 £ im Jahr –, während Ofgems Preisdeckel im Oktober um etwa 4 % stieg.",
+      "choices": [
+        "Breite Hilfen für alle Energierechnungen",
+        "Nur die Mehrwertsteuer auf Strom streichen",
+        "Rechnungen dem Preisdeckel überlassen"
+      ]
+    }
+  },
+  {
+    "id": "uk-2026-defence-investment-plan",
+    "year": 2026,
+    "category": "security",
+    "shock": null,
+    "title": "Funding the armed forces",
+    "context": "A ten-year defence investment plan is long overdue. Military chiefs say the money on offer falls short, while other departments face cuts to pay for defence.",
+    "reality": "In June 2026 Defence Secretary John Healey resigned, saying the funding settlement for the Defence Investment Plan fell well short of what the forces needed. Keir Starmer announced his own resignation later that month.",
+    "source": "UK Defence Journal",
+    "historicalChoice": 1,
+    "choices": [
+      "Fund the forces' full investment plan",
+      "Agree a constrained ten-year plan",
+      "Hold defence budgets flat"
+    ],
+    "de": {
+      "title": "Die Finanzierung der Streitkräfte",
+      "context": "Ein Zehnjahresplan für Verteidigungsinvestitionen ist längst überfällig. Die Militärführung hält das angebotene Geld für unzureichend, während andere Ressorts für die Verteidigung Kürzungen hinnehmen sollen.",
+      "reality": "Im Juni 2026 trat Verteidigungsminister John Healey zurück, weil die Finanzierung des Defence Investment Plan weit hinter dem Bedarf der Streitkräfte zurückbleibe. Keir Starmer kündigte noch im selben Monat seinen eigenen Rücktritt an.",
+      "choices": [
+        "Den vollen Investitionsplan finanzieren",
+        "Einen begrenzten Zehnjahresplan beschließen",
+        "Verteidigungsetats einfrieren"
+      ]
+    }
+  },
+  {
+    "id": "uk-2026-digital-id-climbdown",
+    "year": 2026,
+    "category": "digitalization",
+    "shock": null,
+    "title": "The digital ID climbdown",
+    "context": "A national digital ID, required to prove the right to work, faces a petition signed by millions and opposition from across the political spectrum.",
+    "reality": "Announced in September 2025, the scheme's mandatory right-to-work element was dropped in January 2026. In July 2026 Andy Burnham's government cancelled the programme to help fund a cut in VAT on electricity.",
+    "source": "UK Parliament",
+    "historicalChoice": 2,
+    "choices": [
+      "Build a mandatory national digital ID",
+      "Offer a voluntary digital ID",
+      "Scrap the digital ID programme"
+    ],
+    "de": {
+      "title": "Rückzieher bei der digitalen ID",
+      "context": "Eine nationale digitale ID als Pflichtnachweis der Arbeitserlaubnis stößt auf eine Petition mit Millionen Unterschriften und Widerstand quer durch das politische Spektrum.",
+      "reality": "Die im September 2025 angekündigte Pflicht zur digitalen ID beim Arbeitsnachweis wurde im Januar 2026 gestrichen. Im Juli 2026 stoppte die Regierung von Andy Burnham das Programm, um die Abschaffung der Mehrwertsteuer auf Strom mitzufinanzieren.",
+      "choices": [
+        "Eine verpflichtende digitale ID aufbauen",
+        "Eine freiwillige digitale ID anbieten",
+        "Das Programm für die digitale ID streichen"
+      ]
+    }
+  }
+]

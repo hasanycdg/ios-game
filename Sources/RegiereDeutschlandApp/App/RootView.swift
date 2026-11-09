@@ -40,7 +40,7 @@ struct RootView: View {
         .tint(GameTheme.gold)
         .preferredColorScheme(.dark)
         .sheet(isPresented: Binding(
-            get: { reminder.showFutureUpdate && selectedCountry != nil },
+            get: { reminder.showFutureUpdate && selectedCountry?.hasFutureExpansion == true },
             set: { reminder.showFutureUpdate = $0 }
         )) {
             FutureUpdateView()

@@ -203,6 +203,57 @@ struct SeatDistributionBar: LocalizedGameView {
     }
 }
 
+// MARK: - Sitzverteilung (Vereinigtes Königreich, Frankreich)
+
+/// Seats per party from the country's electoral system, with the majority line.
+struct ParliamentSeatsCard: LocalizedGameView {
+    @Environment(GamePresentation.self) var gamePresentation
+    let parties: [Party]
+    let country: GameCountry
+
+    private var ordered: [Party] { parties.sorted { $0.seats > $1.seats } }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            SectionHeader(title: L("Sitzverteilung im Bundestag"), systemImage: "building.columns.fill",
+                          accessory: L("\(L(country.parliamentSeats)) Sitze"))
+            GeometryReader { geo in
+                ZStack(alignment: .leading) {
+                    HStack(spacing: 1) {
+                        ForEach(ordered) { party in
+                            Rectangle().fill(PartyPresentation.color(for: party.id))
+                                .frame(width: max(0, geo.size.width * CGFloat(party.seats) / CGFloat(country.parliamentSeats) - 1))
+                        }
+                    }
+                    Rectangle().fill(Color.white.opacity(0.85))
+                        .frame(width: 2, height: 20)
+                        .offset(x: geo.size.width * CGFloat(country.majoritySeats) / CGFloat(country.parliamentSeats) - 1)
+                }
+            }
+            .frame(height: 14)
+            .clipShape(Capsule())
+            Text(L("Mehrheit ab \(L(country.majoritySeats)) Sitzen"))
+                .font(.caption2).foregroundStyle(GameTheme.tertiaryText)
+            VStack(spacing: 8) {
+                ForEach(ordered) { party in
+                    HStack(spacing: 8) {
+                        Circle().fill(PartyPresentation.color(for: party.id)).frame(width: 9, height: 9)
+                        Text(L(party.name)).font(.caption)
+                            .foregroundStyle(party.role == .governing ? GameTheme.primaryText : GameTheme.secondaryText)
+                        Spacer(minLength: 0)
+                        Text(L("\(L(party.seats)) Sitze"))
+                            .font(.caption.weight(.semibold)).foregroundStyle(GameTheme.primaryText).monospacedDigit()
+                        Text(L(String(format: L("%.1f %%"), party.support)))
+                            .font(.caption2).foregroundStyle(GameTheme.tertiaryText).monospacedDigit()
+                            .frame(width: 48, alignment: .trailing)
+                    }
+                }
+            }
+        }
+        .gameCard(padding: 16)
+    }
+}
+
 // MARK: - Schattenkonto (Korruption)
 
 struct ShadowFundsCard: LocalizedGameView {

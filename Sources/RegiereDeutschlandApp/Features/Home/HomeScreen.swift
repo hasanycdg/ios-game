@@ -27,7 +27,7 @@ struct HomeScreen: LocalizedGameView {
         self.country = country
         self.persistence = GamePersistence(country: country)
         _selectedPartyID = State(initialValue: country.defaultParty.id)
-        let suffix = country == .germany ? "" : ".us"
+        let suffix = country.preferenceSuffix
         _hasSeenOnboarding = AppStorage(wrappedValue: false, "hasSeenRegiereOnboarding" + suffix)
         _storedName = AppStorage(wrappedValue: "", "regiereChancellorName" + suffix)
         _difficultyRaw = AppStorage(wrappedValue: Difficulty.normal.rawValue, "regiereDifficulty" + suffix)
@@ -53,7 +53,7 @@ struct HomeScreen: LocalizedGameView {
             ScrollView {
                 VStack(spacing: 24) {
                     Button(action: chooseCountry) {
-                        Label(L(country == .germany ? L("Deutschland · Land wechseln") : L("United States · Change country")), systemImage: "globe.americas.fill")
+                        Label(L(country == .germany ? L("Deutschland · Land wechseln") : country == .unitedStates ? L("United States · Change country") : L("Land wechseln")), systemImage: "globe.americas.fill")
                             .font(.footnote.weight(.semibold))
                     }
                     .foregroundStyle(GameTheme.secondaryText)
@@ -104,7 +104,11 @@ struct HomeScreen: LocalizedGameView {
             }
         }
         .sheet(isPresented: $showWelcomePaywall) {
-            WelcomeOfferView()
+            if country.usesEuropeanModel {
+                EuropeanCampaignPaywallView()
+            } else {
+                WelcomeOfferView()
+            }
         }
         .proPaywallSheet(isPresented: $showPartyPaywall)
     }
@@ -126,7 +130,9 @@ struct HomeScreen: LocalizedGameView {
     private func presentAutomaticOffer(force: Bool) {
         guard !showWelcomePaywall else { return }
         let now = Date().timeIntervalSince1970
-        guard CampaignOfferSchedule.shouldPresent(hasFutureCampaign: purchases.hasFuture2050,
+        // Without a Future 2050 expansion (UK, France), owners of the main campaign have nothing left to buy.
+        let ownsAllCountryContent = country.hasFutureExpansion ? purchases.hasFuture2050 : purchases.hasCampaign2005
+        guard CampaignOfferSchedule.shouldPresent(hasFutureCampaign: ownsAllCountryContent,
                                                   lastPresented: lastAutomaticCampaignOffer,
                                                   now: now, afterOnboarding: force) else { return }
         lastAutomaticCampaignOffer = now
@@ -150,7 +156,7 @@ struct HomeScreen: LocalizedGameView {
                     .font(.system(size: 36, weight: .heavy, design: .rounded))
                     .foregroundStyle(GameTheme.primaryText)
                 FlagRibbon(height: 5).frame(width: 150).padding(.top, 2)
-                Text(L("2000 – 2050"))
+                Text(L(country.hasFutureExpansion ? "2000 – 2050" : "2000 – 2026"))
                     .font(.headline.weight(.semibold))
                     .foregroundStyle(GameTheme.gold).padding(.top, 6)
             }

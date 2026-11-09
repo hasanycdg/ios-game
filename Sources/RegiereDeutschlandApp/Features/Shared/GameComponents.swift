@@ -9,7 +9,8 @@ struct FlagRibbon: LocalizedGameView {
 
     var body: some View {
         HStack(spacing: 0) {
-            if gamePresentation.country == .unitedStates {
+            if gamePresentation.country != .germany {
+                // United States, United Kingdom and France share blue, white and red.
                 GameTheme.blue
                 Color.white
                 GameTheme.flagRed

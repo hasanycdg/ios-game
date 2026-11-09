@@ -161,24 +161,31 @@ public final class GameEngine {
         electionEngine: ElectionEngine? = nil
     ) {
         self.country = country
-        self.eventRepository = eventRepository ?? (country == .germany ? LocalJSONEventRepository() : USEventRepository())
+        self.eventRepository = eventRepository ?? {
+            switch country {
+            case .germany: LocalJSONEventRepository()
+            case .unitedStates: USEventRepository()
+            case .unitedKingdom, .france: EuropeanEventRepository(country: country)
+            }
+        }()
         self.state = initialState ?? country.initialState()
-        self.finalYear = max(2004, min(2050, finalYear))
+        self.finalYear = max(2004, min(country.campaignMaxYear, finalYear))
         self.annualSimulation = annualSimulation
         self.approvalEngine = approvalEngine
         self.memoryService = memoryService
         self.electionEngine = electionEngine ?? ElectionEngine(country: country)
         self.currentEvent = nil
         self.lastDecisionResult = nil
-        if country == .unitedStates {
+        if country != .germany {
             self.playerParty = country.defaultParty
             self.persona = country.defaultParty.profile
             self.playerName = country.defaultLeaderName
             self.coalition = self.persona.makeCoalition()
             self.cabinet = .standard(country: country)
-            self.debt = 55
+            self.debt = country.initialDebt
             self.diplomacy = .standard(from: self.state.hidden, country: country)
         }
+        self.electionEngine.playerParty = self.playerParty
     }
 
     public convenience init(
@@ -210,10 +217,11 @@ public final class GameEngine {
         self.persona = PersonaCatalog.persona(id: snapshot.personaID ?? PersonaCatalog.default.id)
         // Eigene Parteien werden vollständig gespeichert; eingebaute per ID aufgelöst.
         self.playerParty = snapshot.playerPartyData ?? country.party(id: snapshot.playerPartyID ?? country.defaultParty.id)
-        if country == .unitedStates { self.persona = self.playerParty.profile }
+        if country != .germany { self.persona = self.playerParty.profile }
         self.playerName = snapshot.playerName ?? country.defaultLeaderName
         self.difficulty = snapshot.difficulty.flatMap(Difficulty.init(rawValue:)) ?? .normal
         self.electionEngine.partyLeaning = self.playerParty.leaning
+        self.electionEngine.playerParty = self.playerParty
         self.randomSeed = snapshot.randomSeed.flatMap(UInt64.init) ?? 0
         self.awaitingInitialCoalition = snapshot.awaitingInitialCoalition ?? false
         self.awaitingInitialBriefing = snapshot.awaitingInitialBriefing ?? false
@@ -224,7 +232,7 @@ public final class GameEngine {
         self.pendingCoalitionOptions = snapshot.pendingCoalitionOptions
         self.pendingCoalitionTalks = snapshot.pendingCoalitionTalks
         self.policies = snapshot.policies ?? .standard()
-        self.debt = snapshot.debt ?? (country == .germany ? 60 : 55)
+        self.debt = snapshot.debt ?? country.initialDebt
         self.interestGroups = snapshot.interestGroups ?? InterestGroupsFactory.standard()
         self.partyWings = snapshot.partyWings ?? .standard()
         self.hasBundesratMajority = snapshot.hasBundesratMajority ?? true
@@ -305,6 +313,7 @@ public final class GameEngine {
         self.persona = persona
         self.playerParty = party
         self.electionEngine.partyLeaning = party.leaning
+        self.electionEngine.playerParty = party
         self.playerName = playerName
         var initial = country.initialState()
         for effect in persona.visibleModifiers { initial.apply(effect) }
@@ -321,7 +330,7 @@ public final class GameEngine {
         pendingCoalitionOptions = nil
         pendingCoalitionTalks = nil
         policies = .standard()
-        debt = country == .germany ? 60 : 55
+        debt = country.initialDebt
         interestGroups = InterestGroupsFactory.standard()
         partyWings = .standard()
         hasBundesratMajority = true
@@ -335,7 +344,7 @@ public final class GameEngine {
     /// Entscheidungen oder deren Langzeitfolgen zurückzusetzen. Die App ruft
     /// dies erst nach einem erfolgreichen Entitlement-Kauf auf.
     public func extendCampaign(to newFinalYear: Int) {
-        let clampedYear = max(finalYear, min(2050, newFinalYear))
+        let clampedYear = max(finalYear, min(country.campaignMaxYear, newFinalYear))
         guard clampedYear > finalYear,
               state.gameOverSummary?.reason == .reachedFinalYear else { return }
 
@@ -474,7 +483,7 @@ public final class GameEngine {
 
         state.clampAll()
 
-        let resultEffects = country == .unitedStates ? VisibleMetric.allCases.compactMap { metric -> GameEffect? in
+        let resultEffects = country != .germany ? VisibleMetric.allCases.compactMap { metric -> GameEffect? in
             let change = visibleEffects.filter { $0.metric == metric }.reduce(0) { $0 + $1.change }
             return change == 0 ? nil : GameEffect(metric: metric, change: change)
         } : visibleEffects
@@ -504,7 +513,7 @@ public final class GameEngine {
         guard state.pendingElectionResult == nil else { return }
 
         if coalition.isBroken {
-            if country == .germany {
+            if !country.usesPresidentialModel {
                 triggerCoalitionCollapse()
                 return
             }
@@ -602,6 +611,15 @@ public final class GameEngine {
             return
         }
 
+        // UK/France: a single-party majority governs without coalition talks.
+        // The partner is the party's own parliamentary group.
+        if choice.id == Self.singlePartyMajorityID {
+            coalition = CoalitionState(partnerName: Self.singlePartyMajorityName, leaning: playerParty.leaning,
+                                       satisfaction: 62, reactionDamping: 0.7, isMinority: false)
+            finalizeCoalition()
+            return
+        }
+
         // Partner gewählt → Koalitionsgespräche mit seinen Forderungen eröffnen.
         pendingCoalitionTalks = CoalitionNegotiation(
             partnerID: choice.id,
@@ -610,7 +628,7 @@ public final class GameEngine {
             combinedShare: choice.combinedShare,
             formsMajority: choice.formsMajority,
             isInitial: awaitingInitialCoalition,
-            demands: country == .germany ? PartyAgendaCatalog.topDemands(for: choice.id, count: 2) : Array(USPartyCatalog.agenda(for: choice.id).prefix(2))
+            demands: country.coalitionDemands(for: choice.id, count: 2)
         )
     }
 
@@ -666,6 +684,11 @@ public final class GameEngine {
     /// gewichtet nach realem Ausgangs-Stimmenanteil.
     private func makeInitialCoalitionOptions() -> [CoalitionOption] {
         if country == .unitedStates { return makeUSCaucusOptions() }
+        if country.usesEuropeanModel {
+            return makeEuropeanCoalitionOptions(
+                landscape: PartyLandscapeFactory.makeFromBaseSupport(playerParty: playerParty, country: country),
+                preferredPartnerIDs: playerParty.naturalPartnerIDs)
+        }
         let playerShare = playerParty.baseSupport
         var options = playerParty.naturalPartnerIDs.compactMap { id -> CoalitionOption? in
             guard let ref = PartyCatalog.reference(id: id) else { return nil }
@@ -690,6 +713,14 @@ public final class GameEngine {
     private func makeCoalitionOptions() -> [CoalitionOption] {
         if country == .unitedStates { return makeUSCaucusOptions() }
         let projection = electionEngine.project(in: state)
+        if country.usesEuropeanModel {
+            let share = state.electionResults.last?.governingPartyShare ?? projection.governingShare
+            let minority = CoalitionState(partnerName: "", leaning: playerParty.leaning, satisfaction: 50, isMinority: true)
+            return makeEuropeanCoalitionOptions(
+                landscape: PartyLandscapeFactory.make(state: state, governingShare: share, coalition: minority,
+                                                      playerParty: playerParty, country: country),
+                preferredPartnerIDs: [])
+        }
         let landscape = PartyLandscapeFactory.make(state: state, governingShare: projection.governingShare, coalition: coalition, playerParty: playerParty, country: country)
         let playerShare = landscape.parties.first { $0.role == .governing }?.support ?? playerParty.baseSupport
         let candidates = landscape.parties
@@ -712,6 +743,42 @@ public final class GameEngine {
             CoalitionOption(id: "none", partyName: "Minderheitsregierung", leaning: coalition.leaning,
                             combinedShare: (playerShare * 10).rounded() / 10, formsMajority: false, isMinority: true)
         )
+        return options
+    }
+
+    public static let singlePartyMajorityID = "majority"
+    public static let singlePartyMajorityName = "Eigene Mehrheit"
+
+    /// UK and France: majorities are counted in seats. A party with its own
+    /// majority may govern alone; otherwise it negotiates with partners or
+    /// governs as a minority (as in 2010, 2017 and 2022–2026).
+    private func makeEuropeanCoalitionOptions(landscape: PartyLandscape, preferredPartnerIDs: [String]) -> [CoalitionOption] {
+        guard let player = landscape.parties.first(where: { $0.role == .governing }) else { return [] }
+        let total = Double(country.parliamentSeats)
+        func seatShare(_ seats: Int) -> Double { (Double(seats) / total * 1000).rounded() / 10 }
+        var options: [CoalitionOption] = []
+        if player.seats >= country.majoritySeats {
+            options.append(CoalitionOption(id: Self.singlePartyMajorityID, partyName: Self.singlePartyMajorityName,
+                                           leaning: playerParty.leaning, combinedShare: seatShare(player.seats),
+                                           formsMajority: true, isMinority: false))
+        }
+        // Mainstream parties keep a cordon against the radical right unless the
+        // player's own party stands on the right fringe.
+        let excluded: Set<String> = playerParty.spectrum >= 0.8 ? [] : ["fr_patriot"]
+        let rivals = landscape.parties.filter { $0.role != .governing && !excluded.contains($0.id) }
+        let preferred = preferredPartnerIDs.compactMap { id in rivals.first { $0.id == id } }
+        let candidates = preferred.isEmpty
+            ? Array(rivals.sorted { $0.seats > $1.seats }.prefix(3))
+            : preferred
+        for party in candidates.prefix(3) {
+            let combined = player.seats + party.seats
+            options.append(CoalitionOption(
+                id: party.id, partyName: party.name,
+                leaning: country.partyLandscape.first { $0.id == party.id }?.leaning ?? .liberal,
+                combinedShare: seatShare(combined), formsMajority: combined >= country.majoritySeats, isMinority: false))
+        }
+        options.append(CoalitionOption(id: "none", partyName: "Minderheitsregierung", leaning: playerParty.leaning,
+                                       combinedShare: seatShare(player.seats), formsMajority: false, isMinority: true))
         return options
     }
 
@@ -810,6 +877,14 @@ public final class GameEngine {
         partyWings.leadershipBacking = drift(partyWings.leadershipBacking, toward: backingTarget)
 
         if partyWings.leadershipBacking <= PartyWings.ousterPoint {
+            if country == .france {
+                // A French president cannot be removed by their party; the camp revolts instead.
+                politicalCapital = max(0, politicalCapital - 3)
+                state.apply(GameEffect(metric: .trust, change: -4))
+                partyWings.leadershipBacking = 30
+                state.triggeredHistoricalEchoes.append(TriggeredHistoricalEcho(year: state.currentYear, sourceEventID: "fr-camp-revolt", sourceOptionID: "revolt", note: "Revolte im eigenen Lager: Die Abgeordneten verweigern dir die Gefolgschaft. Du verlierst Einfluss, bleibst aber bis zur nächsten Wahl im Amt."))
+                return
+            }
             if country == .unitedStates {
                 politicalCapital = max(0, politicalCapital - 3)
                 state.apply(GameEffect(metric: .trust, change: -4))
@@ -867,11 +942,20 @@ public final class GameEngine {
     /// Landtagswahlen verschieben die Mehrheit im Bundesrat.
     private func applyFederalism() {
         let offset = state.currentYear - 2000
-        guard offset > 0, (country == .germany ? offset % 3 == 0 : offset % 4 == 2), !electionEngine.electionYears.contains(state.currentYear) else { return }
+        let isMidterm: Bool = switch country {
+        case .germany: offset > 0 && offset % 3 == 0
+        case .unitedStates: offset > 0 && offset % 4 == 2
+        case .unitedKingdom, .france: EuropeanElectionSystem.midtermYears(for: country).contains(state.currentYear)
+        }
+        guard isMidterm, !electionEngine.electionYears.contains(state.currentYear) else { return }
         let hadMajority = hasBundesratMajority
         hasBundesratMajority = state.governmentApproval >= 48
         let note: String
-        if hasBundesratMajority && !hadMajority {
+        if country.usesEuropeanModel {
+            note = EuropeanElectionSystem.midtermNote(
+                for: country, regained: hasBundesratMajority && !hadMajority,
+                lost: !hasBundesratMajority && hadMajority, holds: hasBundesratMajority)
+        } else if hasBundesratMajority && !hadMajority {
             note = "Landtagswahlen: Die Regierung gewinnt die Mehrheit im Bundesrat zurück."
         } else if !hasBundesratMajority && hadMajority {
             note = "Landtagswahlen: Die Regierung verliert die Mehrheit im Bundesrat – Gesetze werden schwerer."
@@ -881,7 +965,14 @@ public final class GameEngine {
             note = "Landtagswahlen: Die Opposition dominiert weiter den Bundesrat."
         }
         state.triggeredHistoricalEchoes.append(
-            TriggeredHistoricalEcho(year: state.currentYear, sourceEventID: country == .germany ? "landtagswahl" : "us-midterms",
+            TriggeredHistoricalEcho(year: state.currentYear, sourceEventID: {
+                switch country {
+                case .germany: "landtagswahl"
+                case .unitedStates: "us-midterms"
+                case .unitedKingdom: "uk-local-elections"
+                case .france: "fr-senate-elections"
+                }
+            }(),
                                     sourceOptionID: "result", note: note)
         )
     }
@@ -1005,7 +1096,8 @@ public final class GameEngine {
 
     /// Der Koalitionspartner verlässt die Regierung – es kommt zur Neuwahl.
     private func triggerCoalitionCollapse() {
-        let base = electionEngine.conductElection(in: state, shareBonus: difficulty.electionShareBonus)
+        let base = electionEngine.conductElection(in: state, shareBonus: difficulty.electionShareBonus,
+                                                  snapLegislative: country == .france)
         let election = ElectionResult(
             year: base.year,
             governingPartyShare: base.governingPartyShare,
@@ -1129,6 +1221,22 @@ public final class GameEngine {
                 : " Diplomacy contained the central crisis in this fictional timeline."
             return electionEngine.endSummary(for: state, reason: .reachedFinalYear,
                 messageOverride: "Your America in 2050. " + legacy + crisis)
+        }
+        if country.usesEuropeanModel, state.currentYear == 2050 {
+            let code = country.campaignCode
+            let legacy: String
+            if state.historicalFlags.contains("\(code)-world-order-0") {
+                legacy = "Deine Regierungen haben ein dauerhaftes Bündnis der Demokratien aufgebaut."
+            } else if state.historicalFlags.contains("\(code)-world-order-1") {
+                legacy = "Deine Regierungen setzten auf gemeinsame internationale Regeln und ausgehandelte Zusammenarbeit."
+            } else {
+                legacy = "Deine Regierungen stellten nationale Eigenständigkeit und Erneuerung im Inland in den Mittelpunkt."
+            }
+            let crisis = state.historicalFlags.contains("scenario_world_war")
+                ? "Das Land hat sich nach einem großen Krieg in dieser fiktiven Zeitlinie wieder aufgebaut."
+                : "Diplomatie hat die zentrale Krise in dieser fiktiven Zeitlinie eingedämmt."
+            return electionEngine.endSummary(for: state, reason: .reachedFinalYear,
+                messageOverride: "Dein Vermächtnis 2050: \(legacy) – \(crisis)")
         }
         return electionEngine.endSummary(for: state, reason: .reachedFinalYear)
     }

@@ -4,11 +4,13 @@ import Foundation
 public enum GameLanguage: String, CaseIterable, Codable, Sendable {
     case german
     case english
+    case french
 
     public var localeIdentifier: String {
         switch self {
         case .german: "de_DE"
         case .english: "en_US"
+        case .french: "fr_FR"
         }
     }
 }
@@ -65,13 +67,42 @@ public enum GameTextLocalization {
         return catalog
     }
 
-    private static let germanyEnglish: Catalog = {
+    /// German mechanics in parliamentary English (shared by Germany, the UK and France).
+    private static let parliamentaryEnglishEntries: [String: String] = {
         var entries = USLocalization.catalog
         entries.merge(load("GermanyEnglishOverrides")) { _, replacement in replacement }
+        return entries
+    }()
+
+    private static let germanyEnglish: Catalog = {
+        var entries = parliamentaryEnglishEntries
         entries.merge(load("GermanyEventsEnglish.draft")) { _, replacement in replacement }
         entries.merge(load("WorldNewsEnglish")) { _, replacement in replacement }
         return Catalog(entries)
     }()
+
+    /// UK/France in English: event content is English source; German mechanics
+    /// are translated with the parliamentary catalog plus country terminology.
+    private static func europeanEnglish(_ prefix: String) -> Catalog {
+        var entries = parliamentaryEnglishEntries
+        entries.merge(load("EuropeanCommonEnglish")) { _, replacement in replacement }
+        entries.merge(load(prefix + "English")) { _, replacement in replacement }
+        return Catalog(entries)
+    }
+
+    /// UK/France in German: English content is translated; German mechanics keep
+    /// their source text except for country terminology (Unterhaus, Präsident …).
+    private static func europeanGerman(_ prefix: String) -> Catalog {
+        var entries = load("EuropeanCommonGerman")
+        entries.merge(load(prefix + "German")) { _, replacement in replacement }
+        entries.merge(load(prefix + "GermanOverrides")) { _, replacement in replacement }
+        return Catalog(entries)
+    }
+
+    private static let ukEnglish = europeanEnglish("UK")
+    private static let ukGerman = europeanGerman("UK")
+    private static let frEnglish = europeanEnglish("FR")
+    private static let frGerman = europeanGerman("FR")
 
     private static let usGerman: Catalog = {
         var entries = load("USEventsGerman.draft")
@@ -80,12 +111,33 @@ public enum GameTextLocalization {
         return Catalog(entries)
     }()
 
+    /// French is translated from each country's English rendering, so one
+    /// catalog (English → French) serves every campaign and its templates.
+    private static let french: Catalog = {
+        var entries = load("French")
+        entries.merge(load("FrenchFuture")) { _, replacement in replacement }
+        return Catalog(entries)
+    }()
+
+    /// French for an English source text (used by screens with English copy).
+    public static func frenchFromEnglish(_ english: String) -> String {
+        french.translate(english)
+    }
+
     public static func translate(_ source: String, country: GameCountry, language: GameLanguage) -> String {
-        switch (country, language) {
+        if language == .french {
+            return french.translate(translate(source, country: country, language: .english))
+        }
+        return switch (country, language) {
         case (.germany, .german): source
         case (.germany, .english): germanyEnglish.translate(source)
         case (.unitedStates, .german): usGerman.translate(source)
         case (.unitedStates, .english): USLocalization.translate(source)
+        case (.unitedKingdom, .german): ukGerman.translate(source)
+        case (.unitedKingdom, .english): ukEnglish.translate(source)
+        case (.france, .german): frGerman.translate(source)
+        case (.france, .english): frEnglish.translate(source)
+        case (_, .french): source // handled above
         }
     }
 }

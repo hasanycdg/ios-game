@@ -5,21 +5,110 @@ import Foundation
 public enum GameCountry: String, Codable, CaseIterable, Identifiable, Sendable {
     case germany
     case unitedStates
+    case unitedKingdom
+    case france
 
     public var id: String { rawValue }
-    public var localeIdentifier: String { self == .germany ? "de_DE" : "en_US" }
-    public var defaultLeaderName: String { self == .germany ? PartyCatalog.defaultChancellorName : "Alex Morgan" }
-    public var playableParties: [PlayerParty] { self == .germany ? PartyCatalog.playable : USPartyCatalog.playable }
+
+    public var localeIdentifier: String {
+        switch self {
+        case .germany: "de_DE"
+        case .unitedStates: "en_US"
+        case .unitedKingdom: "en_GB"
+        case .france: "fr_FR"
+        }
+    }
+
+    public var defaultLeaderName: String {
+        switch self {
+        case .germany: PartyCatalog.defaultChancellorName
+        case .unitedStates: "Alex Morgan"
+        case .unitedKingdom: UKPartyCatalog.defaultLeaderName
+        case .france: FRPartyCatalog.defaultLeaderName
+        }
+    }
+
+    public var playableParties: [PlayerParty] {
+        switch self {
+        case .germany: PartyCatalog.playable
+        case .unitedStates: USPartyCatalog.playable
+        case .unitedKingdom: UKPartyCatalog.playable
+        case .france: FRPartyCatalog.playable
+        }
+    }
+
     public var defaultParty: PlayerParty { playableParties[0] }
-    public var partyLandscape: [PartyReference] { self == .germany ? PartyCatalog.landscape : USPartyCatalog.landscape }
-    public var diplomaticPartners: [DiplomaticPartner] { self == .germany ? [.eu, .usa, .russia, .china] : [.eu, .canada, .russia, .china] }
+
+    public var partyLandscape: [PartyReference] {
+        switch self {
+        case .germany: PartyCatalog.landscape
+        case .unitedStates: USPartyCatalog.landscape
+        case .unitedKingdom: UKPartyCatalog.landscape
+        case .france: FRPartyCatalog.landscape
+        }
+    }
+
+    public var diplomaticPartners: [DiplomaticPartner] {
+        self == .unitedStates ? [.eu, .canada, .russia, .china] : [.eu, .usa, .russia, .china]
+    }
+
+    /// The United States uses the presidential model (Electoral College,
+    /// congressional caucuses). All other campaigns form parliamentary governments
+    /// that can collapse and trigger snap elections.
+    public var usesPresidentialModel: Bool { self == .unitedStates }
+
+    /// The UK and France use the shared European parliamentary model with
+    /// country-specific seats, party systems and election calendars.
+    public var usesEuropeanModel: Bool { self == .unitedKingdom || self == .france }
+
+    /// The last year this country's content supports (Future 2050 for every country).
+    public var campaignMaxYear: Int { 2050 }
+
+    public var hasFutureExpansion: Bool { campaignMaxYear >= 2050 }
+
+    /// Size of the lower house used for the seat display.
+    public var parliamentSeats: Int {
+        switch self {
+        case .germany: 630
+        case .unitedStates: 538
+        case .unitedKingdom: 650
+        case .france: 577
+        }
+    }
+
+    public var majoritySeats: Int { parliamentSeats / 2 + 1 }
+
+    /// Public debt index at the start of the campaign (≈ % of GDP in 2000).
+    public var initialDebt: Int {
+        switch self {
+        case .germany: 60
+        case .unitedStates: 55
+        case .unitedKingdom: 37
+        case .france: 58
+        }
+    }
 
     public func party(id: String) -> PlayerParty {
         playableParties.first { $0.id == id } ?? defaultParty
     }
 
+    /// Agenda items a coalition partner of this country demands.
+    public func coalitionDemands(for partyID: String, count: Int = 2) -> [AgendaItem] {
+        switch self {
+        case .germany: PartyAgendaCatalog.topDemands(for: partyID, count: count)
+        case .unitedStates: Array(USPartyCatalog.agenda(for: partyID).prefix(count))
+        case .unitedKingdom: Array(UKPartyCatalog.agenda(for: partyID).prefix(count))
+        case .france: Array(FRPartyCatalog.agenda(for: partyID).prefix(count))
+        }
+    }
+
     public func initialState() -> GameState {
-        guard self == .unitedStates else { return GameStateFactory.initialGermany2000() }
+        switch self {
+        case .germany: return GameStateFactory.initialGermany2000()
+        case .unitedKingdom: return EuropeanCampaignStart.unitedKingdom2000()
+        case .france: return EuropeanCampaignStart.france2000()
+        case .unitedStates: break
+        }
         return GameState(
             currentYear: 2000, governmentApproval: 54,
             visible: VisibleMetrics(economy: 68, budget: 65, livingStandard: 63, society: 54,

@@ -18,12 +18,20 @@ public struct ElectionProjection: Equatable, Sendable {
 public struct ElectionEngine: Sendable {
     public let country: GameCountry
     public var partyLeaning: PoliticalLeaning
+    /// The player's party; the UK and France decide elections from the full party landscape.
+    public var playerParty: PlayerParty?
     public let electionYears: Set<Int>
 
     public init(electionYears: Set<Int>? = nil, country: GameCountry = .germany, partyLeaning: PoliticalLeaning = .left) {
         self.country = country
         self.partyLeaning = partyLeaning
-        self.electionYears = electionYears ?? (country == .germany ? [2005, 2009, 2013, 2017, 2021, 2025, 2029, 2033, 2037, 2041, 2045, 2049] : Set(stride(from: 2004, through: 2048, by: 4)))
+        self.electionYears = electionYears ?? {
+            switch country {
+            case .germany: [2005, 2009, 2013, 2017, 2021, 2025, 2029, 2033, 2037, 2041, 2045, 2049]
+            case .unitedStates: Set(stride(from: 2004, through: 2048, by: 4))
+            case .unitedKingdom, .france: EuropeanElectionSystem.electionYears(for: country)
+            }
+        }()
     }
 
     public func shouldHoldElection(in state: GameState) -> Bool {
@@ -40,6 +48,12 @@ public struct ElectionEngine: Sendable {
     /// Live-Prognose ohne den Zustand zu verändern – Grundlage des Wahlbarometers.
     public func project(in state: GameState, shareBonus: Double = 0) -> ElectionProjection {
         let shares = computeShares(in: state, campaignBonus: shareBonus)
+        if country.usesEuropeanModel {
+            let outcome = europeanOutcome(governing: shares.governing, state: state, snapLegislative: false)
+            return ElectionProjection(governingShare: roundedShare(shares.governing),
+                                      oppositionShare: roundedShare(outcome.opposition), wouldWin: outcome.didWin,
+                                      nextElectionYear: nextElectionYear(onOrAfter: state.currentYear))
+        }
         return ElectionProjection(
             governingShare: roundedShare(shares.governing),
             oppositionShare: roundedShare(shares.opposition),
@@ -48,8 +62,19 @@ public struct ElectionEngine: Sendable {
         )
     }
 
-    public func conductElection(in state: GameState, campaignBonus: Double = 0, shareBonus: Double = 0) -> ElectionResult {
+    public func conductElection(in state: GameState, campaignBonus: Double = 0, shareBonus: Double = 0,
+                                snapLegislative: Bool = false) -> ElectionResult {
         let shares = computeShares(in: state, campaignBonus: campaignBonus + shareBonus)
+        if country.usesEuropeanModel {
+            let outcome = europeanOutcome(governing: shares.governing, state: state, snapLegislative: snapLegislative)
+            return ElectionResult(
+                year: state.currentYear,
+                governingPartyShare: roundedShare(shares.governing),
+                oppositionShare: roundedShare(outcome.opposition),
+                didWin: outcome.didWin,
+                reasons: outcome.details + reasons(for: state, governingShare: shares.governing)
+            )
+        }
         return ElectionResult(
             year: state.currentYear,
             governingPartyShare: roundedShare(shares.governing),
@@ -91,6 +116,45 @@ public struct ElectionEngine: Sendable {
         return (governingShare, oppositionShare)
     }
 
+    /// UK: the largest party in the Commons forms the government (a hung
+    /// parliament leads to coalition talks). France: the presidential candidate
+    /// must reach the run-off and win it; snap legislative elections are won by
+    /// the largest group in the Assemblée nationale.
+    private func europeanOutcome(governing: Double, state: GameState, snapLegislative: Bool)
+        -> (didWin: Bool, opposition: Double, details: [String]) {
+        let party = playerParty ?? country.defaultParty
+        let landscape = PartyLandscapeFactory.make(
+            state: state, governingShare: governing,
+            coalition: CoalitionState(partnerName: "", leaning: party.leaning, satisfaction: 50, isMinority: true),
+            playerParty: party, country: country)
+        let player = landscape.parties.first { $0.role == .governing }
+        let rivals = landscape.parties.filter { $0.role != .governing }
+        let strongestBySeats = rivals.max { $0.seats < $1.seats }
+        let playerSeats = player?.seats ?? 0
+        let seatLine = "Sitze: \(playerSeats) von \(country.parliamentSeats) (Mehrheit ab \(country.majoritySeats))"
+
+        if country == .unitedKingdom || snapLegislative {
+            let won = playerSeats > (strongestBySeats?.seats ?? 0)
+            return (won, strongestBySeats?.support ?? 0, [seatLine])
+        }
+
+        // France: presidential election in two rounds.
+        let ranked = landscape.parties.sorted { $0.support > $1.support }
+        guard let rank = ranked.firstIndex(where: { $0.role == .governing }), rank < 2 else {
+            let leader = ranked.first
+            return (false, leader?.support ?? 0, ["Erster Wahlgang: Deine Partei verpasst die Stichwahl."])
+        }
+        let opponent = ranked[rank == 0 ? 1 : 0]
+        var runoff = 50 + (governing - opponent.support) * 0.8
+        if opponent.id == "fr_patriot" { runoff += 10 }     // republican front against the far right
+        if party.spectrum >= 0.85 { runoff -= 10 }
+        runoff += (Double(state.governmentApproval) - 50) * 0.15
+        runoff = min(78, max(25, runoff))
+        let rounded = roundedShare(runoff)
+        let line = String(format: "Stichwahl: %.1f %% gegen %@", rounded, opponent.name)
+        return (rounded >= 50, opponent.support, [line, seatLine])
+    }
+
     private func didWin(governing: Double, opposition: Double, year: Int) -> Bool {
         if country == .unitedStates {
             return USElectoralCollege.votes(popularShare: governing, oppositionShare: opposition, year: year, leaning: partyLeaning) >= 270
@@ -120,7 +184,7 @@ public struct ElectionEngine: Sendable {
     public func endSummary(for state: GameState, reason: GameOverReason, messageOverride: String? = nil) -> GameOverSummary {
         GameOverSummary(
             reason: reason,
-            message: messageOverride ?? (reason == .reachedFinalYear ? (country == .germany ? "Dein Deutschland \(state.currentYear) ist erreicht." : "Your America in \(state.currentYear): your campaign is complete.") : "Deine Regierung wurde abgewählt."),
+            message: messageOverride ?? (reason == .reachedFinalYear ? (country != .unitedStates ? "Dein Deutschland \(state.currentYear) ist erreicht." : "Your America in \(state.currentYear): your campaign is complete.") : "Deine Regierung wurde abgewählt."),
             startYear: 2000,
             endYear: state.currentYear,
             keyDecisionTitles: state.decisions.suffix(5).map(\.optionTitle),

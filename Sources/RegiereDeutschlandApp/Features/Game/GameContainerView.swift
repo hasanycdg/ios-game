@@ -166,6 +166,7 @@ struct GameContainerView: LocalizedGameView {
         case 2004:
             return purchases.hasCampaign2005 ? L("Amtszeit ab 2005 fortsetzen") : L("Kampagne 2005–2026 freischalten")
         case 2026:
+            guard viewModel.country.hasFutureExpansion else { return nil }
             return purchases.hasFuture2050 ? L("Mit Zukunft 2050 fortsetzen") : L("Zukunft 2050 freischalten")
         default:
             return nil
@@ -180,7 +181,7 @@ struct GameContainerView: LocalizedGameView {
         switch viewModel.finalYear {
         case 2004:
             campaignPaywall = .afterPrologue
-        case 2026:
+        case 2026 where viewModel.country.hasFutureExpansion:
             campaignPaywall = .afterMainCampaign
         default:
             break

@@ -428,6 +428,7 @@ private struct IntroStep: View {
     private func play(headlineCount: Int) async {
         guard typedDate.isEmpty else { return }
         try? await Task.sleep(for: .milliseconds(350))
+        SoundManager.shared.play(.typewriter)
         for character in date {
             typedDate.append(character)
             if character != " " { Haptics.impact(.light) }
@@ -542,6 +543,7 @@ private struct DecisionStep: View {
 
     private func choose(_ option: OnboardingContent.DemoOption, all: [OnboardingContent.DemoOption]) {
         Haptics.impact(.medium)
+        SoundManager.shared.play(.stamp)
         onChoose(option.id)
         withAnimation(.spring(response: 0.45, dampingFraction: 0.85)) { chosen = option.id }
         Task {
@@ -626,6 +628,7 @@ private struct OathStep: LocalizedGameView {
             try? await Task.sleep(for: .milliseconds(200))
             withAnimation(.spring(response: 0.6, dampingFraction: 0.7)) { revealed = true }
             Haptics.success()
+            SoundManager.shared.play(.takeOffice)
         }
     }
 

@@ -5,6 +5,8 @@ import SwiftUI
 struct SituationTab: LocalizedGameView {
     @Environment(GamePresentation.self) var gamePresentation
     @ObservedObject var viewModel: GameViewModel
+    /// Category of the event just decided; picks the advisor who reacts.
+    @State private var decidedCategory: EventCategory?
 
     var body: some View {
         ScrollView {
@@ -179,17 +181,18 @@ struct SituationTab: LocalizedGameView {
                     cost: { viewModel.cost(of: $0) },
                     canAfford: { viewModel.canAfford($0) }
                 ) { option in
-                    Haptics.impact(.medium)
+                    decidedCategory = event.category
                     withAnimation(.spring(response: 0.4, dampingFraction: 0.85)) {
                         viewModel.choose(option)
                     }
                 }
+                .id(event.id)
                 .transition(.opacity.combined(with: .move(edge: .bottom)))
             } else {
                 waitingCard
             }
         case .result(let result):
-            DecisionResultView(result: result) {
+            DecisionResultView(result: result, category: decidedCategory) {
                 withAnimation(.spring(response: 0.4, dampingFraction: 0.85)) {
                     viewModel.continueAfterResult()
                 }

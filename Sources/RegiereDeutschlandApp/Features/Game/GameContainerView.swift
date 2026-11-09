@@ -61,6 +61,10 @@ struct GameContainerView: LocalizedGameView {
         .onAppear {
             viewModel.language = gamePresentation.language
             synchronizeCampaignAccess()
+            SoundManager.shared.playMusic(musicTrack)
+        }
+        .onChange(of: musicTrack) { _, track in
+            SoundManager.shared.playMusic(track)
         }
         .onChange(of: gamePresentation.language) { _, language in
             viewModel.language = language
@@ -203,6 +207,17 @@ struct GameContainerView: LocalizedGameView {
         }
     }
 
+    /// Krisenmusik bei Sicherheits- und Außenpolitik-Ereignissen, am Wahlabend
+    /// und in der fiktiven Zukunft nach 2026; sonst das ruhige Hauptthema.
+    private var musicTrack: MusicTrack {
+        if case .election = viewModel.phase { return .crisis }
+        if viewModel.state.currentYear > 2026 { return .crisis }
+        switch viewModel.currentEvent?.category {
+        case .security, .foreignPolicy: return .crisis
+        default: return .menu
+        }
+    }
+
     private func synchronizeCampaignAccess() {
         guard let finalYear = purchases.campaignAccess.continuationFinalYear(after: viewModel.finalYear) else { return }
         withAnimation(.easeInOut) { viewModel.extendCampaign(to: finalYear) }
@@ -217,6 +232,8 @@ struct GameContainerView: LocalizedGameView {
                 } label: {
                     Label(L("Hauptmenü"), systemImage: "house")
                 }
+                Divider()
+                SoundToggles()
                 #if DEBUG
                 Divider()
                 DebugMenu(viewModel: viewModel)

@@ -4,6 +4,8 @@ import SwiftUI
 struct DecisionResultView: LocalizedGameView {
     @Environment(GamePresentation.self) var gamePresentation
     let result: DecisionResult
+    /// Category of the decided event; nil after resuming a save (chief of staff reacts).
+    var category: EventCategory? = nil
     let onContinue: () -> Void
 
     @State private var showBackground = false
@@ -28,6 +30,8 @@ struct DecisionResultView: LocalizedGameView {
                 .font(.callout)
                 .foregroundStyle(GameTheme.secondaryText)
                 .fixedSize(horizontal: false, vertical: true)
+
+            advisorReaction
 
             // Auswirkungen
             if !result.visibleEffects.isEmpty || result.approvalEffect != 0 {
@@ -62,6 +66,37 @@ struct DecisionResultView: LocalizedGameView {
             .buttonStyle(PrimaryActionButtonStyle())
         }
         .gameCard(padding: 18)
+    }
+
+    // MARK: Reaktion aus dem Kabinett
+
+    private var advisorReaction: some View {
+        let country = gamePresentation.country
+        let advisor = Advisor.of(category.map(AdvisorRole.init(category:)) ?? .chief, in: country)
+        let tone = AdvisorReaction.tone(effects: result.visibleEffects, approval: result.approvalEffect)
+        let toneColor: Color = switch tone {
+        case .positive: GameTheme.green
+        case .mixed: GameTheme.amber
+        case .negative: GameTheme.red
+        }
+        return HStack(alignment: .top, spacing: 12) {
+            AdvisorPortrait(advisor: advisor, size: 40)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(verbatim: "„\(AdvisorReaction.line(tone, seed: result.eventTitle + result.optionTitle, presentation: gamePresentation))“")
+                    .font(.system(.subheadline, design: .serif).weight(.semibold))
+                    .foregroundStyle(GameTheme.primaryText)
+                    .fixedSize(horizontal: false, vertical: true)
+                Text(verbatim: "\(advisor.name) · \(advisor.title(country: country, presentation: gamePresentation))")
+                    .font(.caption2)
+                    .foregroundStyle(GameTheme.tertiaryText)
+            }
+        }
+        .padding(12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(toneColor.opacity(0.08)))
+        .overlay(alignment: .leading) {
+            Rectangle().fill(toneColor).frame(width: 3).clipShape(Capsule()).padding(.vertical, 10)
+        }
     }
 
     // MARK: Dein Weg vs. die Realität

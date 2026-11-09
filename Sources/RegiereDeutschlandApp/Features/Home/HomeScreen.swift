@@ -55,12 +55,23 @@ struct HomeScreen: LocalizedGameView {
 
             ScrollView {
                 VStack(spacing: 24) {
+                    HStack {
+                    Menu {
+                        SoundToggles()
+                    } label: {
+                        Image(systemName: SoundManager.shared.musicEnabled || SoundManager.shared.effectsEnabled ? "speaker.wave.2.fill" : "speaker.slash.fill")
+                            .font(.footnote.weight(.semibold))
+                            .foregroundStyle(GameTheme.secondaryText)
+                            .frame(width: 32, height: 32)
+                    }
+                    .accessibilityLabel(gamePresentation.pick("Ton", "Sound", "Son"))
+                    Spacer()
                     Button(action: chooseCountry) {
                         Label(L(country == .germany ? L("Deutschland · Land wechseln") : country == .unitedStates ? L("United States · Change country") : L("Land wechseln")), systemImage: "globe.americas.fill")
                             .font(.footnote.weight(.semibold))
                     }
                     .foregroundStyle(GameTheme.secondaryText)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    }
                     Spacer(minLength: 8)
                     hero
                     nameField
@@ -82,7 +93,10 @@ struct HomeScreen: LocalizedGameView {
         .foregroundStyle(GameTheme.primaryText)
         .inlineNavigationTitle()
         .hiddenNavigationBar()
-        .onAppear(perform: reload)
+        .onAppear {
+            reload()
+            SoundManager.shared.playMusic(.menu)
+        }
         .task {
             guard hasSeenOnboarding else { return }
             await purchases.refreshCustomerInfo()

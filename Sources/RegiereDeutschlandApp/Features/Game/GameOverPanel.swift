@@ -97,7 +97,11 @@ struct GameOverPanel: LocalizedGameView {
             }
         }
         .foregroundStyle(GameTheme.primaryText)
-        .onAppear(perform: renderShareImage)
+        .onAppear {
+            renderShareImage()
+            // Jedes erreichte Kampagnenende (2004, 2026, 2050) – nicht bei Abwahl.
+            if reachedEnd { SoundManager.shared.play(.epochEnd) }
+        }
     }
 
     private func renderShareImage() {

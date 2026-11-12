@@ -137,7 +137,7 @@ struct HomeScreen: LocalizedGameView {
             if startPrologueAfterOffer { beginPrologue() }
         }) {
             if country.usesEuropeanModel {
-                EuropeanCampaignPaywallView()
+                CampaignPaywallView(placement: purchases.hasCampaign2005 ? .afterMainCampaign : .catalog)
             } else {
                 WelcomeOfferView(playerName: storedName)
             }

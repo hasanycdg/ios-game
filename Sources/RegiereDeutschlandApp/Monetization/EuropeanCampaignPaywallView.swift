@@ -22,7 +22,10 @@ struct EuropeanCampaignPaywallView: LocalizedGameView {
     }
 
     private var packages: [Package] {
-        let sources = [purchases.offering(for: placement), purchases.offering(for: .catalog),
+        let sources = [purchases.offering(for: placement, country: gamePresentation.country),
+                       purchases.offering(for: .catalog, country: gamePresentation.country),
+                       purchases.offering(for: .afterMainCampaign, country: gamePresentation.country),
+                       purchases.offering(for: placement), purchases.offering(for: .catalog),
                        purchases.offering(for: .afterMainCampaign), purchases.currentOffering]
         return productIDs.compactMap { id in
             sources.lazy.compactMap { $0?.availablePackages.first { $0.storeProduct.productIdentifier == id } }.first

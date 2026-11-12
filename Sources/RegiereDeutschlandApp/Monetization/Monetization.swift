@@ -57,6 +57,14 @@ enum Monetization {
     static let usCatalogOfferingID = "catalog_us"
     static let usCampaignOfferingID = "campaign_us"
     static let usFutureOfferingID = "future_us"
+
+    static let ukCatalogOfferingID = "catalog_uk"
+    static let ukCampaignOfferingID = "campaign_uk"
+    static let ukFutureOfferingID = "future_uk"
+
+    static let frCatalogOfferingID = "catalog_fr"
+    static let frCampaignOfferingID = "campaign_fr"
+    static let frFutureOfferingID = "future_fr"
 }
 
 /// Jeder Einstieg zeigt ausschließlich die für diesen Kaufpunkt vorgesehenen Angebote.
@@ -76,14 +84,31 @@ enum CampaignPaywallPlacement: Identifiable, Equatable {
     }
 
     func offeringID(for country: GameCountry, hasMainCampaign: Bool = false) -> String {
-        guard country == .unitedStates else { return offeringID }
+        let catalog: String
+        let campaign: String
+        let future: String
+        switch country {
+        case .germany: return offeringID
+        case .unitedStates:
+            (catalog, campaign, future) = (
+                Monetization.usCatalogOfferingID, Monetization.usCampaignOfferingID, Monetization.usFutureOfferingID
+            )
+        case .unitedKingdom:
+            (catalog, campaign, future) = (
+                Monetization.ukCatalogOfferingID, Monetization.ukCampaignOfferingID, Monetization.ukFutureOfferingID
+            )
+        case .france:
+            (catalog, campaign, future) = (
+                Monetization.frCatalogOfferingID, Monetization.frCampaignOfferingID, Monetization.frFutureOfferingID
+            )
+        }
         switch self {
         case .catalog:
             // Owners see the expansion with its own default-selected package,
             // rather than a hidden bundle remaining selected in the catalog.
-            return hasMainCampaign ? Monetization.usFutureOfferingID : Monetization.usCatalogOfferingID
-        case .afterPrologue: return Monetization.usCampaignOfferingID
-        case .afterMainCampaign: return Monetization.usFutureOfferingID
+            return hasMainCampaign ? future : catalog
+        case .afterPrologue: return campaign
+        case .afterMainCampaign: return future
         }
     }
 

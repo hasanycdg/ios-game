@@ -14,13 +14,13 @@ struct CampaignPaywallView: LocalizedGameView {
 
     var body: some View {
         Group {
-            if gamePresentation.country.usesEuropeanModel {
-                // UK and France have no dashboard paywall yet: a native screen offers the main campaign.
+            if gamePresentation.country.usesEuropeanModel && purchases.hasFuture2050 {
                 EuropeanCampaignPaywallView(placement: placement)
             } else if gamePresentation.country == .unitedStates && purchases.hasFuture2050 {
                 USCampaignPaywallView(placement: placement)
             } else if let offering = purchases.offering(for: placement, country: gamePresentation.country), offering.hasPaywall {
                 PaywallView(offering: offering, displayCloseButton: true)
+                    .id(offering.identifier)
                     .customPaywallVariables(bundleVariables)
                     .onPurchaseCompleted { info in
                         purchases.acceptCustomerInfo(info)
@@ -37,6 +37,8 @@ struct CampaignPaywallView: LocalizedGameView {
                         }
                         if restored { dismiss() }
                     }
+            } else if gamePresentation.country.usesEuropeanModel {
+                EuropeanCampaignPaywallView(placement: placement)
             } else if gamePresentation.country == .unitedStates {
                 // Unpublished or unavailable US paywalls keep an English purchase UI.
                 USCampaignPaywallView(placement: placement)
@@ -46,7 +48,7 @@ struct CampaignPaywallView: LocalizedGameView {
         }
         .preferredColorScheme(.dark)
         .task {
-            if gamePresentation.country.usesEuropeanModel || purchases.offering(for: placement, country: gamePresentation.country)?.hasPaywall != true {
+            if purchases.offering(for: placement, country: gamePresentation.country)?.hasPaywall != true {
                 await purchases.loadOfferings()
             }
         }
